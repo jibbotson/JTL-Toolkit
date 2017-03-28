@@ -1,0 +1,119 @@
+package jtl.toolkit.models;
+
+import java.util.UUID;
+
+public class Capacitor {
+    
+    private final UUID componentID;
+    private Integer level;
+    private Double armor;
+    private Double hitpoints;
+    private Double energyDrain;
+    private Double mass;
+    private Double energy;
+    private Double rechargeRate;
+    private String componentNotes;
+    private String componentName;
+    
+    public Capacitor() {
+        this.componentID = UUID.randomUUID();
+    }
+   
+    public Capacitor(Integer newLevel, 
+                     Double newArmor, 
+                     Double newHitpoints, 
+                     Double newEnergyDrain, 
+                     Double newMass, 
+                     Double newEnergy, 
+                     Double newRechargeRate,
+                     String newComponentNotes,
+                     String newComponentName){
+        
+        this.componentID = UUID.randomUUID();
+        this.level = newLevel;
+        this.armor = newArmor;
+        this.hitpoints = newHitpoints;
+        this.energyDrain = newEnergyDrain;
+        this.mass = newMass;
+        this.energy = newEnergy;
+        this.rechargeRate = newRechargeRate;
+        this.componentNotes = newComponentNotes;
+        this.componentName = newComponentName;
+    }
+
+    public UUID getComponentID() {
+        return componentID;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    public Double getArmor() {
+        return armor;
+    }
+
+    public void setArmor(Double armor) {
+        this.armor = armor;
+    }
+
+    public Double getHitpoints() {
+        return hitpoints;
+    }
+
+    public void setHitpoints(Double hitpoints) {
+        this.hitpoints = hitpoints;
+    }
+
+    public Double getEnergyDrain() {
+        return energyDrain;
+    }
+
+    public void setEnergyDrain(Double energyDrain) {
+        this.energyDrain = energyDrain;
+    }
+
+    public Double getMass() {
+        return mass;
+    }
+
+    public void setMass(Double mass) {
+        this.mass = mass;
+    }
+
+    public Double getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(Double energy) {
+        this.energy = energy;
+    }
+
+    public Double getRechargeRate() {
+        return rechargeRate;
+    }
+
+    public void setRechargeRate(Double rechargeRate) {
+        this.rechargeRate = rechargeRate;
+    }
+    
+    public String getComponentNotes() {
+        return componentNotes;
+    }
+
+    public void setComponentNotes(String componentNotes) {
+        this.componentNotes = componentNotes;
+    }
+    
+    public String getComponentName() {
+        return componentName;
+    }
+
+    public void setComponentName(String componentName) {
+        this.componentName = componentName;
+    }
+}

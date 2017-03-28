@@ -1,0 +1,2545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<TabPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" maxHeight="740.00" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.00" prefWidth="1280.00" scaleShape="false" style="-fx-min-width: 1280; -fx-max-width: 1280; -fx-min-height: 760; -fx-max-height: 760;" tabClosingPolicy="UNAVAILABLE" fx:controller="jtl.toolkit.ToolkitController">
+    <tabs>
+        <Tab closable="false" text="Loadouts">
+            <content>
+                <Pane prefHeight="200.00" prefWidth="200.00" style="-fx-background-color: #005780;">
+                    <children>
+                        <ImageView depthTest="DISABLE" disable="true" fitHeight="731.0" fitWidth="1286.00" opacity="0.07" pickOnBounds="true">
+                            <image>
+                                <Image url="@../../../images/background_hangar1.jpg" />
+                            </image>
+                        </ImageView>
+                        <ComboBox layoutX="16.00" layoutY="6.00" prefHeight="25.00" prefWidth="326.00" promptText="Please select a starship...">
+                            <effect>
+                                <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                            </effect>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ComboBox>
+                        <Button layoutX="547.00" layoutY="4.00" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Save loadout" textFill="#f8f7f7">
+                            <font>
+                                <Font name="Consolas" size="13.00" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
+                            </effect>
+                        </Button>
+                        <Button layoutX="690.00" layoutY="4.00" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: orange;" text="Clear loadout">
+                            <font>
+                                <Font name="Consolas" size="13.00" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
+                            </effect>
+                        </Button>
+                        <Button layoutX="354.00" layoutY="4.00" mnemonicParsing="false" prefHeight="25.00" prefWidth="181.0" style="-fx-background-color: #4b8dd8;" text="Create a new loadout" textFill="WHITE">
+                            <font>
+                                <Font name="Consolas" size="13.00" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
+                            </effect>
+                        </Button>
+                        <AnchorPane layoutX="47.00" layoutY="47.00">
+                            <children>
+                                <ImageView fitHeight="24.00" fitWidth="67.00" layoutX="55.00" layoutY="6.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_reactor.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="29.00" fitWidth="78.00" layoutX="247.00" layoutY="2.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_engine.png" />
+                                    </image>
+                                </ImageView>
+                                <ComboBox layoutY="35.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a reactor...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ComboBox layoutX="194.00" layoutY="35.00" prefHeight="25.00" prefWidth="180.00" promptText="Select an engine...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <Label layoutY="79.00" text="Generation Rate:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="194.00" layoutY="64.00" text="Energy drain:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="194.00" layoutY="78.00" text="Mass:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="194.00" layoutY="93.00" text="Pitch Rate:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="194.00" layoutY="106.00" text="Yaw Rate:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="194.00" layoutY="120.00" text="Roll Rate:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="194.00" layoutY="134.00" text="Top Speed:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="150.00" layoutY="66.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="150.00" layoutY="80.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="345.00" layoutY="65.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="345.00" layoutY="79.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="345.00" layoutY="94.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="345.00" layoutY="108.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="345.00" layoutY="120.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="345.00" layoutY="134.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ComboBox layoutX="389.00" layoutY="36.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a booster...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <Label layoutX="390.00" layoutY="65.00" text="Energy drain:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="390.00" layoutY="93.00" text="Energy:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="539.00" layoutY="65.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="539.00" layoutY="79.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="539.00" layoutY="94.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="31.0" fitWidth="78.00" layoutX="438.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_booster.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="390.00" layoutY="108.00" text="Speed:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="390.00" layoutY="80.00" text="Mass:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="539.00" layoutY="107.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="32.00" fitWidth="79.00" layoutX="634.00" layoutY="2.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_droid_interface.png" />
+                                    </image>
+                                </ImageView>
+                                <ComboBox layoutX="588.00" layoutY="36.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a droid interface...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <Label layoutX="588.00" layoutY="66.00" text="Energy drain:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="588.00" layoutY="80.00" text="Mass:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="738.00" layoutY="67.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="738.00" layoutY="83.00" text="0.00" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="66.00" text="Mass:" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </AnchorPane>
+                        <AnchorPane layoutX="42.00" layoutY="360.00" prefHeight="363.00" prefWidth="778.00">
+                            <children>
+                                <ComboBox layoutX="4.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="31.0" fitWidth="86.00" layoutX="54.00" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_weapon.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="4.00" layoutY="59.00" text="Energy drain:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="4.00" layoutY="73.00" text="Mass:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="4.00" layoutY="88.00" text="Minimum damage:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="4.00" layoutY="132.00" text="Vs. Armor:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="4.00" layoutY="147.00" text="Refire rate:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="4.00" layoutY="162.00" text="Energy per shot:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="156.00" layoutY="61.0" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="156.00" layoutY="75.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="156.00" layoutY="89.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="156.00" layoutY="132.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="156.00" layoutY="147.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="156.00" layoutY="161.0" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ComboBox layoutX="200.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="31.0" fitWidth="86.00" layoutX="252.00" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_weapon.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="200.00" layoutY="59.00" text="Energy drain:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="200.00" layoutY="73.00" text="Mass:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="200.00" layoutY="88.00" text="Minimum damage:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="195.00" layoutY="131.0" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="200.00" layoutY="132.00" text="Vs. Armor:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="200.00" layoutY="147.00" text="Refire rate:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="200.00" layoutY="162.00" text="Energy per shot:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="351.0" layoutY="60.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="351.0" layoutY="74.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="351.0" layoutY="88.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="351.0" layoutY="132.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="351.0" layoutY="146.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="351.0" layoutY="162.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ComboBox layoutX="598.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="31.0" fitWidth="86.00" layoutX="653.00" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_weapon.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="598.00" layoutY="59.00" text="Energy drain:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="73.00" text="Mass:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="88.00" text="Minimum damage:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="130.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="132.00" text="Vs. Armor:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="147.00" text="Refire rate:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="162.00" text="Energy per shot:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="60.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="74.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="89.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="132.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="148.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="162.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ComboBox layoutX="394.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="31.0" fitWidth="86.00" layoutX="447.00" layoutY="-2.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_weapon.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="394.00" layoutY="59.00" text="Energy drain:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="73.00" text="Mass:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="88.00" text="Minimum damage:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="130.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="132.00" text="Vs. Armor:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="147.00" text="Refire rate:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="162.00" text="Energy per shot:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="546.00" layoutY="61.0" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="546.00" layoutY="75.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="546.00" layoutY="90.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="546.00" layoutY="132.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="546.00" layoutY="148.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="546.00" layoutY="162.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="31.0" fitWidth="88.00" layoutX="52.00" layoutY="193.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_capacitor.png" />
+                                    </image>
+                                </ImageView>
+                                <ComboBox layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a capacitor...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <Label layoutX="1.0" layoutY="257.00" text="Energy drain:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="1.0" layoutY="271.0" text="Mass:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="1.0" layoutY="285.00" text="Energy:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="1.0" layoutY="299.00" text="Recharge rate:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="151.0" layoutY="257.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="151.0" layoutY="271.0" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="151.0" layoutY="286.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="151.0" layoutY="300.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ComboBox layoutX="198.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance one...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="28.00" fitWidth="71.0" layoutX="252.00" layoutY="199.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_ordnance.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="198.00" layoutY="257.00" text="Mass:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="198.00" layoutY="271.0" text="Energy drain:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="349.00" layoutY="258.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="349.00" layoutY="272.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ComboBox layoutX="398.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance two...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="28.00" fitWidth="71.0" layoutX="452.00" layoutY="200.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_ordnance.png" />
+                                    </image>
+                                </ImageView>
+                                <ComboBox layoutX="597.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance three...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="28.00" fitWidth="71.0" layoutX="651.0" layoutY="199.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_ordnance.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="4.00" layoutY="103.00" text="Maximum damage:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="156.00" layoutY="103.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="200.00" layoutY="103.00" text="Maximum damage:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="351.0" layoutY="103.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="103.00" text="Maximum damage:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="104.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="103.00" text="Maximum damage:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="546.00" layoutY="104.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="4.00" layoutY="118.00" text="Vs. Shields:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="156.00" layoutY="117.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="195.00" layoutY="117.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="200.00" layoutY="118.00" text="Vs. Shields:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="351.0" layoutY="118.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="116.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="118.00" text="Vs. Shields:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="118.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="116.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="394.00" layoutY="118.00" text="Vs. Shields:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="546.00" layoutY="118.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="198.00" layoutY="285.00" text="Minimum damage:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="349.00" layoutY="286.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="198.00" layoutY="299.00" text="Maximum damage:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="349.00" layoutY="300.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="198.00" layoutY="313.00" text="Vs. Shields:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="349.00" layoutY="314.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="198.00" layoutY="327.00" text="Vs. Armor:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="349.00" layoutY="328.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="198.00" layoutY="341.0" text="Refire rate:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="349.00" layoutY="342.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="399.00" layoutY="257.00" text="Mass:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="399.00" layoutY="271.0" text="Energy drain:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="550.00" layoutY="258.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="550.00" layoutY="272.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="399.00" layoutY="285.00" text="Minimum damage:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="550.00" layoutY="286.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="399.00" layoutY="299.00" text="Maximum damage:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="550.00" layoutY="300.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="399.00" layoutY="313.00" text="Vs. Shields:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="550.00" layoutY="314.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="399.00" layoutY="327.00" text="Vs. Armor:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="550.00" layoutY="328.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="399.00" layoutY="341.0" text="Refire rate:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="550.00" layoutY="342.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="257.00" text="Mass:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="271.0" text="Energy drain:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="258.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="272.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="285.00" text="Minimum damage:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="286.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="299.00" text="Maximum damage:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="300.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="313.00" text="Vs. Shields:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="314.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="327.00" text="Vs. Armor:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="328.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="598.00" layoutY="341.0" text="Refire rate:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="749.00" layoutY="342.00" text="0.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <effect>
+                                <DropShadow color="#0a0909" />
+                            </effect>
+                        </AnchorPane>
+                        <Label layoutX="852.00" layoutY="26.00" prefHeight="27.00" prefWidth="207.00" text="Ship Breakdown" textFill="#69e4ff">
+                            <font>
+                                <Font name="Consolas" size="25.00" />
+                            </font>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </Label>
+                        <Separator layoutX="827.00" layoutY="-1.0" orientation="VERTICAL" prefHeight="636.00" prefWidth="22.00" />
+                        <AnchorPane layoutX="852.00" layoutY="92.00">
+                            <children>
+                                <ComboBox prefHeight="25.00" prefWidth="196.00" promptText="Select a reactor overload...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ComboBox layoutX="1.0" layoutY="30.00" prefHeight="25.00" prefWidth="196.00" promptText="Select an engine overload...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ComboBox layoutY="61.0" prefHeight="25.00" prefWidth="196.00" promptText="Select a capacitor overload...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ComboBox layoutX="217.00" prefHeight="25.00" prefWidth="196.00" promptText="Select a weapon overload...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ComboBox layoutX="217.00" layoutY="30.00" prefHeight="25.00" prefWidth="196.00" promptText="Select a shield adjust...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ComboBox layoutX="217.00" layoutY="61.0" prefHeight="25.00" prefWidth="196.00" promptText="Select a shield shunt...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                            </children>
+                        </AnchorPane>
+                        <TabPane layoutX="850.00" layoutY="186.00" prefHeight="537.00" prefWidth="417.00" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="Power Usage">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="427.00" prefWidth="417.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <AnchorPane layoutX="14.00" layoutY="14.00">
+                                                    <children>
+                                                        <Label text="Maximum Reactor energy:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutY="21.0" text="Total energy required:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1.0" layoutY="107.00" text="Engine reactor drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1.0" layoutY="85.00" text="Shield reactor drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1.0" layoutY="128.00" text="Capacitor reactor drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1.0" layoutY="149.00" text="Booster reactor drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1.0" layoutY="170.00" text="Droid Interface reactor drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutY="43.00" text="Difference:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1.0" layoutY="191.0" text="Countermeasure energy drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1.0" layoutY="213.00" text="Ordnance energy drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutY="255.00" text="Weapon one energy drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutY="277.00" text="Weapon two energy drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutY="320.00" text="Weapon four energy drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutY="299.00" text="Weapon three energy drain:" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="107.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="85.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="128.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="149.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="170.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="191.0" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="213.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="261.0" layoutY="255.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="261.0" layoutY="277.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="261.0" layoutY="320.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="261.0" layoutY="299.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="21.0" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="262.00" layoutY="43.00" text="0.00" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                                <Label layoutX="425.00" layoutY="344.00" text="0.00">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.00" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Propulsion">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;" />
+                                    </content>
+                                </Tab>
+                                <Tab text="Defenses">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;" />
+                                    </content>
+                                </Tab>
+                                <Tab text="Offensive Output">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;" />
+                                    </content>
+                                </Tab>
+                            </tabs>
+                            <effect>
+                                <InnerShadow />
+                            </effect>
+                        </TabPane>
+                        <Separator layoutX="827.00" layoutY="147.00" orientation="VERTICAL" prefHeight="684.00" prefWidth="22.00" />
+                        <Separator layoutX="827.00" layoutY="-26.00" orientation="VERTICAL" prefHeight="623.00" prefWidth="22.00" />
+                        <AnchorPane layoutX="1065.00" layoutY="12.00">
+                            <children>
+                                <Label text="Maximum mass:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas Bold" size="14.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="21.0" text="Current mass:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas Bold" size="14.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="41.0" text="Difference:" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas Bold" size="14.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="122.00" layoutY="1.0" text="150,000.00" textFill="#f5f5f5">
+                                    <font>
+                                        <Font name="Consolas Bold" size="14.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="122.00" layoutY="41.0" text="150,000.00" textFill="#25d025">
+                                    <font>
+                                        <Font name="Consolas Bold" size="14.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="122.00" layoutY="21.0" text="0.00" textFill="#25d025">
+                                    <font>
+                                        <Font name="Consolas Bold" size="14.00" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                        <Separator layoutY="40.00" prefHeight="0.00" prefWidth="836.00" />
+                        <AnchorPane layoutX="47.00" layoutY="210.00">
+                            <children>
+                                <ImageView fitHeight="31.0" fitWidth="88.00" layoutX="48.00" layoutY="4.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_shield.png" />
+                                    </image>
+                                </ImageView>
+                                <ComboBox layoutY="38.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a shield...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <Label layoutY="68.00" text="Energy drain:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="82.00" text="Mass:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="96.00" text="Front hitpoints:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="110.00" text="Rear hitpoints:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="124.00" text="Recharge rate:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="152.00" layoutY="68.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="152.00" layoutY="82.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="152.00" layoutY="97.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="152.00" layoutY="111.0" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="152.00" layoutY="124.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ComboBox layoutX="390.00" layoutY="39.00" prefHeight="25.00" prefWidth="180.00" promptText="Select rear armor...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="58.00" fitWidth="80.00" layoutX="242.00" layoutY="2.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/asset_armor.png" />
+                                    </image>
+                                </ImageView>
+                                <ComboBox layoutX="194.00" layoutY="38.00" prefHeight="25.00" prefWidth="180.00" promptText="Select front armor...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <Label layoutX="194.00" layoutY="68.00" text="Armor:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="194.00" layoutY="94.00" text="Mass:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="347.00" layoutY="67.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="347.00" layoutY="94.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="60.00" fitWidth="84.00" layoutX="438.00" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/asset_armor.png" />
+                                    </image>
+                                </ImageView>
+                                <ComboBox layoutX="592.00" layoutY="38.00" prefHeight="25.00" prefWidth="180.00" promptText="Select countermeasures...">
+                                    <effect>
+                                        <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ComboBox>
+                                <ImageView fitHeight="28.00" fitWidth="71.0" layoutX="641.0" layoutY="8.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_ordnance.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="592.00" layoutY="68.00" text="Mass:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="592.00" layoutY="82.00" text="Energy drain:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="743.00" layoutY="68.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="743.00" layoutY="83.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="194.00" layoutY="81.0" text="Hitpoints:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="347.00" layoutY="80.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="390.00" layoutY="69.00" text="Armor:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="390.00" layoutY="95.00" text="Mass:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="543.00" layoutY="68.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="543.00" layoutY="95.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="390.00" layoutY="82.00" text="Hitpoints:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="543.00" layoutY="81.0" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="592.00" layoutY="96.00" text="Minimum chance:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="743.00" layoutY="97.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="592.00" layoutY="110.00" text="Maximum chance:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="743.00" layoutY="111.0" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="592.00" layoutY="124.00" text="Refire rate:" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="743.00" layoutY="125.00" text="0.00" textFill="WHITE">
+                                    <font>
+                                        <Font name="Consolas" size="12.00" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </AnchorPane>
+                        <Label layoutX="-17.00" layoutY="108.00" style="-fx-rotate: 270;" text="UTILITY" textFill="#ebffea" wrapText="true">
+                            <font>
+                                <Font name="Consolas Bold" size="18.00" />
+                            </font>
+                            <effect>
+                                <DropShadow color="#32eb2b" height="15.07" radius="28.5325" spread="0.3" width="101.06" />
+                            </effect>
+                        </Label>
+                        <Label layoutX="-17.00" layoutY="266.00" style="-fx-rotate: 270;" text="DEFENSE" textFill="#c8e7ff" wrapText="true">
+                            <font>
+                                <Font name="Consolas Bold" size="18.00" />
+                            </font>
+                            <effect>
+                                <DropShadow color="#0fe2f2" height="77.215" radius="56.66875" spread="0.13" width="151.46" />
+                            </effect>
+                        </Label>
+                        <Label layoutX="-17.00" layoutY="537.00" style="-fx-rotate: 270;" text="OFFENSE" textFill="#fcc5c5" wrapText="true">
+                            <font>
+                                <Font name="Consolas Bold" size="18.00" />
+                            </font>
+                            <effect>
+                                <DropShadow color="#f2210f" height="0.00" radius="32.1775" spread="0.33" width="130.71" />
+                            </effect>
+                        </Label>
+                        <Separator layoutY="202.00" prefHeight="0.00" prefWidth="836.00" />
+                        <Separator layoutY="354.00" prefHeight="0.00" prefWidth="836.00" />
+                        <Separator layoutX="27.00" layoutY="40.00" orientation="VERTICAL" prefHeight="179.00" prefWidth="17.00" />
+                        <Separator layoutX="27.00" layoutY="212.00" orientation="VERTICAL" prefHeight="161.0" prefWidth="17.00" />
+                        <Separator layoutX="27.00" layoutY="352.00" orientation="VERTICAL" prefHeight="385.00" prefWidth="17.00" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets bottom="50.00" right="50.00" top="50.00" />
+                    </opaqueInsets>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Pane>
+            </content>
+        </Tab>
+        <Tab text="Components">
+            <content>
+                <Pane prefHeight="200.00" prefWidth="200.00" style="-fx-background-color: #005780;">
+                    <children>
+                        <ImageView depthTest="DISABLE" disable="true" fitHeight="731.0" fitWidth="1286.00" opacity="0.07" pickOnBounds="true">
+                            <image>
+                                <Image url="@../../../images/background_hangar2.jpg" />
+                            </image>
+                        </ImageView>
+                        <TabPane layoutX="400.00" layoutY="46.00" prefHeight="646.0" prefWidth="880.00" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="Reactors">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="570.0" prefWidth="880.0" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="reactorTable" editable="true" layoutX="-1.0" layoutY="-1.0" prefHeight="619.0" prefWidth="882.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Generation ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="generation" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Engines">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="631.0" prefWidth="810.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="engineTable" layoutX="-1.0" layoutY="-1.0" prefHeight="658.00" prefWidth="882.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Drain">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyDrain" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Pitch ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="pitch" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Yaw ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="yaw" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Roll ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="roll" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Top Speed">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="roll" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Shields">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="shieldTable" layoutX="-1.0" layoutY="-1.0" prefHeight="657.00" prefWidth="883.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Drain">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyDrain" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Front Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="frontHitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Back Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="backHitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Recharge ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="recharge" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Armor">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="armorTable" layoutX="-1.0" layoutY="-1.0" prefHeight="657.00" prefWidth="883.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Capacitors">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="capacitorTable" layoutX="-1.0" layoutY="-1.0" prefHeight="657.00" prefWidth="883.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Drain">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyDrain" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Energy">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energy" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Recharge ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="recharge" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Boosters">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="boosterTable" layoutX="-1.0" layoutY="-1.0" prefHeight="657.00" prefWidth="883.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Drain">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyDrain" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Energy">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energy" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Recharge ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="recharge" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Consumption ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="consumption" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Top Speed">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="topSpeed" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Droid Interfaces">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="interfaceTable" layoutX="-1.0" layoutY="-1.0" prefHeight="657.00" prefWidth="883.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Drain">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyDrain" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Command Speed">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="commandSpeed" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Weapons">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="weaponTable" layoutX="-1.0" layoutY="-1.0" prefHeight="658.00" prefWidth="882.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Drain">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyDrain" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Min D">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="minimumDamage" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Max D">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="maximumDamage" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="VsS">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="versusShields" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="VsA">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="versusArmor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="EPS">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyPerShot" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Refire ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="refire" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Ordnance">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="ordnanceTable" layoutX="-1.0" layoutY="-1.0" prefHeight="658.00" prefWidth="882.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Drain">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyDrain" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Min D">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="minimumDamage" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Max D">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="maximumDamage" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="VsS">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="versusShields" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="VsA">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="versusArmor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Refire">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="refire" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Countermeasures">
+                                    <content>
+                                        <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                            <children>
+                                                <TableView fx:id="countermeasureTable" layoutX="-1.0" layoutY="-1.0" prefHeight="658.00" prefWidth="882.00" style="-fx-background-color: #00344d;">
+                                                    <columns>
+                                                        <TableColumn text="Level">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="level" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="componentName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Armor">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="armor" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Hitpoints">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="hitpoints" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Drain">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="energyDrain" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Mass">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="mass" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Min %">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="minimumChance" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Max %">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="maximumChance" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn text="Refire ">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="refire" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                        <AnchorPane layoutX="14.00" layoutY="52.00" prefHeight="673.00" prefWidth="371.0">
+                            <children>
+                                <ImageView fx:id="newComponentImage" fitHeight="134.00" fitWidth="343.00" layoutX="15.00" layoutY="3.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/asset_reactor.png" />
+                                    </image>
+                                </ImageView>
+                                <AnchorPane layoutY="140.00">
+                                    <children>
+                                        <ComboBox fx:id="newComponentType" layoutX="118.00" layoutY="91.0" onAction="#showNewComponentFields" prefHeight="25.00" prefWidth="250.00" promptText="Select a component type...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Reactor" />
+                                                    <String fx:value="Engine" />
+                                                    <String fx:value="Shield" />
+                                                    <String fx:value="Armor" />
+                                                    <String fx:value="Capacitor" />
+                                                    <String fx:value="Booster" />
+                                                    <String fx:value="Droid Interface" />
+                                                    <String fx:value="Weapon" />
+                                                    <String fx:value="Ordnance" />
+                                                    <String fx:value="Countermeasure" />
+                                                </FXCollections>
+                                            </items>
+                                            <value>
+                                                <String fx:value="Reactor" />
+                                            </value>
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </ComboBox>
+                                        <Label layoutY="95.00" text="Component Type:" textFill="WHITE" />
+                                        <Label layoutY="124.00" text="Component Level:" textFill="WHITE" />
+                                        <ComboBox fx:id="newComponentLevel" layoutX="118.00" layoutY="120.00" prefHeight="25.00" prefWidth="250.00" promptText="Select a component level...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <Integer fx:value="1" />
+                                                    <Integer fx:value="2" />
+                                                    <Integer fx:value="3" />
+                                                    <Integer fx:value="4" />
+                                                    <Integer fx:value="5" />
+                                                    <Integer fx:value="6" />
+                                                    <Integer fx:value="7" />
+                                                    <Integer fx:value="8" />
+                                                    <Integer fx:value="9" />
+                                                    <Integer fx:value="10" />
+                                                </FXCollections>
+                                            </items>
+                                            <value>
+                                                <String fx:value="1" />
+                                            </value>
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </ComboBox>
+                                        <Button fx:id="saveNewComponentButton" layoutX="2.00" layoutY="30.00" mnemonicParsing="false" onAction="#saveNewComponent" prefHeight="25.00" prefWidth="368.00" style="-fx-background-color: green;" text="Save Component" textFill="#fffefe">
+                                            <font>
+                                                <Font name="Consolas" size="12.00" />
+                                            </font>
+                                            <effect>
+                                                <InnerShadow choke="0.69" color="#252525" height="7.66" radius="3.7" width="9.14" />
+                                            </effect>
+                                        </Button>
+                                        <Label layoutY="181.0" text="Description / Notes:" textFill="WHITE" />
+                                        <TextArea fx:id="newComponentNotes" layoutX="118.00" layoutY="179.00" prefHeight="56.00" prefWidth="249.00" promptText="[Optional] Leave some notes here...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextArea>
+                                        <Button fx:id="clearNewComponentFieldsButton" layoutX="3.00" mnemonicParsing="false" prefHeight="25.00" prefWidth="368.00" style="-fx-background-color: orange;" text="Clear Fields">
+                                            <font>
+                                                <Font name="Consolas" size="12.00" />
+                                            </font>
+                                            <effect>
+                                                <InnerShadow choke="0.69" color="#252525" height="7.66" radius="3.7" width="9.14" />
+                                            </effect>
+                                        </Button>
+                                        <Label fx:id="newComponentMessage" layoutX="14.00" layoutY="63.00" prefHeight="21.0" prefWidth="342.00" style="-fx-text-alignment: center;" textFill="#fffbfb">
+                                            <font>
+                                                <Font size="15.00" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutY="154.00" text="Component Name:" textFill="WHITE" />
+                                        <TextField fx:id="newComponentName" layoutX="118.00" layoutY="150.00" prefHeight="25.00" prefWidth="250.00" promptText="[Required] Enter a component name...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutY="380.00">
+                                    <children>
+                                        <AnchorPane fx:id="newComponentFieldContainerOne" layoutY="-1.0">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldOneTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldOneLabel" layoutY="4.00" text="Armor:" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerTwo" layoutY="28.00">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldTwoTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldTwoLabel" layoutY="4.00" text="Hitpoints:" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerThree" layoutX="1.0" layoutY="56.00">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldThreeTextbox" alignment="CENTER_RIGHT" layoutX="117.00" layoutY="1.0" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldThreeLabel" layoutX="-1.0" layoutY="5.00" text="Mass:" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerFour" layoutX="1.0" layoutY="84.00">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldFourTextbox" alignment="CENTER_RIGHT" layoutX="117.00" layoutY="2.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldFourLabel" layoutX="-1.0" layoutY="6.00" text="Generation Rate:" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerFive" layoutX="1.0" layoutY="112.00" visible="false">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldFiveTextbox" alignment="CENTER_RIGHT" layoutX="117.00" layoutY="3.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldFiveLabel" layoutX="-1.0" layoutY="7.00" text="Placeholder" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerSix" layoutX="2.00" layoutY="140.00" visible="false">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldSixTextbox" alignment="CENTER_RIGHT" layoutX="116.00" layoutY="4.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldSixLabel" layoutX="-2.00" layoutY="8.00" text="Placeholder" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerSeven" layoutX="2.00" layoutY="168.00" visible="false">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldSevenTextbox" alignment="CENTER_RIGHT" layoutX="116.00" layoutY="5.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldSevenLabel" layoutX="-2.00" layoutY="9.00" text="Placeholder" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerEight" layoutX="2.00" layoutY="196.00" visible="false">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldEightTextbox" alignment="CENTER_RIGHT" layoutX="116.00" layoutY="6.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldEightLabel" layoutX="-2.00" layoutY="10.00" text="Placeholder" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerNine" layoutX="2.00" layoutY="224.00" visible="false">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldNineTextbox" alignment="CENTER_RIGHT" layoutX="116.00" layoutY="7.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldNineLabel" layoutX="-2.00" layoutY="11.0" text="Placeholder" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane fx:id="newComponentFieldContainerTen" layoutX="2.00" layoutY="252.00" visible="false">
+                                            <children>
+                                                <TextField fx:id="newComponentFieldTenTextbox" alignment="CENTER_RIGHT" layoutX="116.00" layoutY="8.00" prefHeight="25.00" prefWidth="250.00" text="0.00">
+                                                    <effect>
+                                                        <InnerShadow color="#338bab" />
+                                                    </effect>
+                                                </TextField>
+                                                <Label fx:id="newComponentFieldTenLabel" layoutX="-2.00" layoutY="12.00" text="Placeholder" textFill="WHITE" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                        <Label layoutX="13.00" layoutY="6.00" text="New Components" textFill="#ffbc37">
+                            <font>
+                                <Font name="Consolas" size="26.00" />
+                            </font>
+                        </Label>
+                        <Label layoutX="411.0" layoutY="7.00" text="Existing Components" textFill="#ffbc37">
+                            <font>
+                                <Font name="Consolas" size="26.00" />
+                            </font>
+                        </Label>
+                        <Separator layoutX="395.00" layoutY="-2.00" orientation="VERTICAL" prefHeight="736.00" prefWidth="10.00" />
+                        <Separator layoutX="2.00" layoutY="43.00" prefHeight="4.00" prefWidth="1280.00" />
+                        <Button fx:id="removeComponentButton" layoutX="400.0" layoutY="692.0" mnemonicParsing="false" onAction="#removeComponent" prefHeight="25.00" prefWidth="881.0" style="-fx-background-color: #b30000;" text="Remove Component" textFill="WHITE" visible="false">
+                            <font>
+                                <Font name="Consolas" size="12.00" />
+                            </font>
+                            <effect>
+                                <InnerShadow choke="0.69" color="#252525" height="7.66" radius="3.7" width="9.14" />
+                            </effect>
+                        </Button>
+                    </children>
+                </Pane>
+            </content>
+        </Tab>
+        <Tab text="Reverse Engineering Calculator">
+            <content>
+                <Pane prefHeight="200.00" prefWidth="200.00" style="-fx-background-color: #005780;">
+                    <children>
+                        <ImageView depthTest="DISABLE" disable="true" fitHeight="731.0" fitWidth="1286.00" layoutX="-1.0" opacity="0.07" pickOnBounds="true">
+                            <image>
+                                <Image url="@../../../images/background_hangar3.jpg" />
+                            </image>
+                        </ImageView>
+                        <AnchorPane layoutX="14.00" layoutY="153.00" prefHeight="539.00" prefWidth="691.0">
+                            <children>
+                                <ImageView fitHeight="230.00" fitWidth="343.00" layoutX="12.00" layoutY="16.00" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/asset_reactor.png" />
+                                    </image>
+                                </ImageView>
+                                <ComboBox layoutX="118.00" layoutY="201.0" prefHeight="25.00" prefWidth="250.00" promptText="Select a component type...">
+                                    <effect>
+                                        <InnerShadow color="#338bab" />
+                                    </effect>
+                                </ComboBox>
+                                <Label layoutY="205.00" text="Component Type:" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="234.00" text="Component Level:" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.00" />
+                                    </font>
+                                </Label>
+                                <ComboBox layoutX="118.00" layoutY="230.00" prefHeight="25.00" prefWidth="250.00" promptText="Select a component level...">
+                                    <effect>
+                                        <InnerShadow color="#338bab" />
+                                    </effect>
+                                </ComboBox>
+                                <AnchorPane layoutY="284.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="391.0" layoutY="4.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutY="312.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="391.0" layoutY="4.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="1.0" layoutY="340.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="390.00" layoutY="4.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="1.0" layoutY="368.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="390.00" layoutY="4.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="1.0" layoutY="396.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="390.00" layoutY="4.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="2.00" layoutY="424.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="390.00" layoutY="4.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="2.00" layoutY="452.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="390.00" layoutY="4.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="2.00" layoutY="480.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="390.00" layoutY="4.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="2.00" layoutY="508.00">
+                                    <children>
+                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutY="4.00" text="Placeholder" textFill="WHITE" />
+                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                            <effect>
+                                                <InnerShadow color="#338bab" />
+                                            </effect>
+                                        </TextField>
+                                        <Label layoutX="390.00" layoutY="3.00" text="---&amp;gt;" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <Label layoutX="507.00" layoutY="254.00" text="Final Results" textFill="#ffbc37">
+                                    <font>
+                                        <Font size="18.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="508.00" layoutY="226.00" text="0% bonus" textFill="#1fd31f">
+                                    <font>
+                                        <Font name="System Bold" size="21.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="14.00" layoutY="14.00">
+                            <children>
+                                <Label text="Reverse Engineering Calculator" textFill="#ffbc37">
+                                    <font>
+                                        <Font size="27.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="1.0" layoutY="39.00" text="You can use this tool to calculate the final result of a reverse engineering project." textFill="WHITE">
+                                    <font>
+                                        <Font name="System Italic" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="1.0" layoutY="56.00" text="There are a few things you should be aware of:" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Italic" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="79.00" text="1. This tool assumes the shipwright has the 1% expertise bonus for RE'ing." textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.00" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="1.0" layoutY="96.00" text="2. This tool does NOT consider &amp;quot;hidden&amp;quot; stat values (ie; versus stats on weapons)." textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.00" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                        <Separator layoutX="723.00" layoutY="-6.00" orientation="VERTICAL" prefHeight="741.0" prefWidth="16.00" />
+                        <Label layoutX="739.00" layoutY="14.00" text="Tips &amp; Tricks" textFill="#ffbc37">
+                            <font>
+                                <Font size="27.00" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </content>
+        </Tab>
+    </tabs>
+    <effect>
+        <InnerShadow />
+    </effect>
+</TabPane>

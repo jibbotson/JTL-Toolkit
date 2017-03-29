@@ -30,6 +30,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import jtl.toolkit.helpers.ComponentSaveHelper;
+import jtl.toolkit.helpers.ValidationHelper;
 import jtl.toolkit.models.Armor;
 import jtl.toolkit.models.Booster;
 import jtl.toolkit.models.Capacitor;
@@ -39,11 +40,13 @@ import jtl.toolkit.models.Engine;
 import jtl.toolkit.models.Ordnance;
 import jtl.toolkit.models.Reactor;
 import jtl.toolkit.models.Shield;
+import jtl.toolkit.models.Validation;
 import jtl.toolkit.models.Weapon;
 
 public class ToolkitController implements Initializable {
     
     ComponentSaveHelper saveHelper;
+    ValidationHelper validationHelper;
     
     // <editor-fold defaultstate="collapsed" desc="FXML Variables">
 
@@ -129,6 +132,9 @@ public class ToolkitController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        saveHelper = new ComponentSaveHelper();
+        validationHelper = new ValidationHelper();
+        
         this.reactors = new ArrayList<>();
         this.engines = new ArrayList<>();
         this.shields = new ArrayList<>();
@@ -164,38 +170,47 @@ public class ToolkitController implements Initializable {
             this.newComponentName.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
             
             if(componentType.equals("Reactor")){
-            
-                Reactor reactor = new Reactor();
-
-                if(this.validateNumericFields()){
-
+                            
+                Validation validation = this.validateInputTypes();
+                
+                if (validation.validationResult) {
+                    
+                    Reactor reactor = new Reactor();
+                 
                     reactor.setComponentName(this.newComponentName.getText());
                     reactor.setComponentNotes(this.newComponentNotes.getText());
                     reactor.setLevel(Integer.parseInt(this.newComponentLevel.getValue().toString()));
-
                     reactor.setArmor(Double.parseDouble(this.newComponentFieldOneTextbox.getText()));
                     reactor.setHitpoints(Double.parseDouble(this.newComponentFieldTwoTextbox.getText()));
                     reactor.setMass(Double.parseDouble(this.newComponentFieldThreeTextbox.getText()));
                     reactor.setGenerationRate(Double.parseDouble(this.newComponentFieldFourTextbox.getText()));
+                    
+                    validation = validationHelper.validateReactor(validation, reactor);
+                    
+                    if(validation.validationResult){
+                        System.out.println("REACTOR IS VALID...saving");
 
-                    this.reactors.add(reactor);
+                        this.reactors.add(reactor);
 
-                    try (Writer writer = new FileWriter("components/reactors.json")) {
-                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                        gson.toJson(this.reactors, writer);
-                    } catch (IOException ex) {
-                        Logger.getLogger(ToolkitController.class.getName()).log(Level.SEVERE, null, ex);
+                        saveHelper.saveReactors(this.reactors);
+
+                        reloadComponentTables();
+
+                        this.newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                        this.newComponentMessage.setText("Component saved...");
+
+                    } else {
+                        for(int i = 0; i < validation.statsInError.size(); i++) {
+                            System.out.println(validation.statsInError.get(i));
+                            System.out.println(validation.reasonsForError.get(i));
+                        }
                     }
                     
-                    reloadComponentTables();
-
-                    this.newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
-                    this.newComponentMessage.setText("Component saved...");
                 } else {
                     this.newComponentMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
                     this.newComponentMessage.setText("Component values must only contain numbers...");
                 }
-
+                
             }else if(componentType.equals("Engine")){
 
             }else if(componentType.equals("Shield")){
@@ -485,9 +500,12 @@ public class ToolkitController implements Initializable {
         }
     }
     
-    public boolean validateNumericFields() {
+    public Validation validateInputTypes() {
         
-        boolean valid = true;
+        Validation validation = new Validation();
+        
+        validation.componentLevel = (Integer) this.newComponentLevel.getValue();
+        validation.componentType = (String) this.newComponentType.getValue();
         
         String fieldOne = this.newComponentFieldOneTextbox.getText();
         String fieldTwo = this.newComponentFieldTwoTextbox.getText();
@@ -499,78 +517,78 @@ public class ToolkitController implements Initializable {
         String fieldEight = this.newComponentFieldEightTextbox.getText();
         String fieldNine = this.newComponentFieldNineTextbox.getText();
         String fieldTen = this.newComponentFieldTenTextbox.getText();
-                
+        
         if(isDouble(fieldOne) || isInteger(fieldOne)) {
             this.newComponentFieldOneTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldOneTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldTwo) || isInteger(fieldTwo)) {
             this.newComponentFieldTwoTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldTwoTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldThree) || isInteger(fieldThree)) {
             this.newComponentFieldThreeTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldThreeTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldFour) || isInteger(fieldFour)) {
             this.newComponentFieldFourTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldFourTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldFive) || isInteger(fieldFive)) {
             this.newComponentFieldFiveTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldFiveTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldSix) || isInteger(fieldSix)) {
             this.newComponentFieldSixTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldSixTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldSeven) || isInteger(fieldSeven)) { 
             this.newComponentFieldSevenTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldSevenTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldEight) || isInteger(fieldEight)) {
             this.newComponentFieldEightTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldEightTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldNine) || isInteger(fieldNine)) {
             this.newComponentFieldNineTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldNineTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldTen) || isInteger(fieldTen)) {
             this.newComponentFieldTenTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
-            valid = false;
+            validation.validationResult = false;
             this.newComponentFieldTenTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
-        return valid;
+        return validation;
     }
     
     public void loadReactors(){

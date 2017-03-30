@@ -1,35 +1,24 @@
 package jtl.toolkit;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import jtl.toolkit.helpers.ComponentSaveHelper;
+import jtl.toolkit.helpers.ComponentHelper;
+import jtl.toolkit.helpers.LoadoutHelper;
 import jtl.toolkit.helpers.ValidationHelper;
 import jtl.toolkit.models.Armor;
 import jtl.toolkit.models.Booster;
@@ -37,6 +26,7 @@ import jtl.toolkit.models.Capacitor;
 import jtl.toolkit.models.Countermeasure;
 import jtl.toolkit.models.DroidInterface;
 import jtl.toolkit.models.Engine;
+import jtl.toolkit.models.Loadout;
 import jtl.toolkit.models.Ordnance;
 import jtl.toolkit.models.Reactor;
 import jtl.toolkit.models.Shield;
@@ -45,12 +35,12 @@ import jtl.toolkit.models.Weapon;
 
 public class ToolkitController implements Initializable {
     
-    ComponentSaveHelper saveHelper;
+    ComponentHelper componentHelper;
+    LoadoutHelper loadoutHelper;
     ValidationHelper validationHelper;
     
-    // <editor-fold defaultstate="collapsed" desc="FXML Variables">
-
-
+    ArrayList<Loadout> loadouts;
+    
     ArrayList<Reactor> reactors;
     ArrayList<Engine> engines;
     ArrayList<Shield> shields;
@@ -62,6 +52,7 @@ public class ToolkitController implements Initializable {
     ArrayList<Ordnance> ordnance;
     ArrayList<Countermeasure> countermeasures;
     
+    // <editor-fold defaultstate="collapsed" desc="FXML Variables">
     // Tables
     @FXML TableView reactorTable;
     @FXML TableView engineTable;
@@ -88,6 +79,7 @@ public class ToolkitController implements Initializable {
     @FXML AnchorPane newComponentFieldContainerEight;
     @FXML AnchorPane newComponentFieldContainerNine;
     @FXML AnchorPane newComponentFieldContainerTen;
+    @FXML TabPane existingComponentsTabPane;
     
     // Labels
     @FXML Label newComponentFieldOneLabel;
@@ -132,33 +124,31 @@ public class ToolkitController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        saveHelper = new ComponentSaveHelper();
+        componentHelper = new ComponentHelper();
+        loadoutHelper = new LoadoutHelper();
         validationHelper = new ValidationHelper();
-        
-        this.reactors = new ArrayList<>();
-        this.engines = new ArrayList<>();
-        this.shields = new ArrayList<>();
-        this.armors = new ArrayList<>();
-        this.interfaces = new ArrayList<>();
-        this.boosters = new ArrayList<>();
-        this.capacitors = new ArrayList<>();
-        this.weapons = new ArrayList<>();
-        this.ordnance = new ArrayList<>();
-        this.countermeasures = new ArrayList<>();
-        
-        
+                   
         // Load Components
-        this.loadReactors();
+        reactors = componentHelper.getReactors();
+        engines = componentHelper.getEngines();
+        shields = componentHelper.getShields();
+        armors = componentHelper.getArmors();
+        boosters = componentHelper.getBoosters();
+        capacitors = componentHelper.getCapacitors();
+        interfaces = componentHelper.getInterfaces();
+        weapons = componentHelper.getWeapons();
+        ordnance = componentHelper.getOrdnance();
+        countermeasures = componentHelper.getCountermeasures();
+        
+        // Load loadouts
+        loadouts = loadoutHelper.getLoadouts();
         
         // Load Tables
-        this.reloadComponentTables();
+        reloadComponentTables();
         
-        this.reactorTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            this.removeComponentButton.setVisible(true);
+        reactorTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setVisible(true);
         });
-        
-        
-        System.out.println("Initialized...");
     }    
     
     @FXML
@@ -188,11 +178,10 @@ public class ToolkitController implements Initializable {
                     validation = validationHelper.validateReactor(validation, reactor);
                     
                     if(validation.validationResult){
-                        System.out.println("REACTOR IS VALID...saving");
-
+                        
                         this.reactors.add(reactor);
 
-                        saveHelper.saveReactors(this.reactors);
+                        componentHelper.saveReactors(this.reactors);
 
                         reloadComponentTables();
 
@@ -591,57 +580,90 @@ public class ToolkitController implements Initializable {
         return validation;
     }
     
-    public void loadReactors(){
-        try {
-            String jsonString = new String(Files.readAllBytes(Paths.get("components/reactors.json")));
-            
-            ArrayList<Reactor> reactors = new ArrayList<>();
-            
-            reactors = new Gson().fromJson(jsonString, new TypeToken<List<Reactor>>(){}.getType());
-            
-            if(reactors != null){
-                this.reactors = reactors;
-            }
-            
-        } catch (IOException ex) {
-            this.reactors = new ArrayList<>();
-            
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error while loading your reactors...");
-            alert.setContentText("How embarassing! Message Orickk on Discord with some details.");
-
-            alert.showAndWait();
-            
-            Logger.getLogger(ToolkitController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
     private void reloadComponentTables() {
-        
-        this.reactorTable.setItems(FXCollections.observableArrayList(reactors));
-        this.reactorTable.setColumnResizePolicy((param) -> true );
+        if(reactors !=  null && reactorTable != null) reactorTable.setItems(FXCollections.observableArrayList(reactors));
+        if(engines !=  null && engineTable != null) engineTable.setItems(FXCollections.observableArrayList(engines));
+        if(shields !=  null && shieldTable != null) shieldTable.setItems(FXCollections.observableArrayList(shields));
+        if(armors !=  null && armorTable != null) armorTable.setItems(FXCollections.observableArrayList(armors));
+        if(boosters !=  null && boosterTable != null) boosterTable.setItems(FXCollections.observableArrayList(boosters));
+        if(capacitors !=  null && capacitorTable != null) capacitorTable.setItems(FXCollections.observableArrayList(capacitors));
+        if(interfaces !=  null && interfaceTable != null) interfaceTable.setItems(FXCollections.observableArrayList(interfaces));
+        if(weapons !=  null && weaponTable != null) weaponTable.setItems(FXCollections.observableArrayList(weapons));
+        if(ordnance !=  null && ordnanceTable != null) ordnanceTable.setItems(FXCollections.observableArrayList(ordnance));
+        if(countermeasures !=  null && countermeasureTable != null) countermeasureTable.setItems(FXCollections.observableArrayList(countermeasures));
     }
     
     @FXML
     private void removeComponent() {
         // TODO: get current table and switch
-        this.removeReactor();
+        Integer tabIndex = existingComponentsTabPane.getSelectionModel().getSelectedIndex();
+        
+        switch(tabIndex) {
+            case 0 :
+                Reactor reactor = (Reactor) this.reactorTable.getSelectionModel().getSelectedItem();
+                reactors = componentHelper.deleteReactor(reactors, reactor.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Reactor", reactor.getComponentID());
+                reloadComponentTables();
+                break;
+            case 1 :
+                Engine engine = (Engine) this.engineTable.getSelectionModel().getSelectedItem();
+                engines = componentHelper.deleteEngine(engines, engine.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Engine", engine.getComponentID());
+                reloadComponentTables();
+                break;
+            case 2 :
+                Shield shield = (Shield) this.shieldTable.getSelectionModel().getSelectedItem();
+                shields = componentHelper.deleteShield(shields, shield.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Shield", shield.getComponentID());
+                reloadComponentTables();
+                break;
+            case 3 :
+                Armor armor = (Armor) this.armorTable.getSelectionModel().getSelectedItem();
+                armors = componentHelper.deleteArmor(armors, armor.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Armor", armor.getComponentID());
+                reloadComponentTables();
+                break;
+            case 4 :
+                Capacitor capacitor = (Capacitor) this.capacitorTable.getSelectionModel().getSelectedItem();
+                capacitors = componentHelper.deleteCapacitor(capacitors, capacitor.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Capacitor", capacitor.getComponentID());
+                reloadComponentTables();
+                break;
+            case 5 :
+                Booster booster = (Booster) this.boosterTable.getSelectionModel().getSelectedItem();
+                boosters = componentHelper.deleteBooster(boosters, booster.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Booster", booster.getComponentID());
+                reloadComponentTables();
+                break;
+            case 6 :
+                DroidInterface droidInterface = (DroidInterface) this.interfaceTable.getSelectionModel().getSelectedItem();
+                interfaces = componentHelper.deleteInterface(interfaces, droidInterface.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Interface", droidInterface.getComponentID());
+                reloadComponentTables();
+                break;
+            case 7 :
+                Weapon weapon = (Weapon) this.weaponTable.getSelectionModel().getSelectedItem();
+                weapons = componentHelper.deleteWeapon(weapons, weapon.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Weapon", weapon.getComponentID());
+                reloadComponentTables();
+                break;
+            case 8 :
+                Ordnance ordnanceLauncher = (Ordnance) this.ordnanceTable.getSelectionModel().getSelectedItem();
+                ordnance = componentHelper.deleteOrdnance(ordnance, ordnanceLauncher.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Ordnance", ordnanceLauncher.getComponentID());
+                reloadComponentTables();
+                break;
+            case 9 :
+                Countermeasure countermeasure = (Countermeasure) this.countermeasureTable.getSelectionModel().getSelectedItem();
+                countermeasures = componentHelper.deleteCountermeasure(countermeasures, countermeasure.getComponentID());
+                loadouts = loadoutHelper.updateLoadouts(loadouts, "Countermeasure", countermeasure.getComponentID());
+                reloadComponentTables();
+                break;
+        }
+        
         this.reloadComponentTables();
         this.removeComponentButton.setVisible(false);
     }
     
-    private void removeReactor() {
-        
-        Reactor reactor = (Reactor) this.reactorTable.getSelectionModel().getSelectedItem();
-        
-        for(int i = 0; i < this.reactors.size(); i++) {
-            if(reactor.getComponentID().equals(this.reactors.get(i).getComponentID())){
-                this.reactors.remove(i);
-                break;
-            }
-        }
-        
-        saveHelper.saveReactors(this.reactors);
-    }
+    
 }

@@ -1528,7 +1528,7 @@
                                 <Image url="@../../../images/background_hangar2.jpg" />
                             </image>
                         </ImageView>
-                        <TabPane layoutX="400.00" layoutY="46.00" prefHeight="646.0" prefWidth="880.00" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane fx:id="componentsTabPane" layoutX="400.00" layoutY="46.00" prefHeight="646.0" prefWidth="880.00" tabClosingPolicy="UNAVAILABLE">
                             <tabs>
                                 <Tab text="Reactors">
                                     <content>
@@ -1538,6 +1538,7 @@
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
+                                                          
                                                                 <PropertyValueFactory property="level" />
                                                             </cellValueFactory>
                                                         </TableColumn>

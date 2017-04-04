@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.StringConverter;
 import jtl.toolkit.helpers.ComponentHelper;
 import jtl.toolkit.helpers.LoadoutHelper;
 import jtl.toolkit.helpers.ValidationHelper;
@@ -40,6 +41,8 @@ public class ToolkitController implements Initializable {
     ValidationHelper validationHelper;
     
     ArrayList<Loadout> loadouts;
+    
+    Loadout currentLoadout;
     
     ArrayList<Reactor> reactors;
     ArrayList<Engine> engines;
@@ -118,6 +121,22 @@ public class ToolkitController implements Initializable {
     // Combo Boxes
     @FXML ComboBox newComponentType;
     @FXML ComboBox newComponentLevel;
+    @FXML ComboBox loadoutReactor;
+    @FXML ComboBox loadoutEngine;
+    @FXML ComboBox loadoutShield;
+    @FXML ComboBox loadoutBooster;
+    @FXML ComboBox loadoutInterface;
+    @FXML ComboBox loadoutFrontArmor;
+    @FXML ComboBox loadoutBackArmor;
+    @FXML ComboBox loadoutCapacitor;
+    @FXML ComboBox loadoutWeaponOne;
+    @FXML ComboBox loadoutWeaponTwo;
+    @FXML ComboBox loadoutWeaponThree;
+    @FXML ComboBox loadoutWeaponFour;
+    @FXML ComboBox loadoutCountermeasure;
+    @FXML ComboBox loadoutOrdnanceOne;
+    @FXML ComboBox loadoutOrdnanceTwo;
+    @FXML ComboBox loadoutOrdnanceThree;
     
     // </editor-fold>
     
@@ -130,6 +149,23 @@ public class ToolkitController implements Initializable {
                    
         // Load Components
         reactors = componentHelper.getReactors();
+        loadoutReactor.setItems(FXCollections.observableList(reactors));
+        loadoutReactor.setConverter(new StringConverter<Reactor>() {
+            @Override
+            public String toString(Reactor reactor) {
+                if (reactor == null) {
+                    return "Unable to retrieve reactor...";
+                } else {
+                    return "L" + reactor.getLevel() + " - " + reactor.getComponentName();
+                }
+            }
+
+            @Override
+            public Reactor fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
         engines = componentHelper.getEngines();
         shields = componentHelper.getShields();
         armors = componentHelper.getArmors();
@@ -665,5 +701,9 @@ public class ToolkitController implements Initializable {
         this.removeComponentButton.setVisible(false);
     }
     
-    
+    @FXML
+    public void reloadCalculations() {
+        
+        
+    }
 }

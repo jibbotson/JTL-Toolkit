@@ -86,7 +86,7 @@
                                         <Image url="@../../../images/asset_engine.png" />
                                     </image>
                                 </ImageView>
-                                <ComboBox layoutY="35.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a reactor...">
+                                <ComboBox fx:id="loadoutReactor" onAction="#reloadCalculations" layoutY="35.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a reactor...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -94,7 +94,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </ComboBox>
-                                <ComboBox layoutX="194.00" layoutY="35.00" prefHeight="25.00" prefWidth="180.00" promptText="Select an engine...">
+                                <ComboBox fx:id="loadoutEngine" onAction="#reloadCalculations" layoutX="194.00" layoutY="35.00" prefHeight="25.00" prefWidth="180.00" promptText="Select an engine...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -177,7 +177,7 @@
                                         <Font name="Consolas" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="389.00" layoutY="36.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a booster...">
+                                <ComboBox fx:id="loadoutBooster" onAction="#reloadCalculations" layoutX="389.00" layoutY="36.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a booster...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -235,7 +235,7 @@
                                         <Image url="@../../../images/asset_droid_interface.png" />
                                     </image>
                                 </ImageView>
-                                <ComboBox layoutX="588.00" layoutY="36.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a droid interface...">
+                                <ComboBox fx:id="loadoutInterface" onAction="#reloadCalculations" layoutX="588.00" layoutY="36.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a droid interface...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -275,7 +275,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="42.00" layoutY="360.00" prefHeight="363.00" prefWidth="778.00">
                             <children>
-                                <ComboBox layoutX="4.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                                <ComboBox fx:id="loadoutWeaponOne" onAction="#reloadCalculations" layoutX="4.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -348,7 +348,7 @@
                                         <Font name="Consolas" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="200.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                                <ComboBox fx:id="loadoutWeaponTwo" onAction="#reloadCalculations" layoutX="200.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -426,7 +426,7 @@
                                         <Font name="Consolas" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="598.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                                <ComboBox fx:id="loadoutWeaponThree" onAction="#reloadCalculations" layoutX="598.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -504,7 +504,7 @@
                                         <Font name="Consolas" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="394.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                                <ComboBox fx:id="loadoutWeaponFour" onAction="#reloadCalculations" layoutX="394.00" layoutY="30.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -587,7 +587,7 @@
                                         <Image url="@../../../images/asset_capacitor.png" />
                                     </image>
                                 </ImageView>
-                                <ComboBox layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a capacitor...">
+                                <ComboBox fx:id="loadoutCapacitor" onAction="#reloadCalculations" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select a capacitor...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -635,7 +635,7 @@
                                         <Font name="Consolas" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="198.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance one...">
+                                <ComboBox fx:id="loadoutOrdnanceOne" onAction="#reloadCalculations" layoutX="198.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance one...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -668,7 +668,7 @@
                                         <Font name="Consolas" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="398.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance two...">
+                                <ComboBox fx:id="loadoutOrdnanceTwo" onAction="#reloadCalculations" layoutX="398.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance two...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -681,7 +681,7 @@
                                         <Image url="@../../../images/asset_ordnance.png" />
                                     </image>
                                 </ImageView>
-                                <ComboBox layoutX="597.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance three...">
+                                <ComboBox fx:id="loadoutOrdnanceThree" onAction="#reloadCalculations" layoutX="597.00" layoutY="228.00" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance three...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>

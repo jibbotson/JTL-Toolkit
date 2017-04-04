@@ -32,7 +32,6 @@ public class ComponentHelper {
         System.out.println("hihi");
         try {
             String jsonString = new String(Files.readAllBytes(Paths.get("data/components/reactors.json")));
-            System.out.println(jsonString);
             reactors = new Gson().fromJson(jsonString, new TypeToken<List<Reactor>>(){}.getType());
             
         } catch (IOException ex) {

@@ -29,10 +29,14 @@ public class ComponentHelper {
     public ArrayList<Reactor> getReactors(){
         
         ArrayList<Reactor> reactors = new ArrayList<>();
-        System.out.println("hihi");
+        
         try {
             String jsonString = new String(Files.readAllBytes(Paths.get("data/components/reactors.json")));
             reactors = new Gson().fromJson(jsonString, new TypeToken<List<Reactor>>(){}.getType());
+            
+            if(reactors == null) {
+                reactors = new ArrayList<>();
+            }
             
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
@@ -50,6 +54,10 @@ public class ComponentHelper {
             
             engines = new Gson().fromJson(jsonString, new TypeToken<List<Engine>>(){}.getType());
             
+            if(engines == null) {
+                engines = new ArrayList<>();
+            }
+            
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -64,7 +72,11 @@ public class ComponentHelper {
         try {
             String jsonString = new String(Files.readAllBytes(Paths.get("data/components/shields.json")));
             
-            shields = new Gson().fromJson(jsonString, new TypeToken<List<Armor>>(){}.getType());
+            shields = new Gson().fromJson(jsonString, new TypeToken<List<Shield>>(){}.getType());
+            
+            if(shields == null) {
+                shields = new ArrayList<>();
+            }
             
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,6 +94,10 @@ public class ComponentHelper {
             
             armors = new Gson().fromJson(jsonString, new TypeToken<List<Armor>>(){}.getType());
             
+            if(armors == null) {
+                armors = new ArrayList<>();
+            }
+            
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -97,6 +113,10 @@ public class ComponentHelper {
             String jsonString = new String(Files.readAllBytes(Paths.get("data/components/boosters.json")));
             
             boosters = new Gson().fromJson(jsonString, new TypeToken<List<Booster>>(){}.getType());
+            
+            if(boosters == null) {
+                boosters = new ArrayList<>();
+            }
             
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,6 +134,10 @@ public class ComponentHelper {
             
             capacitors = new Gson().fromJson(jsonString, new TypeToken<List<Capacitor>>(){}.getType());
             
+            if(capacitors == null) {
+                capacitors = new ArrayList<>();
+            }
+            
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -129,6 +153,10 @@ public class ComponentHelper {
             String jsonString = new String(Files.readAllBytes(Paths.get("data/components/interfaces.json")));
             
             interfaces = new Gson().fromJson(jsonString, new TypeToken<List<DroidInterface>>(){}.getType());
+            
+            if(interfaces == null) {
+                interfaces = new ArrayList<>();
+            }
             
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,6 +174,10 @@ public class ComponentHelper {
             
             weapons = new Gson().fromJson(jsonString, new TypeToken<List<Weapon>>(){}.getType());
             
+            if(weapons == null) {
+                weapons = new ArrayList<>();
+            }
+            
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -162,6 +194,10 @@ public class ComponentHelper {
             
             ordnance = new Gson().fromJson(jsonString, new TypeToken<List<Ordnance>>(){}.getType());
             
+            if(ordnance == null) {
+                ordnance = new ArrayList<>();
+            }
+            
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -177,6 +213,10 @@ public class ComponentHelper {
             String jsonString = new String(Files.readAllBytes(Paths.get("data/components/countermeasures.json")));
             
             countermeasures = new Gson().fromJson(jsonString, new TypeToken<List<Countermeasure>>(){}.getType());
+            
+            if(countermeasures == null) {
+                countermeasures = new ArrayList<>();
+            }
             
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,6 +247,7 @@ public class ComponentHelper {
         try (Writer writer = new FileWriter("data/components/shields.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(shields, writer);
+            writer.close();
         } catch (IOException ex) {
             Logger.getLogger(ComponentHelper.class.getName()).log(Level.SEVERE, null, ex);
         }

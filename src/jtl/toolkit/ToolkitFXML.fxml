@@ -43,7 +43,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ComboBox>
-                        <Button layoutX="547.00" layoutY="4.00" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Save loadout" textFill="#f8f7f7">
+                        <Button fx:id="saveLoadoutButton" onAction="#saveLoadouts" layoutX="547.00" layoutY="4.00" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Save loadout" textFill="#f8f7f7">
                             <font>
                                 <Font name="Consolas" size="13.00" />
                             </font>
@@ -1205,7 +1205,7 @@
                         <Separator layoutY="40.00" prefHeight="0.00" prefWidth="836.00" />
                         <AnchorPane layoutX="47.0" layoutY="193.0">
                             <children>
-                                <ComboBox layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select a shield...">
+                                <ComboBox fx:id="loadoutShield" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select a shield...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -1263,7 +1263,7 @@
                                         <Font name="Consolas" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="390.0" layoutY="2.0" prefHeight="25.00" prefWidth="180.00" promptText="Select rear armor...">
+                                <ComboBox fx:id="loadoutBackArmor" layoutX="390.0" layoutY="2.0" prefHeight="25.00" prefWidth="180.00" promptText="Select back armor...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -1271,7 +1271,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </ComboBox>
-                                <ComboBox layoutX="194.0" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select front armor...">
+                                <ComboBox fx:id="loadoutFrontArmor" layoutX="194.0" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select front armor...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -1299,7 +1299,7 @@
                                         <Font name="Consolas" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="592.0" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select countermeasures...">
+                                <ComboBox fx:id="loadoutCountermeasure" layoutX="592.0" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select countermeasures...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
@@ -1450,7 +1450,7 @@
                                 <Image url="@../../../images/background_hangar2.jpg" />
                             </image>
                         </ImageView>
-                        <TabPane fx:id="componentsTabPane" layoutX="400.00" layoutY="46.00" prefHeight="570.0" prefWidth="880.00" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane fx:id="existingComponentsTabPane" layoutX="400.00" layoutY="46.00" prefHeight="570.0" prefWidth="880.00" tabClosingPolicy="UNAVAILABLE">
                             <tabs>
                                 <Tab text="Reactors">
                                     <content>

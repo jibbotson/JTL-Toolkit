@@ -1,6 +1,14 @@
 package jtl.toolkit.helpers;
 
+import jtl.toolkit.models.Armor;
+import jtl.toolkit.models.Booster;
+import jtl.toolkit.models.Capacitor;
+import jtl.toolkit.models.Countermeasure;
+import jtl.toolkit.models.DroidInterface;
+import jtl.toolkit.models.Engine;
+import jtl.toolkit.models.Ordnance;
 import jtl.toolkit.models.Reactor;
+import jtl.toolkit.models.Shield;
 import jtl.toolkit.models.Validation;
 import jtl.toolkit.models.Weapon;
 
@@ -1325,6 +1333,168 @@ public class ValidationHelper {
                 validation.reasonsForError.add("Invalid generation value...please re-enter.");
             }
         }
+        validation.validationResult = true;
+        return validation;
+    }
+    
+    public Validation validateEngine(Validation validation, Engine engine) {
+                
+        if(validation.componentLevel.equals(1)) {
+            
+        }else if(validation.componentLevel.equals(2)) {
+            
+        }else if(validation.componentLevel.equals(3)) {
+            
+        }else if(validation.componentLevel.equals(4)) {
+            
+        }else if(validation.componentLevel.equals(5)) {
+            
+        }else if(validation.componentLevel.equals(6)) {
+            
+        }else if(validation.componentLevel.equals(7)) {
+            
+        }else if(validation.componentLevel.equals(8)) {
+            
+        }else if(validation.componentLevel.equals(9)) {
+            
+        }else if(validation.componentLevel.equals(10)) {
+            
+        }
+        
+        return validation;
+    }
+    
+    public Validation validateShield(Validation validation, Shield shield) {
+                
+        if(validation.componentLevel.equals(1)) {
+            
+        }else if(validation.componentLevel.equals(2)) {
+            
+        }else if(validation.componentLevel.equals(3)) {
+            
+        }else if(validation.componentLevel.equals(4)) {
+            
+        }else if(validation.componentLevel.equals(5)) {
+            
+        }else if(validation.componentLevel.equals(6)) {
+            
+        }else if(validation.componentLevel.equals(7)) {
+            
+        }else if(validation.componentLevel.equals(8)) {
+            
+        }else if(validation.componentLevel.equals(9)) {
+            
+        }else if(validation.componentLevel.equals(10)) {
+            
+        }
+        
+        return validation;
+    }
+    
+    public Validation validateBooster(Validation validation, Booster booster) {
+                
+        if(validation.componentLevel.equals(1)) {
+            
+        }else if(validation.componentLevel.equals(2)) {
+            
+        }else if(validation.componentLevel.equals(3)) {
+            
+        }else if(validation.componentLevel.equals(4)) {
+            
+        }else if(validation.componentLevel.equals(5)) {
+            
+        }else if(validation.componentLevel.equals(6)) {
+            
+        }else if(validation.componentLevel.equals(7)) {
+            
+        }else if(validation.componentLevel.equals(8)) {
+            
+        }else if(validation.componentLevel.equals(9)) {
+            
+        }else if(validation.componentLevel.equals(10)) {
+            
+        }
+        
+        return validation;
+    }
+    
+    public Validation validateArmor(Validation validation, Armor armor) {
+                
+        if(validation.componentLevel.equals(1)) {
+            
+        }else if(validation.componentLevel.equals(2)) {
+            
+        }else if(validation.componentLevel.equals(3)) {
+            
+        }else if(validation.componentLevel.equals(4)) {
+            
+        }else if(validation.componentLevel.equals(5)) {
+            
+        }else if(validation.componentLevel.equals(6)) {
+            
+        }else if(validation.componentLevel.equals(7)) {
+            
+        }else if(validation.componentLevel.equals(8)) {
+            
+        }else if(validation.componentLevel.equals(9)) {
+            
+        }else if(validation.componentLevel.equals(10)) {
+            
+        }
+        
+        return validation;
+    }
+    
+    public Validation validateCapacitor(Validation validation, Capacitor capacitor) {
+                
+        if(validation.componentLevel.equals(1)) {
+            
+        }else if(validation.componentLevel.equals(2)) {
+            
+        }else if(validation.componentLevel.equals(3)) {
+            
+        }else if(validation.componentLevel.equals(4)) {
+            
+        }else if(validation.componentLevel.equals(5)) {
+            
+        }else if(validation.componentLevel.equals(6)) {
+            
+        }else if(validation.componentLevel.equals(7)) {
+            
+        }else if(validation.componentLevel.equals(8)) {
+            
+        }else if(validation.componentLevel.equals(9)) {
+            
+        }else if(validation.componentLevel.equals(10)) {
+            
+        }
+        
+        return validation;
+    }
+    
+    public Validation validateInterface(Validation validation, DroidInterface droidInterface) {
+                
+        if(validation.componentLevel.equals(1)) {
+            
+        }else if(validation.componentLevel.equals(2)) {
+            
+        }else if(validation.componentLevel.equals(3)) {
+            
+        }else if(validation.componentLevel.equals(4)) {
+            
+        }else if(validation.componentLevel.equals(5)) {
+            
+        }else if(validation.componentLevel.equals(6)) {
+            
+        }else if(validation.componentLevel.equals(7)) {
+            
+        }else if(validation.componentLevel.equals(8)) {
+            
+        }else if(validation.componentLevel.equals(9)) {
+            
+        }else if(validation.componentLevel.equals(10)) {
+            
+        }
         
         return validation;
     }
@@ -1400,6 +1570,60 @@ public class ValidationHelper {
                 validation.statsInError.add("Refire Rate");
                 validation.reasonsForError.add("Invalid refire rate value...please re-enter.");
             }
+        }
+        validation.validationResult = true;
+        return validation;
+    }
+    
+    public Validation validateOrdnance(Validation validation, Ordnance ordnance) {
+                
+        if(validation.componentLevel.equals(1)) {
+            
+        }else if(validation.componentLevel.equals(2)) {
+            
+        }else if(validation.componentLevel.equals(3)) {
+            
+        }else if(validation.componentLevel.equals(4)) {
+            
+        }else if(validation.componentLevel.equals(5)) {
+            
+        }else if(validation.componentLevel.equals(6)) {
+            
+        }else if(validation.componentLevel.equals(7)) {
+            
+        }else if(validation.componentLevel.equals(8)) {
+            
+        }else if(validation.componentLevel.equals(9)) {
+            
+        }else if(validation.componentLevel.equals(10)) {
+            
+        }
+        
+        return validation;
+    }
+    
+    public Validation validateCountermeasure(Validation validation, Countermeasure countermeasure) {
+                
+        if(validation.componentLevel.equals(1)) {
+            
+        }else if(validation.componentLevel.equals(2)) {
+            
+        }else if(validation.componentLevel.equals(3)) {
+            
+        }else if(validation.componentLevel.equals(4)) {
+            
+        }else if(validation.componentLevel.equals(5)) {
+            
+        }else if(validation.componentLevel.equals(6)) {
+            
+        }else if(validation.componentLevel.equals(7)) {
+            
+        }else if(validation.componentLevel.equals(8)) {
+            
+        }else if(validation.componentLevel.equals(9)) {
+            
+        }else if(validation.componentLevel.equals(10)) {
+            
         }
         
         return validation;

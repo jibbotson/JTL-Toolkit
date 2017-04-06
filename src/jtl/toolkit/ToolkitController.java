@@ -10,6 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionModel;
+import javafx.scene.control.SingleSelectionModel;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -146,35 +149,8 @@ public class ToolkitController implements Initializable {
         componentHelper = new ComponentHelper();
         loadoutHelper = new LoadoutHelper();
         validationHelper = new ValidationHelper();
-                   
-        // Load Components
-        reactors = componentHelper.getReactors();
-        loadoutReactor.setItems(FXCollections.observableList(reactors));
-        loadoutReactor.setConverter(new StringConverter<Reactor>() {
-            @Override
-            public String toString(Reactor reactor) {
-                if (reactor == null) {
-                    return "Unable to retrieve reactor...";
-                } else {
-                    return "L" + reactor.getLevel() + " - " + reactor.getComponentName();
-                }
-            }
-
-            @Override
-            public Reactor fromString(String string) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-        });
-        engines = componentHelper.getEngines();
-        shields = componentHelper.getShields();
-        armors = componentHelper.getArmors();
-        boosters = componentHelper.getBoosters();
-        capacitors = componentHelper.getCapacitors();
-        interfaces = componentHelper.getInterfaces();
-        weapons = componentHelper.getWeapons();
-        ordnance = componentHelper.getOrdnance();
-        countermeasures = componentHelper.getCountermeasures();
+        
+        loadComponents();
         
         // Load loadouts
         loadouts = loadoutHelper.getLoadouts();
@@ -190,321 +166,630 @@ public class ToolkitController implements Initializable {
     @FXML
     private void saveNewComponent(ActionEvent event) {
         
-        String componentType = (String) this.newComponentType.getValue();
+        String componentType = (String) newComponentType.getValue();
         
-        if(this.newComponentName.getText().length() > 0) {
-            this.newComponentName.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+        Validation validation = validateInputTypes();
+        
+        if(validation.validationResult.equals(false)){
+            
+            newComponentMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentMessage.setText("Component values must only contain numbers...");
+            
+        } else if(newComponentName.getText().length() > 0) {
+            
+            newComponentName.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
             
             if(componentType.equals("Reactor")){
-                            
-                Validation validation = this.validateInputTypes();
                 
-                if (validation.validationResult) {
-                    
-                    Reactor reactor = new Reactor();
-                 
-                    reactor.setComponentName(this.newComponentName.getText());
-                    reactor.setComponentNotes(this.newComponentNotes.getText());
-                    reactor.setLevel(Integer.parseInt(this.newComponentLevel.getValue().toString()));
-                    reactor.setArmor(Double.parseDouble(this.newComponentFieldOneTextbox.getText()));
-                    reactor.setHitpoints(Double.parseDouble(this.newComponentFieldTwoTextbox.getText()));
-                    reactor.setMass(Double.parseDouble(this.newComponentFieldThreeTextbox.getText()));
-                    reactor.setGenerationRate(Double.parseDouble(this.newComponentFieldFourTextbox.getText()));
-                    
-                    validation = validationHelper.validateReactor(validation, reactor);
-                    
-                    if(validation.validationResult){
-                        
-                        this.reactors.add(reactor);
+                Reactor reactor = new Reactor();
 
-                        componentHelper.saveReactors(this.reactors);
+                reactor.setComponentName(newComponentName.getText());
+                reactor.setComponentNotes(newComponentNotes.getText());
+                reactor.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                reactor.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                reactor.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                reactor.setMass(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                reactor.setGenerationRate(Double.parseDouble(newComponentFieldFourTextbox.getText()));
 
-                        reloadComponentTables();
+                validation = validationHelper.validateReactor(validation, reactor);
 
-                        this.newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
-                        this.newComponentMessage.setText("Component saved...");
+                if(validation.validationResult){
 
-                    } else {
-                        for(int i = 0; i < validation.statsInError.size(); i++) {
-                            System.out.println(validation.statsInError.get(i));
-                            System.out.println(validation.reasonsForError.get(i));
-                        }
-                    }
-                    
+                    reactors.add(reactor);
+
+                    componentHelper.saveReactors(reactors);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
                 } else {
-                    this.newComponentMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
-                    this.newComponentMessage.setText("Component values must only contain numbers...");
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
                 }
                 
             }else if(componentType.equals("Engine")){
+                    
+                Engine engine = new Engine();
 
+                engine.setComponentName(newComponentName.getText());
+                engine.setComponentNotes(newComponentNotes.getText());
+                engine.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                engine.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                engine.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                engine.setEnergyDrain(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                engine.setMass(Double.parseDouble(newComponentFieldFourTextbox.getText()));
+                engine.setPitchRate(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
+                engine.setYawRate(Double.parseDouble(newComponentFieldSixTextbox.getText()));
+                engine.setRollRate(Double.parseDouble(newComponentFieldSevenTextbox.getText()));
+                engine.setTopSpeed(Double.parseDouble(newComponentFieldEightTextbox.getText()));
+
+                validation = validationHelper.validateEngine(validation, engine);
+
+                if(validation.validationResult){
+
+                    engines.add(engine);
+
+                    componentHelper.saveEngines(engines);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                }
+                    
             }else if(componentType.equals("Shield")){
+                
+                Shield shield = new Shield();
 
+                shield.setComponentName(newComponentName.getText());
+                shield.setComponentNotes(newComponentNotes.getText());
+                shield.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                shield.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                shield.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                shield.setEnergyDrain(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                shield.setMass(Double.parseDouble(newComponentFieldFourTextbox.getText()));
+                shield.setFrontHitpoints(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
+                shield.setBackHitpoints(Double.parseDouble(newComponentFieldSixTextbox.getText()));
+                shield.setRechargeRate(Double.parseDouble(newComponentFieldSevenTextbox.getText()));
+
+                validation = validationHelper.validateShield(validation, shield);
+
+                if(validation.validationResult){
+
+                    shields.add(shield);
+
+                    componentHelper.saveShields(shields);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                }
+                
             }else if(componentType.equals("Armor")){
 
+                Armor armor = new Armor();
+
+                armor.setComponentName(newComponentName.getText());
+                armor.setComponentNotes(newComponentNotes.getText());
+                armor.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                armor.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                armor.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                armor.setMass(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+
+                validation = validationHelper.validateArmor(validation, armor);
+
+                if(validation.validationResult){
+
+                    armors.add(armor);
+
+                    componentHelper.saveArmors(armors);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                }
+                    
             }else if(componentType.equals("Droid Interface")){
 
-            }else if(componentType.equals("Weapon")){
+                DroidInterface droidInterface = new DroidInterface();
 
+                droidInterface.setComponentName(newComponentName.getText());
+                droidInterface.setComponentNotes(newComponentNotes.getText());
+                droidInterface.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                droidInterface.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                droidInterface.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                droidInterface.setEnergyDrain(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                droidInterface.setMass(Double.parseDouble(newComponentFieldFourTextbox.getText()));
+                droidInterface.setCommandSpeed(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
+
+                validation = validationHelper.validateInterface(validation, droidInterface);
+
+                if(validation.validationResult){
+
+                    interfaces.add(droidInterface);
+
+                    componentHelper.saveInterfaces(interfaces);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                }
+                
+            }else if(componentType.equals("Weapon")){
+                
+                Weapon weapon = new Weapon();
+
+                weapon.setComponentName(newComponentName.getText());
+                weapon.setComponentNotes(newComponentNotes.getText());
+                weapon.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                weapon.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                weapon.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                weapon.setEnergyDrain(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                weapon.setMass(Double.parseDouble(newComponentFieldFourTextbox.getText()));
+                weapon.setMinimumDamage(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
+                weapon.setMaximumDamage(Double.parseDouble(newComponentFieldSixTextbox.getText()));
+                weapon.setVersusShields(Double.parseDouble(newComponentFieldSevenTextbox.getText()));
+                weapon.setVersusArmor(Double.parseDouble(newComponentFieldEightTextbox.getText()));
+                weapon.setEnergyPerShot(Double.parseDouble(newComponentFieldNineTextbox.getText()));
+                weapon.setRefireRate(Double.parseDouble(newComponentFieldTenTextbox.getText()));
+
+                validation = validationHelper.validateWeapon(validation, weapon);
+
+                if(validation.validationResult){
+
+                    weapons.add(weapon);
+
+                    componentHelper.saveWeapons(weapons);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                }  
+                
             }else if(componentType.equals("Ordnance")){
 
+                Ordnance ordnanceLauncher = new Ordnance();
+
+                ordnanceLauncher.setComponentName(newComponentName.getText());
+                ordnanceLauncher.setComponentNotes(newComponentNotes.getText());
+                ordnanceLauncher.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                ordnanceLauncher.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                ordnanceLauncher.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                ordnanceLauncher.setEnergyDrain(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                ordnanceLauncher.setMass(Double.parseDouble(newComponentFieldFourTextbox.getText()));
+                ordnanceLauncher.setMinimumDamage(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
+                ordnanceLauncher.setMaximumDamage(Double.parseDouble(newComponentFieldSixTextbox.getText()));
+                ordnanceLauncher.setVersusShields(Double.parseDouble(newComponentFieldSevenTextbox.getText()));
+                ordnanceLauncher.setVersusArmor(Double.parseDouble(newComponentFieldEightTextbox.getText()));
+                ordnanceLauncher.setRefireRate(Double.parseDouble(newComponentFieldNineTextbox.getText()));
+
+                validation = validationHelper.validateOrdnance(validation, ordnanceLauncher);
+
+                if(validation.validationResult){
+
+                    ordnance.add(ordnanceLauncher);
+
+                    componentHelper.saveOrdnance(ordnance);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                } 
+                
             }else if(componentType.equals("Countermeasure")){
 
+                Countermeasure countermeasure = new Countermeasure();
+
+                countermeasure.setComponentName(newComponentName.getText());
+                countermeasure.setComponentNotes(newComponentNotes.getText());
+                countermeasure.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                countermeasure.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                countermeasure.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                countermeasure.setEnergyDrain(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                countermeasure.setMass(Double.parseDouble(newComponentFieldFourTextbox.getText()));
+                countermeasure.setMinimumChance(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
+                countermeasure.setMaximumChance(Double.parseDouble(newComponentFieldSixTextbox.getText()));
+                countermeasure.setRefireRate(Double.parseDouble(newComponentFieldSevenTextbox.getText()));
+
+                validation = validationHelper.validateCountermeasure(validation, countermeasure);
+
+                if(validation.validationResult){
+
+                    countermeasures.add(countermeasure);
+
+                    componentHelper.saveCountermeasures(countermeasures);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                } 
+                
             }else if(componentType.equals("Booster")){
 
+                Booster booster = new Booster();
+
+                booster.setComponentName(newComponentName.getText());
+                booster.setComponentNotes(newComponentNotes.getText());
+                booster.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                booster.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                booster.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                booster.setEnergyDrain(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                booster.setMass(Double.parseDouble(newComponentFieldFourTextbox.getText()));
+                booster.setEnergy(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
+                booster.setRechargeRate(Double.parseDouble(newComponentFieldSixTextbox.getText()));
+                booster.setConsumptionRate(Double.parseDouble(newComponentFieldSevenTextbox.getText()));
+                booster.setTopSpeed(Double.parseDouble(newComponentFieldEightTextbox.getText()));
+
+                
+                validation = validationHelper.validateBooster(validation, booster);
+
+                if(validation.validationResult){
+
+                    boosters.add(booster);
+
+                    componentHelper.saveBoosters(boosters);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                }
+                
             }else if(componentType.equals("Capacitor")){ 
 
+                Capacitor capacitor = new Capacitor();
+                
+                capacitor.setComponentName(newComponentName.getText());
+                capacitor.setComponentNotes(newComponentNotes.getText());
+                capacitor.setLevel(Integer.parseInt(newComponentLevel.getValue().toString()));
+                capacitor.setArmor(Double.parseDouble(newComponentFieldOneTextbox.getText()));
+                capacitor.setHitpoints(Double.parseDouble(newComponentFieldTwoTextbox.getText()));
+                capacitor.setEnergyDrain(Double.parseDouble(newComponentFieldThreeTextbox.getText()));
+                capacitor.setMass(Double.parseDouble(newComponentFieldFourTextbox.getText()));
+                capacitor.setEnergy(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
+                capacitor.setRechargeRate(Double.parseDouble(newComponentFieldSixTextbox.getText()));
+
+                
+                validation = validationHelper.validateCapacitor(validation, capacitor);
+
+                if(validation.validationResult){
+
+                    capacitors.add(capacitor);
+
+                    componentHelper.saveCapacitors(capacitors);
+
+                    reloadComponentTables();
+
+                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setText("Component saved...");
+
+                } else {
+                    for(int i = 0; i < validation.statsInError.size(); i++) {
+                        System.out.println(validation.statsInError.get(i));
+                        System.out.println(validation.reasonsForError.get(i));
+                    }
+                }
             }
+            
         } else {
-            this.newComponentMessage.setText("You must provide a component name...");
-            this.newComponentMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentMessage.setText("You must provide a component name...");
+            newComponentMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
     }
     
     @FXML
     private void showNewComponentFields(ActionEvent event) {
         
-        String componentType = (String) this.newComponentType.getValue();
+        String componentType = (String) newComponentType.getValue();
+        SingleSelectionModel<Tab> selectionModel = existingComponentsTabPane.getSelectionModel();
         
         if(componentType.equals("Reactor")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_reactor.png"));
+            resetFields();
+            selectionModel.select(0);
+            newComponentImage.setImage(new Image("images/asset_reactor.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Mass:");
-            this.newComponentFieldFourLabel.setText("Generation Rate:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Mass:");
+            newComponentFieldFourLabel.setText("Generation Rate:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
             
         }else if(componentType.equals("Engine")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_engine.png"));
+            resetFields();
+            selectionModel.select(1);
+            newComponentImage.setImage(new Image("images/asset_engine.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Energy Drain:");
-            this.newComponentFieldFourLabel.setText("Mass:");
-            this.newComponentFieldFiveLabel.setText("Pitch Rate:");
-            this.newComponentFieldSixLabel.setText("Yaw Rate:");
-            this.newComponentFieldSevenLabel.setText("Roll Rate:");
-            this.newComponentFieldEightLabel.setText("Top Speed:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Energy Drain:");
+            newComponentFieldFourLabel.setText("Mass:");
+            newComponentFieldFiveLabel.setText("Pitch Rate:");
+            newComponentFieldSixLabel.setText("Yaw Rate:");
+            newComponentFieldSevenLabel.setText("Roll Rate:");
+            newComponentFieldEightLabel.setText("Top Speed:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
-            this.newComponentFieldContainerFive.setVisible(true);
-            this.newComponentFieldContainerSix.setVisible(true);
-            this.newComponentFieldContainerSeven.setVisible(true);
-            this.newComponentFieldContainerEight.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerFive.setVisible(true);
+            newComponentFieldContainerSix.setVisible(true);
+            newComponentFieldContainerSeven.setVisible(true);
+            newComponentFieldContainerEight.setVisible(true);
             
         }else if(componentType.equals("Shield")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_shield.png"));
+            resetFields();
+            selectionModel.select(2);
+            newComponentImage.setImage(new Image("images/asset_shield.png"));
                  
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Energy Drain:");
-            this.newComponentFieldFourLabel.setText("Mass:");
-            this.newComponentFieldFiveLabel.setText("Front Hitpoints:");
-            this.newComponentFieldSixLabel.setText("Back Hitpoints:");
-            this.newComponentFieldSevenLabel.setText("Recharge Rate:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Energy Drain:");
+            newComponentFieldFourLabel.setText("Mass:");
+            newComponentFieldFiveLabel.setText("Front Hitpoints:");
+            newComponentFieldSixLabel.setText("Back Hitpoints:");
+            newComponentFieldSevenLabel.setText("Recharge Rate:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
-            this.newComponentFieldContainerFive.setVisible(true);
-            this.newComponentFieldContainerSix.setVisible(true);
-            this.newComponentFieldContainerSeven.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerFive.setVisible(true);
+            newComponentFieldContainerSix.setVisible(true);
+            newComponentFieldContainerSeven.setVisible(true);
             
         }else if(componentType.equals("Armor")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_armor.png"));
+            resetFields();
+            selectionModel.select(3);
+            newComponentImage.setImage(new Image("images/asset_armor.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Mass:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Mass:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
             
         }else if(componentType.equals("Droid Interface")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_droid_interface.png"));
+            resetFields();
+            selectionModel.select(6);
+            newComponentImage.setImage(new Image("images/asset_droid_interface.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Energy Drain:");
-            this.newComponentFieldFourLabel.setText("Mass:");
-            this.newComponentFieldFiveLabel.setText("Command Speed:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Energy Drain:");
+            newComponentFieldFourLabel.setText("Mass:");
+            newComponentFieldFiveLabel.setText("Command Speed:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
-            this.newComponentFieldContainerFive.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerFive.setVisible(true);
             
         }else if(componentType.equals("Weapon")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_weapon.png"));
+            resetFields();
+            selectionModel.select(7);
+            newComponentImage.setImage(new Image("images/asset_weapon.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Energy Drain:");
-            this.newComponentFieldFourLabel.setText("Mass:");
-            this.newComponentFieldFiveLabel.setText("Minimum Damage:");
-            this.newComponentFieldSixLabel.setText("Maximum Damage:");
-            this.newComponentFieldSevenLabel.setText("Vs. Shields:");
-            this.newComponentFieldEightLabel.setText("Vs. Armor:");
-            this.newComponentFieldNineLabel.setText("Energy Per Shot:");
-            this.newComponentFieldTenLabel.setText("Refire Rate:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Energy Drain:");
+            newComponentFieldFourLabel.setText("Mass:");
+            newComponentFieldFiveLabel.setText("Minimum Damage:");
+            newComponentFieldSixLabel.setText("Maximum Damage:");
+            newComponentFieldSevenLabel.setText("Vs. Shields:");
+            newComponentFieldEightLabel.setText("Vs. Armor:");
+            newComponentFieldNineLabel.setText("Energy Per Shot:");
+            newComponentFieldTenLabel.setText("Refire Rate:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
-            this.newComponentFieldContainerFive.setVisible(true);
-            this.newComponentFieldContainerSix.setVisible(true);
-            this.newComponentFieldContainerSeven.setVisible(true);
-            this.newComponentFieldContainerEight.setVisible(true);
-            this.newComponentFieldContainerNine.setVisible(true);
-            this.newComponentFieldContainerTen.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerFive.setVisible(true);
+            newComponentFieldContainerSix.setVisible(true);
+            newComponentFieldContainerSeven.setVisible(true);
+            newComponentFieldContainerEight.setVisible(true);
+            newComponentFieldContainerNine.setVisible(true);
+            newComponentFieldContainerTen.setVisible(true);
             
         }else if(componentType.equals("Ordnance")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_ordnance.png"));
+            resetFields();
+            selectionModel.select(8);
+            newComponentImage.setImage(new Image("images/asset_ordnance.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Energy Drain:");
-            this.newComponentFieldFourLabel.setText("Mass:");
-            this.newComponentFieldFiveLabel.setText("Minimum Damage:");
-            this.newComponentFieldSixLabel.setText("Maximum Damage:");
-            this.newComponentFieldSevenLabel.setText("Vs. Shields:");
-            this.newComponentFieldEightLabel.setText("Vs. Armor:");
-            this.newComponentFieldNineLabel.setText("Refire Rate:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Energy Drain:");
+            newComponentFieldFourLabel.setText("Mass:");
+            newComponentFieldFiveLabel.setText("Minimum Damage:");
+            newComponentFieldSixLabel.setText("Maximum Damage:");
+            newComponentFieldSevenLabel.setText("Vs. Shields:");
+            newComponentFieldEightLabel.setText("Vs. Armor:");
+            newComponentFieldNineLabel.setText("Refire Rate:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
-            this.newComponentFieldContainerFive.setVisible(true);
-            this.newComponentFieldContainerSix.setVisible(true);
-            this.newComponentFieldContainerSeven.setVisible(true);
-            this.newComponentFieldContainerEight.setVisible(true);
-            this.newComponentFieldContainerNine.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerFive.setVisible(true);
+            newComponentFieldContainerSix.setVisible(true);
+            newComponentFieldContainerSeven.setVisible(true);
+            newComponentFieldContainerEight.setVisible(true);
+            newComponentFieldContainerNine.setVisible(true);
             
         }else if(componentType.equals("Countermeasure")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_ordnance.png"));
+            resetFields();
+            selectionModel.select(9);
+            newComponentImage.setImage(new Image("images/asset_ordnance.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Energy Drain:");
-            this.newComponentFieldFourLabel.setText("Mass:");
-            this.newComponentFieldFiveLabel.setText("Minimum Chance:");
-            this.newComponentFieldSixLabel.setText("Maximum Chance:");
-            this.newComponentFieldSevenLabel.setText("Refire Rate:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Energy Drain:");
+            newComponentFieldFourLabel.setText("Mass:");
+            newComponentFieldFiveLabel.setText("Minimum Chance:");
+            newComponentFieldSixLabel.setText("Maximum Chance:");
+            newComponentFieldSevenLabel.setText("Refire Rate:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
-            this.newComponentFieldContainerFive.setVisible(true);
-            this.newComponentFieldContainerSix.setVisible(true);
-            this.newComponentFieldContainerSeven.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerFive.setVisible(true);
+            newComponentFieldContainerSix.setVisible(true);
+            newComponentFieldContainerSeven.setVisible(true);
             
         }else if(componentType.equals("Booster")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_booster.png"));
+            resetFields();
+            selectionModel.select(5);
+            newComponentImage.setImage(new Image("images/asset_booster.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Energy Drain:");
-            this.newComponentFieldFourLabel.setText("Mass:");
-            this.newComponentFieldFiveLabel.setText("Energy:");
-            this.newComponentFieldSixLabel.setText("Recharge Rate:");
-            this.newComponentFieldSevenLabel.setText("Consumption Rate:");
-            this.newComponentFieldEightLabel.setText("Top Speed:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Energy Drain:");
+            newComponentFieldFourLabel.setText("Mass:");
+            newComponentFieldFiveLabel.setText("Energy:");
+            newComponentFieldSixLabel.setText("Recharge Rate:");
+            newComponentFieldSevenLabel.setText("Consumption Rate:");
+            newComponentFieldEightLabel.setText("Top Speed:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
-            this.newComponentFieldContainerFive.setVisible(true);
-            this.newComponentFieldContainerSix.setVisible(true);
-            this.newComponentFieldContainerSeven.setVisible(true);
-            this.newComponentFieldContainerEight.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerFive.setVisible(true);
+            newComponentFieldContainerSix.setVisible(true);
+            newComponentFieldContainerSeven.setVisible(true);
+            newComponentFieldContainerEight.setVisible(true);
             
         }else if(componentType.equals("Capacitor")){
-            this.resetFields();
-            this.newComponentImage.setImage(new Image("images/asset_capacitor.png"));
+            resetFields();
+            selectionModel.select(4);
+            newComponentImage.setImage(new Image("images/asset_capacitor.png"));
             
             // Set labels
-            this.newComponentFieldOneLabel.setText("Armor:");
-            this.newComponentFieldTwoLabel.setText("Hitpoints:");
-            this.newComponentFieldThreeLabel.setText("Energy Drain:");
-            this.newComponentFieldFourLabel.setText("Mass:");
-            this.newComponentFieldFiveLabel.setText("Energy:");
-            this.newComponentFieldSixLabel.setText("Recharge Rate:");
+            newComponentFieldOneLabel.setText("Armor:");
+            newComponentFieldTwoLabel.setText("Hitpoints:");
+            newComponentFieldThreeLabel.setText("Energy Drain:");
+            newComponentFieldFourLabel.setText("Mass:");
+            newComponentFieldFiveLabel.setText("Energy:");
+            newComponentFieldSixLabel.setText("Recharge Rate:");
             
             // Show fields
-            this.newComponentFieldContainerOne.setVisible(true);
-            this.newComponentFieldContainerTwo.setVisible(true);
-            this.newComponentFieldContainerThree.setVisible(true);
-            this.newComponentFieldContainerFour.setVisible(true);
-            this.newComponentFieldContainerFive.setVisible(true);
-            this.newComponentFieldContainerSix.setVisible(true);
+            newComponentFieldContainerOne.setVisible(true);
+            newComponentFieldContainerTwo.setVisible(true);
+            newComponentFieldContainerThree.setVisible(true);
+            newComponentFieldContainerFour.setVisible(true);
+            newComponentFieldContainerFive.setVisible(true);
+            newComponentFieldContainerSix.setVisible(true);
         }
     }
     
     // Utility functions
     public void resetFields(){
-        this.newComponentFieldOneTextbox.setText("0.0");
-        this.newComponentFieldTwoTextbox.setText("0.0");
-        this.newComponentFieldThreeTextbox.setText("0.0");
-        this.newComponentFieldFourTextbox.setText("0.0");
-        this.newComponentFieldFiveTextbox.setText("0.0");
-        this.newComponentFieldSixTextbox.setText("0.0");
-        this.newComponentFieldSevenTextbox.setText("0.0");
-        this.newComponentFieldEightTextbox.setText("0.0");
-        this.newComponentFieldNineTextbox.setText("0.0");
-        this.newComponentFieldTenTextbox.setText("0.0");
+        newComponentFieldOneTextbox.setText("0.0");
+        newComponentFieldTwoTextbox.setText("0.0");
+        newComponentFieldThreeTextbox.setText("0.0");
+        newComponentFieldFourTextbox.setText("0.0");
+        newComponentFieldFiveTextbox.setText("0.0");
+        newComponentFieldSixTextbox.setText("0.0");
+        newComponentFieldSevenTextbox.setText("0.0");
+        newComponentFieldEightTextbox.setText("0.0");
+        newComponentFieldNineTextbox.setText("0.0");
+        newComponentFieldTenTextbox.setText("0.0");
         
-        this.newComponentFieldContainerOne.setVisible(false);
-        this.newComponentFieldContainerTwo.setVisible(false);
-        this.newComponentFieldContainerThree.setVisible(false);
-        this.newComponentFieldContainerFour.setVisible(false);
-        this.newComponentFieldContainerFive.setVisible(false);
-        this.newComponentFieldContainerSix.setVisible(false);
-        this.newComponentFieldContainerSeven.setVisible(false);
-        this.newComponentFieldContainerEight.setVisible(false);
-        this.newComponentFieldContainerNine.setVisible(false);
-        this.newComponentFieldContainerTen.setVisible(false);
+        newComponentFieldContainerOne.setVisible(false);
+        newComponentFieldContainerTwo.setVisible(false);
+        newComponentFieldContainerThree.setVisible(false);
+        newComponentFieldContainerFour.setVisible(false);
+        newComponentFieldContainerFive.setVisible(false);
+        newComponentFieldContainerSix.setVisible(false);
+        newComponentFieldContainerSeven.setVisible(false);
+        newComponentFieldContainerEight.setVisible(false);
+        newComponentFieldContainerNine.setVisible(false);
+        newComponentFieldContainerTen.setVisible(false);
     }
     
     public boolean isDouble(String str) {
@@ -529,88 +814,88 @@ public class ToolkitController implements Initializable {
         
         Validation validation = new Validation();
         
-        validation.componentLevel = (Integer) this.newComponentLevel.getValue();
-        validation.componentType = (String) this.newComponentType.getValue();
+        validation.componentLevel = Integer.parseInt(newComponentLevel.getValue().toString());
+        validation.componentType = (String) newComponentType.getValue();
         
-        String fieldOne = this.newComponentFieldOneTextbox.getText();
-        String fieldTwo = this.newComponentFieldTwoTextbox.getText();
-        String fieldThree = this.newComponentFieldThreeTextbox.getText();
-        String fieldFour = this.newComponentFieldFourTextbox.getText();
-        String fieldFive = this.newComponentFieldFiveTextbox.getText();
-        String fieldSix = this.newComponentFieldSixTextbox.getText();
-        String fieldSeven = this.newComponentFieldSevenTextbox.getText();
-        String fieldEight = this.newComponentFieldEightTextbox.getText();
-        String fieldNine = this.newComponentFieldNineTextbox.getText();
-        String fieldTen = this.newComponentFieldTenTextbox.getText();
+        String fieldOne = newComponentFieldOneTextbox.getText();
+        String fieldTwo = newComponentFieldTwoTextbox.getText();
+        String fieldThree = newComponentFieldThreeTextbox.getText();
+        String fieldFour = newComponentFieldFourTextbox.getText();
+        String fieldFive = newComponentFieldFiveTextbox.getText();
+        String fieldSix = newComponentFieldSixTextbox.getText();
+        String fieldSeven = newComponentFieldSevenTextbox.getText();
+        String fieldEight = newComponentFieldEightTextbox.getText();
+        String fieldNine = newComponentFieldNineTextbox.getText();
+        String fieldTen = newComponentFieldTenTextbox.getText();
         
         if(isDouble(fieldOne) || isInteger(fieldOne)) {
-            this.newComponentFieldOneTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldOneTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldOneTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldOneTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldTwo) || isInteger(fieldTwo)) {
-            this.newComponentFieldTwoTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldTwoTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldTwoTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldTwoTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldThree) || isInteger(fieldThree)) {
-            this.newComponentFieldThreeTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldThreeTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldThreeTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldThreeTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldFour) || isInteger(fieldFour)) {
-            this.newComponentFieldFourTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldFourTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldFourTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldFourTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldFive) || isInteger(fieldFive)) {
-            this.newComponentFieldFiveTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldFiveTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldFiveTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldFiveTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldSix) || isInteger(fieldSix)) {
-            this.newComponentFieldSixTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldSixTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldSixTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldSixTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldSeven) || isInteger(fieldSeven)) { 
-            this.newComponentFieldSevenTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldSevenTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldSevenTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldSevenTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldEight) || isInteger(fieldEight)) {
-            this.newComponentFieldEightTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldEightTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldEightTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldEightTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldNine) || isInteger(fieldNine)) {
-            this.newComponentFieldNineTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldNineTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldNineTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldNineTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         if(isDouble(fieldTen) || isInteger(fieldTen)) {
-            this.newComponentFieldTenTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
+            newComponentFieldTenTextbox.setStyle("-fx-text-fill: black; -fx-font-weight: regular;");
         } else {
             validation.validationResult = false;
-            this.newComponentFieldTenTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentFieldTenTextbox.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
         
         return validation;
@@ -636,74 +921,374 @@ public class ToolkitController implements Initializable {
         
         switch(tabIndex) {
             case 0 :
-                Reactor reactor = (Reactor) this.reactorTable.getSelectionModel().getSelectedItem();
+                Reactor reactor = (Reactor) reactorTable.getSelectionModel().getSelectedItem();
                 reactors = componentHelper.deleteReactor(reactors, reactor.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Reactor", reactor.getComponentID());
                 reloadComponentTables();
                 break;
             case 1 :
-                Engine engine = (Engine) this.engineTable.getSelectionModel().getSelectedItem();
+                Engine engine = (Engine) engineTable.getSelectionModel().getSelectedItem();
                 engines = componentHelper.deleteEngine(engines, engine.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Engine", engine.getComponentID());
                 reloadComponentTables();
                 break;
             case 2 :
-                Shield shield = (Shield) this.shieldTable.getSelectionModel().getSelectedItem();
+                Shield shield = (Shield) shieldTable.getSelectionModel().getSelectedItem();
                 shields = componentHelper.deleteShield(shields, shield.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Shield", shield.getComponentID());
                 reloadComponentTables();
                 break;
             case 3 :
-                Armor armor = (Armor) this.armorTable.getSelectionModel().getSelectedItem();
+                Armor armor = (Armor) armorTable.getSelectionModel().getSelectedItem();
                 armors = componentHelper.deleteArmor(armors, armor.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Armor", armor.getComponentID());
                 reloadComponentTables();
                 break;
             case 4 :
-                Capacitor capacitor = (Capacitor) this.capacitorTable.getSelectionModel().getSelectedItem();
+                Capacitor capacitor = (Capacitor) capacitorTable.getSelectionModel().getSelectedItem();
                 capacitors = componentHelper.deleteCapacitor(capacitors, capacitor.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Capacitor", capacitor.getComponentID());
                 reloadComponentTables();
                 break;
             case 5 :
-                Booster booster = (Booster) this.boosterTable.getSelectionModel().getSelectedItem();
+                Booster booster = (Booster) boosterTable.getSelectionModel().getSelectedItem();
                 boosters = componentHelper.deleteBooster(boosters, booster.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Booster", booster.getComponentID());
                 reloadComponentTables();
                 break;
             case 6 :
-                DroidInterface droidInterface = (DroidInterface) this.interfaceTable.getSelectionModel().getSelectedItem();
+                DroidInterface droidInterface = (DroidInterface) interfaceTable.getSelectionModel().getSelectedItem();
                 interfaces = componentHelper.deleteInterface(interfaces, droidInterface.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Interface", droidInterface.getComponentID());
                 reloadComponentTables();
                 break;
             case 7 :
-                Weapon weapon = (Weapon) this.weaponTable.getSelectionModel().getSelectedItem();
+                Weapon weapon = (Weapon) weaponTable.getSelectionModel().getSelectedItem();
                 weapons = componentHelper.deleteWeapon(weapons, weapon.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Weapon", weapon.getComponentID());
                 reloadComponentTables();
                 break;
             case 8 :
-                Ordnance ordnanceLauncher = (Ordnance) this.ordnanceTable.getSelectionModel().getSelectedItem();
+                Ordnance ordnanceLauncher = (Ordnance) ordnanceTable.getSelectionModel().getSelectedItem();
                 ordnance = componentHelper.deleteOrdnance(ordnance, ordnanceLauncher.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Ordnance", ordnanceLauncher.getComponentID());
                 reloadComponentTables();
                 break;
             case 9 :
-                Countermeasure countermeasure = (Countermeasure) this.countermeasureTable.getSelectionModel().getSelectedItem();
+                Countermeasure countermeasure = (Countermeasure) countermeasureTable.getSelectionModel().getSelectedItem();
                 countermeasures = componentHelper.deleteCountermeasure(countermeasures, countermeasure.getComponentID());
                 loadouts = loadoutHelper.updateLoadouts(loadouts, "Countermeasure", countermeasure.getComponentID());
                 reloadComponentTables();
                 break;
         }
         
-        this.reloadComponentTables();
-        this.removeComponentButton.setVisible(false);
+        reloadComponentTables();
+        removeComponentButton.setVisible(false);
     }
     
     @FXML
     public void reloadCalculations() {
         
         
+    }
+    
+    @FXML
+    public void saveLoadouts() {
+        loadoutHelper.saveLoadouts(loadouts);
+    }
+    
+    public void loadComponents() {
+        
+        reactors = componentHelper.getReactors();
+        loadoutReactor.setItems(FXCollections.observableList(reactors));
+        loadoutReactor.setConverter(new StringConverter<Reactor>() {
+            @Override
+            public String toString(Reactor reactor) {
+                if (reactor == null) {
+                    return "Unable to retrieve reactor...";
+                } else {
+                    return "L" + reactor.getLevel() + " - " + reactor.getComponentName();
+                }
+            }
+
+            @Override
+            public Reactor fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        engines = componentHelper.getEngines();
+        loadoutEngine.setItems(FXCollections.observableList(engines));
+        loadoutEngine.setConverter(new StringConverter<Engine>() {
+            @Override
+            public String toString(Engine engine) {
+                if (engine == null) {
+                    return "Unable to retrieve engine...";
+                } else {
+                    return "L" + engine.getLevel() + " - " + engine.getComponentName();
+                }
+            }
+
+            @Override
+            public Engine fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        shields = componentHelper.getShields();
+        loadoutShield.setItems(FXCollections.observableList(shields));
+        loadoutShield.setConverter(new StringConverter<Shield>() {
+            @Override
+            public String toString(Shield shield) {
+                if (shield == null) {
+                    return "Unable to retrieve shield...";
+                } else {
+                    return "L" + shield.getLevel() + " - " + shield.getComponentName();
+                }
+            }
+
+            @Override
+            public Shield fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        armors = componentHelper.getArmors();
+        loadoutFrontArmor.setItems(FXCollections.observableList(armors));
+        loadoutFrontArmor.setConverter(new StringConverter<Armor>() {
+            @Override
+            public String toString(Armor armor) {
+                if (armor == null) {
+                    return "Unable to retrieve armor...";
+                } else {
+                    return "L" + armor.getLevel() + " - " + armor.getComponentName();
+                }
+            }
+
+            @Override
+            public Armor fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        loadoutBackArmor.setItems(FXCollections.observableList(armors));
+        loadoutBackArmor.setConverter(new StringConverter<Armor>() {
+            @Override
+            public String toString(Armor armor) {
+                if (armor == null) {
+                    return "Unable to retrieve armor...";
+                } else {
+                    return "L" + armor.getLevel() + " - " + armor.getComponentName();
+                }
+            }
+
+            @Override
+            public Armor fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        boosters = componentHelper.getBoosters();
+        loadoutBooster.setItems(FXCollections.observableList(boosters));
+        loadoutBooster.setConverter(new StringConverter<Booster>() {
+            @Override
+            public String toString(Booster booster) {
+                if (booster == null) {
+                    return "Unable to retrieve booster...";
+                } else {
+                    return "L" + booster.getLevel() + " - " + booster.getComponentName();
+                }
+            }
+
+            @Override
+            public Booster fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        capacitors = componentHelper.getCapacitors();
+        loadoutCapacitor.setItems(FXCollections.observableList(capacitors));
+        loadoutCapacitor.setConverter(new StringConverter<Capacitor>() {
+            @Override
+            public String toString(Capacitor capacitor) {
+                if (capacitor == null) {
+                    return "Unable to retrieve capacitor...";
+                } else {
+                    return "L" + capacitor.getLevel() + " - " + capacitor.getComponentName();
+                }
+            }
+
+            @Override
+            public Capacitor fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        interfaces = componentHelper.getInterfaces();        
+        loadoutInterface.setItems(FXCollections.observableList(interfaces));
+        loadoutInterface.setConverter(new StringConverter<DroidInterface>() {
+            @Override
+            public String toString(DroidInterface droidInterface) {
+                if (droidInterface == null) {
+                    return "Unable to retrieve shield...";
+                } else {
+                    return "L" + droidInterface.getLevel() + " - " + droidInterface.getComponentName();
+                }
+            }
+
+            @Override
+            public DroidInterface fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        weapons = componentHelper.getWeapons();        
+        loadoutWeaponOne.setItems(FXCollections.observableList(weapons));
+        loadoutWeaponOne.setConverter(new StringConverter<Weapon>() {
+            @Override
+            public String toString(Weapon weapon) {
+                if (weapon == null) {
+                    return "Unable to retrieve shield...";
+                } else {
+                    return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
+                }
+            }
+
+            @Override
+            public Weapon fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        loadoutWeaponTwo.setItems(FXCollections.observableList(weapons));
+        loadoutWeaponTwo.setConverter(new StringConverter<Weapon>() {
+            @Override
+            public String toString(Weapon weapon) {
+                if (weapon == null) {
+                    return "Unable to retrieve shield...";
+                } else {
+                    return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
+                }
+            }
+
+            @Override
+            public Weapon fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        loadoutWeaponThree.setItems(FXCollections.observableList(weapons));
+        loadoutWeaponThree.setConverter(new StringConverter<Weapon>() {
+            @Override
+            public String toString(Weapon weapon) {
+                if (weapon == null) {
+                    return "Unable to retrieve shield...";
+                } else {
+                    return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
+                }
+            }
+
+            @Override
+            public Weapon fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        loadoutWeaponFour.setItems(FXCollections.observableList(weapons));
+        loadoutWeaponFour.setConverter(new StringConverter<Weapon>() {
+            @Override
+            public String toString(Weapon weapon) {
+                if (weapon == null) {
+                    return "Unable to retrieve shield...";
+                } else {
+                    return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
+                }
+            }
+
+            @Override
+            public Weapon fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        ordnance = componentHelper.getOrdnance();        
+        loadoutOrdnanceOne.setItems(FXCollections.observableList(ordnance));
+        loadoutOrdnanceOne.setConverter(new StringConverter<Ordnance>() {
+            @Override
+            public String toString(Ordnance ordnance) {
+                if (ordnance == null) {
+                    return "Unable to retrieve ordnance...";
+                } else {
+                    return "L" + ordnance.getLevel() + " - " + ordnance.getComponentName();
+                }
+            }
+
+            @Override
+            public Ordnance fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });        
+        loadoutOrdnanceTwo.setItems(FXCollections.observableList(ordnance));
+        loadoutOrdnanceTwo.setConverter(new StringConverter<Ordnance>() {
+            @Override
+            public String toString(Ordnance ordnance) {
+                if (ordnance == null) {
+                    return "Unable to retrieve ordnance...";
+                } else {
+                    return "L" + ordnance.getLevel() + " - " + ordnance.getComponentName();
+                }
+            }
+
+            @Override
+            public Ordnance fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });        
+        loadoutOrdnanceThree.setItems(FXCollections.observableList(ordnance));
+        loadoutOrdnanceThree.setConverter(new StringConverter<Ordnance>() {
+            @Override
+            public String toString(Ordnance ordnance) {
+                if (ordnance == null) {
+                    return "Unable to retrieve ordnance...";
+                } else {
+                    return "L" + ordnance.getLevel() + " - " + ordnance.getComponentName();
+                }
+            }
+
+            @Override
+            public Ordnance fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        countermeasures = componentHelper.getCountermeasures();        
+        loadoutCountermeasure.setItems(FXCollections.observableList(countermeasures));
+        loadoutCountermeasure.setConverter(new StringConverter<Countermeasure>() {
+            @Override
+            public String toString(Countermeasure countermeasure) {
+                if (countermeasure == null) {
+                    return "Unable to retrieve countermeasure...";
+                } else {
+                    return "L" + countermeasure.getLevel() + " - " + countermeasure.getComponentName();
+                }
+            }
+
+            @Override
+            public Countermeasure fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
     }
 }

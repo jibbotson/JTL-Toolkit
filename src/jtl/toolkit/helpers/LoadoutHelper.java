@@ -34,6 +34,10 @@ public class LoadoutHelper {
             
             loadouts = new Gson().fromJson(jsonString, new TypeToken<List<Loadout>>(){}.getType());
             
+            if(loadouts == null) {
+                loadouts = new ArrayList<>();
+            }
+            
         } catch (IOException ex) {
             Logger.getLogger(LoadoutHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,11 +70,11 @@ public class LoadoutHelper {
             }
         }else if(componentType.equals("Armor")) {
             for(int i = 0; i < loadouts.size(); i++) {
-                if(componentID.equals(loadouts.get(i).getArmorOneID())){
-                    loadouts.get(i).setArmorOneID(null);
+                if(componentID.equals(loadouts.get(i).getArmorFrontID())){
+                    loadouts.get(i).setArmorFrontID(null);
                     break;
-                } else if(componentID.equals(loadouts.get(i).getArmorTwoID())) {
-                    loadouts.get(i).setArmorTwoID(null);
+                } else if(componentID.equals(loadouts.get(i).getArmorBackID())) {
+                    loadouts.get(i).setArmorBackID(null);
                     break;
                 }
             }

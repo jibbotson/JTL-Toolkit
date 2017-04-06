@@ -35,7 +35,7 @@
                                 <Image url="@../../../images/background_hangar1.jpg" />
                             </image>
                         </ImageView>
-                        <ComboBox layoutX="16.00" layoutY="6.00" prefHeight="25.00" prefWidth="326.00" promptText="Please select a starship...">
+                        <ComboBox fx:id="loadoutSelection" onAction="#loadLoadout" layoutX="16.00" layoutY="6.00" prefHeight="25.00" prefWidth="326.00" promptText="Select a loadout...">
                             <effect>
                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                             </effect>

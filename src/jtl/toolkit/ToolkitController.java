@@ -3,6 +3,7 @@ package jtl.toolkit;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -990,7 +991,72 @@ public class ToolkitController implements Initializable {
     }
     
     @FXML
-    public void saveLoadouts() {
+    public void saveLoadout() {
+        
+        Reactor reactor = (Reactor) loadoutReactor.getValue();
+        if(reactor != null) currentLoadout.setReactorID(reactor.getComponentID());
+        
+        Engine engine = (Engine) loadoutEngine.getValue();
+        if(engine != null) currentLoadout.setEngineID(engine.getComponentID());
+        
+        Shield shield = (Shield) loadoutShield.getValue();
+        if(shield != null) currentLoadout.setShieldID(shield.getComponentID());
+        
+        Booster booster = (Booster) loadoutBooster.getValue();
+        if(booster != null) currentLoadout.setBoosterID(booster.getComponentID());
+        
+        Capacitor capacitor = (Capacitor) loadoutCapacitor.getValue();
+        if(capacitor != null) currentLoadout.setCapacitorID(capacitor.getComponentID());
+        
+        DroidInterface droidInterface = (DroidInterface) loadoutInterface.getValue();
+        if(droidInterface != null) currentLoadout.setDroidInterfaceID(droidInterface.getComponentID());
+
+        Armor frontArmor = (Armor) loadoutFrontArmor.getValue();
+        if(frontArmor != null) currentLoadout.setArmorFrontID(frontArmor.getComponentID());
+        
+        Armor backArmor = (Armor) loadoutBackArmor.getValue();
+        if(backArmor != null) currentLoadout.setArmorBackID(backArmor.getComponentID());
+        
+        Countermeasure countermeasure = (Countermeasure) loadoutCountermeasure.getValue();
+        if(countermeasure != null) currentLoadout.setCountermeasureID(countermeasure.getComponentID());
+        
+        Weapon weaponOne = (Weapon) loadoutWeaponOne.getValue();
+        Weapon weaponTwo = (Weapon) loadoutWeaponTwo.getValue();
+        Weapon weaponThree = (Weapon) loadoutWeaponThree.getValue();
+        Weapon weaponFour = (Weapon) loadoutWeaponFour.getValue();
+        
+        ArrayList<UUID> weaponIDs = new ArrayList<>();
+        if(weaponOne != null) weaponIDs.add(weaponOne.getComponentID());
+        if(weaponTwo != null) weaponIDs.add(weaponTwo.getComponentID());
+        if(weaponThree != null) weaponIDs.add(weaponThree.getComponentID());
+        if(weaponFour != null) weaponIDs.add(weaponFour.getComponentID());
+        
+        currentLoadout.setWeaponIDs(weaponIDs);
+        
+        Ordnance ordnanceOne = (Ordnance) loadoutOrdnanceOne.getValue();
+        Ordnance ordnanceTwo = (Ordnance) loadoutOrdnanceTwo.getValue();
+        Ordnance ordnanceThree = (Ordnance) loadoutOrdnanceThree.getValue();
+        
+        ArrayList<UUID> ordnanceIDs = new ArrayList<>();
+        if(ordnanceOne != null) ordnanceIDs.add(ordnanceOne.getComponentID());
+        if(ordnanceTwo != null) ordnanceIDs.add(ordnanceTwo.getComponentID());
+        if(ordnanceThree != null) ordnanceIDs.add(ordnanceThree.getComponentID());
+        
+        currentLoadout.setOrdnanceIDs(ordnanceIDs);
+        
+        // TODO: do we need this?
+        Boolean existingLoadout = false;
+        for(int i = 0; i < loadouts.size(); i++) {
+            if(currentLoadout.getLoadoutID().equals(loadouts.get(i).getLoadoutID())){
+                existingLoadout = true;
+                loadouts.set(i, currentLoadout);
+            }
+        }
+        
+        if(!existingLoadout){
+            loadouts.add(currentLoadout);
+        }
+        
         loadoutHelper.saveLoadouts(loadouts);
     }
     
@@ -1017,6 +1083,7 @@ public class ToolkitController implements Initializable {
         
         engines = componentHelper.getEngines();
         loadoutEngine.setItems(FXCollections.observableList(engines));
+        
         loadoutEngine.setConverter(new StringConverter<Engine>() {
             @Override
             public String toString(Engine engine) {
@@ -1443,4 +1510,6 @@ public class ToolkitController implements Initializable {
         });
         loadoutSelection.getSelectionModel().clearSelection();
     }
+    
+    
 }

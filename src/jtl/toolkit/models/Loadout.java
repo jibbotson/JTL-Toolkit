@@ -23,15 +23,15 @@ public class Loadout {
     private UUID reactorID;
     private UUID engineID;
     private UUID shieldID;
-    private UUID armorOneID;
-    private UUID armorTwoID;
+    private UUID armorFrontID;
+    private UUID armorBackID;
     private UUID droidInterfaceID;
     private UUID capacitorID;
     private UUID boosterID;
     private UUID countermeasureID;
     private ArrayList<UUID> weaponIDs;
     private ArrayList<UUID> ordnanceIDs;
-
+    
     public Loadout(UUID loadoutID, String loadoutName, String chassisName, Double mass, Double accelerationModifier, Double decelerationModifier, Double yawRateModifier, Double pitchRateModifier, Double rollRateModifier, Double speedModifier, Integer weaponMounts, Integer ordnanceMounts) {
         this.loadoutID = loadoutID;
         this.loadoutName = loadoutName;
@@ -119,20 +119,20 @@ public class Loadout {
         this.shieldID = shieldID;
     }
 
-    public UUID getArmorOneID() {
-        return armorOneID;
+    public UUID getArmorFrontID() {
+        return armorFrontID;
     }
 
-    public void setArmorOneID(UUID armorOneID) {
-        this.armorOneID = armorOneID;
+    public void setArmorFrontID(UUID armorFrontID) {
+        this.armorFrontID = armorFrontID;
     }
 
-    public UUID getArmorTwoID() {
-        return armorTwoID;
+    public UUID getArmorBackID() {
+        return armorBackID;
     }
 
-    public void setArmorTwoID(UUID armorTwoID) {
-        this.armorTwoID = armorTwoID;
+    public void setArmorBackID(UUID armorBackID) {
+        this.armorBackID = armorBackID;
     }
 
     public UUID getDroidInterfaceID() {
@@ -171,7 +171,7 @@ public class Loadout {
         return weaponIDs;
     }
 
-    public void setWeaponsID(ArrayList<UUID> weaponsID) {
+    public void setWeaponIDs(ArrayList<UUID> weaponsID) {
         this.weaponIDs = weaponsID;
     }
 
@@ -179,7 +179,7 @@ public class Loadout {
         return ordnanceIDs;
     }
 
-    public void setOrdnanceID(ArrayList<UUID> ordnanceID) {
+    public void setOrdnanceIDs(ArrayList<UUID> ordnanceID) {
         this.ordnanceIDs = ordnanceID;
     }
 }

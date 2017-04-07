@@ -43,7 +43,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ComboBox>
-                        <Button fx:id="saveLoadoutButton" onAction="#saveLoadouts" layoutX="547.00" layoutY="4.00" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Save loadout" textFill="#f8f7f7">
+                        <Button fx:id="saveLoadoutButton" onAction="#saveLoadout" layoutX="547.00" layoutY="4.00" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Save loadout" textFill="#f8f7f7">
                             <font>
                                 <Font name="Consolas" size="13.00" />
                             </font>

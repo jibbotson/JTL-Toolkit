@@ -15,6 +15,8 @@ public class Ordnance {
     private Double versusShields;
     private Double versusArmor;
     private Double refireRate;
+    private String componentNotes;
+    private String componentName;
     
     public Ordnance() {
         this.componentID = UUID.randomUUID();
@@ -127,4 +129,21 @@ public class Ordnance {
     public void setRefireRate(Double refireRate) {
         this.refireRate = refireRate;
     }
+    
+    public String getComponentNotes() {
+        return componentNotes;
+    }
+
+    public void setComponentNotes(String componentNotes) {
+        this.componentNotes = componentNotes;
+    }
+
+    public String getComponentName() {
+        return componentName;
+    }
+
+    public void setComponentName(String componentName) {
+        this.componentName = componentName;
+    }
+    
 }

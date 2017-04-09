@@ -22,12 +22,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.StringConverter;
+import jtl.toolkit.helpers.ChassisHelper;
 import jtl.toolkit.helpers.ComponentHelper;
 import jtl.toolkit.helpers.LoadoutHelper;
 import jtl.toolkit.helpers.ValidationHelper;
 import jtl.toolkit.models.Armor;
 import jtl.toolkit.models.Booster;
 import jtl.toolkit.models.Capacitor;
+import jtl.toolkit.models.Chassis;
 import jtl.toolkit.models.Countermeasure;
 import jtl.toolkit.models.DroidInterface;
 import jtl.toolkit.models.Engine;
@@ -43,8 +45,10 @@ public class ToolkitController implements Initializable {
     ComponentHelper componentHelper;
     LoadoutHelper loadoutHelper;
     ValidationHelper validationHelper;
+    ChassisHelper chassisHelper;
     
     ArrayList<Loadout> loadouts;
+    ArrayList<Chassis> chassis;
     
     Loadout currentLoadout;
     
@@ -123,6 +127,7 @@ public class ToolkitController implements Initializable {
     @FXML Button removeComponentButton;
     
     // Combo Boxes
+    @FXML ComboBox chassisSelection;
     @FXML ComboBox loadoutSelection;
     @FXML ComboBox newComponentType;
     @FXML ComboBox newComponentLevel;
@@ -151,9 +156,13 @@ public class ToolkitController implements Initializable {
         componentHelper = new ComponentHelper();
         loadoutHelper = new LoadoutHelper();
         validationHelper = new ValidationHelper();
+        chassisHelper = new ChassisHelper();
+        
+        loadChassis();
         
         loadComponents();
         loadLoadouts();
+        
         reloadComponentTables();
         
         reactorTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -1509,6 +1518,29 @@ public class ToolkitController implements Initializable {
 
         });
         loadoutSelection.getSelectionModel().clearSelection();
+    }
+    
+    public void loadChassis() {
+        
+        chassis = chassisHelper.getChassis();
+        chassisSelection.setItems(FXCollections.observableList(chassis));
+        chassisSelection.setConverter(new StringConverter<Chassis>() {
+            @Override
+            public String toString(Chassis chassis) {
+                if (chassis == null) {
+                    return "Unable to retrieve loadout...";
+                } else {
+                    return chassis.getChassisLongName();
+                }
+            }
+
+            @Override
+            public Chassis fromString(String string) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        chassisSelection.getSelectionModel().clearSelection();
     }
     
     

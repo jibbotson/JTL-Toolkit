@@ -75,4 +75,13 @@ public class Armor {
     public void setComponentNotes(String componentNotes) {
         this.componentNotes = componentNotes;
     }
+
+    public String getComponentName() {
+        return componentName;
+    }
+
+    public void setComponentName(String componentName) {
+        this.componentName = componentName;
+    }
+    
 }

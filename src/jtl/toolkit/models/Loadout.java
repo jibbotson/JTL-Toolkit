@@ -7,18 +7,8 @@ public class Loadout {
     
     private final UUID loadoutID;
     
-    private final String loadoutName;
-    private final String chassisName;
-    private final Double mass;
-    private final Double accelerationModifier;
-    private final Double decelerationModifier;
-    private final Double yawRateModifier;
-    private final Double pitchRateModifier;
-    private final Double rollRateModifier;
-    private final Double speedModifier;
-    
-    private final Integer weaponMounts;
-    private final Integer ordnanceMounts;
+    private String loadoutName;
+    private Chassis chassis;
     
     private UUID reactorID;
     private UUID engineID;
@@ -32,19 +22,23 @@ public class Loadout {
     private ArrayList<UUID> weaponIDs;
     private ArrayList<UUID> ordnanceIDs;
     
-    public Loadout(UUID loadoutID, String loadoutName, String chassisName, Double mass, Double accelerationModifier, Double decelerationModifier, Double yawRateModifier, Double pitchRateModifier, Double rollRateModifier, Double speedModifier, Integer weaponMounts, Integer ordnanceMounts) {
-        this.loadoutID = loadoutID;
-        this.loadoutName = loadoutName;
-        this.chassisName = chassisName;
-        this.mass = mass;
-        this.accelerationModifier = accelerationModifier;
-        this.decelerationModifier = decelerationModifier;
-        this.yawRateModifier = yawRateModifier;
-        this.pitchRateModifier = pitchRateModifier;
-        this.rollRateModifier = rollRateModifier;
-        this.speedModifier = speedModifier;
-        this.weaponMounts = weaponMounts;
-        this.ordnanceMounts = ordnanceMounts;
+    public Loadout() {
+        this.loadoutID = UUID.randomUUID();
+        this.loadoutName = "";
+        
+        this.weaponIDs = new ArrayList<>();
+        this.ordnanceIDs = new ArrayList<>();
+        
+        this.reactorID = null;
+        this.engineID = null;
+        this.shieldID = null;
+        this.boosterID = null;
+        this.capacitorID = null;
+        this.shieldID = null;
+        this.armorBackID = null;
+        this.armorFrontID = null;
+        this.countermeasureID = null;
+        this.droidInterfaceID = null;
     }
 
     public UUID getLoadoutID() {
@@ -55,44 +49,16 @@ public class Loadout {
         return loadoutName;
     }
 
-    public String getChassisName() {
-        return chassisName;
+    public void setLoadoutName(String loadoutName) {
+        this.loadoutName = loadoutName;
     }
 
-    public Double getMass() {
-        return mass;
+    public Chassis getChassis() {
+        return chassis;
     }
 
-    public Double getAccelerationModifier() {
-        return accelerationModifier;
-    }
-
-    public Double getDecelerationModifier() {
-        return decelerationModifier;
-    }
-
-    public Double getYawRateModifier() {
-        return yawRateModifier;
-    }
-
-    public Double getPitchRateModifier() {
-        return pitchRateModifier;
-    }
-
-    public Double getRollRateModifier() {
-        return rollRateModifier;
-    }
-
-    public Double getSpeedModifier() {
-        return speedModifier;
-    }
-
-    public Integer getWeaponMounts() {
-        return weaponMounts;
-    }
-
-    public Integer getOrdnanceMounts() {
-        return ordnanceMounts;
+    public void setChassis(Chassis chassis) {
+        this.chassis = chassis;
     }
 
     public UUID getReactorID() {
@@ -171,15 +137,18 @@ public class Loadout {
         return weaponIDs;
     }
 
-    public void setWeaponIDs(ArrayList<UUID> weaponsID) {
-        this.weaponIDs = weaponsID;
+    public void setWeaponIDs(ArrayList<UUID> weaponIDs) {
+        this.weaponIDs = weaponIDs;
     }
 
     public ArrayList<UUID> getOrdnanceIDs() {
         return ordnanceIDs;
     }
 
-    public void setOrdnanceIDs(ArrayList<UUID> ordnanceID) {
-        this.ordnanceIDs = ordnanceID;
+    public void setOrdnanceIDs(ArrayList<UUID> ordnanceIDs) {
+        this.ordnanceIDs = ordnanceIDs;
     }
+    
+    
+    
 }

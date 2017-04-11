@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import jtl.toolkit.helpers.ChassisHelper;
 import jtl.toolkit.helpers.ComponentHelper;
@@ -90,7 +91,9 @@ public class ToolkitController implements Initializable {
     @FXML AnchorPane newComponentFieldContainerEight;
     @FXML AnchorPane newComponentFieldContainerNine;
     @FXML AnchorPane newComponentFieldContainerTen;
+    @FXML AnchorPane loadoutComponents;
     @FXML TabPane existingComponentsTabPane;
+    @FXML Pane createLoadoutPane;
     
     // Labels
     @FXML Label newComponentFieldOneLabel;
@@ -117,6 +120,8 @@ public class ToolkitController implements Initializable {
     @FXML TextField newComponentFieldEightTextbox;
     @FXML TextField newComponentFieldNineTextbox;
     @FXML TextField newComponentFieldTenTextbox;
+    @FXML TextField chassisMass;
+    @FXML TextField loadoutName;
     
     @FXML TextField newComponentName;
     @FXML TextArea newComponentNotes;
@@ -125,6 +130,10 @@ public class ToolkitController implements Initializable {
     @FXML Button saveComponentButton;
     @FXML Button clearNewComponentFieldsButton;
     @FXML Button removeComponentButton;
+    @FXML Button saveLoadoutButton;
+    @FXML Button clearComponentsButton;
+    @FXML Button deleteLoadoutButton;
+    @FXML Button createLoadoutButton;
     
     // Combo Boxes
     @FXML ComboBox chassisSelection;
@@ -159,9 +168,17 @@ public class ToolkitController implements Initializable {
         chassisHelper = new ChassisHelper();
         
         loadChassis();
-        
         loadComponents();
         loadLoadouts();
+        
+        
+        
+        if(loadouts == null || loadouts.isEmpty()) {
+            createLoadoutPane.setVisible(true);
+            loadoutSelection.setDisable(true);
+        } else {
+            createLoadoutButton.setDisable(false);
+        }
         
         reloadComponentTables();
         
@@ -1368,137 +1385,144 @@ public class ToolkitController implements Initializable {
     @FXML
     public void loadLoadout() {
         
+        clearComponents();
+        
         currentLoadout = (Loadout) loadoutSelection.getValue();
         
-        if(currentLoadout.getReactorID() != null) {
-            for(int i = 0; i < reactors.size(); i++) {
-                if(currentLoadout.getReactorID().equals(reactors.get(i).getComponentID())){
-                    loadoutReactor.setValue(reactors.get(i));
-                    break;
-                }
-            }
-        }
-        
-        if(currentLoadout.getEngineID() != null) {
-            for(int i = 0; i < engines.size(); i++) {
-                if(currentLoadout.getEngineID().equals(engines.get(i).getComponentID())){
-                    loadoutEngine.setValue(engines.get(i));
-                    break;
-                }
-            }
-        }
-        
-        if(currentLoadout.getShieldID() != null) {
-            for(int i = 0; i < shields.size(); i++) {
-                if(currentLoadout.getShieldID().equals(shields.get(i).getComponentID())){
-                    loadoutShield.setValue(shields.get(i));
-                    break;
-                }
-            }
-        }
-        
-        if(currentLoadout.getArmorFrontID() != null) {
-            for(int i = 0; i < armors.size(); i++) {
-                if(currentLoadout.getArmorFrontID().equals(armors.get(i).getComponentID())){
-                    loadoutFrontArmor.setValue(armors.get(i));
-                    break;
-                }
-            }
-        }
-        
-        if(currentLoadout.getArmorBackID() != null) {
-            for(int i = 0; i < armors.size(); i++) {
-                if(currentLoadout.getArmorBackID().equals(armors.get(i).getComponentID())){
-                    loadoutBackArmor.setValue(armors.get(i));
-                    break;
-                }
-            }
-        }
-        
-        if(currentLoadout.getCapacitorID() != null) {
-            for(int i = 0; i < capacitors.size(); i++) {
-                if(currentLoadout.getCapacitorID().equals(capacitors.get(i).getComponentID())){
-                    loadoutCapacitor.setValue(capacitors.get(i));
-                    break;
-                }
-            }
-        }
-        
-        if(currentLoadout.getBoosterID() != null) {
-            for(int i = 0; i < boosters.size(); i++) {
-                if(currentLoadout.getBoosterID().equals(boosters.get(i).getComponentID())){
-                    loadoutBooster.setValue(boosters.get(i));
-                    break;
-                }
-            }
-        }
-        
-        if(currentLoadout.getCountermeasureID() != null) {
-            for(int i = 0; i < countermeasures.size(); i++) {
-                if(currentLoadout.getCountermeasureID().equals(countermeasures.get(i).getComponentID())){
-                    loadoutCountermeasure.setValue(countermeasures.get(i));
-                    break;
-                }
-            }
-        }
-        
-        if(currentLoadout.getDroidInterfaceID() != null) {
-            for(int i = 0; i < interfaces.size(); i++) {
-                if(currentLoadout.getDroidInterfaceID().equals(interfaces.get(i).getComponentID())){
-                    loadoutInterface.setValue(interfaces.get(i));
-                    break;
-                }
-            }
-        }
-        
-        for(int w = 0; w < currentLoadout.getWeaponIDs().size(); w++){
-            for(int i = 0; i < weapons.size(); i++) {
-                if(currentLoadout.getWeaponIDs().get(w).equals(weapons.get(i).getComponentID())){
-                    switch(w) {
-                        case 0 :
-                            loadoutWeaponOne.setValue(weapons.get(i));
-                            break;
-                        case 1 :
-                            loadoutWeaponTwo.setValue(weapons.get(i));
-                            break;
-                        case 2 :
-                            loadoutWeaponThree.setValue(weapons.get(i));
-                            break;
-                        case 3:
-                            loadoutWeaponFour.setValue(weapons.get(i));
-                            break;
+        if(currentLoadout != null) {
+            if(currentLoadout.getReactorID() != null) {
+                for(int i = 0; i < reactors.size(); i++) {
+                    if(currentLoadout.getReactorID().equals(reactors.get(i).getComponentID())){
+                        loadoutReactor.setValue(reactors.get(i));
+                        break;
                     }
                 }
-                
-                break;
-            }            
-        }
-        
-        for(int w = 0; w < currentLoadout.getOrdnanceIDs().size(); w++){
-            for(int i = 0; i < ordnance.size(); i++) {
-                if(currentLoadout.getOrdnanceIDs().get(w).equals(ordnance.get(i).getComponentID())){
-                    switch(w) {
-                        case 0 :
-                            loadoutOrdnanceOne.setValue(ordnance.get(i));
-                            break;
-                        case 1 :
-                            loadoutOrdnanceTwo.setValue(ordnance.get(i));
-                            break;
-                        case 2 :
-                            loadoutOrdnanceThree.setValue(ordnance.get(i));
-                            break;
+            }
+
+            if(currentLoadout.getEngineID() != null) {
+                for(int i = 0; i < engines.size(); i++) {
+                    if(currentLoadout.getEngineID().equals(engines.get(i).getComponentID())){
+                        loadoutEngine.setValue(engines.get(i));
+                        break;
                     }
                 }
-                
-                break;
-            }            
-        }
-        
-        
+            }
+
+            if(currentLoadout.getShieldID() != null) {
+                for(int i = 0; i < shields.size(); i++) {
+                    if(currentLoadout.getShieldID().equals(shields.get(i).getComponentID())){
+                        loadoutShield.setValue(shields.get(i));
+                        break;
+                    }
+                }
+            }
+
+            if(currentLoadout.getArmorFrontID() != null) {
+                for(int i = 0; i < armors.size(); i++) {
+                    if(currentLoadout.getArmorFrontID().equals(armors.get(i).getComponentID())){
+                        loadoutFrontArmor.setValue(armors.get(i));
+                        break;
+                    }
+                }
+            }
+
+            if(currentLoadout.getArmorBackID() != null) {
+                for(int i = 0; i < armors.size(); i++) {
+                    if(currentLoadout.getArmorBackID().equals(armors.get(i).getComponentID())){
+                        loadoutBackArmor.setValue(armors.get(i));
+                        break;
+                    }
+                }
+            }
+
+            if(currentLoadout.getCapacitorID() != null) {
+                for(int i = 0; i < capacitors.size(); i++) {
+                    if(currentLoadout.getCapacitorID().equals(capacitors.get(i).getComponentID())){
+                        loadoutCapacitor.setValue(capacitors.get(i));
+                        break;
+                    }
+                }
+            }
+
+            if(currentLoadout.getBoosterID() != null) {
+                for(int i = 0; i < boosters.size(); i++) {
+                    if(currentLoadout.getBoosterID().equals(boosters.get(i).getComponentID())){
+                        loadoutBooster.setValue(boosters.get(i));
+                        break;
+                    }
+                }
+            }
+
+            if(currentLoadout.getCountermeasureID() != null) {
+                for(int i = 0; i < countermeasures.size(); i++) {
+                    if(currentLoadout.getCountermeasureID().equals(countermeasures.get(i).getComponentID())){
+                        loadoutCountermeasure.setValue(countermeasures.get(i));
+                        break;
+                    }
+                }
+            }
+
+            if(currentLoadout.getDroidInterfaceID() != null) {
+                for(int i = 0; i < interfaces.size(); i++) {
+                    if(currentLoadout.getDroidInterfaceID().equals(interfaces.get(i).getComponentID())){
+                        loadoutInterface.setValue(interfaces.get(i));
+                        break;
+                    }
+                }
+            }
+
+            for(int w = 0; w < currentLoadout.getWeaponIDs().size(); w++){
+                for(int i = 0; i < weapons.size(); i++) {
+                    if(currentLoadout.getWeaponIDs().get(w).equals(weapons.get(i).getComponentID())){
+                        switch(w) {
+                            case 0 :
+                                loadoutWeaponOne.setValue(weapons.get(i));
+                                break;
+                            case 1 :
+                                loadoutWeaponTwo.setValue(weapons.get(i));
+                                break;
+                            case 2 :
+                                loadoutWeaponThree.setValue(weapons.get(i));
+                                break;
+                            case 3:
+                                loadoutWeaponFour.setValue(weapons.get(i));
+                                break;
+                        }
+                    }
+
+                    break;
+                }            
+            }
+
+            for(int w = 0; w < currentLoadout.getOrdnanceIDs().size(); w++){
+                for(int i = 0; i < ordnance.size(); i++) {
+                    if(currentLoadout.getOrdnanceIDs().get(w).equals(ordnance.get(i).getComponentID())){
+                        switch(w) {
+                            case 0 :
+                                loadoutOrdnanceOne.setValue(ordnance.get(i));
+                                break;
+                            case 1 :
+                                loadoutOrdnanceTwo.setValue(ordnance.get(i));
+                                break;
+                            case 2 :
+                                loadoutOrdnanceThree.setValue(ordnance.get(i));
+                                break;
+                        }
+                    }
+
+                    break;
+                }            
+            }
+
+            createLoadoutPane.setVisible(false);
+            saveLoadoutButton.setDisable(false);
+            deleteLoadoutButton.setDisable(false);
+            clearComponentsButton.setDisable(false);
+            loadoutComponents.setVisible(true);
+        } else { System.out.println("null");}
     }
     
     public void loadLoadouts() {
-        
         loadouts = loadoutHelper.getLoadouts();
         loadoutSelection.setItems(FXCollections.observableList(loadouts));
         loadoutSelection.setConverter(new StringConverter<Loadout>() {
@@ -1507,7 +1531,7 @@ public class ToolkitController implements Initializable {
                 if (loadout == null) {
                     return "Unable to retrieve loadout...";
                 } else {
-                    return loadout.getLoadoutName() + " - " + loadout.getChassisName();
+                    return loadout.getLoadoutName() + " - " + loadout.getChassis().getChassisShortName();
                 }
             }
 
@@ -1543,5 +1567,117 @@ public class ToolkitController implements Initializable {
         chassisSelection.getSelectionModel().clearSelection();
     }
     
+    @FXML
+    public void deleteLoadout() {
+        
+        for(int i = 0; i < loadouts.size(); i++) {
+            if(currentLoadout.getLoadoutID().equals(loadouts.get(i).getLoadoutID())) {
+                loadouts.remove(i);
+                break;
+            }
+        }
+        deleteLoadoutButton.setDisable(true);
+        saveLoadoutButton.setDisable(true);
+        clearComponentsButton.setDisable(true);
+        loadoutComponents.setVisible(false);
+        
+        loadoutHelper.saveLoadouts(loadouts);
+        loadLoadouts();
+        clearComponents();
+        
+       
+    }
+    
+    @FXML
+    public void clearComponents() {
+        loadoutReactor.getSelectionModel().clearSelection();
+        loadoutEngine.getSelectionModel().clearSelection();
+        loadoutShield.getSelectionModel().clearSelection();
+        loadoutBooster.getSelectionModel().clearSelection();
+        loadoutCapacitor.getSelectionModel().clearSelection();
+        loadoutInterface.getSelectionModel().clearSelection();
+        loadoutFrontArmor.getSelectionModel().clearSelection();
+        loadoutBackArmor.getSelectionModel().clearSelection();
+        loadoutWeaponOne.getSelectionModel().clearSelection();
+        loadoutWeaponTwo.getSelectionModel().clearSelection();
+        loadoutWeaponThree.getSelectionModel().clearSelection();
+        loadoutWeaponFour.getSelectionModel().clearSelection();
+        loadoutOrdnanceOne.getSelectionModel().clearSelection();
+        loadoutOrdnanceTwo.getSelectionModel().clearSelection();
+        loadoutOrdnanceThree.getSelectionModel().clearSelection();
+        loadoutCountermeasure.getSelectionModel().clearSelection();
+    }
+    
+    @FXML
+    public void createLoadout() {
+        clearComponents();
+        
+        loadoutSelection.getItems().removeAll();
+        loadoutSelection.getSelectionModel().clearSelection();
+        loadoutSelection.setDisable(true);
+        
+        saveLoadoutButton.setDisable(true);
+        createLoadoutButton.setDisable(true);
+        deleteLoadoutButton.setDisable(true);
+        clearComponentsButton.setDisable(true);
+        
+        loadoutComponents.setVisible(false);
+        createLoadoutPane.setVisible(true);
+    }
+    
+    @FXML
+    public void cancelNewLoadout() {
+        loadLoadouts();
+        createLoadoutButton.setDisable(false);
+        loadoutSelection.setDisable(false);
+        createLoadoutPane.setVisible(false);
+    }
+    
+    @FXML
+    public void handleChassis() {
+        
+        Chassis chassis = (Chassis) chassisSelection.getValue();
+        
+        if(chassis != null) {
+            if(chassis.getMass() > 0) {
+                chassisMass.setText(chassis.getMaximumMass().toString());
+            } else {
+                chassisMass.setDisable(false);
+            }
+        }
+    }
+    
+    @FXML
+    public void saveNewLoadout() {
+        
+        Loadout newLoadout = new Loadout();
+        
+        Chassis selectedChassis = (Chassis) chassisSelection.getValue();
+        selectedChassis.setMass(Double.parseDouble(chassisMass.getText()));
+        
+        newLoadout.setChassis(selectedChassis);
+        newLoadout.setLoadoutName(loadoutName.getText());
+        
+        loadouts.add(newLoadout);
+        loadoutHelper.saveLoadouts(loadouts);
+        
+        // Clear new loadout fields
+        chassisSelection.getSelectionModel().clearSelection();
+        loadoutName.setText("");
+        chassisMass.setText("");
+        
+        // Display / hide controls
+        createLoadoutPane.setVisible(false);
+        loadoutComponents.setVisible(true);
+        saveLoadoutButton.setDisable(false);
+        createLoadoutButton.setDisable(false);
+        clearComponentsButton.setDisable(false);
+        deleteLoadoutButton.setDisable(false);
+        
+        loadLoadouts();
+        currentLoadout = newLoadout;
+        loadoutSelection.setDisable(false);
+        loadoutSelection.getSelectionModel().select(currentLoadout);
+    }
     
 }

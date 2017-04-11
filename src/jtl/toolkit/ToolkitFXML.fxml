@@ -4,7 +4,6 @@
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -30,99 +29,81 @@
             <content>
                 <Pane prefHeight="200.00" prefWidth="200.00" style="-fx-background-color: #005780;">
                     <children>
-                        <AnchorPane>
+                        <AnchorPane maxHeight="300.0" minHeight="40.0" minWidth="600.0" prefHeight="40.0" prefWidth="836.0">
                             <children>
                                 <ImageView depthTest="DISABLE" disable="true" fitHeight="656.0" fitWidth="1286.00" opacity="0.07" pickOnBounds="true">
                                     <image>
                                         <Image url="@../../../images/background_hangar1.jpg" />
                                     </image>
                                 </ImageView>
-                                <ComboBox fx:id="loadoutSelection" disable="true" layoutX="16.0" layoutY="6.0" onAction="#loadLoadout" prefHeight="25.00" prefWidth="208.0" promptText="Select a loadout...">
+                                <ComboBox fx:id="loadoutSelection" layoutX="16.0" layoutY="6.0" onAction="#loadLoadout" prefHeight="25.00" prefWidth="208.0" promptText="Select a loadout...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
                                 </ComboBox>
                                 <Button fx:id="saveLoadoutButton" disable="true" layoutX="410.0" layoutY="5.0" mnemonicParsing="false" onAction="#saveLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Save loadout" textFill="#f8f7f7">
                                     <font>
                                         <Font name="Consolas" size="13.00" />
                                     </font>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
                                     <effect>
                                         <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                     </effect>
                                 </Button>
-                                <Button disable="true" layoutX="552.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: orange;" text="Clear loadout">
+                                <Button fx:id="clearComponentsButton" disable="true" layoutX="552.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: orange;" text="Clear loadout">
                                     <font>
                                         <Font name="Consolas" size="13.00" />
                                     </font>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
                                     <effect>
                                         <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                     </effect>
                                 </Button>
-                                <Button disable="true" layoutX="235.0" layoutY="5.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="163.0" style="-fx-background-color: #4b8dd8;" text="Create a new loadout" textFill="WHITE">
+                                <Button fx:id="createLoadoutButton" disable="true" layoutX="235.0" layoutY="5.0" mnemonicParsing="false" onAction="#createLoadout" prefHeight="27.0" prefWidth="163.0" style="-fx-background-color: #4b8dd8;" text="Create a new loadout" textFill="WHITE">
                                     <font>
                                         <Font name="Consolas" size="13.00" />
                                     </font>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
                                     <effect>
                                         <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                     </effect>
                                 </Button>
                                 <Separator layoutY="31.0" prefHeight="16.0" prefWidth="833.0" />
                                 <Separator layoutX="825.0" orientation="VERTICAL" prefHeight="659.0" prefWidth="22.00" />
-                                <Button disable="true" layoutX="694.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: red;" text="Delete loadout" textFill="#f2f2f2">
+                                <Button fx:id="deleteLoadoutButton" disable="true" layoutX="694.0" layoutY="5.0" mnemonicParsing="false" onAction="#deleteLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: red;" text="Delete loadout" textFill="#f2f2f2">
                                     <font>
                                         <Font name="Consolas" size="13.00" />
                                     </font>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
                                     <effect>
                                         <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                     </effect>
                                 </Button>
                             </children>
                         </AnchorPane>
-                        <AnchorPane>
+                        <AnchorPane fx:id="createLoadoutPane" layoutY="37.0" prefHeight="614.0" prefWidth="832.0" visible="false">
                             <children>
-                                <Pane layoutX="-1.0" layoutY="40.0" prefHeight="611.0" prefWidth="833.0">
+                                <Pane layoutX="-1.0" layoutY="2.0" prefHeight="649.0" prefWidth="833.0">
                                     <children>
-                                        <TextField alignment="CENTER" disable="true" layoutX="274.0" layoutY="347.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter the total mass..." />
-                                        <ComboBox fx:id="chassisSelection" layoutX="274.0" layoutY="269.0" prefHeight="25.0" prefWidth="273.0" promptText="Select a chassis...">
+                                        <TextField fx:id="chassisMass" alignment="CENTER" disable="true" layoutX="274.0" layoutY="347.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter the total mass..." />
+                                        <ComboBox fx:id="chassisSelection" onAction="#handleChassis" layoutX="274.0" layoutY="269.0" prefHeight="25.0" prefWidth="273.0" promptText="Select a chassis...">
                                             
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </ComboBox>
-                                        <TextField alignment="CENTER" layoutX="274.0" layoutY="309.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter a loadout name..." />
-                                        <Button fx:id="saveLoadoutButton1" disable="true" layoutX="274.0" layoutY="401.0" mnemonicParsing="false" onAction="#saveLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Create" textFill="#f8f7f7">
+                                        <TextField fx:id="loadoutName" alignment="CENTER" layoutX="274.0" layoutY="309.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter a loadout name..." />
+                                        <Button fx:id="saveNewLoadoutButton" layoutX="274.0" layoutY="401.0" mnemonicParsing="false" onAction="#saveNewLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Create" textFill="#f8f7f7">
                                             <font>
                                                 <Font name="Consolas" size="13.00" />
                                             </font>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
                                             <effect>
                                                 <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                             </effect>
                                         </Button>
-                                        <Button fx:id="saveLoadoutButton11" disable="true" layoutX="417.0" layoutY="401.0" mnemonicParsing="false" onAction="#saveLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: red;" text="Cancel" textFill="#f8f7f7">
+                                        <Button fx:id="cancelLoadoutButton" layoutX="417.0" layoutY="401.0" mnemonicParsing="false" onAction="#cancelNewLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: red;" text="Cancel" textFill="#f8f7f7">
                                             <font>
                                                 <Font name="Consolas" size="13.00" />
                                             </font>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                             <effect>
                                                 <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                             </effect>
@@ -136,25 +117,32 @@
                                 </Pane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="componentSelectContainer" layoutX="-75.0" layoutY="-26.0" visible="false">
+                        <AnchorPane fx:id="loadoutComponents" visible="false" layoutX="-75.0" layoutY="39.0" prefHeight="639.0" prefWidth="911.0">
                             <children>
-                                <AnchorPane layoutX="122.0" layoutY="72.0" prefHeight="126.0" prefWidth="768.0">
+                                <AnchorPane layoutX="75.0" layoutY="-1.0" maxHeight="599.0" minHeight="200.0" prefHeight="599.0" prefWidth="836.0">
+                                    <children>
+                                        <Separator layoutY="137.0" prefHeight="0.00" prefWidth="836.00" />
+                                        <Separator layoutY="282.0" prefHeight="0.00" prefWidth="836.00" />
+                                        <Separator layoutX="27.0" layoutY="2.0" orientation="VERTICAL" prefHeight="614.0" prefWidth="17.00" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="122.0" layoutY="4.0" prefHeight="126.0" prefWidth="768.0">
                                     <children>
                                         <ComboBox fx:id="loadoutReactor" layoutY="5.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a reactor...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <ComboBox fx:id="loadoutEngine" layoutX="194.0" layoutY="5.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select an engine...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutY="49.0" text="Generation Rate:" textFill="#f8f8f8">
                                             <font>
@@ -235,9 +223,9 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="390.0" layoutY="35.0" text="Energy drain:" textFill="#f8f8f8">
                                             <font>
@@ -283,9 +271,9 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="588.0" layoutY="36.0" text="Energy drain:" textFill="#f8f8f8">
                                             <font>
@@ -317,15 +305,15 @@
                                         <DropShadow />
                                     </effect>
                                 </AnchorPane>
-                                <AnchorPane layoutX="117.0" layoutY="355.0" prefHeight="306.0" prefWidth="778.00">
+                                <AnchorPane layoutX="117.0" layoutY="291.0" prefHeight="306.0" prefWidth="778.00">
                                     <children>
                                         <ComboBox fx:id="loadoutWeaponOne" layoutX="4.0" layoutY="-1.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="4.0" layoutY="28.0" text="Energy drain:" textFill="WHITE">
                                             <font>
@@ -391,9 +379,9 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="200.0" layoutY="28.0" text="Energy drain:" textFill="WHITE">
                                             <font>
@@ -464,9 +452,9 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="598.0" layoutY="28.0" text="Energy drain:" textFill="WHITE">
                                             <font>
@@ -537,9 +525,9 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="394.0" layoutY="28.0" text="Energy drain:" textFill="WHITE">
                                             <font>
@@ -610,9 +598,9 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="1.0" layoutY="199.0" text="Energy drain:" textFill="#f5f5f5">
                                             <font>
@@ -658,9 +646,9 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="198.0" layoutY="199.0" text="Mass:" textFill="#f5f5f5">
                                             <font>
@@ -686,17 +674,17 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <ComboBox fx:id="loadoutOrdnanceThree" layoutX="597.0" layoutY="170.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance three...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="4.0" layoutY="72.0" text="Maximum damage:" textFill="WHITE">
                                             <font>
@@ -988,22 +976,15 @@
                                         <DropShadow color="#0a0909" />
                                     </effect>
                                 </AnchorPane>
-                                <AnchorPane layoutX="75.0">
-                                    <children>
-                                        <Separator layoutY="210.0" prefHeight="0.00" prefWidth="836.00" />
-                                        <Separator layoutY="343.0" prefHeight="0.00" prefWidth="836.00" />
-                                        <Separator layoutX="27.0" layoutY="66.0" orientation="VERTICAL" prefHeight="614.0" prefWidth="17.00" />
-                                    </children>
-                                </AnchorPane>
-                                <AnchorPane layoutX="122.0" layoutY="219.0">
+                                <AnchorPane layoutX="122.0" layoutY="152.0">
                                     <children>
                                         <ComboBox fx:id="loadoutShield" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select a shield...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutY="31.0" text="Energy drain:" textFill="WHITE">
                                             <font>
@@ -1059,17 +1040,17 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <ComboBox fx:id="loadoutFrontArmor" layoutX="194.0" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select front armor...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="194.0" layoutY="31.0" text="Armor:" textFill="WHITE">
                                             <font>
@@ -1095,9 +1076,9 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <Label layoutX="592.0" layoutY="31.0" text="Mass:" textFill="WHITE">
                                             <font>
@@ -1194,9 +1175,9 @@
                                         <DropShadow />
                                     </effect>
                                 </AnchorPane>
-                                <AnchorPane layoutY="10.0" prefHeight="507.0" prefWidth="28.0">
+                                <AnchorPane layoutY="-1.0" maxWidth="50.0" minWidth="50.0" prefHeight="565.0" prefWidth="60.0">
                                     <children>
-                                        <Label layoutX="56.0" layoutY="485.275390625" style="-fx-rotate: 270;" text="OFFENSE" textFill="#fcc5c5" wrapText="true">
+                                        <Label layoutX="52.0" layoutY="425.275390625" style="-fx-rotate: 270;" text="OFFENSE" textFill="#fcc5c5" wrapText="true">
                                             <font>
                                                 <Font name="Consolas Bold" size="18.00" />
                                             </font>
@@ -1204,7 +1185,7 @@
                                                 <DropShadow color="#f2210f" height="0.00" radius="32.1775" spread="0.33" width="130.71" />
                                             </effect>
                                         </Label>
-                                        <Label layoutX="56.0" layoutY="119.275390625" style="-fx-rotate: 270;" text="UTILITY" textFill="#ebffea" wrapText="true">
+                                        <Label layoutX="59.0" layoutY="62.275390625" style="-fx-rotate: 270;" text="UTILITY" textFill="#ebffea" wrapText="true">
                                             <font>
                                                 <Font name="Consolas Bold" size="18.00" />
                                             </font>
@@ -1212,7 +1193,7 @@
                                                 <DropShadow color="#32eb2b" height="15.07" radius="28.5325" spread="0.3" width="101.06" />
                                             </effect>
                                         </Label>
-                                        <Label layoutX="56.0" layoutY="255.275390625" style="-fx-rotate: 270;" text="DEFENSE" textFill="#c8e7ff" wrapText="true">
+                                        <Label layoutX="51.0" layoutY="200.275390625" style="-fx-rotate: 270;" text="DEFENSE" textFill="#c8e7ff" wrapText="true">
                                             <font>
                                                 <Font name="Consolas Bold" size="18.00" />
                                             </font>
@@ -1232,49 +1213,49 @@
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <ComboBox layoutX="1.0" layoutY="30.00" prefHeight="25.00" prefWidth="196.00" promptText="Select an engine overload...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <ComboBox layoutY="61.0" prefHeight="25.00" prefWidth="196.00" promptText="Select a capacitor overload...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <ComboBox layoutX="217.00" prefHeight="25.00" prefWidth="196.00" promptText="Select a weapon overload...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <ComboBox layoutX="217.00" layoutY="30.00" prefHeight="25.00" prefWidth="196.00" promptText="Select a shield adjust...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                         <ComboBox layoutX="217.00" layoutY="61.0" prefHeight="25.00" prefWidth="196.00" promptText="Select a shield shunt...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
+                                            
+                                                
+                                            
                                         </ComboBox>
                                     </children>
                                 </AnchorPane>
@@ -1505,9 +1486,6 @@
                     <opaqueInsets>
                         <Insets bottom="50.00" right="50.00" top="50.00" />
                     </opaqueInsets>
-                    <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                    </cursor>
                 </Pane>
             </content>
         </Tab>

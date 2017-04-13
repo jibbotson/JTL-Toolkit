@@ -1,6 +1,7 @@
 package jtl.toolkit;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.UUID;
@@ -92,6 +93,11 @@ public class ToolkitController implements Initializable {
     @FXML AnchorPane newComponentFieldContainerNine;
     @FXML AnchorPane newComponentFieldContainerTen;
     @FXML AnchorPane loadoutComponents;
+    @FXML AnchorPane loadoutWeaponTwoContainer;
+    @FXML AnchorPane loadoutWeaponThreeContainer;
+    @FXML AnchorPane loadoutWeaponFourContainer;
+    @FXML AnchorPane loadoutOrdnanceTwoContainer;
+    @FXML AnchorPane loadoutOrdnanceThreeContainer;
     @FXML TabPane existingComponentsTabPane;
     @FXML Pane createLoadoutPane;
     
@@ -108,6 +114,124 @@ public class ToolkitController implements Initializable {
     @FXML Label newComponentFieldTenLabel;
     
     @FXML Label newComponentMessage;
+    @FXML Label currentReactorArmor;
+    @FXML Label currentReactorHitpoints;
+    @FXML Label currentReactorMass;
+    @FXML Label currentReactorGeneration;
+    @FXML Label currentEngineArmor;
+    @FXML Label currentEngineHitpoints;
+    @FXML Label currentEngineDrain;
+    @FXML Label currentEngineMass;
+    @FXML Label currentEnginePitch;
+    @FXML Label currentEngineYaw;
+    @FXML Label currentEngineRoll;
+    @FXML Label currentEngineSpeed;
+    @FXML Label currentShieldArmor;
+    @FXML Label currentShieldHitpoints;
+    @FXML Label currentShieldDrain;
+    @FXML Label currentShieldMass;
+    @FXML Label currentShieldFrontHitpoints;
+    @FXML Label currentShieldBackHitpoints;
+    @FXML Label currentShieldRecharge;
+    @FXML Label currentCapacitorArmor;
+    @FXML Label currentCapacitorHitpoints;
+    @FXML Label currentCapacitorDrain;
+    @FXML Label currentCapacitorMass;
+    @FXML Label currentCapacitorEnergy;
+    @FXML Label currentCapacitorRecharge;
+    @FXML Label currentBoosterArmor;
+    @FXML Label currentBoosterHitpoints;
+    @FXML Label currentBoosterDrain;
+    @FXML Label currentBoosterMass;
+    @FXML Label currentBoosterEnergy;
+    @FXML Label currentBoosterRecharge;
+    @FXML Label currentBoosterConsumption;
+    @FXML Label currentBoosterSpeed;
+    @FXML Label currentInterfaceArmor;
+    @FXML Label currentInterfaceHitpoints;
+    @FXML Label currentInterfaceDrain;
+    @FXML Label currentInterfaceMass;
+    @FXML Label currentInterfaceSpeed;
+    @FXML Label currentFrontArmorArmor;
+    @FXML Label currentFrontArmorHitpoints;
+    @FXML Label currentFrontArmorMass;
+    @FXML Label currentBackArmorArmor;
+    @FXML Label currentBackArmorHitpoints;
+    @FXML Label currentBackArmorMass;
+    @FXML Label currentWeaponOneArmor;
+    @FXML Label currentWeaponOneHitpoints;
+    @FXML Label currentWeaponOneDrain;
+    @FXML Label currentWeaponOneMass;
+    @FXML Label currentWeaponOneMinimumDamage;
+    @FXML Label currentWeaponOneMaximumDamage;
+    @FXML Label currentWeaponOneVersusShields;
+    @FXML Label currentWeaponOneVersusArmor;
+    @FXML Label currentWeaponOneRefire;
+    @FXML Label currentWeaponOneEPS;
+    @FXML Label currentWeaponTwoArmor;
+    @FXML Label currentWeaponTwoHitpoints;
+    @FXML Label currentWeaponTwoDrain;
+    @FXML Label currentWeaponTwoMass;
+    @FXML Label currentWeaponTwoMinimumDamage;
+    @FXML Label currentWeaponTwoMaximumDamage;
+    @FXML Label currentWeaponTwoVersusShields;
+    @FXML Label currentWeaponTwoVersusArmor;
+    @FXML Label currentWeaponTwoRefire;
+    @FXML Label currentWeaponTwoEPS;
+    @FXML Label currentWeaponThreeArmor;
+    @FXML Label currentWeaponThreeHitpoints;
+    @FXML Label currentWeaponThreeDrain;
+    @FXML Label currentWeaponThreeMass;
+    @FXML Label currentWeaponThreeMinimumDamage;
+    @FXML Label currentWeaponThreeMaximumDamage;
+    @FXML Label currentWeaponThreeVersusShields;
+    @FXML Label currentWeaponThreeVersusArmor;
+    @FXML Label currentWeaponThreeRefire;
+    @FXML Label currentWeaponThreeEPS;
+    @FXML Label currentWeaponFourArmor;
+    @FXML Label currentWeaponFourHitpoints;
+    @FXML Label currentWeaponFourDrain;
+    @FXML Label currentWeaponFourMass;
+    @FXML Label currentWeaponFourMinimumDamage;
+    @FXML Label currentWeaponFourMaximumDamage;
+    @FXML Label currentWeaponFourVersusShields;
+    @FXML Label currentWeaponFourVersusArmor;
+    @FXML Label currentWeaponFourRefire;
+    @FXML Label currentWeaponFourEPS;
+    @FXML Label currentOrdnanceOneArmor;
+    @FXML Label currentOrdnanceOneHitpoints;
+    @FXML Label currentOrdnanceOneDrain;
+    @FXML Label currentOrdnanceOneMass;
+    @FXML Label currentOrdnanceOneMinimumDamage;
+    @FXML Label currentOrdnanceOneMaximumDamage;
+    @FXML Label currentOrdnanceOneVersusShields;
+    @FXML Label currentOrdnanceOneVersusArmor;
+    @FXML Label currentOrdnanceOneRefire;
+    @FXML Label currentOrdnanceTwoArmor;
+    @FXML Label currentOrdnanceTwoHitpoints;
+    @FXML Label currentOrdnanceTwoDrain;
+    @FXML Label currentOrdnanceTwoMass;
+    @FXML Label currentOrdnanceTwoMinimumDamage;
+    @FXML Label currentOrdnanceTwoMaximumDamage;
+    @FXML Label currentOrdnanceTwoVersusShields;
+    @FXML Label currentOrdnanceTwoVersusArmor;
+    @FXML Label currentOrdnanceTwoRefire;
+    @FXML Label currentOrdnanceThreeArmor;
+    @FXML Label currentOrdnanceThreeHitpoints;
+    @FXML Label currentOrdnanceThreeDrain;
+    @FXML Label currentOrdnanceThreeMass;
+    @FXML Label currentOrdnanceThreeMinimumDamage;
+    @FXML Label currentOrdnanceThreeMaximumDamage;
+    @FXML Label currentOrdnanceThreeVersusShields;
+    @FXML Label currentOrdnanceThreeVersusArmor;
+    @FXML Label currentOrdnanceThreeRefire;
+    @FXML Label currentCountermeasureArmor;
+    @FXML Label currentCountermeasureHitpoints;
+    @FXML Label currentCountermeasureDrain;
+    @FXML Label currentCountermeasureMass;
+    @FXML Label currentCountermeasureMinimumChance;
+    @FXML Label currentCountermeasureMaximumChance;
+    @FXML Label currentCountermeasureRefire;
     
     // Text Fields
     @FXML TextField newComponentFieldOneTextbox;
@@ -170,8 +294,6 @@ public class ToolkitController implements Initializable {
         loadChassis();
         loadComponents();
         loadLoadouts();
-        
-        
         
         if(loadouts == null || loadouts.isEmpty()) {
             createLoadoutPane.setVisible(true);
@@ -552,6 +674,8 @@ public class ToolkitController implements Initializable {
                     }
                 }
             }
+            
+            loadComponents();
             
         } else {
             newComponentMessage.setText("You must provide a component name...");
@@ -1164,6 +1288,7 @@ public class ToolkitController implements Initializable {
             }
 
         });
+        
         loadoutBackArmor.setItems(FXCollections.observableList(armors));
         loadoutBackArmor.setConverter(new StringConverter<Armor>() {
             @Override
@@ -1245,7 +1370,7 @@ public class ToolkitController implements Initializable {
             @Override
             public String toString(Weapon weapon) {
                 if (weapon == null) {
-                    return "Unable to retrieve shield...";
+                    return "Unable to retrieve weapon...";
                 } else {
                     return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
                 }
@@ -1262,7 +1387,7 @@ public class ToolkitController implements Initializable {
             @Override
             public String toString(Weapon weapon) {
                 if (weapon == null) {
-                    return "Unable to retrieve shield...";
+                    return "Unable to retrieve weapon...";
                 } else {
                     return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
                 }
@@ -1279,7 +1404,7 @@ public class ToolkitController implements Initializable {
             @Override
             public String toString(Weapon weapon) {
                 if (weapon == null) {
-                    return "Unable to retrieve shield...";
+                    return "Unable to retrieve weapon...";
                 } else {
                     return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
                 }
@@ -1296,7 +1421,7 @@ public class ToolkitController implements Initializable {
             @Override
             public String toString(Weapon weapon) {
                 if (weapon == null) {
-                    return "Unable to retrieve shield...";
+                    return "Unable to retrieve weapon...";
                 } else {
                     return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
                 }
@@ -1326,7 +1451,8 @@ public class ToolkitController implements Initializable {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
-        });        
+        });     
+        
         loadoutOrdnanceTwo.setItems(FXCollections.observableList(ordnance));
         loadoutOrdnanceTwo.setConverter(new StringConverter<Ordnance>() {
             @Override
@@ -1343,7 +1469,8 @@ public class ToolkitController implements Initializable {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
-        });        
+        });     
+        
         loadoutOrdnanceThree.setItems(FXCollections.observableList(ordnance));
         loadoutOrdnanceThree.setConverter(new StringConverter<Ordnance>() {
             @Override
@@ -1388,8 +1515,33 @@ public class ToolkitController implements Initializable {
         clearComponents();
         
         currentLoadout = (Loadout) loadoutSelection.getValue();
-        
+                
         if(currentLoadout != null) {
+            
+            switch(currentLoadout.getChassis().getWeaponMounts()) {
+                case 2 : 
+                    loadoutWeaponTwoContainer.setVisible(true);
+                    break;
+                case 3 :
+                    loadoutWeaponTwoContainer.setVisible(true);
+                    loadoutWeaponThreeContainer.setVisible(true);
+                    break;
+                case 4:
+                    loadoutWeaponTwoContainer.setVisible(true);
+                    loadoutWeaponThreeContainer.setVisible(true);
+                    loadoutWeaponFourContainer.setVisible(true);
+            }
+
+            switch(currentLoadout.getChassis().getOrdnanceMounts()) {
+                case 2 : 
+                    loadoutOrdnanceTwoContainer.setVisible(true);
+                    break;
+                case 3 :
+                    loadoutOrdnanceTwoContainer.setVisible(true);
+                    loadoutOrdnanceThreeContainer.setVisible(true);
+                    break;
+            }
+            
             if(currentLoadout.getReactorID() != null) {
                 for(int i = 0; i < reactors.size(); i++) {
                     if(currentLoadout.getReactorID().equals(reactors.get(i).getComponentID())){
@@ -1473,7 +1625,7 @@ public class ToolkitController implements Initializable {
 
             for(int w = 0; w < currentLoadout.getWeaponIDs().size(); w++){
                 for(int i = 0; i < weapons.size(); i++) {
-                    if(currentLoadout.getWeaponIDs().get(w).equals(weapons.get(i).getComponentID())){
+                    if(currentLoadout.getWeaponIDs().get(w).equals(weapons.get(i).getComponentID())) {
                         switch(w) {
                             case 0 :
                                 loadoutWeaponOne.setValue(weapons.get(i));
@@ -1489,8 +1641,6 @@ public class ToolkitController implements Initializable {
                                 break;
                         }
                     }
-
-                    break;
                 }            
             }
 
@@ -1509,17 +1659,201 @@ public class ToolkitController implements Initializable {
                                 break;
                         }
                     }
-
-                    break;
                 }            
             }
-
+            
+            loadComponentStats();
             createLoadoutPane.setVisible(false);
             saveLoadoutButton.setDisable(false);
             deleteLoadoutButton.setDisable(false);
             clearComponentsButton.setDisable(false);
             loadoutComponents.setVisible(true);
-        } else { System.out.println("null");}
+        }
+    }
+    
+    public void loadComponentStats() {
+        
+        Reactor reactor = (Reactor) loadoutReactor.getValue();
+        Engine engine = (Engine) loadoutEngine.getValue();
+        Shield shield = (Shield) loadoutShield.getValue();
+        Capacitor capacitor = (Capacitor) loadoutCapacitor.getValue();
+        Booster booster = (Booster) loadoutBooster.getValue();
+        DroidInterface droidInterface = (DroidInterface) loadoutInterface.getValue();
+        Armor frontArmor = (Armor) loadoutFrontArmor.getValue();
+        Armor backArmor = (Armor) loadoutBackArmor.getValue();
+        Weapon weaponOne = (Weapon) loadoutWeaponOne.getValue();
+        Weapon weaponTwo = (Weapon) loadoutWeaponTwo.getValue();
+        Weapon weaponThree = (Weapon) loadoutWeaponThree.getValue();
+        Weapon weaponFour = (Weapon) loadoutWeaponFour.getValue();
+        Ordnance ordnanceOne = (Ordnance) loadoutOrdnanceOne.getValue();
+        Ordnance ordnanceTwo = (Ordnance) loadoutOrdnanceTwo.getValue();
+        Ordnance ordnanceThree = (Ordnance) loadoutOrdnanceThree.getValue();
+        Countermeasure countermeasure = (Countermeasure) loadoutCountermeasure.getValue();
+
+        if(reactor != null){
+            currentReactorArmor.setText(doubleToString(reactor.getArmor(), 2));
+            currentReactorHitpoints.setText(doubleToString(reactor.getHitpoints(), 2));
+            currentReactorMass.setText(doubleToString(reactor.getMass(), 2));
+            currentReactorGeneration.setText(doubleToString(reactor.getGenerationRate(), 2));    
+        }
+        
+        if(engine != null){
+            currentEngineArmor.setText(doubleToString(engine.getArmor(), 2));
+            currentEngineHitpoints.setText(doubleToString(engine.getHitpoints(), 2));
+            currentEngineDrain.setText(doubleToString(engine.getEnergyDrain(), 2));
+            currentEngineMass.setText(doubleToString(engine.getMass(), 2));   
+            currentEnginePitch.setText(doubleToString(engine.getPitchRate(), 2));  
+            currentEngineYaw.setText(doubleToString(engine.getYawRate(), 2)); 
+            currentEngineRoll.setText(doubleToString(engine.getRollRate(), 2));   
+            currentEngineSpeed.setText(doubleToString(engine.getTopSpeed(), 2));   
+        }
+        
+        if(shield != null){
+            currentShieldArmor.setText(doubleToString(shield.getArmor(), 2));
+            currentShieldHitpoints.setText(doubleToString(shield.getHitpoints(), 2));
+            currentShieldDrain.setText(doubleToString(shield.getEnergyDrain(), 2));
+            currentShieldMass.setText(doubleToString(shield.getMass(), 2));   
+            currentShieldFrontHitpoints.setText(doubleToString(shield.getFrontHitpoints(), 2));  
+            currentShieldBackHitpoints.setText(doubleToString(shield.getBackHitpoints(), 2)); 
+            currentShieldRecharge.setText(doubleToString(shield.getRechargeRate(), 2));  
+        }
+        
+        if(booster != null){
+            currentBoosterArmor.setText(doubleToString(booster.getArmor(), 2));
+            currentBoosterHitpoints.setText(doubleToString(booster.getHitpoints(), 2));
+            currentBoosterDrain.setText(doubleToString(booster.getEnergyDrain(), 2));
+            currentBoosterMass.setText(doubleToString(booster.getMass(), 2));   
+            currentBoosterEnergy.setText(doubleToString(booster.getEnergy(), 2));  
+            currentBoosterRecharge.setText(doubleToString(booster.getRechargeRate(), 2)); 
+            currentBoosterConsumption.setText(doubleToString(booster.getConsumptionRate(), 2));  
+            currentBoosterSpeed.setText(doubleToString(booster.getTopSpeed(), 2));  
+        }
+        
+        if(frontArmor != null){
+            currentFrontArmorArmor.setText(doubleToString(frontArmor.getArmor(), 2));
+            currentFrontArmorHitpoints.setText(doubleToString(frontArmor.getHitpoints(), 2));
+            currentFrontArmorMass.setText(doubleToString(frontArmor.getMass(), 2));
+        }
+        
+        if(backArmor != null){
+            currentFrontArmorArmor.setText(doubleToString(backArmor.getArmor(), 2));
+            currentFrontArmorHitpoints.setText(doubleToString(backArmor.getHitpoints(), 2));
+            currentFrontArmorMass.setText(doubleToString(backArmor.getMass(), 2));
+        }
+        
+        if(capacitor != null){
+            currentCapacitorArmor.setText(doubleToString(capacitor.getArmor(), 2));
+            currentCapacitorHitpoints.setText(doubleToString(capacitor.getHitpoints(), 2));
+            currentCapacitorDrain.setText(doubleToString(capacitor.getEnergyDrain(), 2));
+            currentCapacitorMass.setText(doubleToString(capacitor.getMass(), 2));   
+            currentCapacitorEnergy.setText(doubleToString(capacitor.getEnergy(), 2));  
+            currentCapacitorRecharge.setText(doubleToString(capacitor.getRechargeRate(), 2));
+        }
+        
+        if(countermeasure != null){
+            currentCountermeasureArmor.setText(doubleToString(countermeasure.getArmor(), 2));
+            currentCountermeasureHitpoints.setText(doubleToString(countermeasure.getHitpoints(), 2));
+            currentCountermeasureDrain.setText(doubleToString(countermeasure.getEnergyDrain(), 2));
+            currentCountermeasureMass.setText(doubleToString(countermeasure.getMass(), 2));   
+            currentCountermeasureMinimumChance.setText(doubleToString(countermeasure.getMinimumChance(), 2));  
+            currentCountermeasureMaximumChance.setText(doubleToString(countermeasure.getMaximumChance(), 2));
+            currentCountermeasureRefire.setText(doubleToString(countermeasure.getRefireRate(), 3));
+        }
+        
+        if(droidInterface != null){
+            currentInterfaceArmor.setText(doubleToString(droidInterface.getArmor(), 2));
+            currentInterfaceHitpoints.setText(doubleToString(droidInterface.getHitpoints(), 2));
+            currentInterfaceDrain.setText(doubleToString(droidInterface.getEnergyDrain(), 2));
+            currentInterfaceMass.setText(doubleToString(droidInterface.getMass(), 2));
+        }
+        
+        if(weaponOne != null){
+            currentWeaponOneArmor.setText(doubleToString(weaponOne.getArmor(), 2));
+            currentWeaponOneHitpoints.setText(doubleToString(weaponOne.getHitpoints(), 2));
+            currentWeaponOneDrain.setText(doubleToString(weaponOne.getEnergyDrain(), 2));
+            currentWeaponOneMass.setText(doubleToString(weaponOne.getMass(), 2));   
+            currentWeaponOneMinimumDamage.setText(doubleToString(weaponOne.getMinimumDamage(), 2));  
+            currentWeaponOneMaximumDamage.setText(doubleToString(weaponOne.getMaximumDamage(), 2));   
+            currentWeaponOneVersusShields.setText(doubleToString(weaponOne.getVersusShields(), 2));  
+            currentWeaponOneVersusArmor.setText(doubleToString(weaponOne.getVersusArmor(), 3));
+            currentWeaponOneRefire.setText(doubleToString(weaponOne.getRefireRate(), 3));
+            currentWeaponOneEPS.setText(doubleToString(weaponOne.getEnergyPerShot(), 2));
+        }
+        
+        if(weaponTwo != null){
+            currentWeaponTwoArmor.setText(doubleToString(weaponTwo.getArmor(), 2));
+            currentWeaponTwoHitpoints.setText(doubleToString(weaponTwo.getHitpoints(), 2));
+            currentWeaponTwoDrain.setText(doubleToString(weaponTwo.getEnergyDrain(), 2));
+            currentWeaponTwoMass.setText(doubleToString(weaponTwo.getMass(), 2));   
+            currentWeaponTwoMinimumDamage.setText(doubleToString(weaponTwo.getMinimumDamage(), 2));
+            currentWeaponTwoMaximumDamage.setText(doubleToString(weaponTwo.getMaximumDamage(), 2));
+            currentWeaponTwoVersusShields.setText(doubleToString(weaponTwo.getVersusShields(), 2));
+            currentWeaponTwoVersusArmor.setText(doubleToString(weaponTwo.getVersusArmor(), 3));
+            currentWeaponTwoRefire.setText(doubleToString(weaponTwo.getRefireRate(), 3));
+            currentWeaponTwoEPS.setText(doubleToString(weaponTwo.getEnergyPerShot(), 2));
+        }
+        
+        if(weaponThree != null){
+            currentWeaponThreeArmor.setText(doubleToString(weaponThree.getArmor(), 2));
+            currentWeaponThreeHitpoints.setText(doubleToString(weaponThree.getHitpoints(), 2));
+            currentWeaponThreeDrain.setText(doubleToString(weaponThree.getEnergyDrain(), 2));
+            currentWeaponThreeMass.setText(doubleToString(weaponThree.getMass(), 2));   
+            currentWeaponThreeMinimumDamage.setText(doubleToString(weaponThree.getMinimumDamage(), 2)); 
+            currentWeaponThreeMaximumDamage.setText(doubleToString(weaponThree.getMaximumDamage(), 2));  
+            currentWeaponThreeVersusShields.setText(doubleToString(weaponThree.getVersusShields(), 2)); 
+            currentWeaponThreeVersusArmor.setText(doubleToString(weaponThree.getVersusArmor(), 3));
+            currentWeaponThreeRefire.setText(doubleToString(weaponThree.getRefireRate(), 3));
+            currentWeaponThreeEPS.setText(doubleToString(weaponThree.getEnergyPerShot(), 2));
+        }
+        
+        if(weaponFour != null){
+            currentWeaponFourArmor.setText(doubleToString(weaponFour.getArmor(), 2));
+            currentWeaponFourHitpoints.setText(doubleToString(weaponFour.getHitpoints(), 2));
+            currentWeaponFourDrain.setText(doubleToString(weaponFour.getEnergyDrain(), 2));
+            currentWeaponFourMass.setText(doubleToString(weaponFour.getMass(), 2));   
+            currentWeaponFourMinimumDamage.setText(doubleToString(weaponFour.getMinimumDamage(), 2));
+            currentWeaponFourMaximumDamage.setText(doubleToString(weaponFour.getMaximumDamage(), 2));
+            currentWeaponFourVersusShields.setText(doubleToString(weaponFour.getVersusShields(), 2));
+            currentWeaponFourVersusArmor.setText(doubleToString(weaponFour.getVersusArmor(), 3));
+            currentWeaponFourRefire.setText(doubleToString(weaponFour.getRefireRate(), 3));
+            currentWeaponFourEPS.setText(doubleToString(weaponFour.getEnergyPerShot(), 2));
+        }
+        
+        if(ordnanceOne != null){
+            currentOrdnanceOneArmor.setText(doubleToString(ordnanceOne.getArmor(), 2));
+            currentOrdnanceOneHitpoints.setText(doubleToString(ordnanceOne.getHitpoints(),2 ));
+            currentOrdnanceOneDrain.setText(doubleToString(ordnanceOne.getEnergyDrain(), 2));
+            currentOrdnanceOneMass.setText(doubleToString(ordnanceOne.getMass(), 2));   
+            currentOrdnanceOneMinimumDamage.setText(doubleToString(ordnanceOne.getMinimumDamage(), 2));  
+            currentOrdnanceOneMaximumDamage.setText(doubleToString(ordnanceOne.getMaximumDamage(), 2));   
+            currentOrdnanceOneVersusShields.setText(doubleToString(ordnanceOne.getVersusShields(), 2));  
+            currentOrdnanceOneVersusArmor.setText(doubleToString(ordnanceOne.getVersusArmor(), 2));
+            currentOrdnanceOneRefire.setText(doubleToString(ordnanceOne.getRefireRate(), 2));
+        }
+        
+        if(ordnanceTwo != null){
+            currentOrdnanceTwoArmor.setText(doubleToString(ordnanceTwo.getArmor(), 2));
+            currentOrdnanceTwoHitpoints.setText(doubleToString(ordnanceTwo.getHitpoints(),2 ));
+            currentOrdnanceTwoDrain.setText(doubleToString(ordnanceTwo.getEnergyDrain(), 2));
+            currentOrdnanceTwoMass.setText(doubleToString(ordnanceTwo.getMass(), 2));   
+            currentOrdnanceTwoMinimumDamage.setText(doubleToString(ordnanceTwo.getMinimumDamage(), 2));
+            currentOrdnanceTwoMaximumDamage.setText(doubleToString(ordnanceTwo.getMaximumDamage(), 2));
+            currentOrdnanceTwoVersusShields.setText(doubleToString(ordnanceTwo.getVersusShields(), 2));
+            currentOrdnanceTwoVersusArmor.setText(doubleToString(ordnanceTwo.getVersusArmor(), 2));
+            currentOrdnanceTwoRefire.setText(doubleToString(ordnanceTwo.getRefireRate(), 2));
+        }
+        
+        if(ordnanceThree != null){
+            currentOrdnanceThreeArmor.setText(doubleToString(ordnanceThree.getArmor(), 2));
+            currentOrdnanceThreeHitpoints.setText(doubleToString(ordnanceThree.getHitpoints(),2 ));
+            currentOrdnanceThreeDrain.setText(doubleToString(ordnanceThree.getEnergyDrain(), 2));
+            currentOrdnanceThreeMass.setText(doubleToString(ordnanceThree.getMass(), 2));   
+            currentOrdnanceThreeMinimumDamage.setText(doubleToString(ordnanceThree.getMinimumDamage(), 2)); 
+            currentOrdnanceThreeMaximumDamage.setText(doubleToString(ordnanceThree.getMaximumDamage(), 2));  
+            currentOrdnanceThreeVersusShields.setText(doubleToString(ordnanceThree.getVersusShields(), 2)); 
+            currentOrdnanceThreeVersusArmor.setText(doubleToString(ordnanceThree.getVersusArmor(), 2));
+            currentOrdnanceThreeRefire.setText(doubleToString(ordnanceThree.getRefireRate(), 2));
+        }
     }
     
     public void loadLoadouts() {
@@ -1606,6 +1940,12 @@ public class ToolkitController implements Initializable {
         loadoutOrdnanceTwo.getSelectionModel().clearSelection();
         loadoutOrdnanceThree.getSelectionModel().clearSelection();
         loadoutCountermeasure.getSelectionModel().clearSelection();
+        
+        loadoutWeaponTwoContainer.setVisible(false);
+        loadoutWeaponThreeContainer.setVisible(false);
+        loadoutWeaponFourContainer.setVisible(false);
+        loadoutOrdnanceTwoContainer.setVisible(false);
+        loadoutOrdnanceThreeContainer.setVisible(false);
     }
     
     @FXML
@@ -1678,6 +2018,17 @@ public class ToolkitController implements Initializable {
         currentLoadout = newLoadout;
         loadoutSelection.setDisable(false);
         loadoutSelection.getSelectionModel().select(currentLoadout);
+    }
+    
+    public String doubleToString(Double value, int precision) {
+        switch (precision) {
+            case 2:
+                return new DecimalFormat("#0.00").format(value);
+            case 3:
+                return new DecimalFormat("#0.000").format(value);
+            default:
+                return new DecimalFormat("#0.0").format(value);
+        }
     }
     
 }

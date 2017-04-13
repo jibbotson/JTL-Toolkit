@@ -36,12 +36,12 @@
                                         <Image url="@../../../images/background_hangar1.jpg" />
                                     </image>
                                 </ImageView>
-                                <ComboBox fx:id="loadoutSelection" layoutX="16.0" layoutY="6.0" onAction="#loadLoadout" prefHeight="25.00" prefWidth="208.0" promptText="Select a loadout...">
+                                <ComboBox fx:id="loadoutSelection" layoutX="8.0" layoutY="4.0" onAction="#loadLoadout" prefHeight="26.0" prefWidth="316.0" promptText="Select a loadout...">
                                     <effect>
                                         <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                     </effect>
                                 </ComboBox>
-                                <Button fx:id="saveLoadoutButton" disable="true" layoutX="410.0" layoutY="5.0" mnemonicParsing="false" onAction="#saveLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Save loadout" textFill="#f8f7f7">
+                                <Button fx:id="saveLoadoutButton" disable="true" layoutX="456.0" layoutY="3.0" mnemonicParsing="false" onAction="#saveLoadout" prefHeight="27.0" prefWidth="120.0" style="-fx-background-color: green;" text="Save loadout" textFill="#f8f7f7">
                                     <font>
                                         <Font name="Consolas" size="13.00" />
                                     </font>
@@ -49,7 +49,7 @@
                                         <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                     </effect>
                                 </Button>
-                                <Button fx:id="clearComponentsButton" disable="true" layoutX="552.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: orange;" text="Clear loadout">
+                                <Button fx:id="clearComponentsButton" disable="true" layoutX="581.0" layoutY="3.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="120.0" style="-fx-background-color: orange;" text="Clear loadout">
                                     <font>
                                         <Font name="Consolas" size="13.00" />
                                     </font>
@@ -57,7 +57,7 @@
                                         <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                     </effect>
                                 </Button>
-                                <Button fx:id="createLoadoutButton" disable="true" layoutX="235.0" layoutY="5.0" mnemonicParsing="false" onAction="#createLoadout" prefHeight="27.0" prefWidth="163.0" style="-fx-background-color: #4b8dd8;" text="Create a new loadout" textFill="WHITE">
+                                <Button fx:id="createLoadoutButton" disable="true" layoutX="331.0" layoutY="3.0" mnemonicParsing="false" onAction="#createLoadout" prefHeight="27.0" prefWidth="120.0" style="-fx-background-color: #4b8dd8;" text="Create loadout" textFill="WHITE">
                                     <font>
                                         <Font name="Consolas" size="13.00" />
                                     </font>
@@ -65,9 +65,9 @@
                                         <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                     </effect>
                                 </Button>
-                                <Separator layoutY="31.0" prefHeight="16.0" prefWidth="833.0" />
+                                <Separator layoutY="27.0" prefHeight="16.0" prefWidth="833.0" />
                                 <Separator layoutX="825.0" orientation="VERTICAL" prefHeight="659.0" prefWidth="22.00" />
-                                <Button fx:id="deleteLoadoutButton" disable="true" layoutX="694.0" layoutY="5.0" mnemonicParsing="false" onAction="#deleteLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: red;" text="Delete loadout" textFill="#f2f2f2">
+                                <Button fx:id="deleteLoadoutButton" disable="true" layoutX="706.0" layoutY="3.0" mnemonicParsing="false" onAction="#deleteLoadout" prefHeight="27.0" prefWidth="120.0" style="-fx-background-color: red;" text="Delete loadout" textFill="#f2f2f2">
                                     <font>
                                         <Font name="Consolas" size="13.00" />
                                     </font>
@@ -82,7 +82,7 @@
                                 <Pane layoutX="-1.0" layoutY="2.0" prefHeight="649.0" prefWidth="833.0">
                                     <children>
                                         <TextField fx:id="chassisMass" alignment="CENTER" disable="true" layoutX="274.0" layoutY="347.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter the total mass..." />
-                                        <ComboBox fx:id="chassisSelection" onAction="#handleChassis" layoutX="274.0" layoutY="269.0" prefHeight="25.0" prefWidth="273.0" promptText="Select a chassis...">
+                                        <ComboBox fx:id="chassisSelection" layoutX="274.0" layoutY="269.0" onAction="#handleChassis" prefHeight="25.0" prefWidth="273.0" promptText="Select a chassis...">
                                             
                                             <effect>
                                                 <InnerShadow color="#338bab" />
@@ -117,197 +117,765 @@
                                 </Pane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="loadoutComponents" visible="false" layoutX="-75.0" layoutY="39.0" prefHeight="639.0" prefWidth="911.0">
+                        <AnchorPane fx:id="loadoutComponents" layoutX="-75.0" layoutY="33.0" prefHeight="639.0" prefWidth="911.0" visible="false">
                             <children>
-                                <AnchorPane layoutX="75.0" layoutY="-1.0" maxHeight="599.0" minHeight="200.0" prefHeight="599.0" prefWidth="836.0">
+                                <AnchorPane layoutX="75.0" layoutY="8.0" maxHeight="599.0" minHeight="200.0" prefHeight="587.0" prefWidth="836.0">
                                     <children>
-                                        <Separator layoutY="137.0" prefHeight="0.00" prefWidth="836.00" />
-                                        <Separator layoutY="282.0" prefHeight="0.00" prefWidth="836.00" />
-                                        <Separator layoutX="27.0" layoutY="2.0" orientation="VERTICAL" prefHeight="614.0" prefWidth="17.00" />
+                                        <Separator layoutY="139.0" prefHeight="0.00" prefWidth="836.00" />
+                                        <Separator layoutY="275.0" prefHeight="0.00" prefWidth="836.00" />
+                                        <Separator layoutX="27.0" layoutY="-6.0" orientation="VERTICAL" prefHeight="614.0" prefWidth="17.00" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="122.0" layoutY="4.0" prefHeight="126.0" prefWidth="768.0">
+                                <AnchorPane layoutX="116.0" layoutY="7.0" prefHeight="126.0" prefWidth="768.0">
                                     <children>
-                                        <ComboBox fx:id="loadoutReactor" layoutY="5.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a reactor...">
+                                        <ComboBox fx:id="loadoutReactor" layoutX="2.0" layoutY="5.0" onAction="#reloadCalculations" prefHeight="26.0" prefWidth="185.0" promptText="Select a reactor...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
                                             
-                                                
+                                                            
                                             
-                                        </ComboBox>
-                                        <ComboBox fx:id="loadoutEngine" layoutX="194.0" layoutY="5.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select an engine...">
+                                                    </ComboBox>
+                                        <ComboBox fx:id="loadoutEngine" layoutX="199.0" layoutY="5.0" onAction="#reloadCalculations" prefHeight="26.0" prefWidth="185.0" promptText="Select an engine...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
                                             
-                                                
+                                                            
                                             
-                                        </ComboBox>
-                                        <Label layoutY="49.0" text="Generation Rate:" textFill="#f8f8f8">
+                                                    </ComboBox>
+                                        <Label layoutX="2.0" layoutY="72.0" text="Generation rate:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="194.0" layoutY="34.0" text="Energy drain:" textFill="#f8f8f8">
+                                        <Label layoutX="199.0" layoutY="60.0" text="Energy drain:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="194.0" layoutY="48.0" text="Mass:" textFill="#f8f8f8">
+                                        <Label layoutX="200.0" layoutY="72.0" text="Mass:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="194.0" layoutY="63.0" text="Pitch Rate:" textFill="#f8f8f8">
+                                        <Label layoutX="199.0" layoutY="84.0" text="Pitch rate:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="194.0" layoutY="76.0" text="Yaw Rate:" textFill="#f8f8f8">
+                                        <Label layoutX="199.0" layoutY="96.0" text="Yaw rate:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="194.0" layoutY="90.0" text="Roll Rate:" textFill="#f8f8f8">
+                                        <Label layoutX="199.0" layoutY="108.0" text="Roll rate:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="194.0" layoutY="104.0" text="Top Speed:" textFill="#f8f8f8">
+                                        <Label layoutX="199.0" layoutY="120.0" text="Top speed:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="150.0" layoutY="36.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentReactorMass" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="112.0" layoutY="60.0" prefHeight="14.0" prefWidth="72.0" text="0.00" textAlignment="RIGHT" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="150.0" layoutY="50.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentReactorGeneration" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="112.0" layoutY="72.0" prefHeight="14.0" prefWidth="72.0" text="0.00" textAlignment="RIGHT" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="345.0" layoutY="35.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentEngineDrain" layoutX="357.0" layoutY="60.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="345.0" layoutY="49.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentEngineMass" layoutX="357.0" layoutY="72.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="345.0" layoutY="64.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentEnginePitch" layoutX="357.0" layoutY="84.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="345.0" layoutY="78.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentEngineYaw" layoutX="357.0" layoutY="96.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="345.0" layoutY="90.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentEngineRoll" layoutX="357.0" layoutY="108.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="345.0" layoutY="104.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentEngineSpeed" layoutX="357.0" layoutY="120.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <ComboBox fx:id="loadoutBooster" layoutX="389.0" layoutY="6.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a booster...">
+                                        <ComboBox fx:id="loadoutBooster" layoutX="397.0" layoutY="5.0" onAction="#reloadCalculations" prefHeight="26.0" prefWidth="185.0" promptText="Select a booster...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
                                             
-                                                
+                                                            
                                             
-                                        </ComboBox>
-                                        <Label layoutX="390.0" layoutY="35.0" text="Energy drain:" textFill="#f8f8f8">
+                                                    </ComboBox>
+                                        <Label layoutX="399.0" layoutY="60.0" text="Energy drain:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="390.0" layoutY="63.0" text="Energy:" textFill="#f8f8f8">
+                                        <Label layoutX="399.0" layoutY="84.0" text="Energy:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="539.0" layoutY="35.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentBoosterDrain" layoutX="556.0" layoutY="60.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="539.0" layoutY="49.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentBoosterMass" layoutX="556.0" layoutY="72.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="539.0" layoutY="64.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentBoosterEnergy" layoutX="556.0" layoutY="84.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="390.0" layoutY="78.0" text="Speed:" textFill="#f8f8f8">
+                                        <Label layoutX="399.0" layoutY="96.0" text="Recharge rate:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="390.0" layoutY="50.0" text="Mass:" textFill="#f8f8f8">
+                                        <Label layoutX="399.0" layoutY="72.0" text="Mass:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="539.0" layoutY="77.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentBoosterRecharge" layoutX="556.0" layoutY="96.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <ComboBox fx:id="loadoutInterface" layoutX="588.0" layoutY="6.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a droid interface...">
+                                        <ComboBox fx:id="loadoutInterface" layoutX="595.0" layoutY="6.0" onAction="#reloadCalculations" prefHeight="26.0" prefWidth="190.0" promptText="Select an interface...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
                                             
-                                                
+                                                            
                                             
-                                        </ComboBox>
-                                        <Label layoutX="588.0" layoutY="36.0" text="Energy drain:" textFill="#f8f8f8">
+                                                    </ComboBox>
+                                        <Label layoutX="596.0" layoutY="61.0" text="Energy drain:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="588.0" layoutY="50.0" text="Mass:" textFill="#f8f8f8">
+                                        <Label layoutX="596.0" layoutY="73.0" text="Mass:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="738.0" layoutY="37.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentInterfaceDrain" layoutX="757.0" layoutY="61.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="738.0" layoutY="53.0" text="0.00" textFill="#f8f8f8">
+                                        <Label fx:id="currentInterfaceMass" layoutX="757.0" layoutY="73.0" text="0.00" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutY="36.0" text="Mass:" textFill="#f8f8f8">
+                                        <Label layoutX="2.0" layoutY="60.0" text="Mass:" textFill="#f8f8f8">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
+                              <Label layoutX="596.0" layoutY="37.0" text="Armor:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentInterfaceArmor" layoutX="757.0" layoutY="37.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="596.0" layoutY="49.0" text="Hitpoints:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentInterfaceHitpoints" layoutX="757.0" layoutY="49.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="399.0" layoutY="36.0" text="Armor:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentBoosterArmor" layoutX="556.0" layoutY="36.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="399.0" layoutY="48.0" text="Hitpoints:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentBoosterHitpoints" layoutX="556.0" layoutY="48.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="199.0" layoutY="36.0" text="Armor:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentEngineArmor" layoutX="357.0" layoutY="36.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="199.0" layoutY="48.0" text="Hitpoints:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentEngineHitpoints" layoutX="357.0" layoutY="48.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="1.0" layoutY="36.0" text="Armor:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentReactorArmor" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="112.0" layoutY="36.0" prefHeight="14.0" prefWidth="72.0" text="0.00" textAlignment="RIGHT" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="1.0" layoutY="48.0" text="Hitpoints:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentReactorHitpoints" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="112.0" layoutY="48.0" prefHeight="14.0" prefWidth="72.0" text="0.00" textAlignment="RIGHT" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="399.0" layoutY="108.0" text="Consumption rate:" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentBoosterConsumption" layoutX="556.0" layoutY="108.0" text="0.00" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="399.0" layoutY="120.0" text="Top speed:" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentBoosterSpeed" layoutX="556.0" layoutY="120.0" text="0.00" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="596.0" layoutY="85.0" text="Command Speed:" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentInterfaceSpeed" layoutX="757.0" layoutY="85.0" text="0.00" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
                                     </children>
                                     <effect>
                                         <DropShadow />
                                     </effect>
                                 </AnchorPane>
-                                <AnchorPane layoutX="117.0" layoutY="291.0" prefHeight="306.0" prefWidth="778.00">
+                                <AnchorPane layoutX="113.0" layoutY="294.0" prefHeight="306.0" prefWidth="778.00">
                                     <children>
-                                        <ComboBox fx:id="loadoutWeaponOne" layoutX="4.0" layoutY="-1.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
+                              <AnchorPane fx:id="loadoutWeaponOneContainer" layoutX="5.0" layoutY="-1.0">
+                                 <children>
+                                              <ComboBox fx:id="loadoutWeaponOne" onAction="#reloadCalculations" prefHeight="25.0" prefWidth="185.0" promptText="Select a weapon...">
+                                                  <effect>
+                                                      <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                                  </effect>
+                                                  
+                                                      
+                                                  
+                                              </ComboBox>
+                                    <Label layoutX="1.0" layoutY="55.0" text="Energy drain:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="67.0" text="Mass:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="79.0" text="Minimum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="115.0" text="Vs. Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="127.0" text="Refire rate:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="139.0" text="Energy per shot:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneDrain" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="55.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneMass" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="67.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneMinimumDamage" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="79.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneVersusArmor" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="115.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneRefire" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="127.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneEPS" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="139.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="91.0" text="Maximum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneMaximumDamage" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="91.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="103.0" text="Vs. Shields:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneVersusShields" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="103.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="31.0" text="Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneArmor" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="31.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="43.0" text="Hitpoints:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponOneHitpoints" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="43.0" prefHeight="14.0" prefWidth="76.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="loadoutWeaponTwoContainer" layoutX="200.0" layoutY="-1.0">
+                                 <children>
+                                              <ComboBox fx:id="loadoutWeaponTwo" layoutX="5.0" onAction="#reloadCalculations" prefHeight="25.0" prefWidth="185.0" promptText="Select a weapon...">
+                                                  <effect>
+                                                      <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                                  </effect>
+                                                  
+                                                      
+                                                  
+                                              </ComboBox>
+                                              <Label layoutY="87.0" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                    <Label layoutX="5.0" layoutY="55.0" text="Energy drain:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="67.0" text="Mass:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="79.0" text="Minimum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="115.0" text="Vs. Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="127.0" text="Refire rate:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="139.0" text="Energy per shot:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoDrain" layoutX="163.0" layoutY="55.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoMass" layoutX="163.0" layoutY="67.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoMinimumDamage" layoutX="163.0" layoutY="79.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoVersusArmor" layoutX="163.0" layoutY="115.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoRefire" layoutX="163.0" layoutY="127.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoEPS" layoutX="163.0" layoutY="139.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="91.0" text="Maximum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoMaximumDamage" layoutX="163.0" layoutY="91.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="103.0" text="Vs. Shields:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoVersusShields" layoutX="163.0" layoutY="103.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="31.0" text="Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoArmor" layoutX="163.0" layoutY="31.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="5.0" layoutY="43.0" text="Hitpoints:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponTwoHitpoints" layoutX="163.0" layoutY="43.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="loadoutWeaponFourContainer" layoutX="600.0" layoutY="-1.0">
+                                 <children>
+                                              <ComboBox fx:id="loadoutWeaponThree" layoutX="2.0" onAction="#reloadCalculations" prefHeight="26.0" prefWidth="185.0" promptText="Select a weapon...">
+                                                  <effect>
+                                                      <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                                  </effect>
+                                                  
+                                                      
+                                                  
+                                              </ComboBox>
+                                              <Label layoutX="2.0" layoutY="55.0" text="Energy drain:" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label layoutX="2.0" layoutY="67.0" text="Mass:" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label layoutX="2.0" layoutY="79.0" text="Minimum damage:" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label layoutX="2.0" layoutY="115.0" text="Vs. Armor:" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label layoutX="2.0" layoutY="127.0" text="Refire rate:" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label layoutX="2.0" layoutY="139.0" text="Energy per shot:" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label fx:id="currentWeaponFourDrain" layoutX="159.0" layoutY="55.0" text="0.00" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label fx:id="currentWeaponFourMass" layoutX="159.0" layoutY="67.0" text="0.00" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label fx:id="currentWeaponFourMinimumDamage" layoutX="159.0" layoutY="79.0" text="0.00" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label fx:id="currentWeaponFourVersusArmor" layoutX="159.0" layoutY="115.0" text="0.00" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label fx:id="currentWeaponFourRefire" layoutX="159.0" layoutY="127.0" text="0.00" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label fx:id="currentWeaponFourEPS" layoutX="159.0" layoutY="139.0" text="0.00" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label layoutX="2.0" layoutY="91.0" text="Maximum damage:" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label fx:id="currentWeaponFourMaximumDamage" layoutX="159.0" layoutY="91.0" text="0.00" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label layoutY="86.0" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label layoutX="2.0" layoutY="103.0" text="Vs. Shields:" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                              <Label fx:id="currentWeaponFourVersusShields" layoutX="159.0" layoutY="103.0" text="0.00" textFill="WHITE">
+                                                  <font>
+                                                      <Font name="Consolas" size="12.00" />
+                                                  </font>
+                                              </Label>
+                                    <Label layoutX="2.0" layoutY="31.0" text="Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponFourArmor" layoutX="159.0" layoutY="31.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="43.0" text="Hitpoints:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponFourHitpoints" layoutX="159.0" layoutY="43.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="loadoutWeaponThreeContainer" layoutX="404.0" layoutY="-1.0">
+                                 <children>
+                                              <ComboBox fx:id="loadoutWeaponFour" onAction="#reloadCalculations" prefHeight="26.0" prefWidth="185.0" promptText="Select a weapon...">
+                                                  <effect>
+                                                      <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                                  </effect>
+                                                  
+                                                      
+                                                  
+                                              </ComboBox>
+                                    <Label layoutX="2.0" layoutY="55.0" text="Energy drain:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="67.0" text="Mass:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="79.0" text="Minimum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="115.0" text="Vs. Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="127.0" text="Refire rate:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="139.0" text="Energy per shot:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeDrain" layoutX="157.0" layoutY="55.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeMass" layoutX="157.0" layoutY="67.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeMinimumDamage" layoutX="157.0" layoutY="79.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeVersusArmor" layoutX="157.0" layoutY="115.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeRefire" layoutX="157.0" layoutY="127.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeEPS" layoutX="157.0" layoutY="139.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="91.0" text="Maximum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeMaximumDamage" layoutX="157.0" layoutY="91.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="103.0" text="Vs. Shields:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeVersusShields" layoutX="157.0" layoutY="103.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="31.0" text="Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeArmor" layoutX="157.0" layoutY="31.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="2.0" layoutY="43.0" text="Hitpoints:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentWeaponThreeHitpoints" layoutX="157.0" layoutY="43.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                                        <ComboBox fx:id="loadoutCapacitor" layoutX="5.0" layoutY="168.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="185.0" promptText="Select a capacitor...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
@@ -315,861 +883,608 @@
                                                 
                                             
                                         </ComboBox>
-                                        <Label layoutX="4.0" layoutY="28.0" text="Energy drain:" textFill="WHITE">
+                                        <Label layoutX="6.0" layoutY="223.0" text="Energy drain:" textFill="#f5f5f5">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="4.0" layoutY="42.0" text="Mass:" textFill="WHITE">
+                                        <Label layoutX="6.0" layoutY="235.0" text="Mass:" textFill="#f5f5f5">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="4.0" layoutY="57.0" text="Minimum damage:" textFill="WHITE">
+                                        <Label layoutX="6.0" layoutY="247.0" text="Energy:" textFill="#f5f5f5">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="4.0" layoutY="101.0" text="Vs. Armor:" textFill="WHITE">
+                                        <Label layoutX="6.0" layoutY="260.0" text="Recharge rate:" textFill="#f5f5f5">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="4.0" layoutY="116.0" text="Refire rate:" textFill="WHITE">
+                                        <Label fx:id="currentCapacitorDrain" layoutX="163.0" layoutY="223.0" text="0.00" textFill="#f5f5f5">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="4.0" layoutY="131.0" text="Energy per shot:" textFill="WHITE">
+                                        <Label fx:id="currentCapacitorMass" layoutX="163.0" layoutY="235.0" text="0.00" textFill="#f5f5f5">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
-                                        </Label>
-                                        <Label layoutX="156.0" layoutY="30.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="156.0" layoutY="44.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="156.0" layoutY="58.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="156.0" layoutY="101.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="156.0" layoutY="116.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="156.0" layoutY="130.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <ComboBox fx:id="loadoutWeaponTwo" layoutX="200.0" layoutY="-1.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
-                                            <effect>
-                                                <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
-                                            </effect>
-                                            
-                                                
-                                            
-                                        </ComboBox>
-                                        <Label layoutX="200.0" layoutY="28.0" text="Energy drain:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="200.0" layoutY="42.0" text="Mass:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="200.0" layoutY="57.0" text="Minimum damage:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="195.0" layoutY="100.0" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="200.0" layoutY="101.0" text="Vs. Armor:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="200.0" layoutY="116.0" text="Refire rate:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="200.0" layoutY="131.0" text="Energy per shot:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="351.0" layoutY="29.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="351.0" layoutY="43.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="351.0" layoutY="57.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="351.0" layoutY="101.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="351.0" layoutY="115.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="351.0" layoutY="131.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <ComboBox fx:id="loadoutWeaponThree" layoutX="598.0" layoutY="-1.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
-                                            <effect>
-                                                <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
-                                            </effect>
-                                            
-                                                
-                                            
-                                        </ComboBox>
-                                        <Label layoutX="598.0" layoutY="28.0" text="Energy drain:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="42.0" text="Mass:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="57.0" text="Minimum damage:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="99.0" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="101.0" text="Vs. Armor:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="116.0" text="Refire rate:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="131.0" text="Energy per shot:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="29.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="43.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="58.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="101.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="117.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="131.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <ComboBox fx:id="loadoutWeaponFour" layoutX="394.0" layoutY="-1.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a weapon...">
-                                            <effect>
-                                                <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
-                                            </effect>
-                                            
-                                                
-                                            
-                                        </ComboBox>
-                                        <Label layoutX="394.0" layoutY="28.0" text="Energy drain:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="42.0" text="Mass:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="57.0" text="Minimum damage:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="99.0" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="101.0" text="Vs. Armor:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="116.0" text="Refire rate:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="131.0" text="Energy per shot:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="546.0" layoutY="30.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="546.0" layoutY="44.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="546.0" layoutY="59.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="546.0" layoutY="101.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="546.0" layoutY="117.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="546.0" layoutY="131.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <ComboBox fx:id="loadoutCapacitor" layoutY="170.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select a capacitor...">
-                                            <effect>
-                                                <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
-                                            </effect>
-                                            
-                                                
-                                            
-                                        </ComboBox>
-                                        <Label layoutX="1.0" layoutY="199.0" text="Energy drain:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="1.0" layoutY="213.0" text="Mass:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="1.0" layoutY="227.0" text="Energy:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="1.0" layoutY="241.0" text="Recharge rate:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="151.0" layoutY="199.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="151.0" layoutY="213.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="151.0" layoutY="228.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="151.0" layoutY="242.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <ComboBox fx:id="loadoutOrdnanceOne" layoutX="198.0" layoutY="170.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance one...">
-                                            <effect>
-                                                <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
-                                            </effect>
-                                            
-                                                
-                                            
-                                        </ComboBox>
-                                        <Label layoutX="198.0" layoutY="199.0" text="Mass:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="198.0" layoutY="213.0" text="Energy drain:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="349.0" layoutY="200.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="349.0" layoutY="214.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <ComboBox fx:id="loadoutOrdnanceTwo" layoutX="398.0" layoutY="170.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance two...">
-                                            <effect>
-                                                <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
-                                            </effect>
-                                            
-                                                
-                                            
-                                        </ComboBox>
-                                        <ComboBox fx:id="loadoutOrdnanceThree" layoutX="597.0" layoutY="170.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="180.00" promptText="Select ordnance three...">
-                                            <effect>
-                                                <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
-                                            </effect>
-                                            
-                                                
-                                            
-                                        </ComboBox>
-                                        <Label layoutX="4.0" layoutY="72.0" text="Maximum damage:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="156.0" layoutY="72.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="200.0" layoutY="72.0" text="Maximum damage:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="351.0" layoutY="72.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="72.0" text="Maximum damage:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="73.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="72.0" text="Maximum damage:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="546.0" layoutY="73.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="4.0" layoutY="87.0" text="Vs. Shields:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="156.0" layoutY="86.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="195.0" layoutY="86.0" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="200.0" layoutY="87.0" text="Vs. Shields:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="351.0" layoutY="87.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="85.0" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="87.0" text="Vs. Shields:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="87.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="85.0" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="394.0" layoutY="87.0" text="Vs. Shields:" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="546.0" layoutY="87.0" text="0.00" textFill="WHITE">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="198.0" layoutY="227.0" text="Minimum damage:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="349.0" layoutY="228.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="198.0" layoutY="241.0" text="Maximum damage:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="349.0" layoutY="242.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="198.0" layoutY="255.0" text="Vs. Shields:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="349.0" layoutY="256.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="198.0" layoutY="269.0" text="Vs. Armor:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="349.0" layoutY="270.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="198.0" layoutY="283.0" text="Refire rate:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="349.0" layoutY="284.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="399.0" layoutY="199.0" text="Mass:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="399.0" layoutY="213.0" text="Energy drain:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="550.0" layoutY="200.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="550.0" layoutY="214.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="399.0" layoutY="227.0" text="Minimum damage:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="550.0" layoutY="228.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="399.0" layoutY="241.0" text="Maximum damage:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="550.0" layoutY="242.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="399.0" layoutY="255.0" text="Vs. Shields:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="550.0" layoutY="256.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="399.0" layoutY="269.0" text="Vs. Armor:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="550.0" layoutY="270.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="399.0" layoutY="283.0" text="Refire rate:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="550.0" layoutY="284.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="199.0" text="Mass:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="213.0" text="Energy drain:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="200.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="214.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="227.0" text="Minimum damage:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="228.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="241.0" text="Maximum damage:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="242.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="255.0" text="Vs. Shields:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="256.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="269.0" text="Vs. Armor:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="270.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="598.0" layoutY="283.0" text="Refire rate:" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
-                                        <Label layoutX="749.0" layoutY="284.0" text="0.00" textFill="#f5f5f5">
-                                            <font>
-                                                <Font name="Consolas" size="12.00" />
-                                            </font>
-                                        </Label>
+                                        </Label>
+                                        <Label fx:id="currentCapacitorEnergy" layoutX="163.0" layoutY="247.0" text="0.00" textFill="#f5f5f5">
+                                            <font>
+                                                <Font name="Consolas" size="12.00" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="currentCapacitorRecharge" layoutX="163.0" layoutY="260.0" text="0.00" textFill="#f5f5f5">
+                                            <font>
+                                                <Font name="Consolas" size="12.00" />
+                                            </font>
+                                        </Label>
+                              <AnchorPane fx:id="loadoutOrdnanceOneContainer" layoutX="205.0" layoutY="167.0">
+                                 <children>
+                                              <ComboBox fx:id="loadoutOrdnanceOne" layoutY="1.0" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="185.0" promptText="Select ordnance one...">
+                                                  <effect>
+                                                      <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                                  </effect>
+                                                  
+                                                      
+                                                  
+                                              </ComboBox>
+                                    <Label layoutX="-1.0" layoutY="56.0" text="Energy drain:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="68.0" text="Mass:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="80.0" text="Minimum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="116.0" text="Vs. Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="128.0" text="Refire rate:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneDrain" layoutX="159.0" layoutY="56.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneMass" layoutX="159.0" layoutY="68.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneMinimumDamage" layoutX="159.0" layoutY="80.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneVersusArmor" layoutX="159.0" layoutY="116.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneRefire" layoutX="159.0" layoutY="128.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="92.0" text="Maximum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneMaximumDamage" layoutX="159.0" layoutY="92.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="104.0" text="Vs. Shields:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneVersusShields" layoutX="159.0" layoutY="104.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="32.0" text="Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneArmor" layoutX="159.0" layoutY="32.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="44.0" text="Hitpoints:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceOneHitpoints" layoutX="159.0" layoutY="44.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="loadoutOrdnanceTwoContainer" layoutX="405.0" layoutY="168.0">
+                                 <children>
+                                              <ComboBox fx:id="loadoutOrdnanceTwo" onAction="#reloadCalculations" prefHeight="26.0" prefWidth="185.0" promptText="Select ordnance two...">
+                                                  <effect>
+                                                      <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                                  </effect>
+                                              </ComboBox>
+                                    <Label layoutX="-1.0" layoutY="55.0" text="Energy drain:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="67.0" text="Mass:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="79.0" text="Minimum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="115.0" text="Vs. Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="127.0" text="Refire rate:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoDrain" layoutX="159.0" layoutY="55.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoMass" layoutX="159.0" layoutY="67.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoMinimumDamage" layoutX="159.0" layoutY="79.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoVersusArmor" layoutX="159.0" layoutY="115.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoRefire" layoutX="159.0" layoutY="127.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="91.0" text="Maximum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoMaximumDamage" layoutX="159.0" layoutY="91.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="103.0" text="Vs. Shields:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoVersusShields" layoutX="159.0" layoutY="103.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="31.0" text="Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoArmor" layoutX="159.0" layoutY="31.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="43.0" text="Hitpoints:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceTwoHitpoints" layoutX="159.0" layoutY="43.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="loadoutOrdnanceThreeContainer" layoutX="602.0" layoutY="168.0">
+                                 <children>
+                                              <ComboBox fx:id="loadoutOrdnanceThree" onAction="#reloadCalculations" prefHeight="25.00" prefWidth="185.0" promptText="Select ordnance three...">
+                                                  <effect>
+                                                      <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
+                                                  </effect>
+                                                  
+                                                      
+                                                  
+                                              </ComboBox>
+                                    <Label layoutX="-1.0" layoutY="55.0" text="Energy drain:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="67.0" text="Mass:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="79.0" text="Minimum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="115.0" text="Vs. Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="127.0" text="Refire rate:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeDrain" layoutX="156.0" layoutY="55.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeMass" layoutX="156.0" layoutY="67.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeMinimumDamage" layoutX="156.0" layoutY="79.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeVersusArmor" layoutX="156.0" layoutY="115.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeRefire" layoutX="156.0" layoutY="127.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="91.0" text="Maximum damage:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeMaximumDamage" layoutX="156.0" layoutY="91.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="103.0" text="Vs. Shields:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeVersusShields" layoutX="156.0" layoutY="103.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="31.0" text="Armor:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeArmor" layoutX="156.0" layoutY="31.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="-1.0" layoutY="43.0" text="Hitpoints:" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentOrdnanceThreeHitpoints" layoutX="156.0" layoutY="43.0" text="0.00" textFill="WHITE">
+                                       <font>
+                                          <Font name="Consolas" size="12.00" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="6.0" layoutY="199.0" text="Armor:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentCapacitorArmor" layoutX="163.0" layoutY="199.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="6.0" layoutY="211.0" text="Hitpoints:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentCapacitorHitpoints" layoutX="163.0" layoutY="211.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
                                     </children>
                                     <effect>
                                         <DropShadow color="#0a0909" />
                                     </effect>
                                 </AnchorPane>
-                                <AnchorPane layoutX="122.0" layoutY="152.0">
+                                <AnchorPane layoutX="117.0" layoutY="157.0" prefHeight="126.0" prefWidth="772.0">
                                     <children>
-                                        <ComboBox fx:id="loadoutShield" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select a shield...">
+                                        <ComboBox fx:id="loadoutShield" layoutX="2.0" layoutY="1.0" prefHeight="26.0" prefWidth="185.0" promptText="Select a shield...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
                                             
-                                                
+                                                                  
                                             
-                                        </ComboBox>
-                                        <Label layoutY="31.0" text="Energy drain:" textFill="WHITE">
+                                                          </ComboBox>
+                                        <Label layoutX="3.0" layoutY="56.0" text="Energy drain:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutY="45.0" text="Mass:" textFill="WHITE">
+                                        <Label layoutX="3.0" layoutY="68.0" text="Mass:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutY="59.0" text="Front hitpoints:" textFill="WHITE">
+                                        <Label layoutX="3.0" layoutY="80.0" text="Front hitpoints:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutY="73.0" text="Rear hitpoints:" textFill="WHITE">
+                                        <Label layoutX="3.0" layoutY="92.0" text="Rear hitpoints:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutY="87.0" text="Recharge rate:" textFill="WHITE">
+                                        <Label layoutX="3.0" layoutY="104.0" text="Recharge rate:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="152.0" layoutY="31.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentShieldDrain" layoutX="160.0" layoutY="56.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="152.0" layoutY="45.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentShieldMass" layoutX="160.0" layoutY="68.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="152.0" layoutY="60.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentShieldFrontHitpoints" layoutX="160.0" layoutY="80.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="152.0" layoutY="74.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentShieldBackHitpoints" layoutX="160.0" layoutY="92.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="152.0" layoutY="87.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentShieldRecharge" layoutX="160.0" layoutY="104.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <ComboBox fx:id="loadoutBackArmor" layoutX="390.0" layoutY="2.0" prefHeight="25.00" prefWidth="180.00" promptText="Select back armor...">
+                                        <ComboBox fx:id="loadoutBackArmor" layoutX="397.0" layoutY="1.0" prefHeight="26.0" prefWidth="185.0" promptText="Select back armor...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
                                             
-                                                
+                                                                  
                                             
-                                        </ComboBox>
-                                        <ComboBox fx:id="loadoutFrontArmor" layoutX="194.0" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select front armor...">
+                                                          </ComboBox>
+                                        <ComboBox fx:id="loadoutFrontArmor" layoutX="199.0" layoutY="1.0" prefHeight="26.0" prefWidth="185.0" promptText="Select front armor...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
                                             
-                                                
+                                                                  
                                             
-                                        </ComboBox>
-                                        <Label layoutX="194.0" layoutY="31.0" text="Armor:" textFill="WHITE">
+                                                          </ComboBox>
+                                        <Label layoutX="199.0" layoutY="32.0" text="Armor:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="194.0" layoutY="57.0" text="Mass:" textFill="WHITE">
+                                        <Label layoutX="199.0" layoutY="56.0" text="Mass:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="347.0" layoutY="30.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentFrontArmorArmor" layoutX="357.0" layoutY="32.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="347.0" layoutY="57.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentFrontArmorMass" layoutX="357.0" layoutY="56.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <ComboBox fx:id="loadoutCountermeasure" layoutX="592.0" layoutY="1.0" prefHeight="25.00" prefWidth="180.00" promptText="Select countermeasures...">
+                                        <ComboBox fx:id="loadoutCountermeasure" layoutX="595.0" layoutY="1.0" prefHeight="26.0" prefWidth="190.0" promptText="Select countermeasures...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
                                             
-                                                
+                                                                  
                                             
-                                        </ComboBox>
-                                        <Label layoutX="592.0" layoutY="31.0" text="Mass:" textFill="WHITE">
+                                                          </ComboBox>
+                                        <Label layoutX="595.0" layoutY="56.0" text="Energy drain:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="592.0" layoutY="45.0" text="Energy drain:" textFill="WHITE">
+                                        <Label layoutX="595.0" layoutY="68.0" text="Mass:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="743.0" layoutY="31.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentCountermeasureDrain" layoutX="755.0" layoutY="56.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="743.0" layoutY="46.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentCountermeasureMass" layoutX="755.0" layoutY="68.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="194.0" layoutY="44.0" text="Hitpoints:" textFill="WHITE">
+                                        <Label layoutX="199.0" layoutY="44.0" text="Hitpoints:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="347.0" layoutY="43.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentFrontArmorHitpoints" layoutX="357.0" layoutY="44.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="390.0" layoutY="32.0" text="Armor:" textFill="WHITE">
+                                        <Label layoutX="397.0" layoutY="32.0" text="Armor:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="390.0" layoutY="58.0" text="Mass:" textFill="WHITE">
+                                        <Label layoutX="397.0" layoutY="56.0" text="Mass:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="543.0" layoutY="31.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentBackArmorArmor" layoutX="554.0" layoutY="32.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="543.0" layoutY="58.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentBackArmorMass" layoutX="554.0" layoutY="56.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="390.0" layoutY="45.0" text="Hitpoints:" textFill="WHITE">
+                                        <Label layoutX="397.0" layoutY="44.0" text="Hitpoints:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="543.0" layoutY="44.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentBackArmorHitpoints" layoutX="554.0" layoutY="44.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="592.0" layoutY="59.0" text="Minimum chance:" textFill="WHITE">
+                                        <Label layoutX="595.0" layoutY="80.0" text="Minimum chance:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="743.0" layoutY="60.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentCountermeasureMinimumChance" layoutX="755.0" layoutY="80.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="592.0" layoutY="73.0" text="Maximum chance:" textFill="WHITE">
+                                        <Label layoutX="595.0" layoutY="92.0" text="Maximum chance:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="743.0" layoutY="74.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentCountermeasureMaximumChance" layoutX="755.0" layoutY="92.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="592.0" layoutY="87.0" text="Refire rate:" textFill="WHITE">
+                                        <Label layoutX="595.0" layoutY="104.0" text="Refire rate:" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="743.0" layoutY="88.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentCountermeasureRefire" layoutX="755.0" layoutY="104.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
+                              <Label layoutX="3.0" layoutY="32.0" text="Armor:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentShieldArmor" layoutX="160.0" layoutY="32.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="3.0" layoutY="44.0" text="Hitpoints:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentShieldHitpoints" layoutX="160.0" layoutY="44.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="595.0" layoutY="32.0" text="Armor:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentCountermeasureArmor" layoutX="755.0" layoutY="32.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="595.0" layoutY="44.0" text="Hitpoints:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentCountermeasureHitpoints" layoutX="755.0" layoutY="44.0" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="Consolas" size="12.00" />
+                                 </font>
+                              </Label>
                                     </children>
                                     <effect>
                                         <DropShadow />
@@ -1177,29 +1492,20 @@
                                 </AnchorPane>
                                 <AnchorPane layoutY="-1.0" maxWidth="50.0" minWidth="50.0" prefHeight="565.0" prefWidth="60.0">
                                     <children>
-                                        <Label layoutX="52.0" layoutY="425.275390625" style="-fx-rotate: 270;" text="OFFENSE" textFill="#fcc5c5" wrapText="true">
+                                        <Label layoutX="54.0" layoutY="433.275390625" style="-fx-rotate: 270;" text="OFFENSE" textFill="#f27474" wrapText="true">
                                             <font>
-                                                <Font name="Consolas Bold" size="18.00" />
+                                                <Font name="Consolas Bold" size="20.0" />
                                             </font>
-                                            <effect>
-                                                <DropShadow color="#f2210f" height="0.00" radius="32.1775" spread="0.33" width="130.71" />
-                                            </effect>
                                         </Label>
-                                        <Label layoutX="59.0" layoutY="62.275390625" style="-fx-rotate: 270;" text="UTILITY" textFill="#ebffea" wrapText="true">
+                                        <Label layoutX="54.0" layoutY="62.275390625" style="-fx-rotate: 270;" text="UTILITY" textFill="#8cf587" wrapText="true">
                                             <font>
-                                                <Font name="Consolas Bold" size="18.00" />
+                                                <Font name="Consolas Bold" size="20.0" />
                                             </font>
-                                            <effect>
-                                                <DropShadow color="#32eb2b" height="15.07" radius="28.5325" spread="0.3" width="101.06" />
-                                            </effect>
                                         </Label>
-                                        <Label layoutX="51.0" layoutY="200.275390625" style="-fx-rotate: 270;" text="DEFENSE" textFill="#c8e7ff" wrapText="true">
+                                        <Label layoutX="54.0" layoutY="203.275390625" style="-fx-rotate: 270;" text="DEFENSE" textFill="#a9b3ff" wrapText="true">
                                             <font>
-                                                <Font name="Consolas Bold" size="18.00" />
+                                                <Font name="Consolas Bold" size="20.0" />
                                             </font>
-                                            <effect>
-                                                <DropShadow color="#0fe2f2" height="77.215" radius="56.66875" spread="0.13" width="151.46" />
-                                            </effect>
                                         </Label>
                                     </children>
                                 </AnchorPane>

@@ -10,6 +10,26 @@ public class ChassisHelper {
     public ChassisHelper() {
         chassis = new ArrayList<>();
         chassis.add(getVaksai());
+        chassis.add(getBWing());
+    }
+    
+    private Chassis getBWing() {
+        Chassis BWing = new Chassis();
+        
+        BWing.setChassisShortName("B-Wing");
+        BWing.setChassisLongName("B-Wing");
+        BWing.setMass(0.00);
+        BWing.setMaximumMass(245000.00);
+        BWing.setAccelerationModifier(300.00);
+        BWing.setDecelerationModifier(350.00);
+        BWing.setYawRateModifier(75.00);
+        BWing.setPitchRateModifier(75.00);
+        BWing.setRollRateModifier(50.00);
+        BWing.setSpeedModifier(0.90);
+        BWing.setWeaponMounts(4);
+        BWing.setOrdnanceMounts(2);
+        
+        return BWing;
     }
 
     private Chassis getVaksai() {

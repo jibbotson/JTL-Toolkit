@@ -676,6 +676,7 @@ public class ToolkitController implements Initializable {
             }
             
             loadComponents();
+            loadLoadout();
             
         } else {
             newComponentMessage.setText("You must provide a component name...");
@@ -1220,7 +1221,7 @@ public class ToolkitController implements Initializable {
                 if (reactor == null) {
                     return "Unable to retrieve reactor...";
                 } else {
-                    return "L" + reactor.getLevel() + " - " + reactor.getComponentName();
+                    return "(" + reactor.getLevel() + ") " + reactor.getComponentName();
                 }
             }
 
@@ -1240,7 +1241,7 @@ public class ToolkitController implements Initializable {
                 if (engine == null) {
                     return "Unable to retrieve engine...";
                 } else {
-                    return "L" + engine.getLevel() + " - " + engine.getComponentName();
+                    return "(" + engine.getLevel() + ") " + engine.getComponentName();
                 }
             }
 
@@ -1259,7 +1260,7 @@ public class ToolkitController implements Initializable {
                 if (shield == null) {
                     return "Unable to retrieve shield...";
                 } else {
-                    return "L" + shield.getLevel() + " - " + shield.getComponentName();
+                    return "(" + shield.getLevel() + ") " + shield.getComponentName();
                 }
             }
 
@@ -1278,7 +1279,7 @@ public class ToolkitController implements Initializable {
                 if (armor == null) {
                     return "Unable to retrieve armor...";
                 } else {
-                    return "L" + armor.getLevel() + " - " + armor.getComponentName();
+                    return "(" + armor.getLevel() + ") " + armor.getComponentName();
                 }
             }
 
@@ -1296,7 +1297,7 @@ public class ToolkitController implements Initializable {
                 if (armor == null) {
                     return "Unable to retrieve armor...";
                 } else {
-                    return "L" + armor.getLevel() + " - " + armor.getComponentName();
+                    return "(" + armor.getLevel() + ") " + armor.getComponentName();
                 }
             }
 
@@ -1315,7 +1316,7 @@ public class ToolkitController implements Initializable {
                 if (booster == null) {
                     return "Unable to retrieve booster...";
                 } else {
-                    return "L" + booster.getLevel() + " - " + booster.getComponentName();
+                    return "(" + booster.getLevel() + ") " + booster.getComponentName();
                 }
             }
 
@@ -1334,7 +1335,7 @@ public class ToolkitController implements Initializable {
                 if (capacitor == null) {
                     return "Unable to retrieve capacitor...";
                 } else {
-                    return "L" + capacitor.getLevel() + " - " + capacitor.getComponentName();
+                    return "(" + capacitor.getLevel() + ") " + capacitor.getComponentName();
                 }
             }
 
@@ -1353,7 +1354,7 @@ public class ToolkitController implements Initializable {
                 if (droidInterface == null) {
                     return "Unable to retrieve shield...";
                 } else {
-                    return "L" + droidInterface.getLevel() + " - " + droidInterface.getComponentName();
+                    return "(" + droidInterface.getLevel() + ") " + droidInterface.getComponentName();
                 }
             }
 
@@ -1372,7 +1373,7 @@ public class ToolkitController implements Initializable {
                 if (weapon == null) {
                     return "Unable to retrieve weapon...";
                 } else {
-                    return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
+                    return "(" + weapon.getLevel() + ") " + weapon.getComponentName();
                 }
             }
 
@@ -1389,7 +1390,7 @@ public class ToolkitController implements Initializable {
                 if (weapon == null) {
                     return "Unable to retrieve weapon...";
                 } else {
-                    return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
+                    return "(" + weapon.getLevel() + ") " + weapon.getComponentName();
                 }
             }
 
@@ -1406,7 +1407,7 @@ public class ToolkitController implements Initializable {
                 if (weapon == null) {
                     return "Unable to retrieve weapon...";
                 } else {
-                    return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
+                    return "(" + weapon.getLevel() + ") " + weapon.getComponentName();
                 }
             }
 
@@ -1423,7 +1424,7 @@ public class ToolkitController implements Initializable {
                 if (weapon == null) {
                     return "Unable to retrieve weapon...";
                 } else {
-                    return "L" + weapon.getLevel() + " - " + weapon.getComponentName();
+                    return "(" + weapon.getLevel() + ") " + weapon.getComponentName();
                 }
             }
 
@@ -1442,7 +1443,7 @@ public class ToolkitController implements Initializable {
                 if (ordnance == null) {
                     return "Unable to retrieve ordnance...";
                 } else {
-                    return "L" + ordnance.getLevel() + " - " + ordnance.getComponentName();
+                    return "(" + ordnance.getLevel() + ") " + ordnance.getComponentName();
                 }
             }
 
@@ -1460,7 +1461,7 @@ public class ToolkitController implements Initializable {
                 if (ordnance == null) {
                     return "Unable to retrieve ordnance...";
                 } else {
-                    return "L" + ordnance.getLevel() + " - " + ordnance.getComponentName();
+                    return "(" + ordnance.getLevel() + ") " + ordnance.getComponentName();
                 }
             }
 
@@ -1478,7 +1479,7 @@ public class ToolkitController implements Initializable {
                 if (ordnance == null) {
                     return "Unable to retrieve ordnance...";
                 } else {
-                    return "L" + ordnance.getLevel() + " - " + ordnance.getComponentName();
+                    return "(" + ordnance.getLevel() + ") " + ordnance.getComponentName();
                 }
             }
 
@@ -1497,7 +1498,7 @@ public class ToolkitController implements Initializable {
                 if (countermeasure == null) {
                     return "Unable to retrieve countermeasure...";
                 } else {
-                    return "L" + countermeasure.getLevel() + " - " + countermeasure.getComponentName();
+                    return "(" + countermeasure.getLevel() + ") " + countermeasure.getComponentName();
                 }
             }
 
@@ -1672,7 +1673,7 @@ public class ToolkitController implements Initializable {
     }
     
     public void loadComponentStats() {
-        
+                
         Reactor reactor = (Reactor) loadoutReactor.getValue();
         Engine engine = (Engine) loadoutEngine.getValue();
         Shield shield = (Shield) loadoutShield.getValue();
@@ -1736,9 +1737,9 @@ public class ToolkitController implements Initializable {
         }
         
         if(backArmor != null){
-            currentFrontArmorArmor.setText(doubleToString(backArmor.getArmor(), 2));
-            currentFrontArmorHitpoints.setText(doubleToString(backArmor.getHitpoints(), 2));
-            currentFrontArmorMass.setText(doubleToString(backArmor.getMass(), 2));
+            currentBackArmorArmor.setText(doubleToString(backArmor.getArmor(), 2));
+            currentBackArmorHitpoints.setText(doubleToString(backArmor.getHitpoints(), 2));
+            currentBackArmorMass.setText(doubleToString(backArmor.getMass(), 2));
         }
         
         if(capacitor != null){
@@ -1765,6 +1766,7 @@ public class ToolkitController implements Initializable {
             currentInterfaceHitpoints.setText(doubleToString(droidInterface.getHitpoints(), 2));
             currentInterfaceDrain.setText(doubleToString(droidInterface.getEnergyDrain(), 2));
             currentInterfaceMass.setText(doubleToString(droidInterface.getMass(), 2));
+            currentInterfaceSpeed.setText(doubleToString(droidInterface.getCommandSpeed(), 2));
         }
         
         if(weaponOne != null){
@@ -1865,7 +1867,7 @@ public class ToolkitController implements Initializable {
                 if (loadout == null) {
                     return "Unable to retrieve loadout...";
                 } else {
-                    return loadout.getLoadoutName() + " - " + loadout.getChassis().getChassisShortName();
+                    return loadout.getLoadoutName() + " (" + loadout.getChassis().getChassisShortName() + ")";
                 }
             }
 

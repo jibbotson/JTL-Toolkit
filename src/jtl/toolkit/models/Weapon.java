@@ -26,7 +26,7 @@ public class Weapon {
     public Weapon(Integer newLevel, 
                   Double newArmor, 
                   Double newHitpoints, 
-                  Double newEnergyDrain, 
+                  Double newReactorDrain, 
                   Double newMass, 
                   Double newMinimumDamage, 
                   Double newMaximumDamage, 
@@ -41,7 +41,7 @@ public class Weapon {
         this.level = newLevel;
         this.armor = newArmor;
         this.hitpoints = newHitpoints;
-        this.energyDrain = newEnergyDrain;
+        this.energyDrain = newReactorDrain;
         this.mass = newMass;
         this.minimumDamage = newMinimumDamage;
         this.maximumDamage = newMaximumDamage;
@@ -81,11 +81,11 @@ public class Weapon {
         this.hitpoints = hitpoints;
     }
 
-    public Double getEnergyDrain() {
+    public Double getReactorDrain() {
         return energyDrain;
     }
 
-    public void setEnergyDrain(Double energyDrain) {
+    public void setReactorDrain(Double energyDrain) {
         this.energyDrain = energyDrain;
     }
 

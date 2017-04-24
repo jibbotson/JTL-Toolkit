@@ -114,7 +114,7 @@
                                 </Pane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="loadoutComponents" layoutX="-75.0" layoutY="33.0" prefHeight="639.0" prefWidth="911.0">
+                        <AnchorPane fx:id="loadoutComponents" layoutX="-75.0" layoutY="33.0" prefHeight="639.0" prefWidth="911.0" visible="false">
                             <children>
                                 <AnchorPane layoutX="75.0" layoutY="12.0" maxHeight="599.0" minHeight="200.0" prefHeight="587.0" prefWidth="836.0" />
                                 <AnchorPane layoutX="101.0" layoutY="13.0" prefHeight="126.0" prefWidth="768.0">
@@ -1302,7 +1302,7 @@
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <ComboBox fx:id="loadoutBackArmor" layoutX="397.0" layoutY="1.0" onAction="#loadComponentStats" prefHeight="26.0" prefWidth="185.0" promptText="Select back armor...">
+                                        <ComboBox fx:id="loadoutRearArmor" layoutX="397.0" layoutY="1.0" onAction="#loadComponentStats" prefHeight="26.0" prefWidth="185.0" promptText="Select back armor...">
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
@@ -1386,12 +1386,12 @@
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="currentBackArmorArmor" alignment="CENTER_RIGHT" layoutX="465.0" layoutY="32.0" prefHeight="14.0" prefWidth="116.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentRearArmorArmor" alignment="CENTER_RIGHT" layoutX="465.0" layoutY="32.0" prefHeight="14.0" prefWidth="116.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="currentBackArmorMass" alignment="CENTER_RIGHT" layoutX="465.0" layoutY="56.0" prefHeight="14.0" prefWidth="116.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentRearArmorMass" alignment="CENTER_RIGHT" layoutX="465.0" layoutY="56.0" prefHeight="14.0" prefWidth="116.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
@@ -1401,7 +1401,7 @@
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="currentBackArmorHitpoints" alignment="CENTER_RIGHT" layoutX="465.0" layoutY="44.0" prefHeight="14.0" prefWidth="116.0" text="0.00" textFill="WHITE">
+                                        <Label fx:id="currentRearArmorHitpoints" alignment="CENTER_RIGHT" layoutX="465.0" layoutY="44.0" prefHeight="14.0" prefWidth="116.0" text="0.00" textFill="WHITE">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
@@ -1484,57 +1484,112 @@
                                 <AnchorPane layoutY="-1.0" maxWidth="50.0" minWidth="50.0" prefHeight="565.0" prefWidth="60.0" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="839.0" layoutY="12.0">
+                        <AnchorPane fx:id="loadoutReport" layoutX="839.0" layoutY="12.0" visible="false">
                             <children>
                                 <AnchorPane layoutX="13.0" layoutY="80.0">
                                     <children>
-                                        <ComboBox prefHeight="25.00" prefWidth="196.00" promptText="Select a reactor overload...">
+                                        <ComboBox fx:id="reactorOverload" onAction="#updateLoadoutReport" prefHeight="25.00" prefWidth="196.00" promptText="Select a reactor overload...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Select a reactor overload..." />
+                                                    <String fx:value="Reactor Overload One" />
+                                                    <String fx:value="Reactor Overload Two" />
+                                                    <String fx:value="Reactor Overload Three" />
+                                                    <String fx:value="Reactor Overload Four" />
+                                                </FXCollections>
+                                            </items>
+                                            <value>
+                                                <String fx:value="Select a reactor overload..." />
+                                            </value>
+                                            
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            
-                                                
-                                            
                                         </ComboBox>
-                                        <ComboBox layoutX="1.0" layoutY="30.00" prefHeight="25.00" prefWidth="196.00" promptText="Select an engine overload...">
+                                        <ComboBox fx:id="engineOverload" layoutX="1.0" layoutY="30.00" onAction="#updateLoadoutReport" prefHeight="25.00" prefWidth="196.00" promptText="Select an engine overload...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Select an engine overload..." />
+                                                    <String fx:value="Engine Overload One" />
+                                                    <String fx:value="Engine Overload Two" />
+                                                    <String fx:value="Engine Overload Three" />
+                                                    <String fx:value="Engine Overload Four" />
+                                                </FXCollections>
+                                            </items>
+                                            <value>
+                                                <String fx:value="Select an engine overload..." />
+                                            </value>
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            
-                                                
-                                            
                                         </ComboBox>
-                                        <ComboBox layoutY="61.0" prefHeight="25.00" prefWidth="196.00" promptText="Select a capacitor overload...">
+                                        <ComboBox fx:id="capacitorOverload" layoutY="61.0" onAction="#updateLoadoutReport" prefHeight="25.00" prefWidth="196.00" promptText="Select a capacitor overload...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Select a capacitor overload..." />
+                                                    <String fx:value="Capacitor Overload One" />
+                                                    <String fx:value="Capacitor Overload Two" />
+                                                    <String fx:value="Capacitor Overload Three" />
+                                                    <String fx:value="Capacitor Overload Four" />
+                                                </FXCollections>
+                                            </items>
+                                            <value>
+                                                <String fx:value="Select a capacitor overload..." />
+                                            </value>
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            
-                                                
-                                            
                                         </ComboBox>
-                                        <ComboBox layoutX="217.00" prefHeight="25.00" prefWidth="196.00" promptText="Select a weapon overload...">
+                                        <ComboBox fx:id="weaponOverload" layoutX="217.00" onAction="#updateLoadoutReport" prefHeight="25.00" prefWidth="196.00" promptText="Select a weapon overload...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Select a weapon overload..." />
+                                                    <String fx:value="Weapon Overload One" />
+                                                    <String fx:value="Weapon Overload Two" />
+                                                    <String fx:value="Weapon Overload Three" />
+                                                    <String fx:value="Weapon Overload Four" />
+                                                </FXCollections>
+                                            </items>
+                                            <value>
+                                                <String fx:value="Select a weapon overload..." />
+                                            </value>
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            
-                                                
-                                            
                                         </ComboBox>
-                                        <ComboBox layoutX="217.00" layoutY="30.00" prefHeight="25.00" prefWidth="196.00" promptText="Select a shield adjust...">
+                                        <ComboBox fx:id="shieldAdjust" layoutX="217.00" layoutY="30.00" onAction="#updateLoadoutReport" prefHeight="25.00" prefWidth="196.00" promptText="Select a shield adjust...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Select a shield adjust..." />
+                                                    <String fx:value="Shield Adjust Light" />
+                                                    <String fx:value="Shield Adjust Moderate" />
+                                                    <String fx:value="Shield Adjust Heavy" />
+                                                    <String fx:value="Shield Adjust Extreme" />
+                                                </FXCollections>
+                                            </items>
+                                            <value>
+                                                <String fx:value="Select a shield adjust..." />
+                                            </value>
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            
-                                                
-                                            
                                         </ComboBox>
-                                        <ComboBox layoutX="217.00" layoutY="61.0" prefHeight="25.00" prefWidth="196.00" promptText="Select a shield shunt...">
+                                        <ComboBox fx:id="shieldShunt" layoutX="217.00" layoutY="61.0" onAction="#updateLoadoutReport" prefHeight="25.00" prefWidth="196.00" promptText="Select a shield shunt...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Select a shield shunt..." />
+                                                    <String fx:value="Shield Shunt One" />
+                                                    <String fx:value="Shield Shunt Two" />
+                                                    <String fx:value="Shield Shunt Three" />
+                                                    <String fx:value="Shield Shunt Four" />
+                                                </FXCollections>
+                                            </items>
+                                            <value>
+                                                <String fx:value="Select a shield shunt..." />
+                                            </value>
                                             <effect>
                                                 <InnerShadow blurType="GAUSSIAN" choke="0.34" color="#06508a" height="23.96" radius="11.4825" width="23.97" />
                                             </effect>
-                                            
-                                                
-                                            
                                         </ComboBox>
                                     </children>
                                 </AnchorPane>
@@ -1616,72 +1671,72 @@
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="93.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutEngineReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="93.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="81.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutShieldReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="81.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="105.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutCapacitorReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="105.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="117.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutBoosterReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="117.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="129.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutInterfaceReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="129.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="141.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutCountermeasureReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="141.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="159.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutOrdnanceOneReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="201.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutWeaponOneReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="201.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="213.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutWeaponTwoReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="213.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="237.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutWeaponFourReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="237.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="225.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutWeaponThreeReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="225.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="18.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutGenerationRate" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="18.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="30.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutConsumptionRate" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="30.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="42.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutEnergyDifference" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="42.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
@@ -1701,7 +1756,7 @@
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="171.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutOrdnanceTwoReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="171.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
@@ -1711,7 +1766,7 @@
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="183.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutOrdnanceThreeReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="183.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
@@ -1741,17 +1796,17 @@
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="307.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationThree" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="307.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="319.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationFour" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="319.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="343.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationSix" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="343.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
@@ -1761,7 +1816,7 @@
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="283.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationOne" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="283.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
@@ -1771,12 +1826,12 @@
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="295.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationTwo" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="295.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutX="261.0" layoutY="331.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationFive" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="331.0" prefWidth="88.0" text="0.00" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
@@ -1806,17 +1861,17 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="23.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutTotalProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="23.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="70.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutBackProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="70.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="35.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="35.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1836,12 +1891,12 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="135.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontShielding" alignment="CENTER_RIGHT" layoutX="224.0" layoutY="135.0" prefHeight="14.0" prefWidth="71.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="147.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutRearShielding" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="147.0" prefHeight="14.0" prefWidth="68.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1856,7 +1911,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="199.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontArmoring" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="199.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1871,7 +1926,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="211.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutRearArmoring" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="211.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1881,7 +1936,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="82.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutBackReactorProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="82.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1891,7 +1946,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="94.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutBackEngineProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="94.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1901,7 +1956,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="46.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontReactorProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="46.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1911,7 +1966,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="58.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontEngineProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="58.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1921,7 +1976,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="268.0" layoutY="159.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutShuntValue" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="159.0" prefHeight="14.0" prefWidth="68.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1944,7 +1999,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="204.0" layoutY="21.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutCapacitorEnergy" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="21.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1954,7 +2009,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="204.0" layoutY="33.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutCapacitorRechargeRate" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="33.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -1964,7 +2019,7 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="204.0" layoutY="45.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutCapacitorFullRechargeTime" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="45.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
@@ -2074,7 +2129,7 @@
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="204.0" layoutY="56.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutFullFireTime" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="56.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
@@ -2084,7 +2139,7 @@
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="204.0" layoutY="68.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutEPS" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="68.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
@@ -2189,7 +2244,7 @@
                                                 <Font name="Consolas" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="235.0" layoutY="68.0" text="(0.00 + 0.00 + 0.00 + 0.00)" textFill="WHITE">
+                                          <Label fx:id="loadoutEPSBreakdown" layoutX="235.0" layoutY="68.0" text="(0.00 + 0.00 + 0.00 + 0.00)" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="10.0" />
                                              </font>
@@ -2498,6 +2553,19 @@
                                                 </AnchorPane>
                                             </content>
                                         </Tab>
+                              <Tab closable="false" text="Propulsion">
+                                 <content>
+                                    <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
+                                       <children>
+                                          <Label layoutX="7.0" layoutY="4.0" text="Overview" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas" size="16.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
                                     </tabs>
                                     <effect>
                                         <InnerShadow />
@@ -2528,17 +2596,17 @@
                                                 <Font name="Consolas Bold" size="14.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="169.0" layoutY="6.0" text="0.00" textFill="#f5f5f5">
+                                        <Label fx:id="loadoutMaximumMass" alignment="CENTER_RIGHT" layoutX="101.0" layoutY="6.0" prefHeight="17.0" prefWidth="99.0" text="0.00" textFill="#f5f5f5">
                                             <font>
                                                 <Font name="Consolas Bold" size="14.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="169.0" layoutY="37.0" text="0.00" textFill="#25d025">
+                                        <Label fx:id="loadoutMassDifference" alignment="CENTER_RIGHT" layoutX="100.0" layoutY="37.0" prefHeight="17.0" prefWidth="100.0" text="0.00" textFill="#f5f5f5">
                                             <font>
                                                 <Font name="Consolas Bold" size="14.00" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="169.0" layoutY="21.0" text="0.00" textFill="#25d025">
+                                        <Label fx:id="loadoutCurrentMass" alignment="CENTER_RIGHT" layoutX="101.0" layoutY="21.0" prefHeight="17.0" prefWidth="99.0" text="0.00" textFill="#25d025">
                                             <font>
                                                 <Font name="Consolas Bold" size="14.00" />
                                             </font>

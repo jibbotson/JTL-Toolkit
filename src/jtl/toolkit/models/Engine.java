@@ -24,7 +24,7 @@ public class Engine {
     public Engine(Integer newLevel, 
                   Double newArmor, 
                   Double newHitpoints, 
-                  Double newEnergyDrain, 
+                  Double newReactorDrain, 
                   Double newMass, 
                   Double newPitchRate,
                   Double newYawRate,
@@ -36,7 +36,7 @@ public class Engine {
         this.level = newLevel;
         this.armor = newArmor;
         this.hitpoints = newHitpoints;
-        this.energyDrain = newEnergyDrain;
+        this.energyDrain = newReactorDrain;
         this.mass = newMass;
         this.pitchRate = newPitchRate;
         this.yawRate = newYawRate;
@@ -73,11 +73,11 @@ public class Engine {
         this.hitpoints = hitpoints;
     }
 
-    public Double getEnergyDrain() {
+    public Double getReactorDrain() {
         return energyDrain;
     }
 
-    public void setEnergyDrain(Double energyDrain) {
+    public void setReactorDrain(Double energyDrain) {
         this.energyDrain = energyDrain;
     }
 

@@ -24,7 +24,7 @@ public class Booster {
     public Booster(Integer newLevel, 
                    Double newArmor, 
                    Double newHitpoints, 
-                   Double newEnergyDrain, 
+                   Double newReactorDrain, 
                    Double newMass, 
                    Double newEnergy, 
                    Double newRechargeRate, 
@@ -37,7 +37,7 @@ public class Booster {
         this.level = newLevel;
         this.armor = newArmor;
         this.hitpoints = newHitpoints;
-        this.energyDrain = newEnergyDrain;
+        this.energyDrain = newReactorDrain;
         this.mass = newMass;
         this.energy = newEnergy;
         this.rechargeRate = newRechargeRate;
@@ -75,11 +75,11 @@ public class Booster {
         this.hitpoints = hitpoints;
     }
 
-    public Double getEnergyDrain() {
+    public Double getReactorDrain() {
         return energyDrain;
     }
 
-    public void setEnergyDrain(Double energyDrain) {
+    public void setReactorDrain(Double energyDrain) {
         this.energyDrain = energyDrain;
     }
 

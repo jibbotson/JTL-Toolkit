@@ -1530,7 +1530,7 @@ public class ValidationHelper {
                 validation.statsInError.add("Hitpoints");
                 validation.reasonsForError.add("Invalid hitpoint value...please re-enter.");
             }
-            if(!validateValue(weapon.getEnergyDrain(), this.L10_WEAPON_MINIMUM_DRAIN, this.L10_WEAPON_MAXIMUM_DRAIN)) {
+            if(!validateValue(weapon.getReactorDrain(), this.L10_WEAPON_MINIMUM_DRAIN, this.L10_WEAPON_MAXIMUM_DRAIN)) {
                 validation.validationResult = false;
                 validation.statsInError.add("Energy Drain");
                 validation.reasonsForError.add("Invalid energy drain value...please re-enter.");

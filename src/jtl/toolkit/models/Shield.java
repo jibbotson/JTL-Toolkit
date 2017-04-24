@@ -23,7 +23,7 @@ public class Shield {
     public Shield(Integer newLevel, 
                   Double newArmor, 
                   Double newHitpoints, 
-                  Double newEnergyDrain, 
+                  Double newReactorDrain, 
                   Double newMass, 
                   Double newFrontHitpoints, 
                   Double newBackHitpoints, 
@@ -35,7 +35,7 @@ public class Shield {
         this.level = newLevel;
         this.armor = newArmor;
         this.hitpoints = newHitpoints;
-        this.energyDrain = newEnergyDrain;
+        this.energyDrain = newReactorDrain;
         this.mass = newMass;
         this.frontHitpoints = newFrontHitpoints;
         this.backHitpoints = newBackHitpoints;
@@ -72,11 +72,11 @@ public class Shield {
         this.hitpoints = hitpoints;
     }
 
-    public Double getEnergyDrain() {
+    public Double getReactorDrain() {
         return energyDrain;
     }
 
-    public void setEnergyDrain(Double energyDrain) {
+    public void setReactorDrain(Double energyDrain) {
         this.energyDrain = energyDrain;
     }
 
@@ -96,7 +96,7 @@ public class Shield {
         this.frontHitpoints = frontHitpoints;
     }
 
-    public Double getBackHitpoints() {
+    public Double getRearHitpoints() {
         return backHitpoints;
     }
 

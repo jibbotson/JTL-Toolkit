@@ -23,7 +23,7 @@ public class Countermeasure {
     public Countermeasure(Integer newLevel, 
                     Double newArmor, 
                     Double newHitpoints, 
-                    Double newEnergyDrain, 
+                    Double newReactorDrain, 
                     Double newMass, 
                     Double newMinimumChance, 
                     Double newMaximumChance, 
@@ -35,7 +35,7 @@ public class Countermeasure {
         this.level = newLevel;
         this.armor = newArmor;
         this.hitpoints = newHitpoints;
-        this.energyDrain = newEnergyDrain;
+        this.energyDrain = newReactorDrain;
         this.mass = newMass;
         this.minimumChance = newMinimumChance;
         this.maximumChance = newMaximumChance;
@@ -72,11 +72,11 @@ public class Countermeasure {
         this.hitpoints = hitpoints;
     }
 
-    public Double getEnergyDrain() {
+    public Double getReactorDrain() {
         return energyDrain;
     }
 
-    public void setEnergyDrain(Double energyDrain) {
+    public void setReactorDrain(Double energyDrain) {
         this.energyDrain = energyDrain;
     }
 

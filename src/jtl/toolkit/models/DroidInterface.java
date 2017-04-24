@@ -21,7 +21,7 @@ public class DroidInterface {
     public DroidInterface(Integer newLevel, 
                     Double newArmor, 
                     Double newHitpoints, 
-                    Double newEnergyDrain, 
+                    Double newReactorDrain, 
                     Double newMass, 
                     Double newCommandSpeed,
                     String newComponentNotes,
@@ -31,7 +31,7 @@ public class DroidInterface {
         this.level = newLevel;
         this.armor = newArmor;
         this.hitpoints = newHitpoints;
-        this.energyDrain = newEnergyDrain;
+        this.energyDrain = newReactorDrain;
         this.mass = newMass;
         this.commandSpeed = newCommandSpeed;
         this.componentNotes = newComponentNotes;
@@ -66,11 +66,11 @@ public class DroidInterface {
         this.hitpoints = hitpoints;
     }
 
-    public Double getEnergyDrain() {
+    public Double getReactorDrain() {
         return energyDrain;
     }
 
-    public void setEnergyDrain(Double energyDrain) {
+    public void setReactorDrain(Double energyDrain) {
         this.energyDrain = energyDrain;
     }
 

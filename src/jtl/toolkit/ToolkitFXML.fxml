@@ -74,19 +74,19 @@
                                 </Button>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="createLoadoutPane" layoutY="37.0" prefHeight="614.0" prefWidth="832.0" visible="false">
+                        <AnchorPane fx:id="createLoadoutPane" layoutY="43.0" prefHeight="400.0" prefWidth="1280.0" visible="false">
                             <children>
-                                <Pane layoutX="-1.0" layoutY="2.0" prefHeight="649.0" prefWidth="833.0">
+                                <Pane layoutX="-1.0" layoutY="2.0" prefHeight="597.0" prefWidth="1279.0">
                                     <children>
-                                        <TextField fx:id="chassisMass" alignment="CENTER" disable="true" layoutX="274.0" layoutY="347.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter the total mass..." />
-                                        <ComboBox fx:id="chassisSelection" layoutX="274.0" layoutY="269.0" onAction="#handleChassis" prefHeight="25.0" prefWidth="273.0" promptText="Select a chassis...">
+                                        <TextField fx:id="chassisMass" alignment="CENTER" disable="true" layoutX="500.0" layoutY="374.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter the total mass..." />
+                                        <ComboBox fx:id="chassisSelection" layoutX="500.0" layoutY="296.0" onAction="#handleChassis" prefHeight="25.0" prefWidth="273.0" promptText="Select a chassis...">
                                             
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </ComboBox>
-                                        <TextField fx:id="loadoutName" alignment="CENTER" layoutX="274.0" layoutY="309.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter a loadout name..." />
-                                        <Button fx:id="saveNewLoadoutButton" layoutX="274.0" layoutY="401.0" mnemonicParsing="false" onAction="#saveNewLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Create" textFill="#f8f7f7">
+                                        <TextField fx:id="loadoutName" alignment="CENTER" layoutX="500.0" layoutY="336.0" prefHeight="25.0" prefWidth="273.0" promptText="Enter a loadout name..." />
+                                        <Button fx:id="saveNewLoadoutButton" layoutX="500.0" layoutY="428.0" mnemonicParsing="false" onAction="#saveNewLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: green;" text="Create" textFill="#f8f7f7">
                                             <font>
                                                 <Font name="Consolas" size="13.00" />
                                             </font>
@@ -94,7 +94,7 @@
                                                 <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                             </effect>
                                         </Button>
-                                        <Button fx:id="cancelLoadoutButton" layoutX="417.0" layoutY="401.0" mnemonicParsing="false" onAction="#cancelNewLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: red;" text="Cancel" textFill="#f8f7f7">
+                                        <Button fx:id="cancelLoadoutButton" layoutX="643.0" layoutY="428.0" mnemonicParsing="false" onAction="#cancelNewLoadout" prefHeight="25.00" prefWidth="130.00" style="-fx-background-color: red;" text="Cancel" textFill="#f8f7f7">
                                             <font>
                                                 <Font name="Consolas" size="13.00" />
                                             </font>
@@ -105,7 +105,7 @@
                                                 <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                             </effect>
                                         </Button>
-                                        <ImageView fitHeight="202.0" fitWidth="273.0" layoutX="274.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="221.0" fitWidth="393.0" layoutX="453.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/vaksai.png" />
                                             </image>

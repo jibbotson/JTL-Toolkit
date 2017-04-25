@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +18,7 @@ import javafx.scene.control.SelectionModel;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -359,9 +362,52 @@ public class ToolkitController implements Initializable {
         reloadComponentTables();
         
         reactorTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            removeComponentButton.setVisible(true);
+            removeComponentButton.setDisable(false);
         });
-    }    
+        
+        reactorTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(reactorTable));
+        
+        engineTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(engineTable));
+        
+        shieldTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(shieldTable));
+        
+        armorTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(armorTable));
+        
+        capacitorTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(capacitorTable));
+        
+        weaponTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(weaponTable));
+        
+        countermeasureTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(countermeasureTable));
+        
+        interfaceTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(interfaceTable));
+        
+        boosterTable.setColumnResizePolicy((param) -> true );
+        Platform.runLater(() -> customResize(boosterTable));
+        
+    }  
+    
+    public void customResize(TableView<?> view) {
+
+        AtomicLong width = new AtomicLong();
+        view.getColumns().forEach(col -> {
+            width.addAndGet((long) col.getWidth());
+        });
+        double tableWidth = view.getWidth();
+
+        if (tableWidth > width.get()) {
+            view.getColumns().forEach(col -> {
+                col.setPrefWidth(col.getWidth()+((tableWidth-width.get())/view.getColumns().size()));
+            });
+        }
+    }
     
     @FXML
     private void saveNewComponent(ActionEvent event) {
@@ -1185,8 +1231,8 @@ public class ToolkitController implements Initializable {
                 break;
         }
         
+        removeComponentButton.setDisable(true);
         reloadComponentTables();
-        removeComponentButton.setVisible(false);
     }
     
     @FXML
@@ -1717,7 +1763,6 @@ public class ToolkitController implements Initializable {
                 }            
             }
             
-            loadComponentStats();
             updateLoadoutReport();
             createLoadoutPane.setVisible(false);
             saveLoadoutButton.setDisable(false);
@@ -1728,7 +1773,8 @@ public class ToolkitController implements Initializable {
         }
     }
     
-    public void loadComponentStats() {
+    @FXML
+    public void loadComponentStats(ActionEvent event) {
         
         Reactor reactor = (Reactor) loadoutReactor.getValue();
         Engine engine = (Engine) loadoutEngine.getValue();
@@ -1912,6 +1958,7 @@ public class ToolkitController implements Initializable {
             currentOrdnanceThreeVersusArmor.setText(doubleToString(ordnanceThree.getVersusArmor(), 2));
             currentOrdnanceThreeRefire.setText(doubleToString(ordnanceThree.getRefireRate(), 2));
         }
+        updateLoadoutReport();
         
     }
     
@@ -2024,6 +2071,7 @@ public class ToolkitController implements Initializable {
         clearComponentsButton.setDisable(true);
         
         loadoutComponents.setVisible(false);
+        loadoutReport.setVisible(false);
         createLoadoutPane.setVisible(true);
     }
     
@@ -2042,8 +2090,10 @@ public class ToolkitController implements Initializable {
         
         if(chassis != null) {
             if(chassis.getMass() > 0) {
+                chassisMass.setDisable(true);
                 chassisMass.setText(chassis.getMaximumMass().toString());
             } else {
+                chassisMass.setText("Enter the mass");
                 chassisMass.setDisable(false);
             }
         }
@@ -2281,7 +2331,6 @@ public class ToolkitController implements Initializable {
                 loadoutCapacitorReactorDrain.setText(doubleToString(currentCapacitor.getReactorDrain(), 2));
                 loadoutCapacitorEnergy.setText(doubleToString(currentCapacitor.getEnergy() * capacitorMultiplier, 2));
                 loadoutCapacitorRechargeRate.setText(doubleToString(currentCapacitor.getRechargeRate() * capacitorMultiplier, 2));
-                System.out.println(Double.toString((currentCapacitor.getEnergy() * capacitorMultiplier) * shieldShuntMultiplier));
                 loadoutShuntValue.setText(doubleToString((currentCapacitor.getEnergy() * capacitorMultiplier) * shieldShuntMultiplier, 2));
                 totalCurrentMass += currentCapacitor.getMass();
                 totalConsumptionRate += currentCapacitor.getReactorDrain();
@@ -2369,11 +2418,11 @@ public class ToolkitController implements Initializable {
             
             loadoutConsumptionRate.setText(doubleToString(totalConsumptionRate, 2));
             loadoutEnergyDifference.setText(doubleToString(totalGenerationRate - totalConsumptionRate, 2));
-            loadoutMaximumMass.setText(doubleToString(currentLoadout.getChassis().getMaximumMass(), 2));
+            loadoutMaximumMass.setText(doubleToString(currentLoadout.getChassis().getMass(), 2));
             loadoutCurrentMass.setText(doubleToString(totalCurrentMass, 2));
-            loadoutMassDifference.setText(doubleToString(currentLoadout.getChassis().getMaximumMass() - totalCurrentMass, 2));
+            loadoutMassDifference.setText(doubleToString(currentLoadout.getChassis().getMass() - totalCurrentMass, 2));
 
-            if(Math.signum(currentLoadout.getChassis().getMaximumMass() - totalCurrentMass) == -1.0f) {
+            if(Math.signum(currentLoadout.getChassis().getMass() - totalCurrentMass) == -1.0f) {
                 loadoutMassDifference.setTextFill(Color.web("#e50909"));
             } else {
                 loadoutMassDifference.setTextFill(Color.web("#25d025"));

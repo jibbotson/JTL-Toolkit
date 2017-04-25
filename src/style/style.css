@@ -29,7 +29,6 @@
 .tab-pane .tab:selected
 {
     -fx-background-color: #0e3d63;
-    -fx-effect: innershadow(two-pass-box , rgb(242, 203, 12) , 2, 6.0 , 0 , 0);
 
 }
 
@@ -48,5 +47,57 @@
 
 .root { 
     -fx-focus-color: transparent;
+}
+
+.table-row-cell {
+   -fx-dark-text-color: white;
+   -fx-mid-text-color: white;
+   -fx-light-text-color: white;
+   -fx-background:-fx-accent;
+}
+
+.table-row-cell:odd{
+    -fx-background-color:#004666;
+}
+
+.table-row-cell:even{
+    -fx-background-color:#005780;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #0e3d63;
+}
+
+.table-row-cell{
+    -fx-border-color: #0e3d63;
+    -fx-table-cell-border-color:#0e3d63;
+}
+
+.table-view{
+    -fx-border-color: #0e3d63;
+}
+
+.table-view .filler{
+    -fx-background-color: #0e3d63;
+}
+
+
+
+.table-view .column-header-background .label{
+    -fx-text-fill: #f2cb0c;
+}
+
+.table-row-cell:focused {
+   -fx-dark-text-color: #f2cb0c;
+   -fx-mid-text-color: #f2cb0c;
+   -fx-light-text-color: #f2cb0c;
+}
+
+.table-row-cell:hover {
+   -fx-dark-text-color: #f7dc55;
+   -fx-mid-text-color: #f7dc55;
+   -fx-light-text-color: #f7dc55;
 }
 

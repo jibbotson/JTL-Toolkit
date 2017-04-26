@@ -84,6 +84,7 @@ public class ToolkitController implements Initializable {
     
     // Image Views
     @FXML ImageView newComponentImage;
+    @FXML ImageView REComponentImage;
     
     // Containers
     @FXML AnchorPane newComponentFieldContainerOne;
@@ -96,6 +97,16 @@ public class ToolkitController implements Initializable {
     @FXML AnchorPane newComponentFieldContainerEight;
     @FXML AnchorPane newComponentFieldContainerNine;
     @FXML AnchorPane newComponentFieldContainerTen;
+    @FXML AnchorPane REComponentFieldContainerOne;
+    @FXML AnchorPane REComponentFieldContainerTwo;
+    @FXML AnchorPane REComponentFieldContainerThree;
+    @FXML AnchorPane REComponentFieldContainerFour;
+    @FXML AnchorPane REComponentFieldContainerFive;
+    @FXML AnchorPane REComponentFieldContainerSix;
+    @FXML AnchorPane REComponentFieldContainerSeven;
+    @FXML AnchorPane REComponentFieldContainerEight;
+    @FXML AnchorPane REComponentFieldContainerNine;
+    @FXML AnchorPane REComponentFieldContainerTen;
     @FXML AnchorPane loadoutComponents;
     @FXML AnchorPane loadoutReport;
     @FXML AnchorPane loadoutWeaponTwoContainer;
@@ -118,6 +129,18 @@ public class ToolkitController implements Initializable {
     @FXML Label newComponentFieldNineLabel;
     @FXML Label newComponentFieldTenLabel;
     
+    @FXML Label REComponentFieldOneLabel;
+    @FXML Label REComponentFieldTwoLabel;
+    @FXML Label REComponentFieldThreeLabel;
+    @FXML Label REComponentFieldFourLabel;
+    @FXML Label REComponentFieldFiveLabel;
+    @FXML Label REComponentFieldSixLabel;
+    @FXML Label REComponentFieldSevenLabel;
+    @FXML Label REComponentFieldEightLabel;
+    @FXML Label REComponentFieldNineLabel;
+    @FXML Label REComponentFieldTenLabel;
+    
+    @FXML Label finalResultsLabel;
     @FXML Label newComponentMessage;
     @FXML Label currentReactorArmor;
     @FXML Label currentReactorHitpoints;
@@ -284,6 +307,8 @@ public class ToolkitController implements Initializable {
     @FXML Label loadoutMassDifference;
     @FXML Label loadoutShuntValue;
     
+    @FXML Label REBonus;
+    
     // Text Fields
     @FXML TextField newComponentFieldOneTextbox;
     @FXML TextField newComponentFieldTwoTextbox;
@@ -295,6 +320,29 @@ public class ToolkitController implements Initializable {
     @FXML TextField newComponentFieldEightTextbox;
     @FXML TextField newComponentFieldNineTextbox;
     @FXML TextField newComponentFieldTenTextbox;
+    
+    @FXML TextField REComponentFieldOneTextbox;
+    @FXML TextField REComponentFieldTwoTextbox;
+    @FXML TextField REComponentFieldThreeTextbox;
+    @FXML TextField REComponentFieldFourTextbox;
+    @FXML TextField REComponentFieldFiveTextbox;
+    @FXML TextField REComponentFieldSixTextbox;
+    @FXML TextField REComponentFieldSevenTextbox;
+    @FXML TextField REComponentFieldEightTextbox;
+    @FXML TextField REComponentFieldNineTextbox;
+    @FXML TextField REComponentFieldTenTextbox;
+    
+    @FXML TextField REComponentFieldOneResult;
+    @FXML TextField REComponentFieldTwoResult;
+    @FXML TextField REComponentFieldThreeResult;
+    @FXML TextField REComponentFieldFourResult;
+    @FXML TextField REComponentFieldFiveResult;
+    @FXML TextField REComponentFieldSixResult;
+    @FXML TextField REComponentFieldSevenResult;
+    @FXML TextField REComponentFieldEightResult;
+    @FXML TextField REComponentFieldNineResult;
+    @FXML TextField REComponentFieldTenResult;
+    
     @FXML TextField chassisMass;
     @FXML TextField loadoutName;
     
@@ -309,12 +357,15 @@ public class ToolkitController implements Initializable {
     @FXML Button clearComponentsButton;
     @FXML Button deleteLoadoutButton;
     @FXML Button createLoadoutButton;
+    @FXML Button reverseEngineerButton;
     
     // Combo Boxes
     @FXML ComboBox chassisSelection;
     @FXML ComboBox loadoutSelection;
     @FXML ComboBox newComponentType;
     @FXML ComboBox newComponentLevel;
+    @FXML ComboBox REComponentType;
+    @FXML ComboBox REComponentLevel;
     @FXML ComboBox loadoutReactor;
     @FXML ComboBox loadoutEngine;
     @FXML ComboBox loadoutShield;
@@ -365,32 +416,41 @@ public class ToolkitController implements Initializable {
             removeComponentButton.setDisable(false);
         });
         
-        reactorTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(reactorTable));
+        engineTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
         
-        engineTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(engineTable));
+        shieldTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
         
-        shieldTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(shieldTable));
+        armorTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
         
-        armorTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(armorTable));
+        capacitorTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
         
-        capacitorTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(capacitorTable));
+        weaponTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
+ 
+        countermeasureTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
         
-        weaponTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(weaponTable));
+        interfaceTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
         
-        countermeasureTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(countermeasureTable));
+        boosterTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
         
-        interfaceTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(interfaceTable));
-        
-        boosterTable.setColumnResizePolicy((param) -> true );
-        Platform.runLater(() -> customResize(boosterTable));
+        ordnanceTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            removeComponentButton.setDisable(false);
+        });
         
     }  
     
@@ -779,7 +839,7 @@ public class ToolkitController implements Initializable {
             loadLoadout();
             
         } else {
-            newComponentMessage.setText("You must provide a component name...");
+            newComponentMessage.setText("Enter a component name...");
             newComponentMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         }
     }
@@ -1015,6 +1075,193 @@ public class ToolkitController implements Initializable {
             newComponentFieldContainerSix.setVisible(true);
         }
     }
+    
+    @FXML
+    private void showREComponentFields(ActionEvent event) {
+        
+        String componentType = (String) REComponentType.getValue();
+        REBonus.setVisible(true);
+        finalResultsLabel.setVisible(true);
+        reverseEngineerButton.setVisible(true);
+        
+        if(componentType.equals("Reactor")) {
+            resetREFields();
+            REComponentImage.setImage(new Image("images/asset_reactor.png"));
+            REComponentImage.setVisible(true);
+            
+            // Set labels
+            REComponentFieldOneLabel.setText("Armor:");
+            REComponentFieldTwoLabel.setText("Hitpoints:");
+            REComponentFieldThreeLabel.setText("Mass:");
+            REComponentFieldFourLabel.setText("Generation Rate:");
+            
+            // Show fields
+            REComponentFieldContainerOne.setVisible(true);
+            REComponentFieldContainerTwo.setVisible(true);
+            REComponentFieldContainerThree.setVisible(true);
+            REComponentFieldContainerFour.setVisible(true);
+            
+        }else if(componentType.equals("Engine")) {
+            resetREFields();
+            REComponentImage.setImage(new Image("images/asset_engine.png"));
+            REComponentImage.setVisible(true);
+            
+            // Set labels
+            REComponentFieldOneLabel.setText("Armor:");
+            REComponentFieldTwoLabel.setText("Hitpoints:");
+            REComponentFieldThreeLabel.setText("Energy Drain:");
+            REComponentFieldFourLabel.setText("Mass:");
+            REComponentFieldFiveLabel.setText("Pitch Rate:");
+            REComponentFieldSixLabel.setText("Yaw Rate:");
+            REComponentFieldSevenLabel.setText("Roll Rate:");
+            REComponentFieldEightLabel.setText("Top Speed:");
+            
+            // Show fields
+            REComponentFieldContainerOne.setVisible(true);
+            REComponentFieldContainerTwo.setVisible(true);
+            REComponentFieldContainerThree.setVisible(true);
+            REComponentFieldContainerFour.setVisible(true);
+            REComponentFieldContainerFive.setVisible(true);
+            REComponentFieldContainerSix.setVisible(true);
+            REComponentFieldContainerSeven.setVisible(true);
+            REComponentFieldContainerEight.setVisible(true);
+            
+        }else if(componentType.equals("Shield")) {
+            resetREFields();
+            REComponentImage.setImage(new Image("images/asset_shield.png"));
+            REComponentImage.setVisible(true);
+                 
+            // Set labels
+            REComponentFieldOneLabel.setText("Armor:");
+            REComponentFieldTwoLabel.setText("Hitpoints:");
+            REComponentFieldThreeLabel.setText("Energy Drain:");
+            REComponentFieldFourLabel.setText("Mass:");
+            REComponentFieldFiveLabel.setText("Front Hitpoints:");
+            REComponentFieldSixLabel.setText("Back Hitpoints:");
+            REComponentFieldSevenLabel.setText("Recharge Rate:");
+            
+            // Show fields
+            REComponentFieldContainerOne.setVisible(true);
+            REComponentFieldContainerTwo.setVisible(true);
+            REComponentFieldContainerThree.setVisible(true);
+            REComponentFieldContainerFour.setVisible(true);
+            REComponentFieldContainerFive.setVisible(true);
+            REComponentFieldContainerSix.setVisible(true);
+            REComponentFieldContainerSeven.setVisible(true);
+            
+        }else if(componentType.equals("Armor")) {
+            resetREFields();
+            REComponentImage.setImage(new Image("images/asset_armor.png"));
+            REComponentImage.setVisible(true);
+            
+            // Set labels
+            REComponentFieldOneLabel.setText("Armor:");
+            REComponentFieldTwoLabel.setText("Hitpoints:");
+            REComponentFieldThreeLabel.setText("Mass:");
+            
+            // Show fields
+            REComponentFieldContainerOne.setVisible(true);
+            REComponentFieldContainerTwo.setVisible(true);
+            REComponentFieldContainerThree.setVisible(true);
+            
+        }else if(componentType.equals("Weapon")) {
+            resetREFields();
+            REComponentImage.setImage(new Image("images/asset_weapon.png"));
+            REComponentImage.setVisible(true);
+            
+            // Set labels
+            REComponentFieldOneLabel.setText("Armor:");
+            REComponentFieldTwoLabel.setText("Hitpoints:");
+            REComponentFieldThreeLabel.setText("Energy Drain:");
+            REComponentFieldFourLabel.setText("Mass:");
+            REComponentFieldFiveLabel.setText("Minimum Damage:");
+            REComponentFieldSixLabel.setText("Maximum Damage:");
+            REComponentFieldSevenLabel.setText("Vs. Shields:");
+            REComponentFieldEightLabel.setText("Vs. Armor:");
+            REComponentFieldNineLabel.setText("Energy Per Shot:");
+            REComponentFieldTenLabel.setText("Refire Rate:");
+            
+            // Show fields
+            REComponentFieldContainerOne.setVisible(true);
+            REComponentFieldContainerTwo.setVisible(true);
+            REComponentFieldContainerThree.setVisible(true);
+            REComponentFieldContainerFour.setVisible(true);
+            REComponentFieldContainerFive.setVisible(true);
+            REComponentFieldContainerSix.setVisible(true);
+            REComponentFieldContainerSeven.setVisible(true);
+            REComponentFieldContainerEight.setVisible(true);
+            REComponentFieldContainerNine.setVisible(true);
+            REComponentFieldContainerTen.setVisible(true);
+            
+        }else if(componentType.equals("Booster")) {
+            resetREFields();
+            REComponentImage.setImage(new Image("images/asset_booster.png"));
+            REComponentImage.setVisible(true);
+            
+            // Set labels
+            REComponentFieldOneLabel.setText("Armor:");
+            REComponentFieldTwoLabel.setText("Hitpoints:");
+            REComponentFieldThreeLabel.setText("Energy Drain:");
+            REComponentFieldFourLabel.setText("Mass:");
+            REComponentFieldFiveLabel.setText("Energy:");
+            REComponentFieldSixLabel.setText("Recharge Rate:");
+            REComponentFieldSevenLabel.setText("Consumption Rate:");
+            REComponentFieldEightLabel.setText("Top Speed:");
+            
+            // Show fields
+            REComponentFieldContainerOne.setVisible(true);
+            REComponentFieldContainerTwo.setVisible(true);
+            REComponentFieldContainerThree.setVisible(true);
+            REComponentFieldContainerFour.setVisible(true);
+            REComponentFieldContainerFive.setVisible(true);
+            REComponentFieldContainerSix.setVisible(true);
+            REComponentFieldContainerSeven.setVisible(true);
+            REComponentFieldContainerEight.setVisible(true);
+            
+        }else if(componentType.equals("Capacitor")) {
+            resetREFields();
+            REComponentImage.setImage(new Image("images/asset_capacitor.png"));
+            REComponentImage.setVisible(true);
+            
+            // Set labels
+            REComponentFieldOneLabel.setText("Armor:");
+            REComponentFieldTwoLabel.setText("Hitpoints:");
+            REComponentFieldThreeLabel.setText("Energy Drain:");
+            REComponentFieldFourLabel.setText("Mass:");
+            REComponentFieldFiveLabel.setText("Energy:");
+            REComponentFieldSixLabel.setText("Recharge Rate:");
+            
+            // Show fields
+            REComponentFieldContainerOne.setVisible(true);
+            REComponentFieldContainerTwo.setVisible(true);
+            REComponentFieldContainerThree.setVisible(true);
+            REComponentFieldContainerFour.setVisible(true);
+            REComponentFieldContainerFive.setVisible(true);
+            REComponentFieldContainerSix.setVisible(true);
+        }else if(componentType.equals("Droid Interface")) {
+            resetREFields();
+            REComponentImage.setImage(new Image("images/asset_droid_interface.png"));
+            REComponentImage.setVisible(true);
+            
+            // Set labels
+            REComponentFieldOneLabel.setText("Armor:");
+            REComponentFieldTwoLabel.setText("Hitpoints:");
+            REComponentFieldThreeLabel.setText("Energy Drain:");
+            REComponentFieldFourLabel.setText("Mass:");
+            REComponentFieldFiveLabel.setText("Command Speed:");
+            
+            // Show fields
+            REComponentFieldContainerOne.setVisible(true);
+            REComponentFieldContainerTwo.setVisible(true);
+            REComponentFieldContainerThree.setVisible(true);
+            REComponentFieldContainerFour.setVisible(true);
+            REComponentFieldContainerFive.setVisible(true);
+        }else{
+            REComponentImage.setVisible(false);
+            resetREFields();
+        }
+    }
+    
     
     // Utility functions
     public void resetFields() {
@@ -2440,6 +2687,71 @@ public class ToolkitController implements Initializable {
             requiredGenerationFour.setText(doubleToString((totalConsumptionRate / reactorGenerationMultiplier) / 1.05, 2));
             requiredGenerationFive.setText(doubleToString((totalConsumptionRate / reactorGenerationMultiplier) / 1.06, 2));
             requiredGenerationSix.setText(doubleToString((totalConsumptionRate / reactorGenerationMultiplier) / 1.07, 2));
+        }
+    }
+
+    private void resetREFields() {
+        REComponentFieldOneTextbox.setText("0.0");
+        REComponentFieldTwoTextbox.setText("0.0");
+        REComponentFieldThreeTextbox.setText("0.0");
+        REComponentFieldFourTextbox.setText("0.0");
+        REComponentFieldFiveTextbox.setText("0.0");
+        REComponentFieldSixTextbox.setText("0.0");
+        REComponentFieldSevenTextbox.setText("0.0");
+        REComponentFieldEightTextbox.setText("0.0");
+        REComponentFieldNineTextbox.setText("0.0");
+        REComponentFieldTenTextbox.setText("0.0");
+     
+        REComponentFieldContainerOne.setVisible(false);
+        REComponentFieldContainerTwo.setVisible(false);
+        REComponentFieldContainerThree.setVisible(false);
+        REComponentFieldContainerFour.setVisible(false);
+        REComponentFieldContainerFive.setVisible(false);
+        REComponentFieldContainerSix.setVisible(false);
+        REComponentFieldContainerSeven.setVisible(false);
+        REComponentFieldContainerEight.setVisible(false);
+        REComponentFieldContainerNine.setVisible(false);
+        REComponentFieldContainerTen.setVisible(false);
+    }
+   
+    @FXML
+    public void setREBonus() {
+        String level = REComponentLevel.getValue().toString();
+        
+        switch(level) {
+            case "1":
+                REBonus.setText("2% bonus");
+                break;
+            case "2":
+                REBonus.setText("3% bonus");
+                break;
+            case "3":
+                REBonus.setText("3% bonus");
+                break;
+            case "4":
+                REBonus.setText("4% bonus");
+                break;
+            case "5":
+                REBonus.setText("4% bonus");
+                break;
+            case "6":
+                REBonus.setText("5% bonus");
+                break;
+            case "7":
+                REBonus.setText("5% bonus");
+                break;
+            case "8":
+                REBonus.setText("6% bonus");
+                break;
+            case "9":
+                REBonus.setText("6% bonus");
+                break;
+            case "10":
+                REBonus.setText("7% bonus");
+                break;
+            default :
+                REBonus.setText("0% bonus");
+                break;                
         }
     }
     

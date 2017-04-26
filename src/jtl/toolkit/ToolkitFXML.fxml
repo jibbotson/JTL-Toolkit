@@ -2631,13 +2631,13 @@
                                 <Image url="@../../../images/background_hangar2.jpg" />
                             </image>
                         </ImageView>
-                        <TabPane fx:id="existingComponentsTabPane" layoutX="336.0" layoutY="46.00" prefHeight="545.0" prefWidth="944.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane fx:id="existingComponentsTabPane" layoutX="242.0" layoutY="6.0" prefHeight="599.0" prefWidth="1031.0" tabClosingPolicy="UNAVAILABLE">
                             <tabs>
                                 <Tab text="Reactors">
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="570.0" prefWidth="880.0" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="reactorTable" editable="true" layoutX="-1.0" layoutY="-1.0" prefHeight="546.0" prefWidth="946.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="reactorTable" editable="true" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -2680,7 +2680,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="631.0" prefWidth="810.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="engineTable" layoutX="-1.0" layoutY="-1.0" prefHeight="540.0" prefWidth="946.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="engineTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -2704,7 +2704,7 @@
                                                         </TableColumn>
                                                         <TableColumn text="Drain">
                                                             <cellValueFactory>
-                                                                <PropertyValueFactory property="energyDrain" />
+                                                                <PropertyValueFactory property="reactorDrain" />
                                                             </cellValueFactory>
                                                         </TableColumn>
                                                         <TableColumn text="Mass">
@@ -2714,22 +2714,22 @@
                                                         </TableColumn>
                                                         <TableColumn text="Pitch ">
                                                             <cellValueFactory>
-                                                                <PropertyValueFactory property="pitch" />
+                                                                <PropertyValueFactory property="pitchRate" />
                                                             </cellValueFactory>
                                                         </TableColumn>
                                                         <TableColumn text="Yaw ">
                                                             <cellValueFactory>
-                                                                <PropertyValueFactory property="yaw" />
+                                                                <PropertyValueFactory property="yawRate" />
                                                             </cellValueFactory>
                                                         </TableColumn>
                                                         <TableColumn text="Roll ">
                                                             <cellValueFactory>
-                                                                <PropertyValueFactory property="roll" />
+                                                                <PropertyValueFactory property="rollRate" />
                                                             </cellValueFactory>
                                                         </TableColumn>
-                                                        <TableColumn text="Top Speed">
+                                                        <TableColumn text="Speed">
                                                             <cellValueFactory>
-                                                                <PropertyValueFactory property="roll" />
+                                                                <PropertyValueFactory property="topSpeed" />
                                                             </cellValueFactory>
                                                         </TableColumn>
                                                     </columns>
@@ -2742,7 +2742,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="shieldTable" layoutX="-1.0" layoutY="-1.0" prefHeight="541.0" prefWidth="945.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="shieldTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -2799,7 +2799,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="armorTable" layoutX="-1.0" layoutY="-1.0" prefHeight="541.0" prefWidth="945.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="armorTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -2836,7 +2836,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="capacitorTable" layoutX="-1.0" layoutY="-1.0" prefHeight="541.0" prefWidth="945.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="capacitorTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -2888,7 +2888,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="boosterTable" layoutX="-1.0" layoutY="-1.0" prefHeight="541.0" prefWidth="947.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="boosterTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -2950,7 +2950,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="interfaceTable" layoutX="-1.0" layoutY="-1.0" prefHeight="539.0" prefWidth="945.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="interfaceTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -2997,7 +2997,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="weaponTable" layoutX="-1.0" layoutY="-1.0" prefHeight="540.0" prefWidth="946.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="weaponTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -3069,7 +3069,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="ordnanceTable" layoutX="-1.0" layoutY="-1.0" prefHeight="540.0" prefWidth="946.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="ordnanceTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -3136,7 +3136,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                             <children>
-                                                <TableView fx:id="countermeasureTable" layoutX="-1.0" layoutY="-1.0" prefHeight="540.0" prefWidth="946.0" style="-fx-background-color: #00344d;">
+                                                <TableView fx:id="countermeasureTable" layoutX="-1.0" layoutY="-1.0" prefHeight="568.0" prefWidth="1034.0" style="-fx-background-color: #00344d;">
                                                     <columns>
                                                         <TableColumn text="Level">
                                                             <cellValueFactory>
@@ -3194,16 +3194,16 @@
                         <InnerShadow />
                      </effect>
                         </TabPane>
-                        <AnchorPane layoutX="11.0" layoutY="53.0" prefHeight="597.0" prefWidth="315.0">
+                        <AnchorPane layoutX="8.0" layoutY="53.0" prefHeight="597.0" prefWidth="258.0">
                             <children>
-                                <ImageView fx:id="newComponentImage" fitHeight="70.0" fitWidth="174.0" layoutX="59.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="newComponentImage" fitHeight="80.0" fitWidth="200.0" layoutX="12.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../../images/asset_reactor.png" />
                                     </image>
                                 </ImageView>
-                                <AnchorPane layoutY="54.0" prefHeight="234.0" prefWidth="319.0">
+                                <AnchorPane layoutY="54.0" prefHeight="234.0" prefWidth="272.0">
                                     <children>
-                                        <ComboBox fx:id="newComponentType" layoutX="46.0" layoutY="85.0" onAction="#showNewComponentFields" prefHeight="26.0" prefWidth="158.0" promptText="Select a component type...">
+                                        <ComboBox fx:id="newComponentType" layoutX="3.0" layoutY="85.0" onAction="#showNewComponentFields" prefHeight="26.0" prefWidth="225.0" promptText="Select a component type...">
                                             <items>
                                                 <FXCollections fx:factory="observableArrayList">
                                                     <String fx:value="Reactor" />
@@ -3225,9 +3225,7 @@
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </ComboBox>
-                                        <Label layoutX="3.0" layoutY="89.0" text="Type:" textFill="WHITE" />
-                                        <Label layoutY="118.0" text="Level:" textFill="WHITE" />
-                                        <ComboBox fx:id="newComponentLevel" layoutX="46.0" layoutY="114.0" prefHeight="26.0" prefWidth="158.0" promptText="Select a component level...">
+                                        <ComboBox fx:id="newComponentLevel" layoutX="3.0" layoutY="114.0" prefHeight="26.0" prefWidth="225.0" promptText="Select a component level...">
                                             <items>
                                                 <FXCollections fx:factory="observableArrayList">
                                                     <Integer fx:value="1" />
@@ -3249,7 +3247,7 @@
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </ComboBox>
-                                        <Button fx:id="saveNewComponentButton" layoutX="2.0" layoutY="14.0" mnemonicParsing="false" onAction="#saveNewComponent" prefHeight="25.00" prefWidth="150.0" style="-fx-background-color: green;" text="Save Component" textFill="#fffefe">
+                                        <Button fx:id="saveNewComponentButton" layoutX="1.0" layoutY="22.0" mnemonicParsing="false" onAction="#saveNewComponent" prefHeight="25.00" prefWidth="110.0" style="-fx-background-color: green;" text="Save Component" textFill="#fffefe">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
@@ -3257,13 +3255,12 @@
                                                 <InnerShadow choke="0.69" color="#252525" height="7.66" radius="3.7" width="9.14" />
                                             </effect>
                                         </Button>
-                                        <Label layoutX="-3.0" layoutY="175.0" text="Notes:" textFill="WHITE" />
-                                        <TextArea fx:id="newComponentNotes" layoutX="46.0" layoutY="173.0" prefHeight="56.00" prefWidth="269.0" promptText="Enter some notes...">
+                                        <TextArea fx:id="newComponentNotes" layoutX="3.0" layoutY="173.0" prefHeight="56.00" prefWidth="225.0" promptText="Enter some notes...">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextArea>
-                                        <Button fx:id="clearNewComponentFieldsButton" layoutX="161.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: orange;" text="Clear Fields">
+                                        <Button fx:id="clearNewComponentFieldsButton" layoutX="118.0" layoutY="22.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: orange;" text="Clear Fields">
                                             <font>
                                                 <Font name="Consolas" size="12.00" />
                                             </font>
@@ -3271,13 +3268,12 @@
                                                 <InnerShadow choke="0.69" color="#252525" height="7.66" radius="3.7" width="9.14" />
                                             </effect>
                                         </Button>
-                                        <Label fx:id="newComponentMessage" layoutX="2.0" layoutY="52.0" prefHeight="21.0" prefWidth="313.0" style="-fx-text-alignment: center;" text="To save a component, complete the fields below:" textFill="#fffbfb">
+                                        <Label fx:id="newComponentMessage" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="226.0" style="-fx-text-alignment: center;" text="Complete the fields below..." textFill="#fffbfb">
                                             <font>
                                                 <Font name="System Italic" size="12.0" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="-3.0" layoutY="148.0" text="Name:" textFill="WHITE" />
-                                        <TextField fx:id="newComponentName" layoutX="46.0" layoutY="144.0" prefHeight="26.0" prefWidth="269.0" promptText="Enter a name...">
+                                        <TextField fx:id="newComponentName" layoutX="3.0" layoutY="144.0" prefHeight="26.0" prefWidth="225.0" promptText="Enter a name...">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
@@ -3288,109 +3284,109 @@
                                     <children>
                                         <AnchorPane fx:id="newComponentFieldContainerOne" layoutY="-1.0">
                                             <children>
-                                                <TextField fx:id="newComponentFieldOneTextbox" alignment="CENTER_RIGHT" layoutX="204.0" prefHeight="26.0" prefWidth="111.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldOneTextbox" alignment="CENTER_RIGHT" layoutX="127.0" prefHeight="26.0" prefWidth="101.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldOneLabel" alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="199.0" text="Armor:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldOneLabel" alignment="CENTER_RIGHT" layoutY="4.0" prefHeight="16.0" prefWidth="122.0" text="Armor:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
                                         <AnchorPane fx:id="newComponentFieldContainerTwo" layoutY="28.00">
                                             <children>
-                                                <TextField fx:id="newComponentFieldTwoTextbox" alignment="CENTER_RIGHT" layoutX="204.0" prefHeight="26.0" prefWidth="111.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldTwoTextbox" alignment="CENTER_RIGHT" layoutX="127.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldTwoLabel" alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="199.0" text="Hitpoints:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldTwoLabel" alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="122.0" text="Hitpoints:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
                                         <AnchorPane fx:id="newComponentFieldContainerThree" layoutX="1.0" layoutY="56.00">
                                             <children>
-                                                <TextField fx:id="newComponentFieldThreeTextbox" alignment="CENTER_RIGHT" layoutX="203.0" layoutY="1.0" prefHeight="26.0" prefWidth="111.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldThreeTextbox" alignment="CENTER_RIGHT" layoutX="126.0" layoutY="1.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldThreeLabel" alignment="CENTER_RIGHT" layoutX="-1.0" layoutY="5.00" prefHeight="16.0" prefWidth="199.0" text="Mass:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldThreeLabel" alignment="CENTER_RIGHT" layoutX="-1.0" layoutY="5.00" prefHeight="16.0" prefWidth="122.0" text="Mass:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
                                         <AnchorPane fx:id="newComponentFieldContainerFour" layoutX="1.0" layoutY="84.00">
                                             <children>
-                                                <TextField fx:id="newComponentFieldFourTextbox" alignment="CENTER_RIGHT" layoutX="203.0" layoutY="2.00" prefHeight="26.0" prefWidth="112.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldFourTextbox" alignment="CENTER_RIGHT" layoutX="126.0" layoutY="2.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldFourLabel" alignment="CENTER_RIGHT" layoutY="6.0" prefHeight="16.0" prefWidth="198.0" text="Generation Rate:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldFourLabel" alignment="CENTER_RIGHT" layoutX="2.0" layoutY="6.0" prefHeight="16.0" prefWidth="120.0" text="Generation Rate:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane fx:id="newComponentFieldContainerFive" layoutX="1.0" layoutY="112.00" visible="false">
+                                        <AnchorPane fx:id="newComponentFieldContainerFive" layoutX="1.0" layoutY="112.00" prefHeight="29.0" prefWidth="257.0">
                                             <children>
-                                                <TextField fx:id="newComponentFieldFiveTextbox" alignment="CENTER_RIGHT" layoutX="203.0" layoutY="3.00" prefHeight="26.0" prefWidth="112.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldFiveTextbox" alignment="CENTER_RIGHT" layoutX="126.0" layoutY="3.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldFiveLabel" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="7.0" prefHeight="16.0" prefWidth="196.0" text="Placeholder:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldFiveLabel" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="7.0" prefHeight="16.0" prefWidth="120.0" text="Placeholder:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane fx:id="newComponentFieldContainerSix" layoutX="2.00" layoutY="140.00" visible="false">
+                                        <AnchorPane fx:id="newComponentFieldContainerSix" layoutX="2.00" layoutY="140.00">
                                             <children>
-                                                <TextField fx:id="newComponentFieldSixTextbox" alignment="CENTER_RIGHT" layoutX="202.0" layoutY="4.00" prefHeight="26.0" prefWidth="112.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldSixTextbox" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="4.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldSixLabel" alignment="CENTER_RIGHT" layoutY="8.0" prefHeight="16.0" prefWidth="196.0" text="Placeholder:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldSixLabel" alignment="CENTER_RIGHT" layoutX="-26.0" layoutY="8.0" prefHeight="16.0" prefWidth="146.0" text="Placeholder:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane fx:id="newComponentFieldContainerSeven" layoutX="2.00" layoutY="168.00" visible="false">
+                                        <AnchorPane fx:id="newComponentFieldContainerSeven" layoutX="2.00" layoutY="168.00">
                                             <children>
-                                                <TextField fx:id="newComponentFieldSevenTextbox" alignment="CENTER_RIGHT" layoutX="202.0" layoutY="5.00" prefHeight="26.0" prefWidth="112.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldSevenTextbox" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="5.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldSevenLabel" alignment="CENTER_RIGHT" layoutX="-3.0" layoutY="9.0" prefHeight="16.0" prefWidth="198.0" text="Placeholder:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldSevenLabel" alignment="CENTER_RIGHT" layoutX="-26.0" layoutY="9.0" prefHeight="16.0" prefWidth="146.0" text="Placeholder:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane fx:id="newComponentFieldContainerEight" layoutX="2.00" layoutY="196.00" visible="false">
+                                        <AnchorPane fx:id="newComponentFieldContainerEight" layoutX="2.00" layoutY="196.00">
                                             <children>
-                                                <TextField fx:id="newComponentFieldEightTextbox" alignment="CENTER_RIGHT" layoutX="202.0" layoutY="6.00" prefHeight="26.0" prefWidth="111.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldEightTextbox" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="6.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldEightLabel" alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="10.0" prefHeight="16.0" prefWidth="199.0" text="Placeholder:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldEightLabel" alignment="CENTER_RIGHT" layoutX="-26.0" layoutY="10.0" prefHeight="16.0" prefWidth="146.0" text="Placeholder:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane fx:id="newComponentFieldContainerNine" layoutX="2.00" layoutY="224.00" visible="false">
+                                        <AnchorPane fx:id="newComponentFieldContainerNine" layoutX="2.00" layoutY="224.00">
                                             <children>
-                                                <TextField fx:id="newComponentFieldNineTextbox" alignment="CENTER_RIGHT" layoutX="202.0" layoutY="7.00" prefHeight="26.0" prefWidth="111.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldNineTextbox" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="7.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldNineLabel" alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="11.0" prefHeight="16.0" prefWidth="199.0" text="Placeholder:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldNineLabel" alignment="CENTER_RIGHT" layoutX="-26.0" layoutY="11.0" prefHeight="16.0" prefWidth="146.0" text="Placeholder:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane fx:id="newComponentFieldContainerTen" layoutX="2.00" layoutY="252.00" visible="false">
+                                        <AnchorPane fx:id="newComponentFieldContainerTen" layoutX="2.00" layoutY="252.00">
                                             <children>
-                                                <TextField fx:id="newComponentFieldTenTextbox" alignment="CENTER_RIGHT" layoutX="202.0" layoutY="8.00" prefHeight="26.0" prefWidth="112.0" text="0.00">
+                                                <TextField fx:id="newComponentFieldTenTextbox" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="8.0" prefHeight="26.0" prefWidth="100.0" text="0.00">
                                                     <effect>
                                                         <InnerShadow color="#338bab" />
                                                     </effect>
                                                 </TextField>
-                                                <Label fx:id="newComponentFieldTenLabel" alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="12.0" prefHeight="16.0" prefWidth="199.0" text="Placeholder:" textFill="WHITE" />
+                                                <Label fx:id="newComponentFieldTenLabel" alignment="CENTER_RIGHT" layoutX="-26.0" layoutY="12.0" prefHeight="16.0" prefWidth="146.0" text="Placeholder:" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <Button fx:id="removeComponentButton" layoutX="336.0" layoutY="591.0" mnemonicParsing="false" onAction="#removeComponent" prefHeight="36.0" prefWidth="945.0" style="-fx-background-color: #b30000;" text="Remove Component" textFill="WHITE">
+                        <Button fx:id="removeComponentButton" layoutX="242.0" layoutY="602.0" mnemonicParsing="false" onAction="#removeComponent" prefHeight="36.0" prefWidth="1032.0" style="-fx-background-color: #b30000;" text="Remove Component" textFill="WHITE">
                             <font>
                                 <Font name="Consolas" size="12.00" />
                             </font>
@@ -3413,185 +3409,235 @@
                         </ImageView>
                         <AnchorPane layoutX="-11.0" layoutY="127.0" prefHeight="452.0" prefWidth="667.0">
                             <children>
-                                <ComboBox layoutX="118.0" layoutY="110.0" prefHeight="25.00" prefWidth="250.00" promptText="Select a component type...">
+                                <ComboBox fx:id="REComponentType" layoutX="119.0" layoutY="61.0" onAction="#showREComponentFields" prefHeight="25.00" prefWidth="250.00" promptText="Select a component type...">
+                                    <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Reactor" />
+                                                    <String fx:value="Engine" />
+                                                    <String fx:value="Shield" />
+                                                    <String fx:value="Armor" />
+                                                    <String fx:value="Capacitor" />
+                                                    <String fx:value="Booster" />
+                                                    <String fx:value="Droid Interface" />
+                                                    <String fx:value="Weapon" />
+                                                </FXCollections>
+                                            </items>
                                     <effect>
                                         <InnerShadow color="#338bab" />
                                     </effect>
                                 </ComboBox>
-                                <Label layoutX="76.0" layoutY="114.0" text="Type:" textFill="WHITE">
+                                <Label layoutX="74.0" layoutY="65.0" text="Type:" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="12.00" />
                                     </font>
                                 </Label>
-                                <Label layoutX="72.0" layoutY="143.0" text="Level:" textFill="WHITE">
+                                <Label layoutX="71.0" layoutY="94.0" text="Level:" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="12.00" />
                                     </font>
                                 </Label>
-                                <ComboBox layoutX="118.0" layoutY="139.0" prefHeight="25.00" prefWidth="250.00" promptText="Select a component level...">
+                                <ComboBox fx:id="REComponentLevel" layoutX="119.0" layoutY="90.0" onAction="#setREBonus" prefHeight="25.00" prefWidth="250.00" promptText="Select a component level...">
+                                    <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <Integer fx:value="1" />
+                                                    <Integer fx:value="2" />
+                                                    <Integer fx:value="3" />
+                                                    <Integer fx:value="4" />
+                                                    <Integer fx:value="5" />
+                                                    <Integer fx:value="6" />
+                                                    <Integer fx:value="7" />
+                                                    <Integer fx:value="8" />
+                                                    <Integer fx:value="9" />
+                                                    <Integer fx:value="10" />
+                                                </FXCollections>
+                                            </items>
                                     <effect>
                                         <InnerShadow color="#338bab" />
                                     </effect>
                                 </ComboBox>
-                                <AnchorPane layoutY="202.0">
+                                <AnchorPane fx:id="REComponentFieldContainerOne" layoutX="99.0" layoutY="214.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldOneTextbox" alignment="CENTER_RIGHT" layoutX="119.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutX="1.0" layoutY="4.0" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldOneLabel" alignment="CENTER_RIGHT" layoutX="-55.0" layoutY="4.0" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldOneResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="337.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="396.0" layoutY="4.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="296.0" layoutY="4.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutY="230.0">
+                                <AnchorPane fx:id="REComponentFieldContainerTwo" layoutX="99.0" layoutY="242.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldTwoTextbox" alignment="CENTER_RIGHT" layoutX="119.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldTwoLabel" alignment="CENTER_RIGHT" layoutX="-55.0" layoutY="4.0" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldTwoResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="337.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="396.0" layoutY="4.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="296.0" layoutY="4.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="1.0" layoutY="258.0">
+                                <AnchorPane fx:id="REComponentFieldContainerThree" layoutX="100.0" layoutY="270.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldThreeTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldThreeLabel" alignment="CENTER_RIGHT" layoutX="-56.0" layoutY="4.00" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldThreeResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="336.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="395.0" layoutY="4.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="295.0" layoutY="4.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="1.0" layoutY="286.0">
+                                <AnchorPane fx:id="REComponentFieldContainerFour" layoutX="100.0" layoutY="298.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldFourTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldFourLabel" alignment="CENTER_RIGHT" layoutX="-56.0" layoutY="4.00" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldFourResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="336.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="395.0" layoutY="4.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="295.0" layoutY="4.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="1.0" layoutY="314.0">
+                                <AnchorPane fx:id="REComponentFieldContainerFive" layoutX="100.0" layoutY="326.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldFiveTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldFiveLabel" alignment="CENTER_RIGHT" layoutX="-56.0" layoutY="4.00" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldFiveResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="336.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="395.0" layoutY="4.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="295.0" layoutY="4.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="2.0" layoutY="342.0">
+                                <AnchorPane fx:id="REComponentFieldContainerSix" layoutX="101.0" layoutY="354.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldSixTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldSixLabel" alignment="CENTER_RIGHT" layoutX="-57.0" layoutY="4.0" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldSixResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="335.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="394.0" layoutY="4.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="293.0" layoutY="4.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="2.0" layoutY="370.0">
+                                <AnchorPane fx:id="REComponentFieldContainerSeven" layoutX="101.0" layoutY="382.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldSevenTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldSevenLabel" alignment="CENTER_RIGHT" layoutX="-57.0" layoutY="4.0" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldSevenResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="335.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="395.0" layoutY="4.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="294.0" layoutY="4.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="2.0" layoutY="398.0">
+                                <AnchorPane fx:id="REComponentFieldContainerEight" layoutX="101.0" layoutY="410.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldEightTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldEightLabel" alignment="CENTER_RIGHT" layoutX="-57.0" layoutY="4.0" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldEightResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="335.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="395.0" layoutY="4.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="294.0" layoutY="4.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="2.0" layoutY="426.0">
+                                <AnchorPane fx:id="REComponentFieldContainerNine" layoutX="101.0" layoutY="438.0" visible="false">
                                     <children>
-                                        <TextField layoutX="118.00" prefHeight="25.00" prefWidth="250.00" promptText="0.00">
+                                        <TextField fx:id="REComponentFieldNineTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
                                             <effect>
                                                 <InnerShadow color="#338bab" />
                                             </effect>
                                         </TextField>
-                                        <Label alignment="CENTER_RIGHT" layoutY="4.00" prefHeight="16.0" prefWidth="114.0" text="Placeholder:" textFill="WHITE" />
-                                        <TextField editable="false" layoutX="436.00" prefHeight="25.00" prefWidth="250.00" promptText="Enter a value on the left...">
+                                        <Label fx:id="REComponentFieldNineLabel" alignment="CENTER_RIGHT" layoutX="-57.0" layoutY="4.0" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                                        <TextField fx:id="REComponentFieldNineResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="335.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
                                             <effect>
-                                                <InnerShadow color="#338bab" />
+                                                <InnerShadow choke="1.0" color="#129708" height="5.82" radius="2.41" width="5.82" />
                                             </effect>
                                         </TextField>
-                                        <Label layoutX="395.0" layoutY="3.0" text="=" textFill="WHITE" />
+                                        <Label layoutX="294.0" layoutY="3.0" text="=" textFill="WHITE" />
                                     </children>
                                 </AnchorPane>
-                                <Label layoutX="507.0" layoutY="172.0" text="Final Results" textFill="#ffbc37">
+                        <AnchorPane fx:id="REComponentFieldContainerTen" layoutX="101.0" layoutY="466.0" visible="false">
+                           <children>
+                              <TextField fx:id="REComponentFieldTenTextbox" alignment="CENTER_RIGHT" layoutX="118.00" prefHeight="25.00" prefWidth="150.0" promptText="0.00">
+                                 <effect>
+                                    <InnerShadow color="#338bab" />
+                                 </effect>
+                              </TextField>
+                              <Label fx:id="REComponentFieldTenLabel" alignment="CENTER_RIGHT" layoutX="-56.0" layoutY="4.00" prefHeight="16.0" prefWidth="170.0" text="Placeholder:" textFill="WHITE" />
+                              <TextField fx:id="REComponentFieldTenResult" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="335.0" prefHeight="25.00" prefWidth="150.0" promptText="0.00" style="-fx-opacity: 1.0;" styleClass="finalResult">
+                                 <effect>
+                                    <InnerShadow color="#338bab" />
+                                 </effect>
+                              </TextField>
+                              <Label layoutX="294.0" layoutY="3.0" text="=" textFill="WHITE" />
+                           </children>
+                        </AnchorPane>
+                                <Label fx:id="finalResultsLabel" layoutX="453.0" layoutY="185.0" text="Final Results" textFill="#ffbc37" visible="false">
                                     <font>
                                         <Font size="18.00" />
                                     </font>
                                 </Label>
-                                <Label layoutX="508.0" layoutY="144.0" text="0% bonus" textFill="#1fd31f">
+                                <Label fx:id="REBonus" layoutX="454.0" layoutY="157.0" text="0% bonus" textFill="#1fd31f" visible="false">
                                     <font>
                                         <Font name="System Bold" size="21.0" />
                                     </font>
                                 </Label>
-                        <Label layoutX="25.0" layoutY="72.0" text="Start by selecting a component type and level. Results will reactively update as you enter values." textFill="#ffbc37">
+                        <ImageView fx:id="REComponentImage" fitHeight="80.0" fitWidth="200.0" layoutX="413.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../images/asset_reactor.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="reverseEngineerButton" layoutX="219.0" layoutY="171.0" mnemonicParsing="false" onAction="#saveNewComponent" prefHeight="25.00" prefWidth="150.0" style="-fx-background-color: green;" text="Reverse Engineer" textFill="#fffefe" visible="false">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Consolas" size="12.00" />
                            </font>
-                        </Label>
+                           <effect>
+                              <InnerShadow choke="0.69" color="#252525" height="7.66" radius="3.7" width="9.14" />
+                           </effect>
+                        </Button>
                             </children>
                         </AnchorPane>
                         <AnchorPane layoutX="14.00" layoutY="14.00">

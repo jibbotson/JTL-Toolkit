@@ -87,6 +87,8 @@ public class ToolkitController implements Initializable {
     @FXML ImageView REComponentImage;
     
     // Containers
+    @FXML AnchorPane reverseEngineeringContainer;
+    @FXML AnchorPane statQualityContainer;
     @FXML AnchorPane newComponentFieldContainerOne;
     @FXML AnchorPane newComponentFieldContainerTwo;
     @FXML AnchorPane newComponentFieldContainerThree;
@@ -1492,31 +1494,67 @@ public class ToolkitController implements Initializable {
     public void saveLoadout() {
         
         Reactor reactor = (Reactor) loadoutReactor.getValue();
-        if(reactor != null) currentLoadout.setReactorID(reactor.getComponentID());
+        if(reactor != null){
+            currentLoadout.setReactorID(reactor.getComponentID());
+        }else{
+            currentLoadout.setReactorID(null);
+        }
         
         Engine engine = (Engine) loadoutEngine.getValue();
-        if(engine != null) currentLoadout.setEngineID(engine.getComponentID());
+        if(engine != null) {
+            currentLoadout.setEngineID(engine.getComponentID());
+        }else{
+            currentLoadout.setEngineID(null);
+        }
         
         Shield shield = (Shield) loadoutShield.getValue();
-        if(shield != null) currentLoadout.setShieldID(shield.getComponentID());
+        if(shield != null) {
+            currentLoadout.setShieldID(shield.getComponentID());
+        }else{
+            currentLoadout.setShieldID(null);
+        }
         
         Booster booster = (Booster) loadoutBooster.getValue();
-        if(booster != null) currentLoadout.setBoosterID(booster.getComponentID());
+        if(booster != null) {
+            currentLoadout.setBoosterID(booster.getComponentID());
+        }else{
+            currentLoadout.setBoosterID(null);
+        }
         
         Capacitor capacitor = (Capacitor) loadoutCapacitor.getValue();
-        if(capacitor != null) currentLoadout.setCapacitorID(capacitor.getComponentID());
+        if(capacitor != null) {
+            currentLoadout.setCapacitorID(capacitor.getComponentID());
+        }else{
+            currentLoadout.setCapacitorID(null);
+        }
         
         DroidInterface droidInterface = (DroidInterface) loadoutInterface.getValue();
-        if(droidInterface != null) currentLoadout.setDroidInterfaceID(droidInterface.getComponentID());
+        if(droidInterface != null){
+            currentLoadout.setDroidInterfaceID(droidInterface.getComponentID());
+        }else{
+            currentLoadout.setDroidInterfaceID(null);
+        }
 
         Armor frontArmor = (Armor) loadoutFrontArmor.getValue();
-        if(frontArmor != null) currentLoadout.setArmorFrontID(frontArmor.getComponentID());
+        if(frontArmor != null) {
+            currentLoadout.setArmorFrontID(frontArmor.getComponentID());
+        }else{
+            currentLoadout.setArmorFrontID(null);
+        }
         
         Armor backArmor = (Armor) loadoutRearArmor.getValue();
-        if(backArmor != null) currentLoadout.setArmorBackID(backArmor.getComponentID());
+        if(backArmor != null) {
+            currentLoadout.setArmorBackID(backArmor.getComponentID());
+        }else{
+            currentLoadout.setArmorBackID(null);
+        }
         
         Countermeasure countermeasure = (Countermeasure) loadoutCountermeasure.getValue();
-        if(countermeasure != null) currentLoadout.setCountermeasureID(countermeasure.getComponentID());
+        if(countermeasure != null) {
+            currentLoadout.setCountermeasureID(countermeasure.getComponentID());
+        }else{
+            currentLoadout.setCountermeasureID(null);
+        }
         
         Weapon weaponOne = (Weapon) loadoutWeaponOne.getValue();
         Weapon weaponTwo = (Weapon) loadoutWeaponTwo.getValue();
@@ -2021,7 +2059,7 @@ public class ToolkitController implements Initializable {
     }
     
     @FXML
-    public void loadComponentStats(ActionEvent event) {
+    public void loadComponentStats() {
         
         Reactor reactor = (Reactor) loadoutReactor.getValue();
         Engine engine = (Engine) loadoutEngine.getValue();
@@ -2045,6 +2083,11 @@ public class ToolkitController implements Initializable {
             currentReactorHitpoints.setText(doubleToString(reactor.getHitpoints(), 2));
             currentReactorMass.setText(doubleToString(reactor.getMass(), 2));
             currentReactorGeneration.setText(doubleToString(reactor.getGenerationRate(), 2));    
+        }else{
+            currentReactorArmor.setText("0.00");
+            currentReactorHitpoints.setText("0.00");
+            currentReactorMass.setText("0.00");
+            currentReactorGeneration.setText("0.00"); 
         }
         
         if(engine != null) {
@@ -2056,6 +2099,15 @@ public class ToolkitController implements Initializable {
             currentEngineYaw.setText(doubleToString(engine.getYawRate(), 2)); 
             currentEngineRoll.setText(doubleToString(engine.getRollRate(), 2));   
             currentEngineSpeed.setText(doubleToString(engine.getTopSpeed(), 2));   
+        }else{
+            currentEngineArmor.setText("0.00");
+            currentEngineHitpoints.setText("0.00");
+            currentEngineDrain.setText("0.00");
+            currentEngineMass.setText("0.00");   
+            currentEnginePitch.setText("0.00");  
+            currentEngineYaw.setText("0.00"); 
+            currentEngineRoll.setText("0.00");   
+            currentEngineSpeed.setText("0.00");   
         }
         
         if(shield != null) {
@@ -2066,6 +2118,14 @@ public class ToolkitController implements Initializable {
             currentShieldFrontHitpoints.setText(doubleToString(shield.getFrontHitpoints(), 2));  
             currentShieldBackHitpoints.setText(doubleToString(shield.getRearHitpoints(), 2)); 
             currentShieldRecharge.setText(doubleToString(shield.getRechargeRate(), 2));  
+        }else{
+            currentShieldArmor.setText("0.00");
+            currentShieldHitpoints.setText("0.00");
+            currentShieldDrain.setText("0.00");
+            currentShieldMass.setText("0.00");   
+            currentShieldFrontHitpoints.setText("0.00");  
+            currentShieldBackHitpoints.setText("0.00"); 
+            currentShieldRecharge.setText("0.00");  
         }
         
         if(booster != null) {
@@ -2077,18 +2137,35 @@ public class ToolkitController implements Initializable {
             currentBoosterRecharge.setText(doubleToString(booster.getRechargeRate(), 2)); 
             currentBoosterConsumption.setText(doubleToString(booster.getConsumptionRate(), 2));  
             currentBoosterSpeed.setText(doubleToString(booster.getTopSpeed(), 2));  
+        }else{
+            currentBoosterArmor.setText("0.00");
+            currentBoosterHitpoints.setText("0.00");
+            currentBoosterDrain.setText("0.00");
+            currentBoosterMass.setText("0.00");   
+            currentBoosterEnergy.setText("0.00");  
+            currentBoosterRecharge.setText("0.00"); 
+            currentBoosterConsumption.setText("0.00");  
+            currentBoosterSpeed.setText("0.00"); 
         }
         
         if(frontArmor != null) {
             currentFrontArmorArmor.setText(doubleToString(frontArmor.getArmor(), 2));
             currentFrontArmorHitpoints.setText(doubleToString(frontArmor.getHitpoints(), 2));
             currentFrontArmorMass.setText(doubleToString(frontArmor.getMass(), 2));
+        }else{
+            currentFrontArmorArmor.setText("0.00");
+            currentFrontArmorHitpoints.setText("0.00");
+            currentFrontArmorMass.setText("0.00");
         }
         
         if(backArmor != null) {
             currentRearArmorArmor.setText(doubleToString(backArmor.getArmor(), 2));
             currentRearArmorHitpoints.setText(doubleToString(backArmor.getHitpoints(), 2));
             currentRearArmorMass.setText(doubleToString(backArmor.getMass(), 2));
+        }else{
+            currentRearArmorArmor.setText("0.00");
+            currentRearArmorHitpoints.setText("0.00");
+            currentRearArmorMass.setText("0.00");
         }
         
         if(capacitor != null) {
@@ -2098,6 +2175,13 @@ public class ToolkitController implements Initializable {
             currentCapacitorMass.setText(doubleToString(capacitor.getMass(), 2));   
             currentCapacitorEnergy.setText(doubleToString(capacitor.getEnergy(), 2));  
             currentCapacitorRecharge.setText(doubleToString(capacitor.getRechargeRate(), 2));
+        }else{
+            currentCapacitorArmor.setText("0.00");
+            currentCapacitorHitpoints.setText("0.00");
+            currentCapacitorDrain.setText("0.00");
+            currentCapacitorMass.setText("0.00");   
+            currentCapacitorEnergy.setText("0.00");  
+            currentCapacitorRecharge.setText("0.00");
         }
         
         if(countermeasure != null) {
@@ -2108,6 +2192,14 @@ public class ToolkitController implements Initializable {
             currentCountermeasureMinimumChance.setText(doubleToString(countermeasure.getMinimumChance(), 2));  
             currentCountermeasureMaximumChance.setText(doubleToString(countermeasure.getMaximumChance(), 2));
             currentCountermeasureRefire.setText(doubleToString(countermeasure.getRefireRate(), 3));
+        }else{
+            currentCountermeasureArmor.setText("0.00");
+            currentCountermeasureHitpoints.setText("0.00");
+            currentCountermeasureDrain.setText("0.00");
+            currentCountermeasureMass.setText("0.00");   
+            currentCountermeasureMinimumChance.setText("0.00");  
+            currentCountermeasureMaximumChance.setText("0.00");
+            currentCountermeasureRefire.setText("0.00");
         }
         
         if(droidInterface != null) {
@@ -2116,6 +2208,12 @@ public class ToolkitController implements Initializable {
             currentInterfaceDrain.setText(doubleToString(droidInterface.getReactorDrain(), 2));
             currentInterfaceMass.setText(doubleToString(droidInterface.getMass(), 2));
             currentInterfaceSpeed.setText(doubleToString(droidInterface.getCommandSpeed(), 2));
+        }else{
+            currentInterfaceArmor.setText("0.00");
+            currentInterfaceHitpoints.setText("0.00");
+            currentInterfaceDrain.setText("0.00");
+            currentInterfaceMass.setText("0.00");
+            currentInterfaceSpeed.setText("0.00");
         }
         
         if(weaponOne != null) {
@@ -2129,6 +2227,17 @@ public class ToolkitController implements Initializable {
             currentWeaponOneVersusArmor.setText(doubleToString(weaponOne.getVersusArmor(), 3));
             currentWeaponOneRefire.setText(doubleToString(weaponOne.getRefireRate(), 3));
             currentWeaponOneEPS.setText(doubleToString(weaponOne.getEnergyPerShot(), 2));
+        }else{
+            currentWeaponOneArmor.setText("0.00");
+            currentWeaponOneHitpoints.setText("0.00");
+            currentWeaponOneDrain.setText("0.00");
+            currentWeaponOneMass.setText("0.00");   
+            currentWeaponOneMinimumDamage.setText("0.00");  
+            currentWeaponOneMaximumDamage.setText("0.00");   
+            currentWeaponOneVersusShields.setText("0.00");  
+            currentWeaponOneVersusArmor.setText("0.00");
+            currentWeaponOneRefire.setText("0.00");
+            currentWeaponOneEPS.setText("0.00");
         }
         
         if(weaponTwo != null) {
@@ -2142,6 +2251,17 @@ public class ToolkitController implements Initializable {
             currentWeaponTwoVersusArmor.setText(doubleToString(weaponTwo.getVersusArmor(), 3));
             currentWeaponTwoRefire.setText(doubleToString(weaponTwo.getRefireRate(), 3));
             currentWeaponTwoEPS.setText(doubleToString(weaponTwo.getEnergyPerShot(), 2));
+        }else{
+            currentWeaponTwoArmor.setText("0.00");
+            currentWeaponTwoHitpoints.setText("0.00");
+            currentWeaponTwoDrain.setText("0.00");
+            currentWeaponTwoMass.setText("0.00");   
+            currentWeaponTwoMinimumDamage.setText("0.00");
+            currentWeaponTwoMaximumDamage.setText("0.00");
+            currentWeaponTwoVersusShields.setText("0.00");
+            currentWeaponTwoVersusArmor.setText("0.00");
+            currentWeaponTwoRefire.setText("0.00");
+            currentWeaponTwoEPS.setText("0.00");
         }
         
         if(weaponThree != null) {
@@ -2155,6 +2275,17 @@ public class ToolkitController implements Initializable {
             currentWeaponThreeVersusArmor.setText(doubleToString(weaponThree.getVersusArmor(), 3));
             currentWeaponThreeRefire.setText(doubleToString(weaponThree.getRefireRate(), 3));
             currentWeaponThreeEPS.setText(doubleToString(weaponThree.getEnergyPerShot(), 2));
+        }else{
+            currentWeaponThreeArmor.setText("0.00");
+            currentWeaponThreeHitpoints.setText("0.00");
+            currentWeaponThreeDrain.setText("0.00");
+            currentWeaponThreeMass.setText("0.00");   
+            currentWeaponThreeMinimumDamage.setText("0.00"); 
+            currentWeaponThreeMaximumDamage.setText("0.00");  
+            currentWeaponThreeVersusShields.setText("0.00"); 
+            currentWeaponThreeVersusArmor.setText("0.00");
+            currentWeaponThreeRefire.setText("0.00");
+            currentWeaponThreeEPS.setText("0.00");
         }
         
         if(weaponFour != null) {
@@ -2168,6 +2299,17 @@ public class ToolkitController implements Initializable {
             currentWeaponFourVersusArmor.setText(doubleToString(weaponFour.getVersusArmor(), 3));
             currentWeaponFourRefire.setText(doubleToString(weaponFour.getRefireRate(), 3));
             currentWeaponFourEPS.setText(doubleToString(weaponFour.getEnergyPerShot(), 2));
+        }else{
+            currentWeaponFourArmor.setText("0.00");
+            currentWeaponFourHitpoints.setText("0.00");
+            currentWeaponFourDrain.setText("0.00");
+            currentWeaponFourMass.setText("0.00");   
+            currentWeaponFourMinimumDamage.setText("0.00");
+            currentWeaponFourMaximumDamage.setText("0.00");
+            currentWeaponFourVersusShields.setText("0.00");
+            currentWeaponFourVersusArmor.setText("0.00");
+            currentWeaponFourRefire.setText("0.00");
+            currentWeaponFourEPS.setText("0.00");
         }
         
         if(ordnanceOne != null) {
@@ -2180,6 +2322,16 @@ public class ToolkitController implements Initializable {
             currentOrdnanceOneVersusShields.setText(doubleToString(ordnanceOne.getVersusShields(), 2));  
             currentOrdnanceOneVersusArmor.setText(doubleToString(ordnanceOne.getVersusArmor(), 2));
             currentOrdnanceOneRefire.setText(doubleToString(ordnanceOne.getRefireRate(), 2));
+        }else{
+            currentOrdnanceOneArmor.setText("0.00");
+            currentOrdnanceOneHitpoints.setText("0.00");
+            currentOrdnanceOneDrain.setText("0.00");
+            currentOrdnanceOneMass.setText("0.00");   
+            currentOrdnanceOneMinimumDamage.setText("0.00");  
+            currentOrdnanceOneMaximumDamage.setText("0.00");   
+            currentOrdnanceOneVersusShields.setText("0.00");  
+            currentOrdnanceOneVersusArmor.setText("0.00");
+            currentOrdnanceOneRefire.setText("0.00");
         }
         
         if(ordnanceTwo != null) {
@@ -2192,6 +2344,16 @@ public class ToolkitController implements Initializable {
             currentOrdnanceTwoVersusShields.setText(doubleToString(ordnanceTwo.getVersusShields(), 2));
             currentOrdnanceTwoVersusArmor.setText(doubleToString(ordnanceTwo.getVersusArmor(), 2));
             currentOrdnanceTwoRefire.setText(doubleToString(ordnanceTwo.getRefireRate(), 2));
+        }else{
+            currentOrdnanceTwoArmor.setText("0.00");
+            currentOrdnanceTwoHitpoints.setText("0.00");
+            currentOrdnanceTwoDrain.setText("0.00");
+            currentOrdnanceTwoMass.setText("0.00");   
+            currentOrdnanceTwoMinimumDamage.setText("0.00");
+            currentOrdnanceTwoMaximumDamage.setText("0.00");
+            currentOrdnanceTwoVersusShields.setText("0.00");
+            currentOrdnanceTwoVersusArmor.setText("0.00");
+            currentOrdnanceTwoRefire.setText("0.00");
         }
         
         if(ordnanceThree != null) {
@@ -2204,7 +2366,18 @@ public class ToolkitController implements Initializable {
             currentOrdnanceThreeVersusShields.setText(doubleToString(ordnanceThree.getVersusShields(), 2)); 
             currentOrdnanceThreeVersusArmor.setText(doubleToString(ordnanceThree.getVersusArmor(), 2));
             currentOrdnanceThreeRefire.setText(doubleToString(ordnanceThree.getRefireRate(), 2));
+        }else{
+            currentOrdnanceThreeArmor.setText("0.00");
+            currentOrdnanceThreeHitpoints.setText("0.00");
+            currentOrdnanceThreeDrain.setText("0.00");
+            currentOrdnanceThreeMass.setText("0.00");   
+            currentOrdnanceThreeMinimumDamage.setText("0.00"); 
+            currentOrdnanceThreeMaximumDamage.setText("0.00");  
+            currentOrdnanceThreeVersusShields.setText("0.00"); 
+            currentOrdnanceThreeVersusArmor.setText("0.00");
+            currentOrdnanceThreeRefire.setText("0.00");
         }
+        
         updateLoadoutReport();
         
     }
@@ -2538,6 +2711,8 @@ public class ToolkitController implements Initializable {
                 totalGenerationRate = currentReactor.getGenerationRate() * reactorGenerationMultiplier;
                 loadoutGenerationRate.setText(doubleToString(totalGenerationRate, 2));
                 totalCurrentMass += currentReactor.getMass();
+            } else{
+                loadoutGenerationRate.setText("0.00");
             }
 
             Engine currentEngine = (Engine) loadoutEngine.getValue();
@@ -2546,6 +2721,8 @@ public class ToolkitController implements Initializable {
                 loadoutEngineReactorDrain.setText(doubleToString(currentEngine.getReactorDrain() * engineDrainMultiplier, 2));
                 totalCurrentMass += currentEngine.getMass();
                 totalConsumptionRate += currentEngine.getReactorDrain() * engineDrainMultiplier;
+            }else{
+                loadoutEngineReactorDrain.setText("0.00");
             }
 
             Shield currentShield = (Shield) loadoutShield.getValue();
@@ -2556,6 +2733,10 @@ public class ToolkitController implements Initializable {
                 loadoutRearShielding.setText(doubleToString(currentShield.getRearHitpoints(), 2));
                 totalCurrentMass += currentShield.getMass();
                 totalConsumptionRate += currentShield.getReactorDrain();
+            }else{
+                loadoutEngineReactorDrain.setText("0.00");
+                loadoutFrontShielding.setText("0.00");
+                loadoutRearShielding.setText("0.00");
             }
 
             Armor currentFrontArmor = (Armor) loadoutFrontArmor.getValue();
@@ -2563,6 +2744,8 @@ public class ToolkitController implements Initializable {
             if(currentFrontArmor != null) {
                 loadoutFrontArmoring.setText(doubleToString(currentFrontArmor.getArmor(), 2));
                 totalCurrentMass += currentFrontArmor.getMass();
+            }else{
+                loadoutFrontArmoring.setText("0.00");
             }
 
             Armor currentRearArmor = (Armor) loadoutRearArmor.getValue();
@@ -2570,6 +2753,8 @@ public class ToolkitController implements Initializable {
             if(currentRearArmor != null) {
                 loadoutRearArmoring.setText(doubleToString(currentRearArmor.getArmor(), 2));
                 totalCurrentMass += currentRearArmor.getMass();
+            }else{
+                loadoutRearArmoring.setText("0.00");
             }
 
             Capacitor currentCapacitor = (Capacitor) loadoutCapacitor.getValue();
@@ -2581,6 +2766,10 @@ public class ToolkitController implements Initializable {
                 loadoutShuntValue.setText(doubleToString((currentCapacitor.getEnergy() * capacitorMultiplier) * shieldShuntMultiplier, 2));
                 totalCurrentMass += currentCapacitor.getMass();
                 totalConsumptionRate += currentCapacitor.getReactorDrain();
+            }else{
+                loadoutCapacitorReactorDrain.setText("0.00");
+                loadoutCapacitorEnergy.setText("0.00");
+                loadoutCapacitorRechargeRate.setText("0.00");
             }
 
             Booster currentBooster = (Booster) loadoutBooster.getValue();
@@ -2589,6 +2778,8 @@ public class ToolkitController implements Initializable {
                 loadoutBoosterReactorDrain.setText(doubleToString(currentBooster.getReactorDrain(), 2));
                 totalCurrentMass += currentBooster.getMass();
                 totalConsumptionRate += currentBooster.getReactorDrain();
+            }else{
+                loadoutBoosterReactorDrain.setText("0.00");
             }
 
             DroidInterface currentInterface = (DroidInterface) loadoutInterface.getValue();
@@ -2597,6 +2788,8 @@ public class ToolkitController implements Initializable {
                 loadoutInterfaceReactorDrain.setText(doubleToString(currentInterface.getReactorDrain(), 2));
                 totalCurrentMass += currentInterface.getMass();
                 totalConsumptionRate += currentInterface.getReactorDrain();
+            }else{
+                loadoutInterfaceReactorDrain.setText("0.00");
             }
 
             Countermeasure currentCountermeasure = (Countermeasure) loadoutCountermeasure.getValue();
@@ -2605,6 +2798,8 @@ public class ToolkitController implements Initializable {
                 loadoutCountermeasureReactorDrain.setText(doubleToString(currentCountermeasure.getReactorDrain() * weaponDrainMultiplier, 2));
                 totalCurrentMass += currentCountermeasure.getMass();
                 totalConsumptionRate += currentCountermeasure.getReactorDrain() * weaponDrainMultiplier;
+            }else{
+                loadoutCountermeasureReactorDrain.setText("0.00");
             }
 
             Weapon currentWeaponOne = (Weapon) loadoutWeaponOne.getValue();
@@ -2613,6 +2808,8 @@ public class ToolkitController implements Initializable {
                 loadoutWeaponOneReactorDrain.setText(doubleToString(currentWeaponOne.getReactorDrain() * weaponDrainMultiplier, 2));
                 totalCurrentMass += currentWeaponOne.getMass();
                 totalConsumptionRate += currentWeaponOne.getReactorDrain() * weaponDrainMultiplier;
+            }else{
+                loadoutWeaponOneReactorDrain.setText("0.00");
             }
 
             Weapon currentWeaponTwo = (Weapon) loadoutWeaponTwo.getValue();
@@ -2621,6 +2818,8 @@ public class ToolkitController implements Initializable {
                 loadoutWeaponTwoReactorDrain.setText(doubleToString(currentWeaponTwo.getReactorDrain() * weaponDrainMultiplier, 2));
                 totalCurrentMass += currentWeaponTwo.getMass();
                 totalConsumptionRate += currentWeaponTwo.getReactorDrain() * weaponDrainMultiplier;
+            }else{
+                loadoutWeaponTwoReactorDrain.setText("0.00");
             }
 
             Weapon currentWeaponThree = (Weapon) loadoutWeaponThree.getValue();
@@ -2629,6 +2828,8 @@ public class ToolkitController implements Initializable {
                 loadoutWeaponThreeReactorDrain.setText(doubleToString(currentWeaponThree.getReactorDrain() * weaponDrainMultiplier, 2));
                 totalCurrentMass += currentWeaponThree.getMass();
                 totalConsumptionRate += currentWeaponThree.getReactorDrain() * weaponDrainMultiplier;
+            }else{
+                loadoutWeaponThreeReactorDrain.setText("0.00");
             }
 
             Weapon currentWeaponFour = (Weapon) loadoutWeaponFour.getValue();
@@ -2637,6 +2838,8 @@ public class ToolkitController implements Initializable {
                 loadoutWeaponFourReactorDrain.setText(doubleToString(currentWeaponFour.getReactorDrain() * weaponDrainMultiplier, 2));
                 totalCurrentMass += currentWeaponFour.getMass();
                 totalConsumptionRate += currentWeaponFour.getReactorDrain() * weaponDrainMultiplier;
+            }else{
+                loadoutWeaponFourReactorDrain.setText("0.00");
             }
 
             Ordnance currentOrdnanceOne = (Ordnance) loadoutOrdnanceOne.getValue();
@@ -2645,6 +2848,8 @@ public class ToolkitController implements Initializable {
                 loadoutOrdnanceOneReactorDrain.setText(doubleToString(currentOrdnanceOne.getReactorDrain() * weaponDrainMultiplier, 2));
                 totalCurrentMass += currentOrdnanceOne.getMass();
                 totalConsumptionRate += currentOrdnanceOne.getReactorDrain() * weaponDrainMultiplier;
+            }else{
+                loadoutOrdnanceOneReactorDrain.setText("0.00");
             }
 
             Ordnance currentOrdnanceTwo = (Ordnance) loadoutOrdnanceTwo.getValue();
@@ -2653,6 +2858,8 @@ public class ToolkitController implements Initializable {
                 loadoutOrdnanceTwoReactorDrain.setText(doubleToString(currentOrdnanceTwo.getReactorDrain() * weaponDrainMultiplier, 2));
                 totalCurrentMass += currentOrdnanceTwo.getMass();
                 totalConsumptionRate += currentOrdnanceTwo.getReactorDrain() * weaponDrainMultiplier;
+            }else{
+                loadoutOrdnanceTwoReactorDrain.setText("0.00");
             }
 
             Ordnance currentOrdnanceThree = (Ordnance) loadoutOrdnanceThree.getValue();
@@ -2661,6 +2868,8 @@ public class ToolkitController implements Initializable {
                 loadoutOrdnanceOneReactorDrain.setText(doubleToString(currentOrdnanceThree.getReactorDrain() * weaponDrainMultiplier, 2));
                 totalCurrentMass += currentOrdnanceThree.getMass();
                 totalConsumptionRate += currentOrdnanceThree.getReactorDrain() * weaponDrainMultiplier;
+            }else{
+                loadoutOrdnanceThreeReactorDrain.setText("0.00");
             }
             
             loadoutConsumptionRate.setText(doubleToString(totalConsumptionRate, 2));
@@ -2691,16 +2900,27 @@ public class ToolkitController implements Initializable {
     }
 
     private void resetREFields() {
-        REComponentFieldOneTextbox.setText("0.0");
-        REComponentFieldTwoTextbox.setText("0.0");
-        REComponentFieldThreeTextbox.setText("0.0");
-        REComponentFieldFourTextbox.setText("0.0");
-        REComponentFieldFiveTextbox.setText("0.0");
-        REComponentFieldSixTextbox.setText("0.0");
-        REComponentFieldSevenTextbox.setText("0.0");
-        REComponentFieldEightTextbox.setText("0.0");
-        REComponentFieldNineTextbox.setText("0.0");
-        REComponentFieldTenTextbox.setText("0.0");
+        REComponentFieldOneTextbox.setText("0.00");
+        REComponentFieldTwoTextbox.setText("0.00");
+        REComponentFieldThreeTextbox.setText("0.00");
+        REComponentFieldFourTextbox.setText("0.00");
+        REComponentFieldFiveTextbox.setText("0.00");
+        REComponentFieldSixTextbox.setText("0.00");
+        REComponentFieldSevenTextbox.setText("0.00");
+        REComponentFieldEightTextbox.setText("0.00");
+        REComponentFieldNineTextbox.setText("0.00");
+        REComponentFieldTenTextbox.setText("0.00");
+        
+        REComponentFieldOneResult.setText("0.00");
+        REComponentFieldTwoResult.setText("0.00");
+        REComponentFieldThreeResult.setText("0.00");
+        REComponentFieldFourResult.setText("0.00");
+        REComponentFieldFiveResult.setText("0.00");
+        REComponentFieldSixResult.setText("0.00");
+        REComponentFieldSevenResult.setText("0.00");
+        REComponentFieldEightResult.setText("0.00");
+        REComponentFieldNineResult.setText("0.00");
+        REComponentFieldTenResult.setText("0.00");
      
         REComponentFieldContainerOne.setVisible(false);
         REComponentFieldContainerTwo.setVisible(false);
@@ -2716,6 +2936,10 @@ public class ToolkitController implements Initializable {
    
     @FXML
     public void setREBonus() {
+        
+        statQualityContainer.setVisible(true);
+        reverseEngineeringContainer.setVisible(true);
+        
         String level = REComponentLevel.getValue().toString();
         
         switch(level) {
@@ -2755,4 +2979,238 @@ public class ToolkitController implements Initializable {
         }
     }
     
+    @FXML
+    public void reverseEngineer() {
+        
+        String level = REComponentLevel.getValue().toString();
+        String type = REComponentType.getValue().toString();
+        Double bonusValue = 0.0;
+        
+        switch(level) {
+            case "1":
+                bonusValue = 0.02;
+                break;
+            case "2":
+                bonusValue = 0.03;
+                break;
+            case "3":
+                bonusValue = 0.03;
+                break;
+            case "4":
+                bonusValue = 0.04;
+                break;
+            case "5":
+                bonusValue = 0.04;
+                break;
+            case "6":
+                bonusValue = 0.05;
+                break;
+            case "7":
+                bonusValue = 0.05;
+                break;
+            case "8":
+                bonusValue = 0.06;
+                break;
+            case "9":
+                bonusValue = 0.06;
+                break;
+            case "10":
+                bonusValue = 0.07;
+                break;
+            default :
+                bonusValue = 0.00;
+                break;                
+        }
+        if(type.equals("Reactor")){
+            
+            Double armor = Double.parseDouble(REComponentFieldOneTextbox.getText());
+            Double hitpoints = Double.parseDouble(REComponentFieldTwoTextbox.getText());
+            Double mass = Double.parseDouble(REComponentFieldThreeTextbox.getText());
+            Double generation = Double.parseDouble(REComponentFieldFourTextbox.getText());
+            
+            REComponentFieldOneResult.setText(doubleToString((armor * (1.0 + bonusValue)), 2));
+            REComponentFieldTwoResult.setText(doubleToString((hitpoints * (1.0 + bonusValue)), 2));
+            REComponentFieldThreeResult.setText(doubleToString((mass * (1.0 - bonusValue)), 2));
+            REComponentFieldFourResult.setText(doubleToString((generation * (1.0 + bonusValue)), 2));
+        
+        }else if(type.equals("Engine")){
+            
+            Double armor = Double.parseDouble(REComponentFieldOneTextbox.getText());
+            Double hitpoints = Double.parseDouble(REComponentFieldTwoTextbox.getText());
+            Double drain = Double.parseDouble(REComponentFieldThreeTextbox.getText());
+            Double mass = Double.parseDouble(REComponentFieldFourTextbox.getText());
+            Double pitch = Double.parseDouble(REComponentFieldFiveTextbox.getText());
+            Double yaw = Double.parseDouble(REComponentFieldSixTextbox.getText());
+            Double roll = Double.parseDouble(REComponentFieldSevenTextbox.getText());
+            Double speed = Double.parseDouble(REComponentFieldEightTextbox.getText());
+            
+            REComponentFieldOneResult.setText(doubleToString((armor * (1.0 + bonusValue)), 2));
+            REComponentFieldTwoResult.setText(doubleToString((hitpoints * (1.0 + bonusValue)), 2));
+            REComponentFieldThreeResult.setText(doubleToString((drain * (1.0 - bonusValue)), 2));
+            REComponentFieldFourResult.setText(doubleToString((mass * (1.0 - bonusValue)), 2));
+            REComponentFieldFiveResult.setText(doubleToString((pitch * (1.0 + bonusValue)), 2));
+            REComponentFieldSixResult.setText(doubleToString((yaw * (1.0 + bonusValue)), 2));
+            REComponentFieldSevenResult.setText(doubleToString((roll * (1.0 + bonusValue)), 2));
+            REComponentFieldEightResult.setText(doubleToString((speed * (1.0 + bonusValue)), 2));
+       
+        }else if(type.equals("Shield")){
+            
+            Double armor = Double.parseDouble(REComponentFieldOneTextbox.getText());
+            Double hitpoints = Double.parseDouble(REComponentFieldTwoTextbox.getText());
+            Double drain = Double.parseDouble(REComponentFieldThreeTextbox.getText());
+            Double mass = Double.parseDouble(REComponentFieldFourTextbox.getText());
+            Double front = Double.parseDouble(REComponentFieldFiveTextbox.getText());
+            Double rear = Double.parseDouble(REComponentFieldSixTextbox.getText());
+            Double recharge = Double.parseDouble(REComponentFieldSevenTextbox.getText());
+            
+            REComponentFieldOneResult.setText(doubleToString((armor * (1.0 + bonusValue)), 2));
+            REComponentFieldTwoResult.setText(doubleToString((hitpoints * (1.0 + bonusValue)), 2));
+            REComponentFieldThreeResult.setText(doubleToString((drain * (1.0 - bonusValue)), 2));
+            REComponentFieldFourResult.setText(doubleToString((mass * (1.0 - bonusValue)), 2));
+            REComponentFieldFiveResult.setText(doubleToString((front * (1.0 + bonusValue)), 2));
+            REComponentFieldSixResult.setText(doubleToString((rear * (1.0 + bonusValue)), 2));
+            REComponentFieldSevenResult.setText(doubleToString((recharge * (1.0 + bonusValue)), 2));
+        
+        }else if(type.equals("Armor")){
+            
+            Double armor = Double.parseDouble(REComponentFieldOneTextbox.getText());
+            Double hitpoints = Double.parseDouble(REComponentFieldTwoTextbox.getText());
+            Double mass = Double.parseDouble(REComponentFieldThreeTextbox.getText());
+            
+            REComponentFieldOneResult.setText(doubleToString((armor * (1.0 + bonusValue)), 2));
+            REComponentFieldTwoResult.setText(doubleToString((hitpoints * (1.0 + bonusValue)), 2));
+            REComponentFieldThreeResult.setText(doubleToString((mass * (1.0 - bonusValue)), 2));
+        
+        }else if(type.equals("Capacitor")){
+            
+            Double armor = Double.parseDouble(REComponentFieldOneTextbox.getText());
+            Double hitpoints = Double.parseDouble(REComponentFieldTwoTextbox.getText());
+            Double drain = Double.parseDouble(REComponentFieldThreeTextbox.getText());
+            Double mass = Double.parseDouble(REComponentFieldFourTextbox.getText());
+            Double energy = Double.parseDouble(REComponentFieldFiveTextbox.getText());
+            Double recharge = Double.parseDouble(REComponentFieldSixTextbox.getText());
+            
+            REComponentFieldOneResult.setText(doubleToString((armor * (1.0 + bonusValue)), 2));
+            REComponentFieldTwoResult.setText(doubleToString((hitpoints * (1.0 + bonusValue)), 2));
+            REComponentFieldThreeResult.setText(doubleToString((drain * (1.0 - bonusValue)), 2));
+            REComponentFieldFourResult.setText(doubleToString((mass * (1.0 - bonusValue)), 2));
+            REComponentFieldFiveResult.setText(doubleToString((energy * (1.0 + bonusValue)), 2));
+            REComponentFieldSixResult.setText(doubleToString((recharge * (1.0 + bonusValue)), 2));
+       
+        }else if(type.equals("Booster")){
+            
+            Double armor = Double.parseDouble(REComponentFieldOneTextbox.getText());
+            Double hitpoints = Double.parseDouble(REComponentFieldTwoTextbox.getText());
+            Double drain = Double.parseDouble(REComponentFieldThreeTextbox.getText());
+            Double mass = Double.parseDouble(REComponentFieldFourTextbox.getText());
+            Double energy = Double.parseDouble(REComponentFieldFiveTextbox.getText());
+            Double recharge = Double.parseDouble(REComponentFieldSixTextbox.getText());
+            Double consumption = Double.parseDouble(REComponentFieldSevenTextbox.getText());
+            Double speed = Double.parseDouble(REComponentFieldEightTextbox.getText());
+            
+            REComponentFieldOneResult.setText(doubleToString((armor * (1.0 + bonusValue)), 2));
+            REComponentFieldTwoResult.setText(doubleToString((hitpoints * (1.0 + bonusValue)), 2));
+            REComponentFieldThreeResult.setText(doubleToString((drain * (1.0 - bonusValue)), 2));
+            REComponentFieldFourResult.setText(doubleToString((mass * (1.0 - bonusValue)), 2));
+            REComponentFieldFiveResult.setText(doubleToString((energy * (1.0 + bonusValue)), 2));
+            REComponentFieldSixResult.setText(doubleToString((recharge * (1.0 + bonusValue)), 2));
+            REComponentFieldSevenResult.setText(doubleToString((consumption * (1.0 - bonusValue)), 2));
+            REComponentFieldEightResult.setText(doubleToString((speed * (1.0 + bonusValue)), 2));
+       
+        }else if(type.equals("Droid Interface")){
+            
+            Double armor = Double.parseDouble(REComponentFieldOneTextbox.getText());
+            Double hitpoints = Double.parseDouble(REComponentFieldTwoTextbox.getText());
+            Double drain = Double.parseDouble(REComponentFieldThreeTextbox.getText());
+            Double mass = Double.parseDouble(REComponentFieldFourTextbox.getText());
+            Double speed = Double.parseDouble(REComponentFieldFiveTextbox.getText());
+            
+            REComponentFieldOneResult.setText(doubleToString((armor * (1.0 + bonusValue)), 2));
+            REComponentFieldTwoResult.setText(doubleToString((hitpoints * (1.0 + bonusValue)), 2));
+            REComponentFieldThreeResult.setText(doubleToString((drain * (1.0 - bonusValue)), 2));
+            REComponentFieldFourResult.setText(doubleToString((mass * (1.0 - bonusValue)), 2));
+            REComponentFieldFiveResult.setText(doubleToString((speed * (1.0 + bonusValue)), 2));
+            
+        }else if(type.equals("Weapon")){
+            
+            Double armor = Double.parseDouble(REComponentFieldOneTextbox.getText());
+            Double hitpoints = Double.parseDouble(REComponentFieldTwoTextbox.getText());
+            Double drain = Double.parseDouble(REComponentFieldThreeTextbox.getText());
+            Double mass = Double.parseDouble(REComponentFieldFourTextbox.getText());
+            Double minDamage = Double.parseDouble(REComponentFieldFiveTextbox.getText());
+            Double maxDamage = Double.parseDouble(REComponentFieldSixTextbox.getText());
+            Double vsShield = Double.parseDouble(REComponentFieldSevenTextbox.getText());
+            Double vsArmor = Double.parseDouble(REComponentFieldEightTextbox.getText());
+            Double eps = Double.parseDouble(REComponentFieldNineTextbox.getText());
+            Double refire = Double.parseDouble(REComponentFieldTenTextbox.getText());
+            
+            REComponentFieldOneResult.setText(doubleToString((armor * (1.0 + bonusValue)), 2));
+            REComponentFieldTwoResult.setText(doubleToString((hitpoints * (1.0 + bonusValue)), 2));
+            REComponentFieldThreeResult.setText(doubleToString((drain * (1.0 - bonusValue)), 2));
+            REComponentFieldFourResult.setText(doubleToString((mass * (1.0 - bonusValue)), 2));
+            REComponentFieldFiveResult.setText(doubleToString((minDamage * (1.0 + bonusValue)), 2));
+            REComponentFieldSixResult.setText(doubleToString((maxDamage * (1.0 + bonusValue)), 2));
+            REComponentFieldSevenResult.setText(doubleToString((vsShield * (1.0 + bonusValue)), 2));
+            REComponentFieldEightResult.setText(doubleToString((vsArmor * (1.0 + bonusValue)), 2));
+            REComponentFieldNineResult.setText(doubleToString((eps * (1.0 - bonusValue)), 2));
+            REComponentFieldTenResult.setText(doubleToString((refire * (1.0 - bonusValue)), 2));
+        }
+        
+    }
+
+    @FXML
+    public void clearComponent(ActionEvent event){
+        Button button = (Button) event.getSource();
+        
+        switch(button.getId()){
+            case "clearReactorBtn" :
+                loadoutReactor.getSelectionModel().clearSelection();
+                break;
+            case "clearEngineBtn" :
+                loadoutEngine.getSelectionModel().clearSelection();
+                break;
+            case "clearShieldBtn" :
+                loadoutShield.getSelectionModel().clearSelection();
+                break;
+            case "clearBoosterBtn" :
+                loadoutBooster.getSelectionModel().clearSelection();
+                break;
+            case "clearInterfaceBtn" :
+                loadoutInterface.getSelectionModel().clearSelection();
+                break;
+            case "clearCountermeasuresBtn" :
+                loadoutCountermeasure.getSelectionModel().clearSelection();
+                break;
+            case "clearFrontArmorBtn" :
+                loadoutFrontArmor.getSelectionModel().clearSelection();
+                break;
+            case "clearRearArmorBtn" :
+                loadoutRearArmor.getSelectionModel().clearSelection();
+                break;
+            case "clearWeaponOneBtn" :
+                loadoutWeaponOne.getSelectionModel().clearSelection();
+                break;
+            case "clearWeaponTwoBtn" :
+                loadoutWeaponTwo.getSelectionModel().clearSelection();
+                break;
+            case "clearWeaponThreeBtn" :
+                loadoutWeaponThree.getSelectionModel().clearSelection();
+                break;
+            case "clearWeaponFourBtn" :
+                loadoutWeaponFour.getSelectionModel().clearSelection();
+                break;
+            case "clearCapacitorBtn" :
+                loadoutCapacitor.getSelectionModel().clearSelection();
+                break;
+            case "clearOrdnanceOneBtn" :
+                loadoutOrdnanceOne.getSelectionModel().clearSelection();
+                break;
+            case "clearOrdnanceTwoBtn" :
+                loadoutOrdnanceTwo.getSelectionModel().clearSelection();
+                break;
+            case "clearOrdnanceThreeBtn" :
+                loadoutOrdnanceThree.getSelectionModel().clearSelection();
+                break;
+        }
+    }
 }

@@ -13,6 +13,7 @@ public class Booster {
     private Double energy;
     private Double rechargeRate;
     private Double consumptionRate;
+    private Double accelerationRate;
     private Double topSpeed;
     private String componentNotes;
     private String componentName;
@@ -29,6 +30,7 @@ public class Booster {
                    Double newEnergy, 
                    Double newRechargeRate, 
                    Double newConsumptionRate, 
+                   Double newAccelerationRate,
                    Double newTopSpeed,
                    String newComponentNotes,
                    String newComponentName){
@@ -42,6 +44,7 @@ public class Booster {
         this.energy = newEnergy;
         this.rechargeRate = newRechargeRate;
         this.consumptionRate = newConsumptionRate;
+        this.accelerationRate = newAccelerationRate;
         this.topSpeed = newTopSpeed;
         this.componentNotes = newComponentNotes;
         this.componentName = newComponentName;
@@ -113,6 +116,14 @@ public class Booster {
 
     public void setConsumptionRate(Double consumptionRate) {
         this.consumptionRate = consumptionRate;
+    }
+    
+    public Double getAccelerationRate() {
+        return accelerationRate;
+    }
+
+    public void setAccelerationRate(Double accelerationRate) {
+        this.accelerationRate = accelerationRate;
     }
 
     public Double getTopSpeed() {

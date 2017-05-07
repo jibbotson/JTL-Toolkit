@@ -176,6 +176,7 @@ public class ToolkitController implements Initializable {
     @FXML Label currentBoosterEnergy;
     @FXML Label currentBoosterRecharge;
     @FXML Label currentBoosterConsumption;
+    @FXML Label currentBoosterAcceleration;
     @FXML Label currentBoosterSpeed;
     @FXML Label currentInterfaceArmor;
     @FXML Label currentInterfaceHitpoints;
@@ -778,7 +779,8 @@ public class ToolkitController implements Initializable {
                 booster.setEnergy(Double.parseDouble(newComponentFieldFiveTextbox.getText()));
                 booster.setRechargeRate(Double.parseDouble(newComponentFieldSixTextbox.getText()));
                 booster.setConsumptionRate(Double.parseDouble(newComponentFieldSevenTextbox.getText()));
-                booster.setTopSpeed(Double.parseDouble(newComponentFieldEightTextbox.getText()));
+                booster.setAccelerationRate(Double.parseDouble(newComponentFieldEightTextbox.getText()));
+                booster.setTopSpeed(Double.parseDouble(newComponentFieldNineTextbox.getText()));
 
                 
                 validation = validationHelper.validateBooster(validation, booster);
@@ -1043,7 +1045,8 @@ public class ToolkitController implements Initializable {
             newComponentFieldFiveLabel.setText("Energy:");
             newComponentFieldSixLabel.setText("Recharge Rate:");
             newComponentFieldSevenLabel.setText("Consumption Rate:");
-            newComponentFieldEightLabel.setText("Top Speed:");
+            newComponentFieldEightLabel.setText("Acceleration Rate:");
+            newComponentFieldNineLabel.setText("Top Speed:");
             
             // Show fields
             newComponentFieldContainerOne.setVisible(true);
@@ -1054,6 +1057,7 @@ public class ToolkitController implements Initializable {
             newComponentFieldContainerSix.setVisible(true);
             newComponentFieldContainerSeven.setVisible(true);
             newComponentFieldContainerEight.setVisible(true);
+            newComponentFieldContainerNine.setVisible(true);
             
         }else if(componentType.equals("Capacitor")) {
             resetFields();

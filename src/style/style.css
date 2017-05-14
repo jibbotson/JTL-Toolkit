@@ -19,6 +19,7 @@
 
 .tab{
     -fx-background-insets: 0 1 0 1,0,0;
+    -fx-width:200px;
 }
 .tab-pane .tab
 {
@@ -31,7 +32,7 @@
 
 .tab .tab-label { 
     -fx-text-fill: white;
-    
+    -fx-font:12px Consolas;
 }
 
 .tab:selected .tab-label { 
@@ -43,6 +44,10 @@
 
 .root { 
     -fx-focus-color: transparent;
+}
+
+.combo-box {
+    -fx-font:12px Consolas;
 }
 
 

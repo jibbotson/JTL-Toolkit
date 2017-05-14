@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,11 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.SelectionModel;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -87,6 +84,7 @@ public class ToolkitController implements Initializable {
     @FXML ImageView REComponentImage;
     
     // Containers
+    @FXML AnchorPane loadoutControlsContainer;
     @FXML AnchorPane reverseEngineeringContainer;
     @FXML AnchorPane statQualityContainer;
     @FXML AnchorPane newComponentFieldContainerOne;
@@ -311,6 +309,7 @@ public class ToolkitController implements Initializable {
     @FXML Label loadoutShuntValue;
     
     @FXML Label REBonus;
+    @FXML Label createLoadoutMessage;
     
     // Text Fields
     @FXML TextField newComponentFieldOneTextbox;
@@ -407,6 +406,7 @@ public class ToolkitController implements Initializable {
         loadLoadouts();
         
         if(loadouts == null || loadouts.isEmpty()) {
+            loadoutControlsContainer.setVisible(false);
             createLoadoutPane.setVisible(true);
             loadoutSelection.setDisable(true);
         } else {
@@ -2140,6 +2140,7 @@ public class ToolkitController implements Initializable {
             currentBoosterEnergy.setText(doubleToString(booster.getEnergy(), 2));  
             currentBoosterRecharge.setText(doubleToString(booster.getRechargeRate(), 2)); 
             currentBoosterConsumption.setText(doubleToString(booster.getConsumptionRate(), 2));  
+            currentBoosterAcceleration.setText(doubleToString(booster.getAccelerationRate(), 2));  
             currentBoosterSpeed.setText(doubleToString(booster.getTopSpeed(), 2));  
         }else{
             currentBoosterArmor.setText("0.00");
@@ -2496,15 +2497,18 @@ public class ToolkitController implements Initializable {
         
         loadoutComponents.setVisible(false);
         loadoutReport.setVisible(false);
+        loadoutControlsContainer.setVisible(false);
         createLoadoutPane.setVisible(true);
     }
     
     @FXML
     public void cancelNewLoadout() {
         loadLoadouts();
+        
         createLoadoutButton.setDisable(false);
         loadoutSelection.setDisable(false);
         createLoadoutPane.setVisible(false);
+        loadoutControlsContainer.setVisible(true);
     }
     
     @FXML
@@ -2517,8 +2521,9 @@ public class ToolkitController implements Initializable {
                 chassisMass.setDisable(true);
                 chassisMass.setText(chassis.getMaximumMass().toString());
             } else {
-                chassisMass.setText("Enter the mass");
+                chassisMass.setText("0.00");
                 chassisMass.setDisable(false);
+                createLoadoutMessage.setVisible(false);
             }
         }
     }
@@ -2526,34 +2531,53 @@ public class ToolkitController implements Initializable {
     @FXML
     public void saveNewLoadout() {
         
-        Loadout newLoadout = new Loadout();
-        
         Chassis selectedChassis = (Chassis) chassisSelection.getValue();
-        selectedChassis.setMass(Double.parseDouble(chassisMass.getText()));
         
-        newLoadout.setChassis(selectedChassis);
-        newLoadout.setLoadoutName(loadoutName.getText());
+        if(selectedChassis == null) {
+            createLoadoutMessage.setText("You must select a chassis...");
+            createLoadoutMessage.setVisible(true); 
+        }else if(!isDouble(chassisMass.getText()) && !isInteger(chassisMass.getText())){
+            System.out.println(selectedChassis.getMaximumMass());
+            createLoadoutMessage.setText(("You must enter a mass between 0.00 and " + doubleToString(selectedChassis.getMaximumMass(), 2) + "..."));
+            createLoadoutMessage.setVisible(true);
+        }else if(chassisMass.getText().isEmpty() || Double.parseDouble(chassisMass.getText()) > selectedChassis.getMaximumMass()){
+            System.out.println(selectedChassis.getMaximumMass());
+            createLoadoutMessage.setText(("You must enter a mass between 0.00 and " + doubleToString(selectedChassis.getMaximumMass(), 2) + "..."));
+            createLoadoutMessage.setVisible(true);
+        }else if(loadoutName.getText().isEmpty()){
+            createLoadoutMessage.setText("You must enter a loadout name...");
+            createLoadoutMessage.setVisible(true);
+        }else{
+            createLoadoutMessage.setVisible(false);
+            Loadout newLoadout = new Loadout();
+            selectedChassis.setMass(Double.parseDouble(chassisMass.getText()));
+
+            newLoadout.setChassis(selectedChassis);
+            newLoadout.setLoadoutName(loadoutName.getText());
+
+            loadouts.add(newLoadout);
+            loadoutHelper.saveLoadouts(loadouts);
+
+            // Clear new loadout fields
+            chassisSelection.getSelectionModel().clearSelection();
+            loadoutName.setText("");
+            chassisMass.setText("");
+
+            // Display / hide controls
+            createLoadoutPane.setVisible(false);
+            loadoutComponents.setVisible(true);
+            saveLoadoutButton.setDisable(false);
+            createLoadoutButton.setDisable(false);
+            clearComponentsButton.setDisable(false);
+            deleteLoadoutButton.setDisable(false);
+
+            loadLoadouts();
+            currentLoadout = newLoadout;
+            loadoutSelection.setDisable(false);
+            loadoutControlsContainer.setVisible(true);
+            loadoutSelection.getSelectionModel().select(currentLoadout); 
+        }
         
-        loadouts.add(newLoadout);
-        loadoutHelper.saveLoadouts(loadouts);
-        
-        // Clear new loadout fields
-        chassisSelection.getSelectionModel().clearSelection();
-        loadoutName.setText("");
-        chassisMass.setText("");
-        
-        // Display / hide controls
-        createLoadoutPane.setVisible(false);
-        loadoutComponents.setVisible(true);
-        saveLoadoutButton.setDisable(false);
-        createLoadoutButton.setDisable(false);
-        clearComponentsButton.setDisable(false);
-        deleteLoadoutButton.setDisable(false);
-        
-        loadLoadouts();
-        currentLoadout = newLoadout;
-        loadoutSelection.setDisable(false);
-        loadoutSelection.getSelectionModel().select(currentLoadout);
     }
     
     public String doubleToString(Double value, int precision) {
@@ -3216,5 +3240,27 @@ public class ToolkitController implements Initializable {
                 loadoutOrdnanceThree.getSelectionModel().clearSelection();
                 break;
         }
+    }
+    
+    @FXML
+    public void clearCurrentLoadout(){
+        loadoutReactor.getSelectionModel().clearSelection();
+        loadoutEngine.getSelectionModel().clearSelection();
+        loadoutShield.getSelectionModel().clearSelection();
+        loadoutCapacitor.getSelectionModel().clearSelection();
+        loadoutBooster.getSelectionModel().clearSelection();
+        loadoutCountermeasure.getSelectionModel().clearSelection();
+        loadoutFrontArmor.getSelectionModel().clearSelection();
+        loadoutRearArmor.getSelectionModel().clearSelection();
+        loadoutInterface.getSelectionModel().clearSelection();
+        loadoutWeaponOne.getSelectionModel().clearSelection();
+        loadoutWeaponTwo.getSelectionModel().clearSelection();
+        loadoutWeaponThree.getSelectionModel().clearSelection();
+        loadoutWeaponFour.getSelectionModel().clearSelection();
+        loadoutOrdnanceOne.getSelectionModel().clearSelection();
+        loadoutOrdnanceTwo.getSelectionModel().clearSelection();
+        loadoutOrdnanceThree.getSelectionModel().clearSelection();
+        
+        updateLoadoutReport();
     }
 }

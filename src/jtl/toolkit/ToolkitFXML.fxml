@@ -31,7 +31,7 @@
                     <children>
                           <ImageView depthTest="DISABLE" disable="true" fitHeight="656.0" fitWidth="1286.00" opacity="0.09" pickOnBounds="true">
                               <image>
-                                  <Image url="@../../../images/background_hangar1.jpg" />
+                                  <Image url="@../../../images/backgrounds/loadouts.png" />
                               </image>
                           </ImageView>
                         <AnchorPane fx:id="loadoutControlsContainer" layoutY="6.0" maxHeight="300.0" minHeight="37.0" minWidth="600.0" prefHeight="37.0" prefWidth="865.0">
@@ -75,9 +75,9 @@
                                 </Button>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="createLoadoutPane" layoutY="43.0" prefHeight="400.0" prefWidth="1280.0">
+                        <AnchorPane fx:id="createLoadoutPane" layoutY="43.0" prefHeight="400.0" prefWidth="1280.0" visible="false">
                             <children>
-                                <Pane layoutX="-1.0" layoutY="2.0" prefHeight="597.0" prefWidth="1279.0" visible="false">
+                                <Pane layoutX="-1.0" layoutY="2.0" prefHeight="597.0" prefWidth="1279.0">
                                     <children>
                                         <TextField fx:id="chassisMass" alignment="CENTER" disable="true" layoutX="500.0" layoutY="356.0" prefHeight="25.0" prefWidth="273.0" promptText="0.00" />
                                         <ComboBox fx:id="chassisSelection" layoutX="500.0" layoutY="318.0" onAction="#handleChassis" prefHeight="25.0" prefWidth="273.0" promptText="Select a chassis...">
@@ -106,7 +106,7 @@
                                                 <InnerShadow choke="0.57" color="#07292c" height="6.05" radius="2.495" width="5.93" />
                                             </effect>
                                         </Button>
-                                        <ImageView fitHeight="221.0" fitWidth="393.0" layoutX="453.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="chassisImage" fitHeight="277.0" fitWidth="459.0" layoutX="403.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../images/vaksai.png" />
                                             </image>
@@ -1597,7 +1597,7 @@
                                 <AnchorPane layoutY="-1.0" maxWidth="50.0" minWidth="50.0" prefHeight="565.0" prefWidth="60.0" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="loadoutReport" layoutX="897.0" layoutY="1.0" maxWidth="440.0" minWidth="320.0" prefHeight="646.0" prefWidth="383.0" visible="false">
+                        <AnchorPane fx:id="loadoutReport" layoutX="897.0" layoutY="1.0" maxWidth="440.0" minWidth="320.0" prefHeight="646.0" prefWidth="383.0">
                             <children>
                                 <AnchorPane layoutX="9.0" layoutY="65.0" maxWidth="380.0" minWidth="323.0" prefHeight="86.0" prefWidth="378.0">
                                     <children>
@@ -1736,7 +1736,7 @@
                               </Label>
                                     </children>
                                 </AnchorPane>
-                                <TabPane layoutX="9.0" layoutY="215.0" prefHeight="426.0" prefWidth="370.0" tabClosingPolicy="UNAVAILABLE">
+                                <TabPane layoutX="9.0" layoutY="215.0" prefHeight="430.0" prefWidth="370.0" tabClosingPolicy="UNAVAILABLE">
                                     <tabs>
                                         <Tab closable="false" text="Energy">
                                             <content>
@@ -1754,27 +1754,27 @@
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="97.0" text="Engine reactor drain:" textFill="WHITE">
+                                                                <Label layoutY="108.0" text="Engine reactor drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="85.0" text="Shield reactor drain:" textFill="WHITE">
+                                                                <Label layoutY="96.0" text="Shield reactor drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="109.0" text="Capacitor reactor drain:" textFill="WHITE">
+                                                                <Label layoutY="120.0" text="Capacitor reactor drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="121.0" text="Booster reactor drain:" textFill="WHITE">
+                                                                <Label layoutY="132.0" text="Booster reactor drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="133.0" text="Droid Interface reactor drain:" textFill="WHITE">
+                                                                <Label layoutY="144.0" text="Droid Interface reactor drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
@@ -1784,197 +1784,197 @@
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="145.0" text="Countermeasure energy drain:" textFill="WHITE">
+                                                                <Label layoutY="156.0" text="Countermeasure energy drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="157.0" text="Ordnance one energy drain:" textFill="WHITE">
+                                                                <Label layoutY="168.0" text="Ordnance one energy drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="192.0" text="Weapon one energy drain:" textFill="WHITE">
+                                                                <Label layoutY="203.0" text="Weapon one energy drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="204.0" text="Weapon two energy drain:" textFill="WHITE">
+                                                                <Label layoutY="215.0" text="Weapon two energy drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="228.0" text="Weapon four energy drain:" textFill="WHITE">
+                                                                <Label layoutY="239.0" text="Weapon four energy drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="216.0" text="Weapon three energy drain:" textFill="WHITE">
+                                                                <Label layoutY="227.0" text="Weapon three energy drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutEngineReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="97.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutEngineReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutShieldReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="85.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutShieldReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="96.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutCapacitorReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="109.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutCapacitorReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="120.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutBoosterReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="121.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutBoosterReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="132.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutInterfaceReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="133.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutInterfaceReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="144.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutCountermeasureReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="145.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutCountermeasureReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="156.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutOrdnanceOneReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="157.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutOrdnanceOneReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="168.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutWeaponOneReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="192.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutWeaponOneReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="203.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutWeaponTwoReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="204.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutWeaponTwoReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="215.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutWeaponFourReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="228.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutWeaponFourReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="239.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutWeaponThreeReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="216.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutWeaponThreeReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="227.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutGenerationRate" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="18.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutGenerationRate" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="18.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutConsumptionRate" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="30.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutConsumptionRate" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="30.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutEnergyDifference" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="42.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="loadoutEnergyDifference" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="42.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label layoutY="-1.0" text="Overview" textFill="#f2cb0c">
                                                                     <font>
-                                                                        <Font name="Consolas" size="16.0" />
+                                                                        <Font name="Consolas Bold" size="16.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="64.0" text="Energy Usage Breakdown" textFill="#f2cb0c">
+                                                                <Label layoutY="75.0" text="Energy Usage Breakdown" textFill="#f2cb0c">
                                                                     <font>
-                                                                        <Font name="Consolas" size="16.0" />
+                                                                        <Font name="Consolas Bold" size="16.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="169.0" text="Ordnance two energy drain:" textFill="WHITE">
-                                                                    <font>
-                                                                        <Font name="Consolas" size="12.00" />
-                                                                    </font>
-                                                                </Label>
-                                                                <Label fx:id="loadoutOrdnanceTwoReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="169.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label layoutY="180.0" text="Ordnance two energy drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="181.0" text="Ordnance three energy drain:" textFill="WHITE">
+                                                                <Label fx:id="loadoutOrdnanceTwoReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="180.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="loadoutOrdnanceThreeReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="181.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label layoutY="192.0" text="Ordnance three energy drain:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="251.0" text="Pre-RE Generation Required" textFill="#f2cb0c">
-                                                                    <font>
-                                                                        <Font name="Consolas" size="16.0" />
-                                                                    </font>
-                                                                </Label>
-                                                                <Label layoutY="291.0" text="Level 4 - 5:" textFill="WHITE">
+                                                                <Label fx:id="loadoutOrdnanceThreeReactorDrain" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="192.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="303.0" text="Level 6 - 7:" textFill="WHITE">
+                                                                <Label layoutY="279.0" text="Pre-RE Generation Required" textFill="#f2cb0c">
+                                                                    <font>
+                                                                        <Font name="Consolas Bold" size="16.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Label layoutY="319.0" text="Level 4 - 5:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="327.0" text="Level 10:" textFill="WHITE">
+                                                                <Label layoutY="331.0" text="Level 6 - 7:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="315.0" text="Level 8 - 9:" textFill="WHITE">
+                                                                <Label layoutY="355.0" text="Level 10:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="requiredGenerationThree" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="291.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label layoutY="343.0" text="Level 8 - 9:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="requiredGenerationFour" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="303.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationThree" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="319.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="requiredGenerationSix" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="327.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationFour" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="331.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="267.0" text="Level 1:" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationSix" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="355.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="requiredGenerationOne" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="267.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label layoutY="295.0" text="Level 1:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label layoutY="279.0" text="Level 2 - 3:" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationOne" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="295.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="requiredGenerationTwo" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="279.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label layoutY="307.0" text="Level 2 - 3:" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="requiredGenerationFive" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="315.0" prefWidth="88.0" text="0.00" textFill="WHITE">
+                                                                <Label fx:id="requiredGenerationTwo" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="307.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
+                                                                    <font>
+                                                                        <Font name="Consolas" size="12.00" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Label fx:id="requiredGenerationFive" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="343.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
                                                                     <font>
                                                                         <Font name="Consolas" size="12.00" />
                                                                     </font>
@@ -1994,136 +1994,191 @@
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="70.0" text="Total Back Protection:" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="82.0" text="Total Back Protection:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="35.0" text="Total Front Protection:" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="41.0" text="Total Front Protection:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutTotalProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="23.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutTotalProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="23.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutBackProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="70.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutBackProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="82.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutFrontProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="35.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="41.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
                                                         <Label layoutX="7.0" layoutY="4.0" text="Overview" textFill="#f2cb0c">
                                                             <font>
-                                                                <Font name="Consolas" size="16.0" />
+                                                                <Font name="Consolas Bold" size="16.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="135.0" text="Front Shield Hitpoints:" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="155.0" text="Front Shield Hitpoints:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="147.0" text="Rear Shield Hitpoints:" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="167.0" text="Rear Shield Hitpoints:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutFrontShielding" alignment="CENTER_RIGHT" layoutX="224.0" layoutY="135.0" prefHeight="14.0" prefWidth="71.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontShielding" alignment="CENTER_RIGHT" layoutX="224.0" layoutY="155.0" prefHeight="14.0" prefWidth="71.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutRearShielding" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="147.0" prefHeight="14.0" prefWidth="68.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutRearShielding" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="167.0" prefHeight="14.0" prefWidth="68.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="116.0" text="Shielding" textFill="#f2cb0c">
+                                                        <Label layoutX="7.0" layoutY="136.0" text="Shielding" textFill="#f2cb0c">
                                                             <font>
-                                                                <Font name="Consolas" size="16.0" />
+                                                                <Font name="Consolas Bold" size="16.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="199.0" text="Front Armoring:" textFill="WHITE">
-                                                            <font>
-                                                                <Font name="Consolas" size="12.00" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label fx:id="loadoutFrontArmoring" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="199.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="246.0" text="Front Armoring:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="180.0" text="Armoring" textFill="#f2cb0c">
-                                                            <font>
-                                                                <Font name="Consolas" size="16.0" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label layoutX="7.0" layoutY="211.0" text="Rear Armoring:" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontArmoring" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="246.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutRearArmoring" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="211.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="227.0" text="Armoring" textFill="#f2cb0c">
+                                                            <font>
+                                                                <Font name="Consolas Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="7.0" layoutY="258.0" text="Rear Armoring:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="82.0" text="Total Back + Reactor Protection:" textFill="WHITE">
+                                                        <Label fx:id="loadoutRearArmoring" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="258.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutBackReactorProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="82.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="94.0" text="Total Back + Reactor Protection:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="94.0" text="Total Back + Engine Protection:" textFill="WHITE">
+                                                        <Label fx:id="loadoutBackReactorProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="94.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutBackEngineProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="94.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="106.0" text="Total Back + Engine Protection:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="46.0" text="Total Front + Reactor Protection:" textFill="WHITE">
+                                                        <Label fx:id="loadoutBackEngineProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="106.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutFrontReactorProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="46.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="52.0" text="Total Front + Reactor Protection:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="58.0" text="Total Front + Engine Protection:" textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontReactorProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="52.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutFrontEngineProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="58.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="64.0" text="Total Front + Engine Protection:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="159.0" text="Shield Shunt Value: " textFill="WHITE">
+                                                        <Label fx:id="loadoutFrontEngineProtection" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="64.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutShuntValue" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="159.0" prefHeight="14.0" prefWidth="68.0" text="0.00" textFill="WHITE">
+                                                        <Label layoutX="7.0" layoutY="179.0" text="Recharge Time (s):" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
+                                                        <Label fx:id="loadoutRechargeTime" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="179.0" prefHeight="14.0" prefWidth="68.0" text="0.00" textFill="#40ff53">
+                                                            <font>
+                                                                <Font name="Consolas" size="12.00" />
+                                                            </font>
+                                                        </Label>
+                                          <Label layoutX="7.0" layoutY="191.0" text="Shield Shunt Value:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutShuntValue" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="191.0" prefHeight="14.0" prefWidth="68.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="271.0" text="Total Component Armoring:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutComponentArmoring" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="271.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="326.0" text="Minimum Chance to Counter:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutMinimumCounter" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="326.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="307.0" text="Countermeasures" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="352.0" text="Maximimum Chance to Counter:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutMaximumCounter" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="352.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="339.0" text="Average Chance to Counter:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutAverageCounter" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="339.0" prefHeight="14.0" prefWidth="69.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
@@ -2132,334 +2187,429 @@
                                             <content>
                                                 <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                                     <children>
-                                                        <Label layoutX="7.0" layoutY="4.0" text="Capacitor Breakdown" textFill="#f2cb0c">
-                                                            <font>
-                                                                <Font name="Consolas" size="16.0" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label layoutX="7.0" layoutY="21.0" text="Capacitor Energy:" textFill="WHITE">
+                                                        <Label layoutX="8.0" layoutY="99.0" text="Minimum Damage:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutCapacitorEnergy" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="21.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
+                                                        <Label fx:id="loadoutWeaponOneName" layoutX="8.0" layoutY="84.0" prefHeight="17.0" prefWidth="351.0" text="Weapon Name One" textFill="#f2cb0c">
+                                                            <font>
+                                                                <Font name="Consolas Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="8.0" layoutY="111.0" text="Average Damage:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label layoutX="7.0" layoutY="33.0" text="Capacitor Recharge Rate:" textFill="WHITE">
+                                                        <Label layoutX="8.0" layoutY="123.0" text="Maximum Damage:" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Consolas" size="12.00" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="loadoutCapacitorRechargeRate" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="33.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
-                                                            <font>
-                                                                <Font name="Consolas" size="12.00" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label layoutX="7.0" layoutY="45.0" text="Full Recharge Time:" textFill="WHITE">
-                                                            <font>
-                                                                <Font name="Consolas" size="12.00" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label fx:id="loadoutCapacitorFullRechargeTime" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="45.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
-                                                            <font>
-                                                                <Font name="Consolas" size="12.00" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label layoutX="8.0" layoutY="167.0" text="Minimum Damage:" textFill="WHITE">
-                                                            <font>
-                                                                <Font name="Consolas" size="12.00" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label layoutX="8.0" layoutY="148.0" text="Weapon One" textFill="#f2cb0c">
-                                                            <font>
-                                                                <Font name="Consolas" size="14.0" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label layoutX="8.0" layoutY="179.0" text="Maximum Damage:" textFill="WHITE">
-                                                            <font>
-                                                                <Font name="Consolas" size="12.00" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label layoutX="8.0" layoutY="191.0" text="Average Damage:" textFill="WHITE">
-                                                            <font>
-                                                                <Font name="Consolas" size="12.00" />
-                                                            </font>
-                                                        </Label>
-                                          <Label layoutX="135.0" layoutY="167.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponOneMinimumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="100.0" prefHeight="14.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="179.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponOneAverageVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="112.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="191.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponOneMaximumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="124.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="167.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponOneMinimumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="100.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="179.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponOneAverageVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="112.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="191.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponOneMaximumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="124.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="7.0" layoutY="56.0" text="Fire Time (combined):" textFill="WHITE">
+                                          <Label layoutX="8.0" layoutY="164.0" text="Minimum Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="loadoutFullFireTime" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="56.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponTwoName" layoutX="8.0" layoutY="149.0" prefHeight="17.0" prefWidth="349.0" text="Weapon Name Two" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="8.0" layoutY="176.0" text="Average Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="7.0" layoutY="68.0" text="Energy Per Shot:" textFill="WHITE">
+                                          <Label layoutX="8.0" layoutY="188.0" text="Maximum Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="loadoutEPS" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="68.0" prefHeight="14.0" prefWidth="63.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponTwoMinimumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="165.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="133.0" layoutY="148.0" text="vsS" textFill="#0197fc">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="189.0" layoutY="148.0" text="vsA" textFill="#ff6200">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="loadoutEPSBreakdown" layoutX="217.0" layoutY="71.0" text="(00.00 + 00.00 + 00.00 + 00.00)" textFill="WHITE">
-                                             <font>
-                                                <Font name="Consolas" size="8.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="8.0" layoutY="228.0" text="Minimum Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponTwoAverageVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="177.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="8.0" layoutY="209.0" text="Weapon Two" textFill="#f2cb0c">
-                                             <font>
-                                                <Font name="Consolas" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="8.0" layoutY="240.0" text="Maximum Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponTwoMaximumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="189.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="8.0" layoutY="252.0" text="Average Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponTwoMinimumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="165.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="228.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponTwoAverageVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="177.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="240.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponTwoMaximumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="189.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="252.0" text="0.00" textFill="WHITE">
+                                          <Label layoutX="8.0" layoutY="229.0" text="Minimum Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="228.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponThreeName" layoutX="8.0" layoutY="214.0" prefHeight="17.0" prefWidth="350.0" text="Weapon Name Three" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="8.0" layoutY="241.0" text="Average Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="240.0" text="0.00" textFill="WHITE">
+                                          <Label layoutX="8.0" layoutY="253.0" text="Maximum Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="252.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponThreeMinimumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="230.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="8.0" layoutY="289.0" text="Minimum Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponThreeAverageVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="242.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="8.0" layoutY="270.0" text="Weapon Three" textFill="#f2cb0c">
-                                             <font>
-                                                <Font name="Consolas" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="8.0" layoutY="301.0" text="Maximum Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponThreeMaximumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="254.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="8.0" layoutY="313.0" text="Average Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponThreeMinimumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="230.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="289.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponThreeAverageVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="242.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="301.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponThreeMaximumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="254.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="313.0" text="0.00" textFill="WHITE">
+                                          <Label layoutX="8.0" layoutY="296.0" text="Minimum Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="289.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponFourName" layoutX="8.0" layoutY="281.0" prefHeight="17.0" prefWidth="351.0" text="Weapon Name Four" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="8.0" layoutY="308.0" text="Average Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="301.0" text="0.00" textFill="WHITE">
+                                          <Label layoutX="8.0" layoutY="320.0" text="Maximum Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="313.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponFourMinimumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="297.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="8.0" layoutY="350.0" text="Minimum Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponFourAverageVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="309.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="8.0" layoutY="331.0" text="Weapon Four" textFill="#f2cb0c">
-                                             <font>
-                                                <Font name="Consolas" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="8.0" layoutY="362.0" text="Maximum Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponFourMaximumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="321.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="8.0" layoutY="374.0" text="Average Damage:" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponFourMinimumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="297.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="350.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponFourAverageVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="309.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="362.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutWeaponFourMaximumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="321.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="135.0" layoutY="374.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutTotalMinimumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="117.0" layoutY="33.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="350.0" text="0.00" textFill="WHITE">
+                                          <Label fx:id="loadoutTotalMinimumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="183.0" layoutY="33.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
                                              <font>
                                                 <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="191.0" layoutY="362.0" text="0.00" textFill="WHITE">
-                                             <font>
-                                                <Font name="Consolas" size="12.00" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="191.0" layoutY="374.0" text="0.00" textFill="WHITE">
-                                             <font>
-                                                <Font name="Consolas" size="12.00" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="8.0" layoutY="89.0" text="Weapon Systems Breakdown" textFill="#f2cb0c">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="133.0" layoutY="209.0" text="vsS" textFill="#0197fc">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="189.0" layoutY="209.0" text="vsA" textFill="#ff6200">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="133.0" layoutY="270.0" text="vsS" textFill="#0197fc">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="189.0" layoutY="270.0" text="vsA" textFill="#ff6200">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="133.0" layoutY="331.0" text="vsS" textFill="#0197fc">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="189.0" layoutY="331.0" text="vsA" textFill="#ff6200">
-                                             <font>
-                                                <Font name="Consolas" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="134.0" layoutY="127.0" text="0.00" textFill="WHITE">
-                                             <font>
-                                                <Font name="Consolas" size="12.00" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="190.0" layoutY="127.0" text="0.00" textFill="WHITE">
-                                             <font>
-                                                <Font name="Consolas" size="12.00" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="6.0" layoutY="127.0" prefHeight="14.0" prefWidth="99.0" text="Total Damage:" textFill="WHITE">
+                                          <Label alignment="CENTER_RIGHT" layoutX="7.0" layoutY="33.0" prefHeight="14.0" prefWidth="99.0" text="Minimum Damage:" textFill="WHITE">
                                              <font>
                                                 <Font name="Consolas Bold" size="12.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="133.0" layoutY="108.0" text="vsS" textFill="#0197fc">
+                                          <Label layoutX="132.0" layoutY="17.0" text="vsS" textFill="#0197fc">
                                              <font>
-                                                <Font name="Consolas" size="16.0" />
+                                                <Font name="Consolas" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="189.0" layoutY="108.0" text="vsA" textFill="#ff6200">
+                                          <Label layoutX="198.0" layoutY="16.0" text="vsA" textFill="#ff6200">
                                              <font>
-                                                <Font name="Consolas" size="16.0" />
+                                                <Font name="Consolas" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponOneMinimumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="100.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponOneAverageVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="112.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponOneMaximumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="124.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponOneMinimumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="100.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponOneAverageVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="112.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponOneMaximumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="124.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponTwoMinimumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="165.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponTwoAverageVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="177.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponTwoMaximumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="189.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponTwoMinimumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="165.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponTwoAverageVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="177.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponTwoMaximumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="189.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponThreeMinimumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="230.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponThreeAverageVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="242.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponThreeMaximumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="254.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponThreeMinimumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="230.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponThreeAverageVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="242.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponThreeMaximumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="254.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponFourMinimumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="297.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponFourAverageVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="309.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponFourMaximumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="321.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponFourMinimumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="297.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponFourAverageVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="309.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutWeaponFourMaximumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="321.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalMinimumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="246.0" layoutY="33.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalMinimumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="309.0" layoutY="33.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="261.0" layoutY="16.0" text="vsS" textFill="#0197fc">
+                                             <font>
+                                                <Font name="Consolas" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="323.0" layoutY="16.0" text="vsA" textFill="#ff6200">
+                                             <font>
+                                                <Font name="Consolas" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalAverageVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="117.0" layoutY="45.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalAverageVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="183.0" layoutY="45.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" layoutY="45.0" prefHeight="14.0" prefWidth="106.0" text="Average Damage:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalAverageVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="246.0" layoutY="45.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalAverageVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="309.0" layoutY="45.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalMaximumVersusShieldsPvE" alignment="CENTER_RIGHT" layoutX="117.0" layoutY="57.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalMaximumVersusArmorPvE" alignment="CENTER_RIGHT" layoutX="183.0" layoutY="57.0" prefWidth="55.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" layoutY="57.0" prefHeight="14.0" prefWidth="106.0" text="Maximum Damage:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalMaximumVersusShieldsPvP" alignment="CENTER_RIGHT" layoutX="246.0" layoutY="57.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutTotalMaximumVersusArmorPvP" alignment="CENTER_RIGHT" layoutX="309.0" layoutY="57.0" prefWidth="55.0" text="0.00" textFill="#ffa442">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="165.0" layoutY="2.0" text="PvE" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="291.0" layoutY="2.0" text="PvP" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas Bold" size="14.0" />
                                              </font>
                                           </Label>
                                                     </children>
@@ -2470,9 +2620,199 @@
                                  <content>
                                     <AnchorPane minHeight="0.00" minWidth="0.00" prefHeight="180.00" prefWidth="200.00" style="-fx-background-color: #00344d;">
                                        <children>
-                                          <Label layoutX="7.0" layoutY="4.0" text="Overview" textFill="#f2cb0c">
+                                          <Label layoutX="6.0" layoutY="5.0" text="Engine Propulsion" textFill="#f2cb0c">
                                              <font>
-                                                <Font name="Consolas" size="16.0" />
+                                                <Font name="Consolas Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="23.0" text="Engine Speed:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutEngineSpeed" alignment="CENTER_RIGHT" layoutX="187.0" layoutY="23.0" prefHeight="14.0" prefWidth="94.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="53.0" text="Maximum Pitch Rate:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutMaximumPitchRate" alignment="CENTER_RIGHT" layoutX="181.0" layoutY="53.0" prefHeight="14.0" prefWidth="100.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="6.0" layoutY="154.0" text="Booster Propulsion" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="171.0" text="Booster Speed:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutBoosterSpeed" alignment="CENTER_RIGHT" layoutX="181.0" layoutY="171.0" prefHeight="14.0" prefWidth="100.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="194.0" text="Total Boost Time (s):" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutBoostTime" alignment="CENTER_RIGHT" layoutX="189.0" layoutY="194.0" prefHeight="14.0" prefWidth="92.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="206.0" text="Recharge Rate (s):" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutBoostRecharge" alignment="CENTER_RIGHT" layoutX="186.0" layoutY="206.0" prefHeight="14.0" prefWidth="95.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="242.0" text="Capacitor Breakdown" textFill="#f2cb0c">
+                                             <font>
+                                                <Font name="Consolas Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="259.0" text="Total Energy:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutCapacitorEnergy" alignment="CENTER_RIGHT" layoutX="187.0" layoutY="259.0" prefHeight="14.0" prefWidth="94.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="271.0" text="Recharge Rate:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutCapacitorRechargeRate" alignment="CENTER_RIGHT" layoutX="191.0" layoutY="271.0" prefHeight="14.0" prefWidth="90.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="283.0" text="Recharge Time (s):" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutCapacitorFullRechargeTime" alignment="CENTER_RIGHT" layoutX="191.0" layoutY="283.0" prefHeight="14.0" prefWidth="90.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="294.0" text="Fire Time (s):" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutFullFireTime" alignment="CENTER_RIGHT" layoutX="187.0" layoutY="294.0" prefHeight="14.0" prefWidth="94.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="35.0" text="Optimal Turn Speed:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutOptimalTurnSpeed" alignment="CENTER_RIGHT" layoutX="193.0" layoutY="35.0" prefHeight="14.0" prefWidth="88.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutPitchModGate" layoutX="284.0" layoutY="56.0" text="(1.0 mod)" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="8.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutOptimalTurnPercent" layoutX="284.0" layoutY="38.0" text="(100%)" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="8.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="65.0" text="Chassis Pitch Modifier:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutChassisPitchModifier" alignment="CENTER_RIGHT" layoutX="196.0" layoutY="65.0" prefHeight="14.0" prefWidth="85.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="81.0" text="Maximum Yaw Rate:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutMaximumYawRate" alignment="CENTER_RIGHT" layoutX="189.0" layoutY="81.0" prefHeight="14.0" prefWidth="92.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutYawModGate" layoutX="285.0" layoutY="84.0" text="(1.0 mod)" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="8.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="93.0" text="Chassis Yaw Modifier:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutChassisYawModifier" alignment="CENTER_RIGHT" layoutX="187.0" layoutY="93.0" prefHeight="14.0" prefWidth="94.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="8.0" layoutY="111.0" text="Maximum Roll Rate:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutMaximumRollRate" alignment="CENTER_RIGHT" layoutX="181.0" layoutY="111.0" prefHeight="14.0" prefWidth="100.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutRollModGate" layoutX="285.0" layoutY="114.0" text="(1.0 mod)" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="8.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="8.0" layoutY="123.0" text="Chassis Roll Modifier:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutChassisRollModifier" alignment="CENTER_RIGHT" layoutX="190.0" layoutY="123.0" prefHeight="14.0" prefWidth="91.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="7.0" layoutY="182.0" text="Engine + Booster Speed:" textFill="WHITE">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="loadoutEnginePlusBoosterSpeed" alignment="CENTER_RIGHT" layoutX="181.0" layoutY="182.0" prefHeight="14.0" prefWidth="100.0" text="0.00" textFill="#40ff53">
+                                             <font>
+                                                <Font name="Consolas" size="12.00" />
                                              </font>
                                           </Label>
                                        </children>
@@ -2501,17 +2841,17 @@
                                                 <Font name="Consolas Bold" size="14.00" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="loadoutMaximumMass" alignment="CENTER_RIGHT" layoutX="101.0" layoutY="6.0" prefHeight="17.0" prefWidth="99.0" text="3000000.00" textFill="#25d025">
+                                        <Label fx:id="loadoutMaximumMass" alignment="CENTER_RIGHT" layoutX="102.0" layoutY="6.0" prefHeight="17.0" prefWidth="99.0" text="0.00" textFill="#25d025">
                                             <font>
                                                 <Font name="Consolas Bold" size="14.00" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="loadoutMassDifference" alignment="CENTER_RIGHT" layoutX="100.0" layoutY="37.0" prefHeight="17.0" prefWidth="100.0" text="0.00" textFill="#f5f5f5">
+                                        <Label fx:id="loadoutMassDifference" alignment="CENTER_RIGHT" layoutX="101.0" layoutY="37.0" prefHeight="17.0" prefWidth="100.0" text="0.00" textFill="#25d025">
                                             <font>
                                                 <Font name="Consolas Bold" size="14.00" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="loadoutCurrentMass" alignment="CENTER_RIGHT" layoutX="101.0" layoutY="21.0" prefHeight="17.0" prefWidth="99.0" text="0.00" textFill="#25d025">
+                                        <Label fx:id="loadoutCurrentMass" alignment="CENTER_RIGHT" layoutX="102.0" layoutY="21.0" prefHeight="17.0" prefWidth="99.0" text="0.00" textFill="#25d025">
                                             <font>
                                                 <Font name="Consolas Bold" size="14.00" />
                                             </font>
@@ -2541,7 +2881,7 @@
                     <children>
                         <ImageView depthTest="DISABLE" disable="true" fitHeight="655.0" fitWidth="1286.00" opacity="0.09" pickOnBounds="true">
                             <image>
-                                <Image url="@../../../images/background_hangar2.jpg" />
+                                <Image url="@../../../images/backgrounds/components.png" />
                             </image>
                         </ImageView>
                         <TabPane fx:id="existingComponentsTabPane" layoutX="242.0" layoutY="6.0" prefHeight="599.0" prefWidth="1031.0" tabClosingPolicy="UNAVAILABLE">
@@ -3417,7 +3757,7 @@
                     <children>
                         <ImageView depthTest="DISABLE" disable="true" fitHeight="658.0" fitWidth="1286.00" layoutX="-1.0" opacity="0.09" pickOnBounds="true">
                             <image>
-                                <Image url="@../../../images/background_hangar3.jpg" />
+                                <Image url="@../../../images/backgrounds/tools.png" />
                             </image>
                         </ImageView>
                         <AnchorPane layoutX="-57.0" layoutY="145.0" prefHeight="452.0" prefWidth="667.0">

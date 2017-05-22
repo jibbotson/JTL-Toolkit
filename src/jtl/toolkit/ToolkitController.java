@@ -82,6 +82,7 @@ public class ToolkitController implements Initializable {
     // Image Views
     @FXML ImageView newComponentImage;
     @FXML ImageView REComponentImage;
+    @FXML ImageView chassisImage;
     
     // Containers
     @FXML AnchorPane loadoutControlsContainer;
@@ -262,6 +263,7 @@ public class ToolkitController implements Initializable {
     @FXML Label currentCountermeasureMaximumChance;
     @FXML Label currentCountermeasureRefire;
     
+    // Energy Tab
     @FXML Label loadoutGenerationRate;
     @FXML Label loadoutConsumptionRate;
     @FXML Label loadoutEnergyDifference;
@@ -285,6 +287,7 @@ public class ToolkitController implements Initializable {
     @FXML Label requiredGenerationFive;
     @FXML Label requiredGenerationSix;
     
+    // Defense Tab
     @FXML Label loadoutTotalProtection;
     @FXML Label loadoutFrontProtection;
     @FXML Label loadoutFrontReactorProtection;
@@ -294,19 +297,134 @@ public class ToolkitController implements Initializable {
     @FXML Label loadoutBackEngineProtection;
     @FXML Label loadoutFrontShielding;
     @FXML Label loadoutRearShielding;
+    @FXML Label loadoutRechargeTime;
+    @FXML Label loadoutShuntValue;
     @FXML Label loadoutFrontArmoring;
     @FXML Label loadoutRearArmoring;
+    @FXML Label loadoutComponentArmoring;
     
+    // Offense Tab
+    @FXML Label loadoutTotalMinimumVersusShieldsPvE;
+    @FXML Label loadoutTotalAverageVersusShieldsPvE;
+    @FXML Label loadoutTotalMaximumVersusShieldsPvE;
+    @FXML Label loadoutTotalMinimumVersusArmorPvE;
+    @FXML Label loadoutTotalAverageVersusArmorPvE;
+    @FXML Label loadoutTotalMaximumVersusArmorPvE;
+    @FXML Label loadoutTotalMinimumVersusShieldsPvP;
+    @FXML Label loadoutTotalAverageVersusShieldsPvP;
+    @FXML Label loadoutTotalMaximumVersusShieldsPvP;
+    @FXML Label loadoutTotalMinimumVersusArmorPvP;
+    @FXML Label loadoutTotalAverageVersusArmorPvP;
+    @FXML Label loadoutTotalMaximumVersusArmorPvP;
+    
+    @FXML Label loadoutWeaponOneName;
+    @FXML Label loadoutWeaponOneMinimumVersusShieldsPvE;
+    @FXML Label loadoutWeaponOneAverageVersusShieldsPvE;
+    @FXML Label loadoutWeaponOneMaximumVersusShieldsPvE;
+    @FXML Label loadoutWeaponOneMinimumVersusArmorPvE;
+    @FXML Label loadoutWeaponOneAverageVersusArmorPvE;
+    @FXML Label loadoutWeaponOneMaximumVersusArmorPvE;
+    @FXML Label loadoutWeaponOneMinimumVersusShieldsPvP;
+    @FXML Label loadoutWeaponOneAverageVersusShieldsPvP;
+    @FXML Label loadoutWeaponOneMaximumVersusShieldsPvP;
+    @FXML Label loadoutWeaponOneMinimumVersusArmorPvP;
+    @FXML Label loadoutWeaponOneAverageVersusArmorPvP;
+    @FXML Label loadoutWeaponOneMaximumVersusArmorPvP;
+    
+    @FXML Label loadoutWeaponTwoName;
+    @FXML Label loadoutWeaponTwoMinimumVersusShieldsPvE;
+    @FXML Label loadoutWeaponTwoAverageVersusShieldsPvE;
+    @FXML Label loadoutWeaponTwoMaximumVersusShieldsPvE;
+    @FXML Label loadoutWeaponTwoMinimumVersusArmorPvE;
+    @FXML Label loadoutWeaponTwoAverageVersusArmorPvE;
+    @FXML Label loadoutWeaponTwoMaximumVersusArmorPvE;
+    @FXML Label loadoutWeaponTwoMinimumVersusShieldsPvP;
+    @FXML Label loadoutWeaponTwoAverageVersusShieldsPvP;
+    @FXML Label loadoutWeaponTwoMaximumVersusShieldsPvP;
+    @FXML Label loadoutWeaponTwoMinimumVersusArmorPvP;
+    @FXML Label loadoutWeaponTwoAverageVersusArmorPvP;
+    @FXML Label loadoutWeaponTwoMaximumVersusArmorPvP;
+    
+    @FXML Label loadoutWeaponThreeName;
+    @FXML Label loadoutWeaponThreeMinimumVersusShieldsPvE;
+    @FXML Label loadoutWeaponThreeAverageVersusShieldsPvE;
+    @FXML Label loadoutWeaponThreeMaximumVersusShieldsPvE;
+    @FXML Label loadoutWeaponThreeMinimumVersusArmorPvE;
+    @FXML Label loadoutWeaponThreeAverageVersusArmorPvE;
+    @FXML Label loadoutWeaponThreeMaximumVersusArmorPvE;
+    @FXML Label loadoutWeaponThreeMinimumVersusShieldsPvP;
+    @FXML Label loadoutWeaponThreeAverageVersusShieldsPvP;
+    @FXML Label loadoutWeaponThreeMaximumVersusShieldsPvP;
+    @FXML Label loadoutWeaponThreeMinimumVersusArmorPvP;
+    @FXML Label loadoutWeaponThreeAverageVersusArmorPvP;
+    @FXML Label loadoutWeaponThreeMaximumVersusArmorPvP;
+    
+    @FXML Label loadoutWeaponFourName;
+    @FXML Label loadoutWeaponFourMinimumVersusShieldsPvE;
+    @FXML Label loadoutWeaponFourAverageVersusShieldsPvE;
+    @FXML Label loadoutWeaponFourMaximumVersusShieldsPvE;
+    @FXML Label loadoutWeaponFourMinimumVersusArmorPvE;
+    @FXML Label loadoutWeaponFourAverageVersusArmorPvE;
+    @FXML Label loadoutWeaponFourMaximumVersusArmorPvE;
+    @FXML Label loadoutWeaponFourMinimumVersusShieldsPvP;
+    @FXML Label loadoutWeaponFourAverageVersusShieldsPvP;
+    @FXML Label loadoutWeaponFourMaximumVersusShieldsPvP;
+    @FXML Label loadoutWeaponFourMinimumVersusArmorPvP;
+    @FXML Label loadoutWeaponFourAverageVersusArmorPvP;
+    @FXML Label loadoutWeaponFourMaximumVersusArmorPvP;
+    
+    @FXML Label loadoutWeaponFiveName;
+    @FXML Label loadoutWeaponFiveMinimumVersusShieldsPvE;
+    @FXML Label loadoutWeaponFiveAverageVersusShieldsPvE;
+    @FXML Label loadoutWeaponFiveMaximumVersusShieldsPvE;
+    @FXML Label loadoutWeaponFiveMinimumVersusArmorPvE;
+    @FXML Label loadoutWeaponFiveAverageVersusArmorPvE;
+    @FXML Label loadoutWeaponFiveMaximumVersusArmorPvE;
+    @FXML Label loadoutWeaponFiveMinimumVersusShieldsPvP;
+    @FXML Label loadoutWeaponFiveAverageVersusShieldsPvP;
+    @FXML Label loadoutWeaponFiveMaximumVersusShieldsPvP;
+    @FXML Label loadoutWeaponFiveMinimumVersusArmorPvP;
+    @FXML Label loadoutWeaponFiveAverageVersusArmorPvP;
+    @FXML Label loadoutWeaponFiveMaximumVersusArmorPvP;
+    
+    @FXML Label loadoutWeaponSixName;
+    @FXML Label loadoutWeaponSixMinimumVersusShieldsPvE;
+    @FXML Label loadoutWeaponSixAverageVersusShieldsPvE;
+    @FXML Label loadoutWeaponSixMaximumVersusShieldsPvE;
+    @FXML Label loadoutWeaponSixMinimumVersusArmorPvE;
+    @FXML Label loadoutWeaponSixAverageVersusArmorPvE;
+    @FXML Label loadoutWeaponSixMaximumVersusArmorPvE;
+    @FXML Label loadoutWeaponSixMinimumVersusShieldsPvP;
+    @FXML Label loadoutWeaponSixAverageVersusShieldsPvP;
+    @FXML Label loadoutWeaponSixMaximumVersusShieldsPvP;
+    @FXML Label loadoutWeaponSixMinimumVersusArmorPvP;
+    @FXML Label loadoutWeaponSixAverageVersusArmorPvP;
+    @FXML Label loadoutWeaponSixMaximumVersusArmorPvP;
+    
+    // Utility Tab
+    @FXML Label loadoutEngineSpeed;
+    @FXML Label loadoutOptimalTurnSpeed;
+    @FXML Label loadoutOptimalTurnPercent;
+    @FXML Label loadoutMaximumPitchRate;
+    @FXML Label loadoutPitchModGate;
+    @FXML Label loadoutChassisPitchModifier;
+    @FXML Label loadoutMaximumYawRate;
+    @FXML Label loadoutYawModGate;
+    @FXML Label loadoutChassisYawModifier;
+    @FXML Label loadoutMaximumRollRate;
+    @FXML Label loadoutRollModGate;
+    @FXML Label loadoutChassisRollModifier;
+    @FXML Label loadoutBoosterSpeed;
+    @FXML Label loadoutEnginePlusBoosterSpeed;
+    @FXML Label loadoutBoostTime;
+    @FXML Label loadoutBoostRecharge;
     @FXML Label loadoutCapacitorEnergy;
     @FXML Label loadoutCapacitorRechargeRate;
     @FXML Label loadoutCapacitorFullRechargeTime;
     @FXML Label loadoutCapacitorFullFireTime;
-    @FXML Label loadoutEPS;
-    @FXML Label loadoutEPSBreakdown;
     @FXML Label loadoutMaximumMass;
     @FXML Label loadoutCurrentMass;
     @FXML Label loadoutMassDifference;
-    @FXML Label loadoutShuntValue;
     
     @FXML Label REBonus;
     @FXML Label createLoadoutMessage;
@@ -481,7 +599,7 @@ public class ToolkitController implements Initializable {
         
         if(validation.validationResult.equals(false)) {
             
-            newComponentMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentMessage.setStyle("-fx-text-fill:  #b23131; -fx-font-weight: bold;");
             newComponentMessage.setText("Component values must only contain numbers...");
             
         } else if(newComponentName.getText().length() > 0) {
@@ -510,7 +628,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #40ff53; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -546,7 +664,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #40ff53; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -581,7 +699,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #25d025; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -612,7 +730,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #25d025; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -645,7 +763,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #25d025; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -683,7 +801,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #25d025; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -720,7 +838,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #25d025; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -755,7 +873,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #25d025; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -793,7 +911,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #25d025; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -828,7 +946,7 @@ public class ToolkitController implements Initializable {
 
                     reloadComponentTables();
 
-                    newComponentMessage.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    newComponentMessage.setStyle("-fx-text-fill: #25d025; -fx-font-weight: bold;");
                     newComponentMessage.setText("Component saved...");
 
                 } else {
@@ -844,7 +962,7 @@ public class ToolkitController implements Initializable {
             
         } else {
             newComponentMessage.setText("Enter a component name...");
-            newComponentMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            newComponentMessage.setStyle("-fx-text-fill:  #b23131; -fx-font-weight: bold;");
         }
     }
     
@@ -2228,7 +2346,7 @@ public class ToolkitController implements Initializable {
             currentWeaponOneMass.setText(doubleToString(weaponOne.getMass(), 2));   
             currentWeaponOneMinimumDamage.setText(doubleToString(weaponOne.getMinimumDamage(), 2));  
             currentWeaponOneMaximumDamage.setText(doubleToString(weaponOne.getMaximumDamage(), 2));   
-            currentWeaponOneVersusShields.setText(doubleToString(weaponOne.getVersusShields(), 2));  
+            currentWeaponOneVersusShields.setText(doubleToString(weaponOne.getVersusShields(), 3));  
             currentWeaponOneVersusArmor.setText(doubleToString(weaponOne.getVersusArmor(), 3));
             currentWeaponOneRefire.setText(doubleToString(weaponOne.getRefireRate(), 3));
             currentWeaponOneEPS.setText(doubleToString(weaponOne.getEnergyPerShot(), 2));
@@ -2252,7 +2370,7 @@ public class ToolkitController implements Initializable {
             currentWeaponTwoMass.setText(doubleToString(weaponTwo.getMass(), 2));   
             currentWeaponTwoMinimumDamage.setText(doubleToString(weaponTwo.getMinimumDamage(), 2));
             currentWeaponTwoMaximumDamage.setText(doubleToString(weaponTwo.getMaximumDamage(), 2));
-            currentWeaponTwoVersusShields.setText(doubleToString(weaponTwo.getVersusShields(), 2));
+            currentWeaponTwoVersusShields.setText(doubleToString(weaponTwo.getVersusShields(), 3));
             currentWeaponTwoVersusArmor.setText(doubleToString(weaponTwo.getVersusArmor(), 3));
             currentWeaponTwoRefire.setText(doubleToString(weaponTwo.getRefireRate(), 3));
             currentWeaponTwoEPS.setText(doubleToString(weaponTwo.getEnergyPerShot(), 2));
@@ -2276,7 +2394,7 @@ public class ToolkitController implements Initializable {
             currentWeaponThreeMass.setText(doubleToString(weaponThree.getMass(), 2));   
             currentWeaponThreeMinimumDamage.setText(doubleToString(weaponThree.getMinimumDamage(), 2)); 
             currentWeaponThreeMaximumDamage.setText(doubleToString(weaponThree.getMaximumDamage(), 2));  
-            currentWeaponThreeVersusShields.setText(doubleToString(weaponThree.getVersusShields(), 2)); 
+            currentWeaponThreeVersusShields.setText(doubleToString(weaponThree.getVersusShields(), 3)); 
             currentWeaponThreeVersusArmor.setText(doubleToString(weaponThree.getVersusArmor(), 3));
             currentWeaponThreeRefire.setText(doubleToString(weaponThree.getRefireRate(), 3));
             currentWeaponThreeEPS.setText(doubleToString(weaponThree.getEnergyPerShot(), 2));
@@ -2300,7 +2418,7 @@ public class ToolkitController implements Initializable {
             currentWeaponFourMass.setText(doubleToString(weaponFour.getMass(), 2));   
             currentWeaponFourMinimumDamage.setText(doubleToString(weaponFour.getMinimumDamage(), 2));
             currentWeaponFourMaximumDamage.setText(doubleToString(weaponFour.getMaximumDamage(), 2));
-            currentWeaponFourVersusShields.setText(doubleToString(weaponFour.getVersusShields(), 2));
+            currentWeaponFourVersusShields.setText(doubleToString(weaponFour.getVersusShields(), 3));
             currentWeaponFourVersusArmor.setText(doubleToString(weaponFour.getVersusArmor(), 3));
             currentWeaponFourRefire.setText(doubleToString(weaponFour.getRefireRate(), 3));
             currentWeaponFourEPS.setText(doubleToString(weaponFour.getEnergyPerShot(), 2));
@@ -2324,8 +2442,8 @@ public class ToolkitController implements Initializable {
             currentOrdnanceOneMass.setText(doubleToString(ordnanceOne.getMass(), 2));   
             currentOrdnanceOneMinimumDamage.setText(doubleToString(ordnanceOne.getMinimumDamage(), 2));  
             currentOrdnanceOneMaximumDamage.setText(doubleToString(ordnanceOne.getMaximumDamage(), 2));   
-            currentOrdnanceOneVersusShields.setText(doubleToString(ordnanceOne.getVersusShields(), 2));  
-            currentOrdnanceOneVersusArmor.setText(doubleToString(ordnanceOne.getVersusArmor(), 2));
+            currentOrdnanceOneVersusShields.setText(doubleToString(ordnanceOne.getVersusShields(), 3));  
+            currentOrdnanceOneVersusArmor.setText(doubleToString(ordnanceOne.getVersusArmor(), 3));
             currentOrdnanceOneRefire.setText(doubleToString(ordnanceOne.getRefireRate(), 2));
         }else{
             currentOrdnanceOneArmor.setText("0.00");
@@ -2346,8 +2464,8 @@ public class ToolkitController implements Initializable {
             currentOrdnanceTwoMass.setText(doubleToString(ordnanceTwo.getMass(), 2));   
             currentOrdnanceTwoMinimumDamage.setText(doubleToString(ordnanceTwo.getMinimumDamage(), 2));
             currentOrdnanceTwoMaximumDamage.setText(doubleToString(ordnanceTwo.getMaximumDamage(), 2));
-            currentOrdnanceTwoVersusShields.setText(doubleToString(ordnanceTwo.getVersusShields(), 2));
-            currentOrdnanceTwoVersusArmor.setText(doubleToString(ordnanceTwo.getVersusArmor(), 2));
+            currentOrdnanceTwoVersusShields.setText(doubleToString(ordnanceTwo.getVersusShields(), 3));
+            currentOrdnanceTwoVersusArmor.setText(doubleToString(ordnanceTwo.getVersusArmor(), 3));
             currentOrdnanceTwoRefire.setText(doubleToString(ordnanceTwo.getRefireRate(), 2));
         }else{
             currentOrdnanceTwoArmor.setText("0.00");
@@ -2368,8 +2486,8 @@ public class ToolkitController implements Initializable {
             currentOrdnanceThreeMass.setText(doubleToString(ordnanceThree.getMass(), 2));   
             currentOrdnanceThreeMinimumDamage.setText(doubleToString(ordnanceThree.getMinimumDamage(), 2)); 
             currentOrdnanceThreeMaximumDamage.setText(doubleToString(ordnanceThree.getMaximumDamage(), 2));  
-            currentOrdnanceThreeVersusShields.setText(doubleToString(ordnanceThree.getVersusShields(), 2)); 
-            currentOrdnanceThreeVersusArmor.setText(doubleToString(ordnanceThree.getVersusArmor(), 2));
+            currentOrdnanceThreeVersusShields.setText(doubleToString(ordnanceThree.getVersusShields(), 3)); 
+            currentOrdnanceThreeVersusArmor.setText(doubleToString(ordnanceThree.getVersusArmor(), 3));
             currentOrdnanceThreeRefire.setText(doubleToString(ordnanceThree.getRefireRate(), 2));
         }else{
             currentOrdnanceThreeArmor.setText("0.00");
@@ -2525,6 +2643,8 @@ public class ToolkitController implements Initializable {
                 chassisMass.setDisable(false);
                 createLoadoutMessage.setVisible(false);
             }
+            
+            chassisImage.setImage(new Image(chassis.getImageLocation()));
         }
     }
     
@@ -2605,6 +2725,28 @@ public class ToolkitController implements Initializable {
             Double shieldFrontAdjustMultiplier = 1.0;
             Double shieldRearAdjustMultiplier = 1.0;
             Double shieldShuntMultiplier = 0.0;
+            
+            // Initialize Totals
+            Double totalConsumptionRate = 0.0;
+            Double totalGenerationRate = 0.0;
+            Double totalCurrentMass = 0.0;
+            
+            Double totalProtection = 0.0;
+            Double totalProtectionFront = 0.0;
+            Double totalProtectionRear = 0.0;
+            Double totalComponentArmoring = 0.0;
+            
+            Double totalMinimumDamageVersusShields = 0.0;
+            Double totalMaximumDamageVersusShields = 0.0;
+            Double totalMinimumDamageVersusArmor = 0.0;
+            Double totalMaximumDamageVersusArmor = 0.0;
+            
+            Double totalEPS = 0.0;
+            Double totalRefire = 0.0;
+            
+            Integer totalRefireCounter = 0;
+            Integer totalWeaponCounter = 0;
+            
 
             // Set multipliers
 
@@ -2725,14 +2867,7 @@ public class ToolkitController implements Initializable {
                     shieldRearAdjustMultiplier = 2.0;
                     break;
             }
-
-            // Calculate values
-
-            Double totalConsumptionRate = 0.0;
-            Double totalGenerationRate = 0.0;
-            Double totalCurrentMass = 0.0;
-            
-
+         
             Reactor currentReactor = (Reactor) loadoutReactor.getValue();
 
             if(currentReactor != null) {
@@ -2834,6 +2969,29 @@ public class ToolkitController implements Initializable {
 
             if(currentWeaponOne != null) {
                 loadoutWeaponOneReactorDrain.setText(doubleToString(currentWeaponOne.getReactorDrain() * weaponDrainMultiplier, 2));
+                totalMinimumDamageVersusShields += (currentWeaponOne.getMinimumDamage() * currentWeaponOne.getVersusShields()) * weaponDamageMultiplier;
+                totalMinimumDamageVersusArmor += (currentWeaponOne.getMinimumDamage() * currentWeaponOne.getVersusArmor()) * weaponDamageMultiplier;
+                totalMaximumDamageVersusShields += (currentWeaponOne.getMaximumDamage() * currentWeaponOne.getVersusShields()) * weaponDamageMultiplier;
+                totalMaximumDamageVersusArmor += (currentWeaponOne.getMaximumDamage() * currentWeaponOne.getVersusArmor()) * weaponDamageMultiplier;
+                
+                loadoutWeaponOneName.setText(currentWeaponOne.getComponentName());
+                loadoutWeaponOneMinimumVersusShieldsPvE.setText(doubleToString((currentWeaponOne.getMinimumDamage() * currentWeaponOne.getVersusShields() * weaponDamageMultiplier), 2));
+                loadoutWeaponOneAverageVersusShieldsPvE.setText(doubleToString(((currentWeaponOne.getMinimumDamage() + currentWeaponOne.getMaximumDamage())* currentWeaponOne.getVersusShields() * weaponDamageMultiplier) / 2 , 2));
+                loadoutWeaponOneMaximumVersusShieldsPvE.setText(doubleToString((currentWeaponOne.getMaximumDamage() * currentWeaponOne.getVersusShields() * weaponDamageMultiplier), 2));
+                loadoutWeaponOneMinimumVersusArmorPvE.setText(doubleToString((currentWeaponOne.getMinimumDamage() * currentWeaponOne.getVersusArmor() * weaponDamageMultiplier), 2));
+                loadoutWeaponOneAverageVersusArmorPvE.setText(doubleToString(((currentWeaponOne.getMinimumDamage() + currentWeaponOne.getMaximumDamage())* currentWeaponOne.getVersusArmor() * weaponDamageMultiplier) / 2 , 2));
+                loadoutWeaponOneMaximumVersusArmorPvE.setText(doubleToString((currentWeaponOne.getMaximumDamage() * currentWeaponOne.getVersusArmor() * weaponDamageMultiplier), 2));
+                
+                loadoutWeaponOneMinimumVersusShieldsPvP.setText(doubleToString((currentWeaponOne.getMinimumDamage() * currentWeaponOne.getVersusShields() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponOneAverageVersusShieldsPvP.setText(doubleToString(((currentWeaponOne.getMinimumDamage() + currentWeaponOne.getMaximumDamage()) * currentWeaponOne.getVersusShields() * weaponDamageMultiplier) / 2 / 2 , 2));
+                loadoutWeaponOneMaximumVersusShieldsPvP.setText(doubleToString((currentWeaponOne.getMaximumDamage() * currentWeaponOne.getVersusShields() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponOneMinimumVersusArmorPvP.setText(doubleToString((currentWeaponOne.getMinimumDamage() * currentWeaponOne.getVersusArmor() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponOneAverageVersusArmorPvP.setText(doubleToString(((currentWeaponOne.getMinimumDamage() + currentWeaponOne.getMaximumDamage()) * currentWeaponOne.getVersusArmor() * weaponDamageMultiplier) / 2 / 2, 2));
+                loadoutWeaponOneMaximumVersusArmorPvP.setText(doubleToString((currentWeaponOne.getMaximumDamage() * currentWeaponOne.getVersusArmor() * weaponDamageMultiplier) / 2, 2));
+                
+                totalRefireCounter += 1;
+                totalRefire += currentWeaponOne.getRefireRate();
+                totalEPS += currentWeaponOne.getEnergyPerShot();
                 totalCurrentMass += currentWeaponOne.getMass();
                 totalConsumptionRate += currentWeaponOne.getReactorDrain() * weaponDrainMultiplier;
             }else{
@@ -2844,6 +3002,29 @@ public class ToolkitController implements Initializable {
 
             if(currentWeaponTwo != null) {
                 loadoutWeaponTwoReactorDrain.setText(doubleToString(currentWeaponTwo.getReactorDrain() * weaponDrainMultiplier, 2));
+                totalMinimumDamageVersusShields += (currentWeaponTwo.getMinimumDamage() * currentWeaponTwo.getVersusShields()) * weaponDamageMultiplier;
+                totalMinimumDamageVersusArmor += (currentWeaponTwo.getMinimumDamage() * currentWeaponTwo.getVersusArmor()) * weaponDamageMultiplier;
+                totalMaximumDamageVersusShields += (currentWeaponTwo.getMaximumDamage() * currentWeaponTwo.getVersusShields()) * weaponDamageMultiplier;
+                totalMaximumDamageVersusArmor += (currentWeaponTwo.getMaximumDamage() * currentWeaponTwo.getVersusArmor()) * weaponDamageMultiplier;
+                
+                loadoutWeaponTwoName.setText(currentWeaponTwo.getComponentName());
+                loadoutWeaponTwoMinimumVersusShieldsPvE.setText(doubleToString((currentWeaponTwo.getMinimumDamage() * currentWeaponTwo.getVersusShields() * weaponDamageMultiplier), 2));
+                loadoutWeaponTwoAverageVersusShieldsPvE.setText(doubleToString(((currentWeaponTwo.getMinimumDamage() + currentWeaponTwo.getMaximumDamage())* currentWeaponTwo.getVersusShields() * weaponDamageMultiplier) / 2 , 2));
+                loadoutWeaponTwoMaximumVersusShieldsPvE.setText(doubleToString((currentWeaponTwo.getMaximumDamage() * currentWeaponTwo.getVersusShields() * weaponDamageMultiplier), 2));
+                loadoutWeaponTwoMinimumVersusArmorPvE.setText(doubleToString((currentWeaponTwo.getMinimumDamage() * currentWeaponTwo.getVersusArmor() * weaponDamageMultiplier), 2));
+                loadoutWeaponTwoAverageVersusArmorPvE.setText(doubleToString(((currentWeaponTwo.getMinimumDamage() + currentWeaponTwo.getMaximumDamage())* currentWeaponTwo.getVersusArmor() * weaponDamageMultiplier) / 2 , 2));
+                loadoutWeaponTwoMaximumVersusArmorPvE.setText(doubleToString((currentWeaponTwo.getMaximumDamage() * currentWeaponTwo.getVersusArmor() * weaponDamageMultiplier), 2));
+                
+                loadoutWeaponTwoMinimumVersusShieldsPvP.setText(doubleToString((currentWeaponTwo.getMinimumDamage() * currentWeaponTwo.getVersusShields() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponTwoAverageVersusShieldsPvP.setText(doubleToString(((currentWeaponTwo.getMinimumDamage() + currentWeaponTwo.getMaximumDamage()) * currentWeaponTwo.getVersusShields() * weaponDamageMultiplier) / 2 / 2 , 2));
+                loadoutWeaponTwoMaximumVersusShieldsPvP.setText(doubleToString((currentWeaponTwo.getMaximumDamage() * currentWeaponTwo.getVersusShields() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponTwoMinimumVersusArmorPvP.setText(doubleToString((currentWeaponTwo.getMinimumDamage() * currentWeaponTwo.getVersusArmor() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponTwoAverageVersusArmorPvP.setText(doubleToString(((currentWeaponTwo.getMinimumDamage() + currentWeaponTwo.getMaximumDamage()) * currentWeaponTwo.getVersusArmor() * weaponDamageMultiplier) / 2 / 2, 2));
+                loadoutWeaponTwoMaximumVersusArmorPvP.setText(doubleToString((currentWeaponTwo.getMaximumDamage() * currentWeaponTwo.getVersusArmor() * weaponDamageMultiplier) / 2, 2));
+                
+                totalRefireCounter += 1;
+                totalRefire += currentWeaponTwo.getRefireRate();
+                totalEPS += currentWeaponTwo.getEnergyPerShot();
                 totalCurrentMass += currentWeaponTwo.getMass();
                 totalConsumptionRate += currentWeaponTwo.getReactorDrain() * weaponDrainMultiplier;
             }else{
@@ -2854,6 +3035,29 @@ public class ToolkitController implements Initializable {
 
             if(currentWeaponThree != null) {
                 loadoutWeaponThreeReactorDrain.setText(doubleToString(currentWeaponThree.getReactorDrain() * weaponDrainMultiplier, 2));
+                totalMinimumDamageVersusShields += (currentWeaponThree.getMinimumDamage() * currentWeaponThree.getVersusShields()) * weaponDamageMultiplier;
+                totalMinimumDamageVersusArmor += (currentWeaponThree.getMinimumDamage() * currentWeaponThree.getVersusArmor()) * weaponDamageMultiplier;
+                totalMaximumDamageVersusShields += (currentWeaponThree.getMaximumDamage() * currentWeaponThree.getVersusShields()) * weaponDamageMultiplier;
+                totalMaximumDamageVersusArmor += (currentWeaponThree.getMaximumDamage() * currentWeaponThree.getVersusArmor()) * weaponDamageMultiplier;
+                
+                loadoutWeaponThreeName.setText(currentWeaponThree.getComponentName());
+                loadoutWeaponThreeMinimumVersusShieldsPvE.setText(doubleToString((currentWeaponThree.getMinimumDamage() * currentWeaponThree.getVersusShields() * weaponDamageMultiplier), 2));
+                loadoutWeaponThreeAverageVersusShieldsPvE.setText(doubleToString(((currentWeaponThree.getMinimumDamage() + currentWeaponThree.getMaximumDamage())* currentWeaponThree.getVersusShields() * weaponDamageMultiplier) / 2 , 2));
+                loadoutWeaponThreeMaximumVersusShieldsPvE.setText(doubleToString((currentWeaponThree.getMaximumDamage() * currentWeaponThree.getVersusShields() * weaponDamageMultiplier), 2));
+                loadoutWeaponThreeMinimumVersusArmorPvE.setText(doubleToString((currentWeaponThree.getMinimumDamage() * currentWeaponThree.getVersusArmor() * weaponDamageMultiplier), 2));
+                loadoutWeaponThreeAverageVersusArmorPvE.setText(doubleToString(((currentWeaponThree.getMinimumDamage() + currentWeaponThree.getMaximumDamage())* currentWeaponThree.getVersusArmor() * weaponDamageMultiplier) / 2 , 2));
+                loadoutWeaponThreeMaximumVersusArmorPvE.setText(doubleToString((currentWeaponThree.getMaximumDamage() * currentWeaponThree.getVersusArmor() * weaponDamageMultiplier), 2));
+                
+                loadoutWeaponThreeMinimumVersusShieldsPvP.setText(doubleToString((currentWeaponThree.getMinimumDamage() * currentWeaponThree.getVersusShields() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponThreeAverageVersusShieldsPvP.setText(doubleToString(((currentWeaponThree.getMinimumDamage() + currentWeaponThree.getMaximumDamage()) * currentWeaponThree.getVersusShields() * weaponDamageMultiplier) / 2 / 2 , 2));
+                loadoutWeaponThreeMaximumVersusShieldsPvP.setText(doubleToString((currentWeaponThree.getMaximumDamage() * currentWeaponThree.getVersusShields() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponThreeMinimumVersusArmorPvP.setText(doubleToString((currentWeaponThree.getMinimumDamage() * currentWeaponThree.getVersusArmor() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponThreeAverageVersusArmorPvP.setText(doubleToString(((currentWeaponThree.getMinimumDamage() + currentWeaponThree.getMaximumDamage()) * currentWeaponThree.getVersusArmor() * weaponDamageMultiplier) / 2 / 2, 2));
+                loadoutWeaponThreeMaximumVersusArmorPvP.setText(doubleToString((currentWeaponThree.getMaximumDamage() * currentWeaponThree.getVersusArmor() * weaponDamageMultiplier) / 2, 2));
+                
+                totalRefireCounter += 1;
+                totalRefire += currentWeaponThree.getRefireRate();
+                totalEPS += currentWeaponThree.getEnergyPerShot();
                 totalCurrentMass += currentWeaponThree.getMass();
                 totalConsumptionRate += currentWeaponThree.getReactorDrain() * weaponDrainMultiplier;
             }else{
@@ -2864,6 +3068,29 @@ public class ToolkitController implements Initializable {
 
             if(currentWeaponFour != null) {
                 loadoutWeaponFourReactorDrain.setText(doubleToString(currentWeaponFour.getReactorDrain() * weaponDrainMultiplier, 2));
+                totalMinimumDamageVersusShields += (currentWeaponFour.getMinimumDamage() * currentWeaponFour.getVersusShields()) * weaponDamageMultiplier;
+                totalMinimumDamageVersusArmor += (currentWeaponFour.getMinimumDamage() * currentWeaponFour.getVersusArmor()) * weaponDamageMultiplier;
+                totalMaximumDamageVersusShields += (currentWeaponFour.getMaximumDamage() * currentWeaponFour.getVersusShields()) * weaponDamageMultiplier;
+                totalMaximumDamageVersusArmor += (currentWeaponFour.getMaximumDamage() * currentWeaponFour.getVersusArmor()) * weaponDamageMultiplier;
+                
+                loadoutWeaponFourName.setText(currentWeaponFour.getComponentName());
+                loadoutWeaponFourMinimumVersusShieldsPvE.setText(doubleToString((currentWeaponFour.getMinimumDamage() * currentWeaponFour.getVersusShields() * weaponDamageMultiplier), 2));
+                loadoutWeaponFourAverageVersusShieldsPvE.setText(doubleToString(((currentWeaponFour.getMinimumDamage() + currentWeaponFour.getMaximumDamage())* currentWeaponFour.getVersusShields() * weaponDamageMultiplier) / 2 , 2));
+                loadoutWeaponFourMaximumVersusShieldsPvE.setText(doubleToString((currentWeaponFour.getMaximumDamage() * currentWeaponFour.getVersusShields() * weaponDamageMultiplier), 2));
+                loadoutWeaponFourMinimumVersusArmorPvE.setText(doubleToString((currentWeaponFour.getMinimumDamage() * currentWeaponFour.getVersusArmor() * weaponDamageMultiplier), 2));
+                loadoutWeaponFourAverageVersusArmorPvE.setText(doubleToString(((currentWeaponFour.getMinimumDamage() + currentWeaponFour.getMaximumDamage())* currentWeaponFour.getVersusArmor() * weaponDamageMultiplier) / 2 , 2));
+                loadoutWeaponFourMaximumVersusArmorPvE.setText(doubleToString((currentWeaponFour.getMaximumDamage() * currentWeaponFour.getVersusArmor() * weaponDamageMultiplier), 2));
+               
+                loadoutWeaponFourMinimumVersusShieldsPvP.setText(doubleToString((currentWeaponFour.getMinimumDamage() * currentWeaponFour.getVersusShields() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponFourAverageVersusShieldsPvP.setText(doubleToString(((currentWeaponFour.getMinimumDamage() + currentWeaponFour.getMaximumDamage()) * currentWeaponFour.getVersusShields() * weaponDamageMultiplier) / 2 / 2 , 2));
+                loadoutWeaponFourMaximumVersusShieldsPvP.setText(doubleToString((currentWeaponFour.getMaximumDamage() * currentWeaponFour.getVersusShields() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponFourMinimumVersusArmorPvP.setText(doubleToString((currentWeaponFour.getMinimumDamage() * currentWeaponFour.getVersusArmor() * weaponDamageMultiplier) / 2, 2));
+                loadoutWeaponFourAverageVersusArmorPvP.setText(doubleToString(((currentWeaponFour.getMinimumDamage() + currentWeaponFour.getMaximumDamage()) * currentWeaponFour.getVersusArmor() * weaponDamageMultiplier) / 2 / 2, 2));
+                loadoutWeaponFourMaximumVersusArmorPvP.setText(doubleToString((currentWeaponFour.getMaximumDamage() * currentWeaponFour.getVersusArmor() * weaponDamageMultiplier) / 2, 2));
+                
+                totalRefireCounter += 1;
+                totalRefire += currentWeaponFour.getRefireRate();
+                totalEPS += currentWeaponFour.getEnergyPerShot();
                 totalCurrentMass += currentWeaponFour.getMass();
                 totalConsumptionRate += currentWeaponFour.getReactorDrain() * weaponDrainMultiplier;
             }else{
@@ -2900,6 +3127,7 @@ public class ToolkitController implements Initializable {
                 loadoutOrdnanceThreeReactorDrain.setText("0.00");
             }
             
+            // Set totals
             loadoutConsumptionRate.setText(doubleToString(totalConsumptionRate, 2));
             loadoutEnergyDifference.setText(doubleToString(totalGenerationRate - totalConsumptionRate, 2));
             loadoutMaximumMass.setText(doubleToString(currentLoadout.getChassis().getMass(), 2));
@@ -2915,8 +3143,9 @@ public class ToolkitController implements Initializable {
             if(Math.signum(totalGenerationRate - totalConsumptionRate) == -1.0f) {
                 loadoutEnergyDifference.setTextFill(Color.web("#e50909"));
             } else {
-                loadoutEnergyDifference.setTextFill(Color.web("#25d025"));
+                loadoutEnergyDifference.setTextFill(Color.web("#40ff53"));
             }
+            
             
             requiredGenerationOne.setText(doubleToString((totalConsumptionRate / reactorGenerationMultiplier) / 1.02, 2));
             requiredGenerationTwo.setText(doubleToString((totalConsumptionRate / reactorGenerationMultiplier) / 1.03, 2));
@@ -2924,6 +3153,21 @@ public class ToolkitController implements Initializable {
             requiredGenerationFour.setText(doubleToString((totalConsumptionRate / reactorGenerationMultiplier) / 1.05, 2));
             requiredGenerationFive.setText(doubleToString((totalConsumptionRate / reactorGenerationMultiplier) / 1.06, 2));
             requiredGenerationSix.setText(doubleToString((totalConsumptionRate / reactorGenerationMultiplier) / 1.07, 2));
+        
+            loadoutTotalMinimumVersusShieldsPvE.setText(doubleToString(totalMinimumDamageVersusShields, 2));
+            loadoutTotalAverageVersusShieldsPvE.setText(doubleToString((totalMinimumDamageVersusShields + totalMaximumDamageVersusShields) / 2, 2));
+            loadoutTotalMaximumVersusShieldsPvE.setText(doubleToString(totalMaximumDamageVersusShields, 2));
+            loadoutTotalMinimumVersusArmorPvE.setText(doubleToString(totalMinimumDamageVersusArmor, 2));
+            loadoutTotalAverageVersusArmorPvE.setText(doubleToString((totalMinimumDamageVersusArmor + totalMaximumDamageVersusArmor) / 2, 2));
+            loadoutTotalMaximumVersusArmorPvE.setText(doubleToString(totalMaximumDamageVersusArmor, 2));
+            
+            loadoutTotalMinimumVersusShieldsPvP.setText(doubleToString(totalMinimumDamageVersusShields / 2, 2));
+            loadoutTotalAverageVersusShieldsPvP.setText(doubleToString(((totalMinimumDamageVersusShields + totalMaximumDamageVersusShields) / 2) / 2, 2));
+            loadoutTotalMaximumVersusShieldsPvP.setText(doubleToString(totalMaximumDamageVersusShields / 2, 2));
+            loadoutTotalMinimumVersusArmorPvP.setText(doubleToString(totalMinimumDamageVersusArmor / 2, 2));
+            loadoutTotalAverageVersusArmorPvP.setText(doubleToString(((totalMinimumDamageVersusArmor + totalMaximumDamageVersusArmor) / 2) / 2, 2));
+            loadoutTotalMaximumVersusArmorPvP.setText(doubleToString(totalMaximumDamageVersusArmor / 2, 2));
+
         }
     }
 

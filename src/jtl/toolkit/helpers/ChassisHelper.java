@@ -199,6 +199,7 @@ public class ChassisHelper {
         rihkxyrk.setSpeedModifier(0.97);
         rihkxyrk.setWeaponMounts(3);
         rihkxyrk.setOrdnanceMounts(1);
+        rihkxyrk.setImageLocation("images/ships/rix.png");
         
         return rihkxyrk;
     }
@@ -317,6 +318,7 @@ public class ChassisHelper {
         xWing.setSpeedModifier(0.95);
         xWing.setWeaponMounts(3);
         xWing.setOrdnanceMounts(1);
+        xWing.setImageLocation("images/ships/xwing.png");
         
         return xWing;
     }
@@ -337,6 +339,7 @@ public class ChassisHelper {
         xWing.setSpeedModifier(0.95);
         xWing.setWeaponMounts(3);
         xWing.setOrdnanceMounts(1);
+        xWing.setImageLocation("images/ships/xwing.png");
         
         return xWing;
     }

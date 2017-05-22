@@ -14,6 +14,7 @@ public class Chassis {
     private Double speedModifier;
     private Integer weaponMounts;
     private Integer ordnanceMounts;
+    private String imageLocation;
 
     public Chassis() {
         chassisLongName = null;
@@ -28,8 +29,17 @@ public class Chassis {
         speedModifier = null;
         weaponMounts = null;
         ordnanceMounts = null;
+        imageLocation = null;
     }
 
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
+    }
+    
     public String getChassisLongName() {
         return chassisLongName;
     }

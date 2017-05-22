@@ -48,9 +48,12 @@
 
 .combo-box {
     -fx-font:12px Consolas;
+    -fx-cursor: hand;
 }
 
-
+.button:hover {
+    -fx-cursor: hand;
+}
 
 .finalResult{
   -fx-opacity: 1.0 !important;
@@ -79,11 +82,11 @@
 }
 
 .table-row-cell:odd{
-    -fx-background-color:#004666;
+    -fx-background-color: transparent;
 }
 
 .table-row-cell:even{
-    -fx-background-color:#005780;
+   -fx-background-color: transparent;
 }
 
 .table-view .column-header,
@@ -103,7 +106,7 @@
 }
 
 .table-view .filler{
-    -fx-background-color: #0e3d63;
+    -fx-background-color: transparent;
 }
 
 .table-view .column-header-background .label{
@@ -111,12 +114,13 @@
 }
 
 .table-row-cell:focused {
-   -fx-dark-text-color: #f2cb0c;
-   -fx-mid-text-color: #f2cb0c;
-   -fx-light-text-color: #f2cb0c;
+   -fx-dark-text-color: #ed7702;
+   -fx-mid-text-color: #ed7702;
+   -fx-light-text-color: #ed7702;
 }
 
 .table-row-cell:hover {
+    -fx-cursor: hand;
    -fx-dark-text-color: #f7dc55;
    -fx-mid-text-color: #f7dc55;
    -fx-light-text-color: #f7dc55;
